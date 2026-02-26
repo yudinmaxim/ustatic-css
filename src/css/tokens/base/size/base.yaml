@@ -1,0 +1,16 @@
+base:
+  size:
+    2xs:
+      value: "0.5em"
+    xs:
+      value: "0.75em"
+    sm:
+      value: "0.875em"
+    base:
+      value: "1em"
+    lg:
+      value: "1.125em"
+    xl:
+      value: "1.25em"
+    2xl:
+      value: "1.5em"

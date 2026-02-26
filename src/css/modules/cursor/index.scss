@@ -1,0 +1,32 @@
+@import "../../utils/token";
+
+.cursor {
+  &-pointer {
+    cursor: token("base.cursor.pointer");
+  }
+
+  &-move {
+    cursor: token("base.cursor.move");
+  }
+
+  &-default {
+    cursor: token("base.cursor.default");
+  }
+
+  &-disabled {
+    cursor: token("base.cursor.disabled");
+  }
+
+  &-resize-x {
+    cursor: token("base.cursor.resize.ew");
+  }
+  &-resize-y {
+    cursor: token("base.cursor.resize.ns");
+  }
+  &-wait {
+    cursor: token("base.cursor.wait");
+  }
+  &-help {
+    cursor: token("base.cursor.help");
+  }
+}

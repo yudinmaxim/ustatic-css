@@ -1,0 +1,38 @@
+// Вспомогательная функция для замены символов в строке
+@function str-replace($string, $search, $replace: '') {
+  $index: str-index($string, $search);
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+  @return $string;
+}
+
+// Функция для замены косых черт на дефисы
+@function replace-slash($string) {
+  $string: str-replace($string, '/', '-'); // Заменяем '/' на '-'
+  $string: str-replace($string, '\\/', '-'); // Заменяем '\/' на '-'
+  @return $string;
+}
+
+// Функция для преобразования строки в имя CSS переменной
+@function token($token-path, $default: none) {
+  // Заменяем точки на дефисы и добавляем префикс
+  $variable-name: str-replace($token-path, '.', '-');
+  // Заменяем косые черты на дефисы
+  $variable-name: replace-slash($variable-name);
+
+  // Возвращаем строку для использования в качестве CSS переменной
+  @if $default != none {
+    @return var(--#{$prefix}#{$variable-name}, $default);
+  } @else {
+    @return var(--#{$prefix}#{$variable-name});
+  }
+}
+
+// Функция для преобразования строки в имя CSS переменной
+@mixin set-token($token-path, $value, $libprefix: $prefix) {
+  // Заменяем точки на дефисы и добавляем префикс
+  $variable-name: str-replace($token-path, '.', '-');
+  
+  --#{$libprefix}#{$variable-name}: #{$value};
+}

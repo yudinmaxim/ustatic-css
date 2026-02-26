@@ -1,0 +1,28 @@
+
+.pointer-events {
+  &-none {
+    pointer-events: none;
+  }
+
+  &-auto {
+    pointer-events: auto;
+  }
+}
+
+.user-select {
+  &-none {
+    user-select: none;
+  }
+
+  &-auto {
+    user-select: auto;
+  }
+
+  &-all {
+    user-select: all;
+  }
+
+  &-text {
+    user-select: text;
+  }
+}

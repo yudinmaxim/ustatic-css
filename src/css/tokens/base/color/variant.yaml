@@ -1,0 +1,30 @@
+base:
+  color:
+    variant: &variants
+      primary:
+        value: '{base.color.primary.def}'
+      primary-invert:
+        value: '{base.color.primary.invert.def}'
+      secondary:
+        value: '{base.color.secondary.def}'
+      secondary-invert:
+        value: '{base.color.secondary.invert.def}'
+      success:
+        value: '{base.color.success.def}'
+      success-invert:
+        value: '{base.color.success.invert.def}'
+      info:
+        value: '{base.color.info.def}'
+      info-invert:
+        value: '{base.color.info.invert.def}'
+      warning:
+        value: '{base.color.warning.def}'
+      warning-invert:
+        value: '{base.color.warning.invert.def}'
+      danger:
+        value: '{base.color.danger.def}'
+      danger-invert:
+        value: '{base.color.danger.invert.def}'
+
+    # border: *variants
+    # bg: *variants

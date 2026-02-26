@@ -1,0 +1,19 @@
+base:
+  border:
+    width:
+      def:
+        value: '{base.border.width.1}'
+      '0':
+        value: '0'
+      '1':
+        value: 1px
+      '2':
+        value: 2px
+      '3':
+        value: 3px
+      '4':
+        value: 4px
+      '5':
+        value: 5px
+    "none":
+      value: '0'

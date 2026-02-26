@@ -1,0 +1,71 @@
+@use "sass:list";
+@import '../../utils/token';
+@import "../../variables";
+
+@mixin border($direction, $bw: -1) {
+  @if $direction == "all" {
+    border-style: solid;
+    @if $bw == -1 {
+      border-width: token("base.border.width.def");
+    } @else {
+      border-width: token("base.border.width." + $bw);
+    }
+  } @else {
+    border-#{$direction}-style: solid;
+    @if $bw == -1 {
+      border-#{$direction}-width: token("base.border.width.def");
+    } @else {
+      border-#{$direction}-width: token("base.border.width." + $bw);
+    }
+  }
+}
+
+.border {
+  &-none {
+    border: 0;
+  }
+
+  @for $i from -1 through 5 {
+    @each $key, $value in $directions {
+      @if $key == "" {
+        @if $i == -1 {
+          @include border("all");
+        } @else {
+          &-#{$i} {
+            @include border("all", $i);
+          }
+        }
+      } @else {
+        &-#{$key} {
+          @each $subKey in $value {
+            @if $subKey == "" {
+            } @else {
+              @if $i == -1 {
+                @include border($subKey);
+              } @else {
+                &-#{$i} {
+                  @include border($subKey, $i);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @each $name, $value in $palette-rgb {
+    &-#{"" + $name} {
+      border-color: token("base.color.border");
+      @include set-token("base.color.border", rgba($value, token("base.color.opacity")));
+    }
+  }
+
+  &-transparent {
+    border-color: token("base.color.transparent");
+  }
+
+  &-dashed {
+    border-style: dashed;
+  }
+}

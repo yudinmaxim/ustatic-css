@@ -1,0 +1,16 @@
+base:
+  scroll:
+    bar:
+      width:
+        value: "{base.size.1}"
+    width:
+      value: "{base.size.1}"
+    height:
+      value: "{base.size.1}"
+    thumb:
+      min-width:
+        value: "{base.size.8}"
+      height:
+        value: auto
+      round:
+        value: "{base.size.2}"

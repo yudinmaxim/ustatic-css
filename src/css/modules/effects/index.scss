@@ -1,0 +1,34 @@
+@import '../../utils/token';
+
+.opacity {
+  @each $step in $opacities {
+    &-#{$step} {
+      opacity: calc($step / 100);
+    }
+  }
+}
+
+.hover\:opacity {
+  @each $step in $opacities {
+    &-#{$step} {
+      &:hover {
+        opacity: calc($step / 100);
+      }
+    }
+  }
+}
+
+.required::after {
+  position: absolute;
+  margin-left: token("base.position.1");
+  color: token("base.color.variant.danger");
+  content: "*";
+}
+
+.rotate {
+  @each $key, $value in $rotations {
+    &-#{$key} {
+      transform: rotate(calc($value * 1deg));
+    }
+  }
+}

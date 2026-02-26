@@ -1,0 +1,62 @@
+{
+  "name": "ustatic-css",
+  "version": "0.0.1",
+  "prefix": "u",
+  "description": "Пакет утилити-классов",
+  "documentation": "",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./package.json": {
+      "import": "./package.json",
+      "require": "./package.json"
+    },
+    "./vars": "./dist/assets/_vars.css",
+    "./base-style": "./dist/assets/utility-css.css",
+    "./tokens-cfg/**/*": "./src/tokens/**/*",
+    "./tokens-scss/**/*": "./src/assets/tokens/**/*",
+    "./prefix": "./src/assets/tokens/_prefix.scss",
+    "./lists": "./src/variables.scss",
+    "./utils/token": "./src/utils/_token.scss"
+  },
+  "files": [
+    "dist/**/*.*",
+    "src/**/*.*"
+  ],
+  "scripts": {
+    "tokens": "style-dictionary build --config ./sd.config.cjs",
+    "build": "bun run tokens && vite build"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@eslint/js": "~9.19.0",
+    "@types/node": "~22.13.1",
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "@typescript-eslint/parser": "^6.4.0",
+    "eslint": "~9.19.0",
+    "eslint-config-standard": "~17.1.0",
+    "eslint-config-standard-with-typescript": "~43.0.1",
+    "eslint-import-resolver-typescript": "~3.7.0",
+    "eslint-plugin-import": "~2.31.0",
+    "eslint-plugin-n": "~17.15.1",
+    "eslint-plugin-promise": "~7.2.1",
+    "eslint-plugin-vue": "~9.32.0",
+    "js-yaml": "~4.1.0",
+    "node-fetch": "~3.3.2",
+    "sass": "1.72.0",
+    "style-dictionary": "3.9.2",
+    "typescript-eslint": "^8.56.1",
+    "vite": "6.0.3",
+    "vite-plugin-dts": "3.8.1",
+    "vite-plugin-eslint": "~1.8.1",
+    "vite-plugin-externals": "^0.6.2",
+    "vite-tsconfig-paths": "4.3.1",
+    "vue-eslint-parser": "~9.4.3"
+  }
+}
