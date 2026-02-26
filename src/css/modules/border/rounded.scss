@@ -1,0 +1,70 @@
+@import "../../utils/token";
+@import "../../variables";
+
+// @function rounded-position($position) {
+//   @return (
+//     t: "border-top-right-radius: #{$position}; border-top-left-radius: #{$position}",
+//     r: "border-top-right-radius: #{$position}; border-bottom-right-radius: #{$position}",
+//     b: "border-bottom-right-radius: #{$position}; border-bottom-left-radius: #{$position}",
+//     l: "border-top-left-radius: #{$position}; border-bottom-left-radius: #{$position}",
+
+//     tr: "border-top-right-radius: #{$position}",
+//     tl: "border-top-left-radius: #{$position}",
+//     br: "border-bottom-right-radius: #{$position}",
+//     bl: "border-bottom-left-radius: #{$position}"
+//   );
+// }
+
+.rounded {
+  @each $key, $value in $radiuses {
+    &-#{$key} {
+      @if $key == "base" {
+        border-radius: $value;
+      } @else {
+        border-radius: $value;
+      }
+    }
+
+    &-t-#{$key} {
+      border-top-right-radius: #{$value};
+      border-top-left-radius: #{$value};
+    }
+    
+    &-r-#{$key} {
+      border-top-right-radius: #{$value};
+      border-bottom-right-radius: #{$value};
+    }
+
+    &-b-#{$key} {
+      border-bottom-right-radius: #{$value};
+      border-bottom-left-radius: #{$value};
+    }
+
+    &-l-#{$key} {
+      border-top-left-radius: #{$value};
+      border-bottom-left-radius: #{$value};
+    }
+
+    &-tr-#{$key} {
+      border-top-right-radius: #{$value};
+    }
+
+    &-tl-#{$key} {
+      border-top-left-radius: #{$value};
+    }
+
+    &-br-#{$key} {
+      border-bottom-right-radius: #{$value};
+    }
+
+    &-bl-#{$key} {
+      border-bottom-left-radius: #{$value};
+    }
+  }
+  &-none {
+    border-radius: 0;
+  }
+}
+.circle {
+  border-radius: token("base.border.rounded");
+}

@@ -1,0 +1,80 @@
+@use "sass:list";
+@import "../../utils/token";
+@import "../../variables";
+@import "../../assets/tokens/list";
+
+// .bg {
+//   @each $name, $pair in $colors-variants {
+//     $color: list.nth($pair, 1);
+//     $color-invert: list.nth($pair, 2);
+//     &-#{$name} {
+//       background-color: $color;
+//     }
+//     &-#{$name}-invert {
+//       background-color: $color-invert;
+//     }
+//   }
+
+//   &-transparent {
+//     background-color: token("base.color.transparent");
+//   }
+
+//   &-none {
+//     background-color: token("base.color.transparent");
+//   }
+// }
+
+.bg {
+  @each $key, $value in $palette-rgb {
+    // "" + - исправление ошибки использования в качестве имени класса имени цвета
+    &-#{"" + $key} {
+      // Используем CSS-переменную для прозрачности
+      background-color: token("base.color.background");
+      stroke: token("base.color.background");
+      @include set-token("base.color.background", rgba($value, token("base.color.opacity")));
+    }
+  }
+
+  &-none {
+    background-color: token("base.color.transparent");
+  }
+
+  &-opacity {
+    &-0 {
+      @include set-token("base.color.opacity", token("base.opacity.0"));
+    }
+    &-25 {
+      @include set-token("base.color.opacity", token("base.opacity.25"));
+    }
+    &-50 {
+      @include set-token("base.color.opacity", token("base.opacity.50"));
+    }
+    &-75 {
+      @include set-token("base.color.opacity", token("base.opacity.75"));
+    }
+    &-100 {
+      @include set-token("base.color.opacity", token("base.opacity.100"));
+    }
+  }
+
+  &-filter-blur {
+     @for $i from 1 through 10 {
+      &-#{$i} {
+        backdrop-filter: blur(#{$i}px);
+      }
+    }
+  }
+}
+
+.hover\:bg {
+  @each $key, $value in $palette-rgb {
+    // "" + - исправление ошибки использования в качестве имени класса имени цвета
+    &-#{"" + $key} {
+      &:hover {
+        background-color: token("base.color.background");
+        @include set-token("base.color.background", rgba($value, token("base.color.opacity")));
+        transition: background-color 0.2s ease-in-out;
+      }
+    }
+  }
+}

@@ -1,0 +1,253 @@
+# position - используется для позиционирования
+# space - используется для задания расстояний между элементами
+# step - используется для задания расстояний между однородными элементами
+
+base:
+  step: &stepping # используется для gap
+    0: 
+      value: "0px"
+    px: 
+      value: "1px"
+    '0d5': 
+      value: "0.125rem" # 2px
+      comment: "2px"
+    1: 
+      value: "0.25rem" # 4px
+      comment: "4px"
+    '1d5': 
+      value: "0.375rem" # 6px
+      comment: "6px"
+    2: 
+      value: "0.5rem" # 8px
+      comment: "8px"
+    3: 
+      value: "0.75rem" # 12px
+      comment: "12px"
+    4: 
+      value: "1rem" # 16px
+      comment: "16px"
+    5: 
+      value: "1.25rem" # 20px
+      comment: "20px"
+    6: 
+      value: "1.5rem" # 24px
+      comment: "24px"
+    7: 
+      value: "1.75rem" # 28px
+      comment: "28px"
+    8: 
+      value: "2rem" # 32px
+      comment: "32px"
+    9: 
+      value: "2.25rem" # 36px
+      comment: "36px"
+    10: 
+      value: "2.5rem" # 40px
+      comment: "40px"
+    12: 
+      value: "3rem" # 48px
+      comment: "48px"
+    18: 
+      value: "4.5rem" # 72px
+      comment: "72px"
+    64: 
+      value: "16rem" # 256px
+      comment: "256px"
+    auto:
+      value: "auto"
+  position: &positioning # используется для padding, margin
+    <<: *stepping
+    '1/4':
+      value: "25%"
+    '1/2':
+      value: "50%"
+    '1/3':
+      value: "33.3333%"
+    '2/3':
+      value: "66.6666%"
+    '3/4':
+      value: "75%"
+    '4/5':
+      value: "80%"  
+    full:
+      value: "100%"
+
+    '5vh':
+      value: "5vh"
+    '10vh':
+      value: "10vh"
+    '15vh':
+      value: "15vh"
+    '20vh':
+      value: "20vh"
+    '25vh':
+      value: "25vh"
+    '30vh':
+      value: "30vh"
+    '35vh':
+      value: "35vh"
+    '40vh':
+      value: "40vh"
+    '45vh':
+      value: "45vh"
+    '50vh':
+      value: "50vh"
+    '55vh':
+      value: "55vh"
+    '60vh':
+      value: "60vh"
+    '65vh':
+      value: "65vh"
+    '70vh':
+      value: "70vh"
+    '75vh':
+      value: "75vh"
+    '80vh':
+      value: "80vh"
+    '85vh':
+      value: "85vh"
+    '90vh':
+      value: "90vh"
+    '95vh':
+      value: "95vh"
+    '100vh':
+      value: "100vh"
+
+    '5vw':
+      value: "5vw"
+    '10vw':
+      value: "10vw"
+    '15vw':
+      value: "15vw"
+    '20vw':
+      value: "20vw"
+    '25vw':
+      value: "25vw"
+    '30vw':
+      value: "30vw"
+    '35vw':
+      value: "35vw"
+    '40vw':
+      value: "40vw"
+    '45vw':
+      value: "45vw"
+    '50vw':
+      value: "50vw"
+    '55vw':
+      value: "55vw"
+    '60vw':
+      value: "60vw"
+    '65vw':
+      value: "65vw"
+    '70vw':
+      value: "70vw"
+    '75vw':
+      value: "75vw"
+    '80vw':
+      value: "80vw"
+    '85vw':
+      value: "85vw"
+    '90vw':
+      value: "90vw"
+    '95vw':
+      value: "95vw"
+    '100vw':
+      value: "100vw"
+
+  size:
+    <<: *positioning
+    def:
+      value: "{base.size.10}"
+    # "0.5":
+    #   value: "0.125rem"
+    #   comment: "2px"
+    '2px':
+      value: "0.125rem"
+      comment: "2px"
+    11: 
+      value: "2.75rem" # 44px
+      comment: "44px"
+    12: 
+      value: "3rem" # 48px
+      comment: "48px"
+    14: 
+      value: "3.5rem" # 56px
+      comment: "56px"
+    16: 
+      value: "4rem" # 64px
+      comment: "64px"
+    18: 
+      value: "4.5rem" # 72px
+      comment: "72px"
+    20: 
+      value: "5rem" # 80px
+      comment: "80px"
+    24: 
+      value: "6rem" # 96px
+      comment: "96px"
+    28: 
+      value: "7rem" # 112px
+      comment: "112px"
+    32: 
+      value: "8rem" # 128px
+      comment: "128px"
+    36: 
+      value: "9rem" # 144px
+      comment: "144px"
+    40: 
+      value: "10rem" # 160px
+      comment: "160px"
+    44: 
+      value: "11rem" # 176px
+      comment: "176px"
+    48: 
+      value: "12rem" # 192px
+      comment: "192px"
+    52: 
+      value: "13rem" # 208px
+      comment: "208px"
+    56: 
+      value: "14rem" # 224px
+      comment: "224px"
+    60: 
+      value: "15rem" # 240px
+      comment: "240px"
+    64: 
+      value: "16rem" # 256px
+      comment: "256px"
+    72: 
+      value: "18rem" # 288px
+      comment: "288px"
+    80: 
+      value: "20rem" # 320px
+      comment: "320px"
+    96: 
+      value: "24rem" # 384px
+      comment: "384px"
+    112:
+      value: "28rem" # 448px
+      comment: "448px"
+    128:
+      value: "32rem" # 512px
+      comment: "512px"
+    144:
+      value: "36rem" # 576px
+      comment: "576px"
+    160:
+      value: "40rem" # 640px
+      comment: "640px"
+    192:
+      value: "48rem" # 768px
+      comment: "768px"
+    224:
+      value: "56rem" # 896px
+      comment: "896px"
+    256:
+      value: "64rem" # 1024px
+      comment: "1024px"
+    none:
+      value: "none"
+      comment: "No top positioning"
+    fit:
+      value: "fit-content"
+      comment: "Size to fit the content"

@@ -1,0 +1,67 @@
+@import '../../utils/token';
+
+$scroll-bar-width: token("base.scroll.bar.width") !default;
+$scroll-width: token("base.scroll.width") !default;
+$scroll-height: token("base.scroll.height") !default;
+$scroll-thumb-min-width: token("base.scroll.thumb.min-width") !default;
+$scroll-thumb-height: token("base.scroll.thumb.height") !default;
+$scroll-thumb-round: token("base.scroll.thumb.round") !default;
+
+
+.z-scroll {
+  -ms-overflow-style: none;
+  scrollbar-width: $scroll-bar-width;
+
+  /* Стилизация фона полосы прокрутки */
+  ::-webkit-scrollbar-track {
+    background: token("base.color.gray.100"); /* Фон всей полосы прокрутки */
+  }
+
+  &::-webkit-scrollbar {
+    width: $scroll-width;
+    height: $scroll-height;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: token("base.color.gray.400");
+
+    min-width: $scroll-thumb-min-width;
+    height: $scroll-thumb-height;
+    border-radius: $scroll-thumb-round;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: token("base.color.gray.500");
+  }
+  
+  @-moz-document url-prefix() {
+    & {
+      scrollbar-width: thin;
+      scrollbar-color: token("base.color.gray.400") token("base.color.transparent");
+    }
+  }
+
+  &--hovered {
+    &::-webkit-scrollbar {
+      width: token("base.size.1d5"); // Новая ширина при наведении
+      height: token("base.size.1d5");
+    }
+    
+    // Для Firefox
+    scrollbar-width: token("base.size.1d5");
+  }
+
+  &--thin {
+    @include set-token("base.scroll.bar.width", token("base.size.0d5"));
+
+    &::-webkit-scrollbar {
+      @include set-token("base.scroll.height", token("base.size.0d5"));
+      @include set-token("base.scroll.width", token("base.size.0d5"));
+    }
+    
+    &::-webkit-scrollbar-thumb {
+      @include set-token("base.scroll.thumb.min-width", token("base.size.0d5"));
+      @include set-token("base.scroll.thumb.round", token("base.size.1"));
+    }
+  }
+}

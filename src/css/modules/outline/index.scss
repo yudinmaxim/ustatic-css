@@ -1,0 +1,52 @@
+@use "sass:list";
+@import '../../utils/token';
+@import "../../variables";
+
+.outline {
+  &-none {
+    outline: none;
+  }
+
+  @each $size, $sizeValue in $sizes-short {
+    @each $color, $value in $palette-rgb {
+      &-#{$size}-#{"#{$color}"} {
+        outline: $sizeValue solid token("base.color.outline");
+        @include set-token("base.color.outline", rgba($value, token("base.color.opacity")));
+      }
+    }
+  }
+
+  // Короткое написание для дефолтного outline без указания цвета
+  @each $size, $sizeValue in $sizes-short {
+    &-#{$size} {
+      outline: $sizeValue solid;
+    }
+  }
+
+  &-style {
+    &--solid {
+      outline-style: solid;
+    }
+
+    &--dotted {
+      outline-style: dotted;
+    }
+
+    &--groove {
+      outline-style: groove;
+    }
+
+    &--inset {
+      outline-style: inset;
+    }
+  }
+}
+
+
+  @for $offsetStep from -10 through 10 {
+    $modifier: if($offsetStep < 0, "\-outline-offset", "outline-offset");
+    $value: abs($offsetStep);
+    .#{$modifier}-#{$value} {
+      outline-offset: #{$offsetStep}px;
+    }
+  }

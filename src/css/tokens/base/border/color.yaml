@@ -1,0 +1,29 @@
+base:
+  border:
+    color:
+      black:
+        value: '{base.color.black}'
+      primary:
+        value: '{base.color.variant.primary}'
+      primary-invert}:
+        value: '{base.color.variant.primary-invert}'
+      secondary:
+        value: '{base.color.variant.secondary}'
+      secondary-invert}:
+        value: '{base.color.variant.secondary-invert}'
+      success:
+        value: '{base.color.variant.success}'
+      success-invert}:
+        value: '{base.color.variant.success-invert}'
+      info:
+        value: '{base.color.variant.info}'
+      info-invert}:
+        value: '{base.color.variant.info-invert}'
+      warning:
+        value: '{base.color.variant.warning}'
+      warning-invert}:
+        value: '{base.color.variant.warning-invert}'
+      danger:
+        value: '{base.color.variant.danger}'
+      danger-invert}:
+        value: '{base.color.variant.danger-invert}'
