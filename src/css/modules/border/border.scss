@@ -1,6 +1,6 @@
 @use "sass:list";
 @import '../../utils/token';
-@import "../../variables";
+@import '../../variables.scss';
 
 @mixin border($direction, $bw: -1) {
   @if $direction == "all" {
