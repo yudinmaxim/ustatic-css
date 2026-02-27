@@ -1,4 +1,11 @@
+// Утилиты для работы с токенами
+// Этот файл содержит вспомогательные функции и миксины для работы с CSS переменными (токенами)
+// Основное назначение - преобразование путей токенов в CSS переменные и установка их значений
 // Вспомогательная функция для замены символов в строке
+// @param {String} $string - Исходная строка
+// @param {String} $search - Строка для поиска
+// @param {String} $replace - Строка для замены (по умолчанию пустая строка)
+// @return {String} - Строка с замененными символами
 @function str-replace($string, $search, $replace: '') {
   $index: str-index($string, $search);
   @if $index {
@@ -7,7 +14,10 @@
   @return $string;
 }
 
+
 // Функция для замены косых черт на дефисы
+// @param {String} $string - Исходная строка
+// @return {String} - Строка с замененными косыми чертами на дефисы
 @function replace-slash($string) {
   $string: str-replace($string, '/', '-'); // Заменяем '/' на '-'
   $string: str-replace($string, '\\/', '-'); // Заменяем '\/' на '-'
@@ -15,6 +25,9 @@
 }
 
 // Функция для преобразования строки в имя CSS переменной
+// @param {String} $token-path - Путь к токену (например, "base.color.primary")
+// @param {*} $default - Значение по умолчанию (опционально)
+// @return {String} - CSS переменная в формате var(--prefix-variable-name) или var(--prefix-variable-name, $default)
 @function token($token-path, $default: none) {
   // Заменяем точки на дефисы и добавляем префикс
   $variable-name: str-replace($token-path, '.', '-');
@@ -29,7 +42,10 @@
   }
 }
 
-// Функция для преобразования строки в имя CSS переменной
+// Миксин для установки CSS переменной
+// @param {String} $token-path - Путь к токену (например, "base.color.primary")
+// @param {*} $value - Значение переменной
+// @param {String} $libprefix - Префикс библиотеки (по умолчанию $prefix)
 @mixin set-token($token-path, $value, $libprefix: $prefix) {
   // Заменяем точки на дефисы и добавляем префикс
   $variable-name: str-replace($token-path, '.', '-');
