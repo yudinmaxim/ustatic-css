@@ -1,4 +1,5 @@
 @import '../../utils/token';
+@import '../../variables.scss';
 
 $scroll-bar-width: token("base.scroll.bar.width") !default;
 $scroll-width: token("base.scroll.width") !default;

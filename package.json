@@ -5,25 +5,49 @@
   "description": "Пакет утилити-классов",
   "documentation": "",
   "type": "module",
-  "main": "./dist/index.js",
-  "module": "./dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/js/index.cjs.js",
+  "module": "./dist/js/index.es.js",
+  "types": "dist/types/src/index.d.ts",
   "exports": {
-    ".": {
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
-    },
+    ".": "./dist/css/utility-css.css",
+
     "./package.json": {
       "import": "./package.json",
       "require": "./package.json"
     },
-    "./vars": "./dist/assets/_vars.css",
-    "./base-style": "./dist/assets/utility-css.css",
-    "./tokens-cfg/**/*": "./src/tokens/**/*",
-    "./tokens-scss/**/*": "./src/assets/tokens/**/*",
-    "./prefix": "./src/assets/tokens/_prefix.scss",
-    "./lists": "./src/variables.scss",
-    "./utils/token": "./src/utils/_token.scss"
+    "./vars": "./dist/css/vars.css",
+    "./base": "./dist/css/modules/base.css",
+    "./align": "./dist/css/modules/align.css",
+    "./animations": "./dist/css/modules/animations.css",
+    "./bg": "./dist/css/modules/bg.css",
+    "./border": "./dist/css/modules/border.css",
+    "./cursor": "./dist/css/modules/cursor.css",
+    "./display": "./dist/css/modules/display.css",
+    "./effects": "./dist/css/modules/effects.css",
+    "./filters": "./dist/css/modules/filters.css",
+    "./flexbox": "./dist/css/modules/flexbox.css",
+    "./grid": "./dist/css/modules/grid.css",
+    "./hide": "./dist/css/modules/hide.css",
+    "./interactivity": "./dist/css/modules/interactivity.css",
+    "./outline": "./dist/css/modules/outline.css",
+    "./position": "./dist/css/modules/position.css",
+    "./scroll": "./dist/css/modules/scroll.css",
+    "./sizing": "./dist/css/modules/sizing.css",
+    "./spacing": "./dist/css/modules/spacing.css",
+    "./typography": "./dist/css/modules/typography.css",
+
+    "./tokens-cfg/**/*": "./src/css/tokens/**/*",
+    "./tokens-scss/**/*": "./src/css/assets/tokens/**/*",
+    "./prefix": "./src/css/assets/tokens/_prefix.scss",
+    "./lists": "./src/css/assets/tokens/_list.scss",
+    "./utils/token": "./src/css/utils/_token.scss",
+
+    "./scripts": {
+      "import": "./dist/js/index.es.js",
+      "require": "./dist/js/index.cjs.js",
+      "types": "./dist/types/src/index.d.ts"
+    }
+
   },
   "files": [
     "dist/**/*.*",
