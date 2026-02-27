@@ -73,3 +73,5 @@ common/autoinstallers/*/.npmrc
 
 .vscode
 __snapshots__
+
+.settings
