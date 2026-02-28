@@ -1,5 +1,5 @@
 
-import { getPrefix } from './prefix'
+import { prefix } from '../../package.json'
 
 /**
  * Преобразует имя токена в CSS-переменную с префиксом
@@ -7,8 +7,6 @@ import { getPrefix } from './prefix'
  * @returns CSS-переменная с префиксом
  */
 const _getTokenName = (token: string): string => {
-  const prefix = getPrefix()
-
   const variableName = token.replaceAll('.', '-').replaceAll('/', '-')
   if (prefix) {
     return `--${prefix}-${variableName}`

@@ -43,9 +43,9 @@
     "./utils/token": "./src/css/utils/_token.scss",
 
     "./scripts": {
+      "types": "./dist/types/src/index.d.ts",
       "import": "./dist/js/index.es.js",
-      "require": "./dist/js/index.cjs.js",
-      "types": "./dist/types/src/index.d.ts"
+      "require": "./dist/js/index.cjs.js"
     }
 
   },

@@ -1,7 +1,4 @@
 
-import { setPrefix } from './utils/prefix'
-import { prefix } from '../package.json'
-
 interface PluginOptions {
   prefix?: string
 }
@@ -10,12 +7,6 @@ let isCSSLoaded = false
 
 const plugin = {
   install(app: any, options?: PluginOptions) {
-    // Устанавливаем префикс из опций, если передан
-    if (options?.prefix) {
-      setPrefix(options.prefix)
-    } else {
-      setPrefix(prefix)
-    }
 
     // Проверяем, что document доступен
     if (typeof document === 'undefined') return
