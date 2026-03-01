@@ -75,3 +75,5 @@ common/autoinstallers/*/.npmrc
 __snapshots__
 
 .settings
+*storybook.log
+storybook-static

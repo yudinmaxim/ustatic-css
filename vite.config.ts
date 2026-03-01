@@ -1,9 +1,13 @@
+/// <reference types="vitest/config" />
 import path, { resolve } from 'path'
 import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
-
 import { name } from './package.json'
+import { fileURLToPath } from 'node:url'
+import { playwright } from '@vitest/browser-playwright'
+const dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(fileURLToPath(import.meta.url))
 
+// More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 const entries = {
   index: resolve(__dirname, './src/index.ts'),
   vars: resolve(__dirname, './src/css/assets/tokens/_vars.scss'),
@@ -28,18 +32,14 @@ const entries = {
   spacing: resolve(__dirname, './src/css/modules/spacing/index.scss'),
   typography: resolve(__dirname, './src/css/modules/typography/index.scss'),
   // Все модули вместе
-  'utility-css': resolve(__dirname, './src/css/index.scss'),
+  'ustatic': resolve(__dirname, './src/css/index.scss')
 }
-
 export default defineConfig({
   base: './',
-  plugins: [
-    dts({
-      tsconfigPath: path.
-        join(__dirname, 'tsconfig.json'),
-      outDir: './dist/types',
-    })
-  ],
+  plugins: [ dts({
+    tsconfigPath: path.join(__dirname, 'tsconfig.json'),
+    outDir: './dist/types'
+  }) ],
   build: {
     minify: process.env.NODE_ENV === 'production',
     emptyOutDir: true,
@@ -49,18 +49,18 @@ export default defineConfig({
       name,
       entry: entries,
       fileName: 'index',
-      formats: [ 'es', 'cjs' ],
+      formats: [ 'es', 'cjs' ]
     },
     rollupOptions: {
       output: {
-        entryFileNames: (chunkInfo) => {
+        entryFileNames: chunkInfo => {
           // Разделяем JS файлы по директориям в зависимости от точки входа
           if (chunkInfo.name !== 'index') {
             return 'css/[name].js'
           }
           return 'js/[name].[format].js'
         },
-        assetFileNames: (assetInfo) => {
+        assetFileNames: assetInfo => {
           // Разделяем CSS файлы по директориям
           if (assetInfo.name?.endsWith('.css')) {
             // Определяем, к какой точке входа относится файл
@@ -69,16 +69,16 @@ export default defineConfig({
             }
             // Для остальных модулей создаем отдельные файлы
             const moduleName = assetInfo.name.replace('.css', '')
-            // Для utility-css создаем отдельный файл
-            if (moduleName === 'utility-css') {
-              return 'css/utility-css.css'
+            // Для ustatic создаем отдельный файл
+            if (moduleName === 'ustatic') {
+              return 'css/ustatic.css'
             }
             return `css/modules/${moduleName}.css`
           }
           return 'assets/[name][extname]'
-        },
-      },
+        }
+      }
     },
-    target: 'esnext',
+    target: 'esnext'
   }
 })

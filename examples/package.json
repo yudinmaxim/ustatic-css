@@ -1,0 +1,33 @@
+{
+  "name": "ustatic-css-playground",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "ustatic-css": "workspace:*",
+    "vue": "^3.5.0",
+    "vue-component-type-helpers": "^2.1.6",
+    "@tiptap/extension-hard-break": "^3.10.2",
+    "@tiptap/extension-document": "^3.10.2",
+    "@tiptap/extension-text": "^3.10.2",
+    "@tiptap/vue-3": "^3.0.7",
+    "@tiptap/core": "^3.10.2",
+    "@tiptap/extension-code-block": "^3.10.2",
+    "@tiptap/extension-code-block-lowlight": "^3.10.2",
+    "@tiptap/starter-kit": "^3.10.2",
+    "lowlight": "^3.1.0",
+    "highlight.js": "^11.9.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.0",
+    "vite": "^5.0.0",
+    "typescript": "^5.0.0",
+    "@types/node": "^20.0.0",
+    "vue-tsc": "^2.0.0"
+  }
+}
