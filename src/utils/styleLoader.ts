@@ -13,13 +13,13 @@ const classToModuleMap: Record<string, string> = {
   'flex-row': 'flexbox',
   'flex-wrap': 'flexbox',
   'flex-nowrap': 'flexbox',
-  'items-': 'flexbox',
-  'justify-': 'flexbox',
-  'content-': 'flexbox',
-  'self-': 'flexbox',
+  'items': 'flexbox',
+  'justify': 'flexbox',
+  'content': 'flexbox',
+  'self': 'flexbox',
   'shrink': 'flexbox',
   'grow': 'flexbox',
-  'order-': 'flexbox',
+  'order': 'flexbox',
 
   // display
   'inline': 'display',
@@ -27,17 +27,17 @@ const classToModuleMap: Record<string, string> = {
   'inline-block': 'display',
   'table': 'display',
   'table-cell': 'display',
-  'overflow-': 'display',
+  'overflow': 'display',
 
   // align
-  'align-': 'align',
+  'align': 'align',
 
   // position
-  'position-': 'position',
-  'top-': 'position',
-  'right-': 'position',
-  'bottom-': 'position',
-  'left-': 'position',
+  'position': 'position',
+  'top': 'position',
+  'right': 'position',
+  'bottom': 'position',
+  'left': 'position',
 
   // border
   'border': 'border',
@@ -45,71 +45,71 @@ const classToModuleMap: Record<string, string> = {
   'divider': 'border',
 
   // typography
-  'text-': 'typography',
-  'font-': 'typography',
-  'leading-': 'typography',
-  'tracking-': 'typography',
+  'text': 'typography',
+  'font': 'typography',
+  'leading': 'typography',
+  'tracking': 'typography',
 
   // spacing
   'm': 'spacing',
-  'mx-': 'spacing',
-  'my-': 'spacing',
-  'mt-': 'spacing',
-  'mr-': 'spacing',
-  'mb-': 'spacing',
-  'ml-': 'spacing',
+  'mx': 'spacing',
+  'my': 'spacing',
+  'mt': 'spacing',
+  'mr': 'spacing',
+  'mb': 'spacing',
+  'ml': 'spacing',
   'p': 'spacing',
-  'px-': 'spacing',
-  'py-': 'spacing',
-  'pt-': 'spacing',
-  'pr-': 'spacing',
-  'pb-': 'spacing',
-  'pl-': 'spacing',
+  'px': 'spacing',
+  'py': 'spacing',
+  'pt': 'spacing',
+  'pr': 'spacing',
+  'pb': 'spacing',
+  'pl': 'spacing',
 
   // sizing
-  'w-': 'sizing',
-  'h-': 'sizing',
-  'min-w-': 'sizing',
-  'min-h-': 'sizing',
-  'max-w-': 'sizing',
-  'max-h-': 'sizing',
+  'w': 'sizing',
+  'h': 'sizing',
+  'min-w': 'sizing',
+  'min-h': 'sizing',
+  'max-w': 'sizing',
+  'max-h': 'sizing',
 
   // bg
-  'bg-': 'bg',
+  'bg': 'bg',
 
   // effects
   'shadow': 'effects',
-  'opacity-': 'effects',
+  'opacity': 'effects',
 
   // interactivity
-  'cursor-': 'interactivity',
-  'pointer-events-': 'interactivity',
+  'cursor': 'interactivity',
+  'pointer-events': 'interactivity',
   'resize': 'interactivity',
 
   // scroll
-  'scroll-': 'scroll',
+  'scroll': 'scroll',
 
   // animations
-  'animate-': 'animations',
+  'animate': 'animations',
 
   // outline
   'outline': 'outline',
 
   // grid
   'grid': 'grid',
-  'col-': 'grid',
-  'row-': 'grid',
+  'col': 'grid',
+  'row': 'grid',
 
   // filters
   'filter': 'filters',
-  'blur-': 'filters',
-  'brightness-': 'filters',
-  'contrast-': 'filters',
-  'grayscale-': 'filters',
-  'hue-rotate-': 'filters',
-  'invert-': 'filters',
-  'saturate-': 'filters',
-  'sepia-': 'filters',
+  'blur': 'filters',
+  'brightness': 'filters',
+  'contrast': 'filters',
+  'grayscale': 'filters',
+  'hue-rotate': 'filters',
+  'invert': 'filters',
+  'saturate': 'filters',
+  'sepia': 'filters',
 
   // hide
   'hide': 'hide',
@@ -128,6 +128,7 @@ const getModulesFromClasses = (classes: string[]): string[] => {
 
     // Проверяем частичные соответствия (префиксы)
     for (const [ prefix, module ] of Object.entries(classToModuleMap)) {
+      // проверим классы на совпадение с префиксом в модуле
       if (className.startsWith(prefix)) {
         modules.add(module)
         break
@@ -180,28 +181,25 @@ const loadStyles = async (options?: IStyleLoaderOptions): Promise<void> => {
   if (icssLoaded) return
   icssLoaded = true
 
-  let modulesToLoad: string[] = []
+  let modulesToLoad: string[] = getModulesFromClasses(options?.classes ?? [])
 
   // Если переданы модули, используем их
   if (options?.modules && options.modules.length > 0) {
-    modulesToLoad = options.modules
-  }
-  // Если переданы классы, определяем модули по ним
-  else if (options?.classes && options.classes.length > 0) {
-    modulesToLoad.concat(
-      getModulesFromClasses(options.classes)
-        .filter((module: string) => {
-          return !modulesToLoad.includes(module)
-        })
+    modulesToLoad = modulesToLoad.concat(options.modules
+      .filter((module: string) => {
+        return !modulesToLoad.includes(module)
+      })
     )
   }
   // Если ничего не передано, загружаем все модули
-  else {
+  if (modulesToLoad?.length === 0) {
     modulesToLoad = [
       'ustatic.css',
       'vars.css'
     ]
   }
+
+  console.info('uCSS modules for load', { modulesToLoad, options })
 
   try {
     if (modulesToLoad.includes('ustatic.css') || modulesToLoad.includes('vars.css')) {
@@ -210,7 +208,7 @@ const loadStyles = async (options?: IStyleLoaderOptions): Promise<void> => {
         loadCSS('../css/ustatic.css'),
         loadCSS('../css/vars.css')
       ])
-    } else {
+    } else if (modulesToLoad?.length > 0) {
       // Загружаем модули по отдельности
       const modulePromises: Promise<void>[] = []
 
@@ -227,6 +225,8 @@ const loadStyles = async (options?: IStyleLoaderOptions): Promise<void> => {
       modulePromises.push(loadCSS('../css/vars.css'))
 
       await Promise.all(modulePromises)
+    } else {
+      console.log('No css for load')
     }
   } catch (error) {
     console.error('Failed to load CSS files:', error)

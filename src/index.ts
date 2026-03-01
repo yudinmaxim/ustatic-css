@@ -9,8 +9,9 @@ const plugin = {
     // Проверяем, что document доступен
     if (typeof document === 'undefined') return
 
+    console.log('plugin options', options)
     // Загружаем стили через новый модуль
-    loadStyles()
+    loadStyles(options)
   }
 }
 
