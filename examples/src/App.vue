@@ -12,7 +12,7 @@
     <main class="mt-8">
       <ModuleNavigation />
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+      <div class="grid grid-columns--1fr-1fr gap-8 mt-6">
         <CodeEditor v-model="code" />
         <Preview :html="code" />
       </div>
