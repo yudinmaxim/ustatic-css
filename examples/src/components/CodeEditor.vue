@@ -1,7 +1,9 @@
 <template>
   <div class="mb-6">
     <div class="flex justify-between items-center mb-3">
-      <h3 class="text-lg font-semibold m-0">Редактор HTML исходников</h3>
+      <h3 class="text-lg font-semibold m-0">
+        Редактор HTML исходников
+      </h3>
       <button
         class="px-2 py-1 rounded text-sm bg-gray-200 hover:bg-gray-300"
         @click="copyCode"
@@ -11,19 +13,14 @@
     </div>
 
     <div class="relative">
-      <!-- Предпросмотр (рендер HTML в DOM) -->
-      <div v-if="showPreview" class="w-full h-64 p-4 border border-gray-300 rounded text-sm bg-white overflow-auto">
-        <div class="preview" v-html="localValue"></div>
-      </div>
-
       <!-- Редактор исходника с подсветкой синтаксиса (overlay: подсветка + textarea) -->
-      <div v-else class="code-editor w-full h-64 border border-gray-300 rounded text-sm bg-[#1e1e1e]">
+      <div class="code-editor w-full h-64 border border-gray-300 rounded text-sm bg-[#1e1e1e]">
         <pre
           ref="preEl"
           class="code-highlight hljs"
           aria-hidden="true"
           v-html="highlighted"
-        ></pre>
+        />
         <textarea
           ref="taEl"
           v-model="localValue"
@@ -32,17 +29,8 @@
           @scroll="syncScroll"
           @input="onInput"
           @keydown="onKeyDown"
-          placeholder='<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset=\"utf-8\" />\n    <title>Demo</title>\n  </head>\n  <body>\n    <h1>Hello</h1>\n  </body>\n</html>'
         />
       </div>
-
-      <!-- Кнопка переключения режимов -->
-      <button
-        class="absolute top-2 right-2 px-2 py-1 text-xs bg-blue-500 text-white rounded hover:bg-blue-600"
-        @click="toggleView"
-      >
-        {{ showPreview ? 'Редактировать' : 'Предпросмотр' }}
-      </button>
     </div>
   </div>
 </template>
@@ -105,7 +93,7 @@ const onKeyDown = (e: KeyboardEvent) => {
       const after = value.slice(end)
 
       if (e.shiftKey) {
-        const replaced = selection.replace(/(^|\n)(\t|  )/g, (_m, p1) => p1)
+        const replaced = selection.replace(/(^|\n)(\t| {2})/g, (_m, p1) => p1)
         const diff = selection.length - replaced.length
         localValue.value = before + replaced + after
         requestAnimationFrame(() => {
@@ -134,7 +122,7 @@ const onKeyDown = (e: KeyboardEvent) => {
   }
 
   // Автовставка парных кавычек
-  if (e.key === '"' || e.key === "'") {
+  if (e.key === '"' || e.key === '\'') {
     const ta = taEl.value
     if (!ta) return
     if (ta.selectionStart === ta.selectionEnd) {
@@ -241,6 +229,7 @@ const copyCode = async () => {
   color: #abb2bf;
   pointer-events: none;
   user-select: none;
+  z-index: 0;
 }
 
 /* Слой ввода: текст прозрачный, рисуем цвет через тень, чтобы видеть курсор */
@@ -250,8 +239,10 @@ const copyCode = async () => {
   outline: none;
   resize: none;
   color: transparent;
+  -webkit-text-fill-color: transparent;
   caret-color: #ffffff;
-  text-shadow: 0 0 0 #e5e7eb;
+  text-shadow: none;
+  z-index: 1;
 }
 
 /* Тёмная тема для hljs */
