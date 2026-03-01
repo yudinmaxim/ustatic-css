@@ -10,7 +10,6 @@
   "types": "dist/types/src/index.d.ts",
   "exports": {
     ".": "./dist/css/utility-css.css",
-
     "./package.json": {
       "import": "./package.json",
       "require": "./package.json"
@@ -35,19 +34,16 @@
     "./sizing": "./dist/css/modules/sizing.css",
     "./spacing": "./dist/css/modules/spacing.css",
     "./typography": "./dist/css/modules/typography.css",
-
     "./tokens-cfg/**/*": "./src/css/tokens/**/*",
     "./tokens-scss/**/*": "./src/css/assets/tokens/**/*",
     "./prefix": "./src/css/assets/tokens/_prefix.scss",
     "./lists": "./src/css/assets/tokens/_list.scss",
     "./utils/token": "./src/css/utils/_token.scss",
-
     "./scripts": {
       "types": "./dist/types/src/index.d.ts",
       "import": "./dist/js/index.es.js",
       "require": "./dist/js/index.cjs.js"
     }
-
   },
   "files": [
     "dist/**/*.*",
@@ -57,7 +53,6 @@
     "tokens": "style-dictionary build --config ./sd.config.cjs",
     "build": "bun run tokens && vite build"
   },
-  "dependencies": {},
   "devDependencies": {
     "@eslint/js": "~9.19.0",
     "@types/node": "~22.13.1",

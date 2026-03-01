@@ -1,3 +1,4 @@
+// For more info, see https://github.com/storybookjs/eslint-plugin-storybook#configuration-flat-config-format
 import baseConfig from './eslint/base.js'
 import tsConfig from './eslint/ts.js'
 import vueConfig from './eslint/vue.js'
@@ -8,4 +9,4 @@ export default [
   ...tsConfig,
   ...vueConfig,
   ...vueI18nConfig
-]
+];
