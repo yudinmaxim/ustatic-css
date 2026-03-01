@@ -1,178 +1,317 @@
 <template>
   <div class="mb-6">
     <div class="flex justify-between items-center mb-3">
-      <h3 class="text-lg font-semibold m-0">
-        Редактор кода
-      </h3>
+      <h3 class="text-lg font-semibold m-0">Редактор HTML исходников</h3>
       <button
-        class="px-2 py-1 rounded text-sm bg-gray-200 hover:bg-gray-300 transition-colors"
+        class="px-2 py-1 rounded text-sm bg-gray-200 hover:bg-gray-300"
         @click="copyCode"
       >
         Копировать
       </button>
     </div>
+
     <div class="relative">
-      <editor-content
-        v-if="editor"
-        :editor="editor"
-        class="w-full h-64 p-4 border border-gray-300 rounded font-mono text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-      />
+      <!-- Предпросмотр (рендер HTML в DOM) -->
+      <div v-if="showPreview" class="w-full h-64 p-4 border border-gray-300 rounded text-sm bg-white overflow-auto">
+        <div class="preview" v-html="localValue"></div>
+      </div>
+
+      <!-- Редактор исходника с подсветкой синтаксиса (overlay: подсветка + textarea) -->
+      <div v-else class="code-editor w-full h-64 border border-gray-300 rounded text-sm bg-[#1e1e1e]">
+        <pre
+          ref="preEl"
+          class="code-highlight hljs"
+          aria-hidden="true"
+          v-html="highlighted"
+        ></pre>
+        <textarea
+          ref="taEl"
+          v-model="localValue"
+          class="code-input"
+          spellcheck="false"
+          @scroll="syncScroll"
+          @input="onInput"
+          @keydown="onKeyDown"
+          placeholder='<!DOCTYPE html>\n<html>\n  <head>\n    <meta charset=\"utf-8\" />\n    <title>Demo</title>\n  </head>\n  <body>\n    <h1>Hello</h1>\n  </body>\n</html>'
+        />
+      </div>
+
+      <!-- Кнопка переключения режимов -->
+      <button
+        class="absolute top-2 right-2 px-2 py-1 text-xs bg-blue-500 text-white rounded hover:bg-blue-600"
+        @click="toggleView"
+      >
+        {{ showPreview ? 'Редактировать' : 'Предпросмотр' }}
+      </button>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, watch, onMounted, onUnmounted } from 'vue'
-import { Editor, EditorContent } from '@tiptap/vue-3'
-import StarterKit from '@tiptap/starter-kit'
-import { CodeBlockLowlight } from '@tiptap/extension-code-block-lowlight'
-import { createLowlight } from 'lowlight'
-
-// Импортируем языки для подсветки синтаксиса
+import { ref, watch, onMounted, onBeforeUnmount } from 'vue'
+import hljs from 'highlight.js/lib/core'
 import xml from 'highlight.js/lib/languages/xml'
 import css from 'highlight.js/lib/languages/css'
 import javascript from 'highlight.js/lib/languages/javascript'
-import typescript from 'highlight.js/lib/languages/typescript'
 
-const lowlight = createLowlight()
-// Регистрируем языки в lowlight
-lowlight.register('html', xml)
-lowlight.register('css', css)
-lowlight.register('javascript', javascript)
-lowlight.register('typescript', typescript)
+hljs.registerLanguage('xml', xml)
+hljs.registerLanguage('html', xml)
+hljs.registerLanguage('css', css)
+hljs.registerLanguage('javascript', javascript)
 
-const props = defineProps<{
-  modelValue: string
-}>()
+const props = defineProps<{ modelValue: string }>()
+const emit = defineEmits<{ (e: 'update:modelValue', value: string): void }>()
 
-const emit = defineEmits<{
-  (e: 'update:modelValue', value: string): void
-}>()
+const localValue = ref(props.modelValue || '')
+const showPreview = ref(false)
+const highlighted = ref('')
+const preEl = ref<HTMLPreElement | null>(null)
+const taEl = ref<HTMLTextAreaElement | null>(null)
 
-// Создаем ref для редактора
-const editor = ref<Editor>()
+let hiTimer: number | undefined
 
-onMounted(() => {
-  editor.value = new Editor({
-    content: props.modelValue,
-    extensions: [
-      StarterKit.configure({
-        codeBlock: false, // Отключаем стандартный codeBlock
-      }),
-      CodeBlockLowlight.configure({
-        lowlight,
-        defaultLanguage: 'html', // Устанавливаем HTML как язык по умолчанию
-      }),
-    ],
-    onUpdate: ({ editor }) => {
-      // Обновляем значение модели при изменении содержимого редактора
-      emit('update:modelValue', editor.getHTML())
-    },
-  })
-})
+const doHighlight = () => {
+  try {
+    highlighted.value = hljs.highlight(localValue.value, { language: 'html' }).value
+  } catch {
+    highlighted.value = hljs.highlightAuto(localValue.value).value
+  }
+}
 
-// Обновляем содержимое редактора при изменении пропса
+const scheduleHighlight = () => {
+  if (hiTimer) window.clearTimeout(hiTimer)
+  hiTimer = window.setTimeout(doHighlight, 60)
+}
+
+const onInput = () => {
+  scheduleHighlight()
+}
+
+const onKeyDown = (e: KeyboardEvent) => {
+  const ta = taEl.value
+  if (!ta) return
+
+  // Tab / Shift+Tab — добавление/удаление отступов
+  if (e.key === 'Tab') {
+    e.preventDefault()
+    const start = ta.selectionStart
+    const end = ta.selectionEnd
+    const value = localValue.value
+
+    // Несколько строк — сдвигаем каждую
+    if (start !== end && value.slice(start, end).includes('\n')) {
+      const before = value.slice(0, start)
+      const selection = value.slice(start, end)
+      const after = value.slice(end)
+
+      if (e.shiftKey) {
+        const replaced = selection.replace(/(^|\n)(\t|  )/g, (_m, p1) => p1)
+        const diff = selection.length - replaced.length
+        localValue.value = before + replaced + after
+        requestAnimationFrame(() => {
+          ta.selectionStart = start
+          ta.selectionEnd = end - diff
+        })
+      } else {
+        const replaced = selection.replace(/(^|\n)/g, '$1  ')
+        const diff = replaced.length - selection.length
+        localValue.value = before + replaced + after
+        requestAnimationFrame(() => {
+          ta.selectionStart = start
+          ta.selectionEnd = end + diff
+        })
+      }
+      return
+    }
+
+    // Одна позиция — вставляем два пробела
+    const insert = '  '
+    localValue.value = value.slice(0, start) + insert + value.slice(end)
+    requestAnimationFrame(() => {
+      ta.selectionStart = ta.selectionEnd = start + insert.length
+    })
+    return
+  }
+
+  // Автовставка парных кавычек
+  if (e.key === '"' || e.key === "'") {
+    const ta = taEl.value
+    if (!ta) return
+    if (ta.selectionStart === ta.selectionEnd) {
+      e.preventDefault()
+      const q = e.key
+      const start = ta.selectionStart
+      const value = localValue.value
+      localValue.value = value.slice(0, start) + q + q + value.slice(start)
+      requestAnimationFrame(() => {
+        ta.selectionStart = ta.selectionEnd = start + 1
+      })
+    }
+    return
+  }
+
+  // Перенос строки — сохраняем текущую глубину отступа
+  if (e.key === 'Enter') {
+    const start = ta.selectionStart
+    const value = localValue.value
+    const lineStart = value.lastIndexOf('\n', start - 1) + 1
+    const line = value.slice(lineStart, start)
+    const indent = (line.match(/^(\s+)/)?.[1]) || ''
+    e.preventDefault()
+    localValue.value = value.slice(0, start) + '\n' + indent + value.slice(start)
+    requestAnimationFrame(() => {
+      const pos = start + 1 + indent.length
+      ta.selectionStart = ta.selectionEnd = pos
+    })
+    return
+  }
+}
+
+const syncScroll = () => {
+  if (!preEl.value || !taEl.value) return
+  preEl.value.scrollTop = taEl.value.scrollTop
+  preEl.value.scrollLeft = taEl.value.scrollLeft
+}
+
+// Синхронизация при внешних изменениях
 watch(
   () => props.modelValue,
-  (newValue) => {
-    if (editor.value) {
-      editor.value.commands.setContent(newValue)
+  (v) => {
+    if (v !== localValue.value) {
+      localValue.value = v || ''
+      scheduleHighlight()
     }
   }
 )
 
-// Функция копирования кода
+// Эмит изменений наружу (всегда отдаем ЧИСТЫЙ HTML как строку)
+watch(
+  localValue,
+  (v) => emit('update:modelValue', v),
+  { immediate: true }
+)
+
+onMounted(() => {
+  doHighlight()
+})
+
+onBeforeUnmount(() => {
+  if (hiTimer) window.clearTimeout(hiTimer)
+})
+
+const toggleView = () => {
+  showPreview.value = !showPreview.value
+}
+
 const copyCode = async () => {
   try {
-    const content = editor.value?.getHTML() || ''
-    await navigator.clipboard.writeText(content)
-    // Можно добавить уведомление об успешном копировании
+    await navigator.clipboard.writeText(localValue.value || '')
   } catch (err) {
     console.error('Ошибка копирования:', err)
   }
 }
-
-// Уничтожаем редактор при размонтировании компонента
-onUnmounted(() => {
-  editor.value?.destroy()
-})
 </script>
 
 <style>
-/* Стили для редактора */
-.tiptap {
-  outline: none;
-  height: 100%;
+/* Контейнер overlay: подсветка (снизу) + textarea (сверху) */
+.code-editor {
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.375rem;
 }
 
-.tiptap pre {
+/* Совпадающие метрики, чтобы синхронизировать прокрутку */
+.code-editor .code-highlight,
+.code-editor .code-input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 1rem 1rem;
+  line-height: 1.4;
+  font-family: 'JetBrainsMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 12.5px;
+  white-space: pre-wrap;
+  word-break: normal;
+  overflow: auto;
+}
+
+/* Слой подсветки */
+.code-editor .code-highlight {
+  background: #1e1e1e;
+  color: #abb2bf;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Слой ввода: текст прозрачный, рисуем цвет через тень, чтобы видеть курсор */
+.code-editor .code-input {
+  background: transparent;
+  border: 0;
+  outline: none;
+  resize: none;
+  color: transparent;
+  caret-color: #ffffff;
+  text-shadow: 0 0 0 #e5e7eb;
+}
+
+/* Тёмная тема для hljs */
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 1em;
+  background: #1e1e1e;
+  color: #abb2bf;
+}
+.hljs-comment,
+.hljs-quote { color: #5c6370; font-style: italic; }
+.hljs-doctag,
+.hljs-keyword,
+.hljs-formula { color: #c678dd; }
+.hljs-section,
+.hljs-name,
+.hljs-selector-tag,
+.hljs-deletion,
+.hljs-subst { color: #e06c75; }
+.hljs-literal { color: #56b6c2; }
+.hljs-string,
+.hljs-regexp,
+.hljs-addition,
+.hljs-attribute,
+.hljs-meta .hljs-string { color: #98c379; }
+.hljs-attr,
+.hljs-variable,
+.hljs-template-variable,
+.hljs-type,
+.hljs-selector-class,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-number { color: #d19a66; }
+.hljs-symbol,
+.hljs-bullet,
+.hljs-link,
+.hljs-meta { color: #61aeee; }
+.hljs-built_in,
+.hljs-title,
+.hljs-class .hljs-title { color: #e6c07b; }
+.hljs-emphasis { font-style: italic; }
+.hljs-strong { font-weight: 700; }
+.hljs-link { text-decoration: underline; }
+
+/* Стили предпросмотра */
+.preview :where(p, h1, h2, h3, h4, h5, h6, ul, ol, pre, code, blockquote) {
+  margin: 0.5rem 0;
+}
+
+.preview pre {
   background-color: #f5f5f5;
   border-radius: 0.5rem;
   color: #333;
   font-family: 'JetBrainsMono', monospace;
   padding: 0.75rem 1rem;
+  overflow: auto;
 }
 
-.tiptap pre code {
-  background: none;
-  color: inherit;
-  font-size: 0.8rem;
-  padding: 0;
-}
-
-.tiptap pre .hljs-comment,
-.tiptap pre .hljs-quote {
-  color: #999;
-}
-
-.tiptap pre .hljs-variable,
-.tiptap pre .hljs-template-variable,
-.tiptap pre .hljs-tag,
-.tiptap pre .hljs-name,
-.tiptap pre .hljs-selector-id,
-.tiptap pre .hljs-selector-class,
-.tiptap pre .hljs-regexp,
-.tiptap pre .hljs-deletion {
-  color: #c92c2c;
-}
-
-.tiptap pre .hljs-number,
-.tiptap pre .hljs-built_in,
-.tiptap pre .hljs-builtin-name,
-.tiptap pre .hljs-literal,
-.tiptap pre .hljs-type,
-.tiptap pre .hljs-params,
-.tiptap pre .hljs-meta,
-.tiptap pre .hljs-link {
-  color: #c92c2c;
-}
-
-.tiptap pre .hljs-attribute {
-  color: #c92c2c;
-}
-
-.tiptap pre .hljs-string,
-.tiptap pre .hljs-symbol,
-.tiptap pre .hljs-bullet,
-.tiptap pre .hljs-addition {
-  color: #2f9c0a;
-}
-
-.tiptap pre .hljs-title,
-.tiptap pre .hljs-section {
-  color: #4d4d4d;
-}
-
-.tiptap pre .hljs-keyword,
-.tiptap pre .hljs-selector-tag {
-  color: #2f9c0a;
-}
-
-.tiptap pre .hljs-emphasis {
-  font-style: italic;
-}
-
-.tiptap pre .hljs-strong {
-  font-weight: bold;
+.preview code {
+  font-family: 'JetBrainsMono', monospace;
 }
 </style>
