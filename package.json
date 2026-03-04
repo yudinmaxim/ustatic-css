@@ -1,0 +1,81 @@
+{
+  "name": "ustatic-css",
+  "version": "0.0.1",
+  "prefix": "u",
+  "description": "Пакет утилити-классов",
+  "documentation": "",
+  "type": "module",
+  "main": "./dist/js/index.cjs.js",
+  "module": "./dist/js/index.es.js",
+  "types": "dist/types/src/index.d.ts",
+  "exports": {
+    ".": "./dist/css/utility-css.css",
+    "./package.json": {
+      "import": "./package.json",
+      "require": "./package.json"
+    },
+    "./vars": "./dist/css/vars.css",
+    "./base": "./dist/css/modules/base.css",
+    "./align": "./dist/css/modules/align.css",
+    "./animations": "./dist/css/modules/animations.css",
+    "./bg": "./dist/css/modules/bg.css",
+    "./border": "./dist/css/modules/border.css",
+    "./cursor": "./dist/css/modules/cursor.css",
+    "./display": "./dist/css/modules/display.css",
+    "./effects": "./dist/css/modules/effects.css",
+    "./filters": "./dist/css/modules/filters.css",
+    "./flexbox": "./dist/css/modules/flexbox.css",
+    "./grid": "./dist/css/modules/grid.css",
+    "./hide": "./dist/css/modules/hide.css",
+    "./interactivity": "./dist/css/modules/interactivity.css",
+    "./outline": "./dist/css/modules/outline.css",
+    "./position": "./dist/css/modules/position.css",
+    "./scroll": "./dist/css/modules/scroll.css",
+    "./sizing": "./dist/css/modules/sizing.css",
+    "./spacing": "./dist/css/modules/spacing.css",
+    "./typography": "./dist/css/modules/typography.css",
+    "./tokens-cfg/**/*": "./src/css/tokens/**/*",
+    "./tokens-scss/**/*": "./src/css/assets/tokens/**/*",
+    "./prefix": "./src/css/assets/tokens/_prefix.scss",
+    "./lists": "./src/css/assets/tokens/_list.scss",
+    "./utils/token": "./src/css/utils/_token.scss",
+    "./scripts": {
+      "types": "./dist/types/src/index.d.ts",
+      "import": "./dist/js/index.es.js",
+      "require": "./dist/js/index.cjs.js"
+    }
+  },
+  "files": [
+    "dist/**/*.*",
+    "src/**/*.*"
+  ],
+  "scripts": {
+    "tokens": "style-dictionary build --config ./sd.config.cjs",
+    "build": "bun run tokens && vite build"
+  },
+  "devDependencies": {
+    "@eslint/js": "~9.19.0",
+    "@types/node": "~22.13.1",
+    "@typescript-eslint/eslint-plugin": "^6.4.0",
+    "@typescript-eslint/parser": "^6.4.0",
+    "eslint": "~9.19.0",
+    "eslint-config-standard": "~17.1.0",
+    "eslint-config-standard-with-typescript": "~43.0.1",
+    "eslint-import-resolver-typescript": "~3.7.0",
+    "eslint-plugin-import": "~2.31.0",
+    "eslint-plugin-n": "~17.15.1",
+    "eslint-plugin-promise": "~7.2.1",
+    "eslint-plugin-vue": "~9.32.0",
+    "js-yaml": "~4.1.0",
+    "node-fetch": "~3.3.2",
+    "sass": "1.72.0",
+    "style-dictionary": "3.9.2",
+    "typescript-eslint": "^8.56.1",
+    "vite": "6.0.3",
+    "vite-plugin-dts": "3.8.1",
+    "vite-plugin-eslint": "~1.8.1",
+    "vite-plugin-externals": "^0.6.2",
+    "vite-tsconfig-paths": "4.3.1",
+    "vue-eslint-parser": "~9.4.3"
+  }
+}

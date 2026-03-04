@@ -1,0 +1,15 @@
+@import "../../variables";
+
+.gap {
+  @each $key, $value in $steps {
+    &-#{$key} {
+      gap: $value;
+    }
+    &-y-#{$key} {
+      row-gap: $value;
+    }
+    &-x-#{$key} {
+      column-gap: $value;
+    }
+  }
+}

@@ -1,0 +1,62 @@
+@use "sass:list";
+@import '../../utils/token';
+@import '../../variables.scss';
+@import "../../assets/tokens/list";
+
+.blink {
+  animation-name: blink;
+  animation-timing-function: linear;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  @keyframes blink {
+    50% {
+      opacity: 0.5;
+    }
+  }
+}
+
+.hover\:underline {
+  @each $key, $value in $palette-rgb {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+
+    &--#{"" + $key} {
+      &::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        width: 0;
+        height: 1px;
+        border-radius: 4px;
+        background-color: token("base.underline.color");
+        @include set-token("base.underline.color", rgba($value, token("base.color.opacity")));
+        transition:
+          width 0.3s ease,
+          left 0.3s ease;
+      }
+
+      &:hover::after {
+        width: 100%;
+        left: 0;
+      }
+    }
+  }
+}
+
+.animation\:spin {  
+  @for $timeStep from 1 through 10 {
+    &-#{$timeStep} {
+      animation: spin #{$timeStep * .25}s linear infinite both;
+    }
+  }
+  @keyframes spin {
+    from {
+      transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+  }
+}

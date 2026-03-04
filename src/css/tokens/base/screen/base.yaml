@@ -1,0 +1,10 @@
+base:
+  screen:
+    small:
+      value: 0 # < 1280px считается как small
+    medium:
+      value: 1280 # > 1280px считается как medium, но меньше след токена, с остальными по аналогии
+    default:
+      value: 1920
+    large:
+      value: 2560

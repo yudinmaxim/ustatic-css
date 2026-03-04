@@ -1,0 +1,94 @@
+@import "../../variables.scss";
+@import '../../utils/token';
+@import '../../variables.scss';
+
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+.fixed {
+  position: fixed;
+}
+.absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.top {
+  @each $key, $value in $positions {
+    &-#{$key} {
+      top: $value;
+    }
+  }
+}
+
+.right {
+  @each $key, $value in $positions {
+    &-#{$key} {
+      right: $value;
+    }
+  }
+}
+
+.bottom {
+  @each $key, $value in $positions {
+    &-#{$key} {
+      bottom: $value;
+    }
+  }
+}
+
+.left {
+  @each $key, $value in $positions {
+    &-#{$key} {
+      left: $value;
+    }
+  }
+}
+
+@for $i from -10 through 10 {
+  $modifier: if($i < 0, "\-z", "z");
+  $value: abs($i * 10);
+  .#{$modifier}-#{$value} {
+    z-index: $i * 10;
+  }
+}
+
+.z-auto {
+  z-index: auto;
+}
+
+.z-i-hidden {
+  z-index: token("base.zindex.hidden");
+}
+.z-i-icon {
+  z-index: token("base.zindex.1");
+}
+.z-i-modal {
+  z-index: token("base.zindex.60");
+}
+.z-i-notice {
+  z-index: token("base.zindex.100");
+}
+.z-i-tip {
+  z-index: token("base.zindex.50");
+}
+.z-i-load {
+  z-index: token("base.zindex.30");
+}
+.z-i-fullpage-load {
+  z-index: token("base.zindex.100");
+}
+.z-i-menu {
+  z-index: token("base.zindex.20");
+}
+.z-i-teleport {
+  z-index: token("base.zindex.20");
+}
+.z-i-mobile-menu {
+  z-index: token("base.zindex.50");
+}

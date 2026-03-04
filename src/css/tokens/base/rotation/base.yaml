@@ -1,0 +1,20 @@
+base:
+  rotation:
+    def:
+      value: "{base.rotation.0}"
+    '0':
+      value: 0
+    '45':
+      value: 45
+    '90':
+      value: 90
+    '135':
+      value: 135
+    '180':
+      value: 180
+    '225':
+      value: 225
+    '270':
+      value: 270
+    '315':
+      value: 315

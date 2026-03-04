@@ -1,0 +1,9 @@
+base:
+  grid:
+    template:
+      columns:
+        value: '1fr'
+      rows:
+        value: '1fr'
+      colspan:
+        value: '1'

@@ -1,0 +1,1322 @@
+base:
+  color:
+    primary:
+      "50":
+        value: &primary_50 "#edf5fc"
+      "50-hex":
+        value: *primary_50
+      "50-rgb":
+        value: &primary_50_rgb "237, 245, 252"
+      "100":
+        value: &primary_100 "#ddebf8"
+      "100-hex":
+        value: *primary_100
+      "100-rgb":
+        value: &primary_100_rgb "221, 235, 248"
+      "200":
+        value: &primary_200 "#c4dcf3"
+      "200-hex":
+        value: *primary_200
+      "200-rgb":
+        value: &primary_200_rgb "196, 220, 243"
+      "300":
+        value: &primary_300 "#9dc7ec"
+      "300-hex":
+        value: *primary_300
+      "300-rgb":
+        value: &primary_300_rgb "157, 199, 236"
+      "400":
+        value: &primary_400 "#74ade2"
+      "400-hex":
+        value: *primary_400
+      "400-rgb":
+        value: &primary_400_rgb "116, 173, 226"
+      "500":
+        value: &primary_500 "#5993d9"
+      "500-hex":
+        value: *primary_500
+      "500-rgb":
+        value: &primary_500_rgb "89, 147, 217"
+      "600":
+        value: &primary_600 "#4b7fd2"
+      "600-hex":
+        value: *primary_600
+      "600-rgb":
+        value: &primary_600_rgb "75, 127, 210"
+      "700":
+        value: &primary_700 "#4471ca"
+      "700-hex":
+        value: *primary_700
+      "700-rgb":
+        value: &primary_700_rgb "68, 113, 202"
+      "800":
+        value: &primary_800 "#375bae"
+      "800-hex":
+        value: *primary_800
+      "800-rgb":
+        value: &primary_800_rgb "55, 91, 174"
+      "900":
+        value: &primary_900 "#33508e"
+      "900-hex":
+        value: *primary_900
+      "900-rgb":
+        value: &primary_900_rgb "51, 80, 142"
+      "950":
+        value: &primary_950 "#26375f"
+      "950-hex":
+        value: *primary_950
+      "950-rgb":
+        value: &primary_950_rgb "38, 55, 95"
+      def:
+        value: *primary_500
+      def-hex:
+        value: *primary_500
+      def-rgb:
+        value: *primary_500_rgb
+      invert:
+        "50":
+          value: *primary_700
+        "50-hex":
+          value: *primary_700
+        "50-rgb":
+          value: *primary_700_rgb
+        "100":
+          value: *primary_800
+        "100-hex":
+          value: *primary_800
+        "100-rgb":
+          value: *primary_800_rgb
+        "200":
+          value: *primary_900
+        "200-hex":
+          value: *primary_900
+        "200-rgb":
+          value: *primary_900_rgb
+        "300":
+          value: *primary_900
+        "300-hex":
+          value: *primary_900
+        "300-rgb":
+          value: *primary_900_rgb
+        "400":
+          value: "#ffffff"
+        "400-hex":
+          value: "#ffffff"
+        "400-rgb":
+          value: "255, 255, 255"
+        "500":
+          value: *primary_50
+        "500-hex":
+          value: *primary_50
+        "500-rgb":
+          value: *primary_50_rgb
+        "600":
+          value: *primary_50
+        "600-hex":
+          value: *primary_50
+        "600-rgb":
+          value: *primary_50_rgb
+        "700":
+          value: *primary_100
+        "700-hex":
+          value: *primary_100
+        "700-rgb":
+          value: *primary_100_rgb
+        "800":
+          value: *primary_100
+        "800-hex":
+          value: *primary_100
+        "800-rgb":
+          value: *primary_100_rgb
+        "900":
+          value: *primary_200
+        "900-hex":
+          value: *primary_200
+        "900-rgb":
+          value: *primary_200_rgb
+        "950":
+          value: *primary_200
+        "950-hex":
+          value: *primary_200
+        "950-rgb":
+          value: *primary_200_rgb
+        def:
+          value: *primary_50
+        def-hex:
+          value: *primary_50
+        def-rgb:
+          value: *primary_50_rgb
+    secondary:
+      "50":
+        value: &secondary_50 "#fdebe3"
+      "50-hex":
+        value: *secondary_50
+      "50-rgb":
+        value: &secondary_50_rgb "253, 235, 227"
+      "100":
+        value: &secondary_100 "#fbe0d0"
+      "100-hex":
+        value: *secondary_100
+      "100-rgb":
+        value: &secondary_100_rgb "251, 224, 208"
+      "200":
+        value: &secondary_200 "#f7c0a6"
+      "200-hex":
+        value: *secondary_200
+      "200-rgb":
+        value: &secondary_200_rgb "247, 192, 166"
+      "300":
+        value: &secondary_300 "#f39972"
+      "300-hex":
+        value: *secondary_300
+      "300-rgb":
+        value: &secondary_300_rgb "243, 153, 114"
+      "400":
+        value: &secondary_400 "#ee683f"
+      "400-hex":
+        value: *secondary_400
+      "400-rgb":
+        value: &secondary_400_rgb "238, 104, 63"
+      "500":
+        value: &secondary_500 "#e53206"
+      "500-hex":
+        value: *secondary_500
+      "500-rgb":
+        value: &secondary_500_rgb "229, 50, 6"
+      "600":
+        value: &secondary_600 "#be230e"
+      "600-hex":
+        value: *secondary_600
+      "600-rgb":
+        value: &secondary_600_rgb "190, 35, 14"
+      "700":
+        value: &secondary_700 "#a52118"
+      "700-hex":
+        value: *secondary_700
+      "700-rgb":
+        value: &secondary_700_rgb "165, 33, 24"
+      "800":
+        value: &secondary_800 "#871f1c"
+      "800-hex":
+        value: *secondary_800
+      "800-rgb":
+        value: &secondary_800_rgb "135, 31, 28"
+      "900":
+        value: &secondary_900 "#73201c"
+      "900-hex":
+        value: *secondary_900
+      "900-rgb":
+        value: &secondary_900_rgb "115, 32, 28"
+      "950":
+        value: &secondary_950 "#631313"
+      "950-hex":
+        value: *secondary_950
+      "950-rgb":
+        value: &secondary_950_rgb "99, 19, 19"
+      def:
+        value: *secondary_500
+      def-hex:
+        value: *secondary_500
+      def-rgb:
+        value: *secondary_500_rgb
+      invert:
+        "50":
+          value: *secondary_700
+        "50-hex":
+          value: *secondary_700
+        "50-rgb":
+          value: *secondary_700_rgb
+        "100":
+          value: *secondary_800
+        "100-hex":
+          value: *secondary_800
+        "100-rgb":
+          value: *secondary_800_rgb
+        "200":
+          value: *secondary_900
+        "200-hex":
+          value: *secondary_900
+        "200-rgb":
+          value: *secondary_900_rgb
+        "300":
+          value: *secondary_900
+        "300-hex":
+          value: *secondary_900
+        "300-rgb":
+          value: *secondary_900_rgb
+        "400":
+          value: "#ffffff"
+        "400-hex":
+          value: "#ffffff"
+        "400-rgb":
+          value: "255, 255, 255"
+        "500":
+          value: *secondary_50
+        "500-hex":
+          value: *secondary_50
+        "500-rgb":
+          value: *secondary_50_rgb
+        "600":
+          value: *secondary_50
+        "600-hex":
+          value: *secondary_50
+        "600-rgb":
+          value: *secondary_50_rgb
+        "700":
+          value: *secondary_100
+        "700-hex":
+          value: *secondary_100
+        "700-rgb":
+          value: *secondary_100_rgb
+        "800":
+          value: *secondary_100
+        "800-hex":
+          value: *secondary_100
+        "800-rgb":
+          value: *secondary_100_rgb
+        "900":
+          value: *secondary_200
+        "900-hex":
+          value: *secondary_200
+        "900-rgb":
+          value: *secondary_200_rgb
+        "950":
+          value: *secondary_200
+        "950-hex":
+          value: *secondary_200
+        "950-rgb":
+          value: *secondary_200_rgb
+        def:
+          value: *secondary_50
+        def-hex:
+          value: *secondary_50
+        def-rgb:
+          value: *secondary_50_rgb
+    success:
+      "50":
+        value: &success_50 "#eafaf1"
+      "50-hex": 
+        value: *success_50
+      "50-rgb": 
+        value: "234,250,241"
+      "100":
+        value: &success_100 "#d0eddb"
+      "100-hex":
+        value: *success_100
+      "100-rgb":
+        value: &success_100_rgb "208, 237, 219"
+      "200":
+        value: &success_200 "#a1dbb8"
+      "200-hex":
+        value: *success_200
+      "200-rgb":
+        value: &success_200_rgb "161, 219, 184"
+      "300":
+        value: &success_300 "#72c894"
+      "300-hex":
+        value: *success_300
+      "300-rgb":
+        value: &success_300_rgb "114, 200, 148"
+      "400":
+        value: &success_400 "#43b671"
+      "400-hex":
+        value: *success_400
+      "400-rgb":
+        value: &success_400_rgb "67, 182, 113"
+      "500":
+        value: &success_500 "#14a44d"
+      "500-hex":
+        value: *success_500
+      "500-rgb":
+        value: &success_500_rgb "20, 164, 77"
+      "600":
+        value: &success_600 "#10833e"
+      "600-hex":
+        value: *success_600
+      "600-rgb":
+        value: &success_600_rgb "16, 131, 62"
+      "700":
+        value: &success_700 "#0c622e"
+      "700-hex":
+        value: *success_700
+      "700-rgb":
+        value: &success_700_rgb "12, 98, 46"
+      "800":
+        value: &success_800 "#08421f"
+      "800-hex":
+        value: *success_800
+      "800-rgb":
+        value: &success_800_rgb "8, 66, 31"
+      "900":
+        value: &success_900 "#04210f"
+      "900-hex":
+        value: *success_900
+      "900-rgb":
+        value: &success_900_rgb "4, 33, 15"
+      def:
+        value: *success_500
+      def-hex:
+        value: *success_500
+      def-rgb:
+        value: *success_500_rgb
+      invert:
+        "100":
+          value: *success_800
+        "100-hex":
+          value: *success_800
+        "100-rgb":
+          value: *success_800_rgb
+        "200":
+          value: *success_900
+        "200-hex":
+          value: *success_900
+        "200-rgb":
+          value: *success_900_rgb
+        "300":
+          value: *success_900
+        "300-hex":
+          value: *success_900
+        "300-rgb":
+          value: *success_900_rgb
+        "400":
+          value: "#ffffff"
+        "400-hex":
+          value: "#ffffff"
+        "400-rgb":
+          value: "255, 255, 255"
+        "500":
+          value: *success_100
+        "500-hex":
+          value: *success_100
+        "500-rgb":
+          value: *success_100_rgb
+        "600":
+          value: *success_100
+        "600-hex":
+          value: *success_100
+        "600-rgb":
+          value: *success_100_rgb
+        "700":
+          value: *success_200
+        "700-hex":
+          value: *success_200
+        "700-rgb":
+          value: *success_200_rgb
+        "800":
+          value: *success_200
+        "800-hex":
+          value: *success_200
+        "800-rgb":
+          value: *success_200_rgb
+        "900":
+          value: *success_300
+        "900-hex":
+          value: *success_300
+        "900-rgb":
+          value: *success_300_rgb
+        "950":
+          value: *success_300
+        "950-hex":
+          value: *success_300
+        "950-rgb":
+          value: *success_300_rgb
+        def:
+          value: *success_100
+        def-hex:
+          value: *success_100
+        def-rgb:
+          value: *success_100_rgb
+    danger:
+      "50":
+        value: &danger_50 "#fdeeee"
+      "50-hex": 
+        value: *danger_50
+      "50-rgb": 
+        value: "253,238,238"
+      "100":
+        value: &danger_100 "#f8dbe0"
+      "100-hex":
+        value: *danger_100
+      "100-rgb":
+        value: &danger_100_rgb "248, 219, 224"
+      "200":
+        value: &danger_200 "#f1b7c1"
+      "200-hex":
+        value: *danger_200
+      "200-rgb":
+        value: &danger_200_rgb "241, 183, 193"
+      "300":
+        value: &danger_300 "#ea94a2"
+      "300-hex":
+        value: *danger_300
+      "300-rgb":
+        value: &danger_300_rgb "234, 148, 162"
+      "400":
+        value: &danger_400 "#e37083"
+      "400-hex":
+        value: *danger_400
+      "400-rgb":
+        value: &danger_400_rgb "227, 112, 131"
+      "500":
+        value: &danger_500 "#dc4c64"
+      "500-hex":
+        value: *danger_500
+      "500-rgb":
+        value: &danger_500_rgb "220, 76, 100"
+      "600":
+        value: &danger_600 "#b03d50"
+      "600-hex":
+        value: *danger_600
+      "600-rgb":
+        value: &danger_600_rgb "176, 61, 80"
+      "700":
+        value: &danger_700 "#842e3c"
+      "700-hex":
+        value: *danger_700
+      "700-rgb":
+        value: &danger_700_rgb "132, 46, 60"
+      "800":
+        value: &danger_800 "#581e28"
+      "800-hex":
+        value: *danger_800
+      "800-rgb":
+        value: &danger_800_rgb "88, 30, 40"
+      "900":
+        value: &danger_900 "#2c0f14"
+      "900-hex":
+        value: *danger_900
+      "900-rgb":
+        value: &danger_900_rgb "44, 15, 20"
+      def:
+        value: *danger_500
+      def-hex:
+        value: *danger_500
+      def-rgb:
+        value: *danger_500_rgb
+      invert:
+        "100":
+          value: *danger_800
+        "100-hex":
+          value: *danger_800
+        "100-rgb":
+          value: *danger_800_rgb
+        "200":
+          value: *danger_900
+        "200-hex":
+          value: *danger_900
+        "200-rgb":
+          value: *danger_900_rgb
+        "300":
+          value: *danger_900
+        "300-hex":
+          value: *danger_900
+        "300-rgb":
+          value: *danger_900_rgb
+        "400":
+          value: "#ffffff"
+        "400-hex":
+          value: "#ffffff"
+        "400-rgb":
+          value: "255, 255, 255"
+        "500":
+          value: *danger_100
+        "500-hex":
+          value: *danger_100
+        "500-rgb":
+          value: *danger_100_rgb
+        "600":
+          value: *danger_100
+        "600-hex":
+          value: *danger_100
+        "600-rgb":
+          value: *danger_100_rgb
+        "700":
+          value: *danger_200
+        "700-hex":
+          value: *danger_200
+        "700-rgb":
+          value: *danger_200_rgb
+        "800":
+          value: *danger_200
+        "800-hex":
+          value: *danger_200
+        "800-rgb":
+          value: *danger_200_rgb
+        "900":
+          value: *danger_300
+        "900-hex":
+          value: *danger_300
+        "900-rgb":
+          value: *danger_300_rgb
+        "950":
+          value: *danger_300
+        "950-hex":
+          value: *danger_300
+        "950-rgb":
+          value: *danger_300_rgb
+        def:
+          value: *danger_100
+        def-hex:
+          value: *danger_100
+        def-rgb:
+          value: *danger_100_rgb
+    warning:
+      "50":
+        value: &warning_50 "#fff9eb"
+      "50-hex": 
+        value: *warning_50
+      "50-rgb": 
+        value: "255,249,235"
+      "100":
+        value: &warning_100 "#faecd1"
+      "100-hex":
+        value: *warning_100
+      "100-rgb":
+        value: &warning_100_rgb "250, 236, 209"
+      "200":
+        value: &warning_200 "#f4d9a4"
+      "200-hex":
+        value: *warning_200
+      "200-rgb":
+        value: &warning_200_rgb "244, 217, 164"
+      "300":
+        value: &warning_300 "#efc776"
+      "300-hex":
+        value: *warning_300
+      "300-rgb":
+        value: &warning_300_rgb "239, 199, 118"
+      "400":
+        value: &warning_400 "#e9b449"
+      "400-hex":
+        value: *warning_400
+      "400-rgb":
+        value: &warning_400_rgb "233, 180, 73"
+      "500":
+        value: &warning_500 "#e4a11b"
+      "500-hex":
+        value: *warning_500
+      "500-rgb":
+        value: &warning_500_rgb "228, 161, 27"
+      "600":
+        value: &warning_600 "#b68116"
+      "600-hex":
+        value: *warning_600
+      "600-rgb":
+        value: &warning_600_rgb "182, 129, 22"
+      "700":
+        value: &warning_700 "#896110"
+      "700-hex":
+        value: *warning_700
+      "700-rgb":
+        value: &warning_700_rgb "137, 97, 16"
+      "800":
+        value: &warning_800 "#5b400b"
+      "800-hex":
+        value: *warning_800
+      "800-rgb":
+        value: &warning_800_rgb "91, 64, 11"
+      "900":
+        value: &warning_900 "#2e2005"
+      "900-hex":
+        value: *warning_900
+      "900-rgb":
+        value: &warning_900_rgb "46, 32, 5"
+      def:
+        value: *warning_500
+      def-hex:
+        value: *warning_500
+      def-rgb:
+        value: *warning_500_rgb
+      invert:
+        "100":
+          value: *warning_800
+        "100-hex":
+          value: *warning_800
+        "100-rgb":
+          value: *warning_800_rgb
+        "200":
+          value: *warning_900
+        "200-hex":
+          value: *warning_900
+        "200-rgb":
+          value: *warning_900_rgb
+        "300":
+          value: *warning_900
+        "300-hex":
+          value: *warning_900
+        "300-rgb":
+          value: *warning_900_rgb
+        "400":
+          value: "#ffffff"
+        "400-hex":
+          value: "#ffffff"
+        "400-rgb":
+          value: "255, 255, 255"
+        "500":
+          value: *warning_100
+        "500-hex":
+          value: *warning_100
+        "500-rgb":
+          value: *warning_100_rgb
+        "600":
+          value: *warning_100
+        "600-hex":
+          value: *warning_100
+        "600-rgb":
+          value: *warning_100_rgb
+        "700":
+          value: *warning_200
+        "700-hex":
+          value: *warning_200
+        "700-rgb":
+          value: *warning_200_rgb
+        "800":
+          value: *warning_200
+        "800-hex":
+          value: *warning_200
+        "800-rgb":
+          value: *warning_200_rgb
+        "900":
+          value: *warning_300
+        "900-hex":
+          value: *warning_300
+        "900-rgb":
+          value: *warning_300_rgb
+        "950":
+          value: *warning_300
+        "950-hex":
+          value: *warning_300
+        "950-rgb":
+          value: *warning_300_rgb
+        def:
+          value: *warning_100
+        def-hex:
+          value: *warning_100
+        def-rgb:
+          value: *warning_100_rgb
+    info:
+      "50":
+        value: &info_50 "#edf7fa"
+      "50-hex": 
+        value: *info_50
+      "50-rgb": 
+        value: "237,247,250"
+      "100":
+        value: &info_100 "#ddf0f6"
+      "100-hex":
+        value: *info_100
+      "100-rgb":
+        value: &info_100_rgb "221, 240, 246"
+      "200":
+        value: &info_200 "#bbe1ed"
+      "200-hex":
+        value: *info_200
+      "200-rgb":
+        value: &info_200_rgb "187, 225, 237"
+      "300":
+        value: &info_300 "#98d2e5"
+      "300-hex":
+        value: *info_300
+      "300-rgb":
+        value: &info_300_rgb "152, 210, 229"
+      "400":
+        value: &info_400 "#76c3dc"
+      "400-hex":
+        value: *info_400
+      "400-rgb":
+        value: &info_400_rgb "118, 195, 220"
+      "500":
+        value: &info_500 "#54b4d3"
+      "500-hex":
+        value: *info_500
+      "500-rgb":
+        value: &info_500_rgb "84, 180, 211"
+      "600":
+        value: &info_600 "#4390a9"
+      "600-hex":
+        value: *info_600
+      "600-rgb":
+        value: &info_600_rgb "67, 144, 169"
+      "700":
+        value: &info_700 "#326c7f"
+      "700-hex":
+        value: *info_700
+      "700-rgb":
+        value: &info_700_rgb "50, 108, 127"
+      "800":
+        value: &info_800 "#214855"
+      "800-hex":
+        value: *info_800
+      "800-rgb":
+        value: &info_800_rgb "33, 72, 85"
+      "900":
+        value: &info_900 "#11242a"
+      "900-hex":
+        value: *info_900
+      "900-rgb":
+        value: &info_900_rgb "17, 36, 42"
+      def:
+        value: *info_500
+      def-hex:
+        value: *info_500
+      def-rgb:
+        value: *info_500_rgb
+      invert:
+        "100":
+          value: *info_800
+        "100-hex":
+          value: *info_800
+        "100-rgb":
+          value: *info_800_rgb
+        "200":
+          value: *info_900
+        "200-hex":
+          value: *info_900
+        "200-rgb":
+          value: *info_900_rgb
+        "300":
+          value: *info_900
+        "300-hex":
+          value: *info_900
+        "300-rgb":
+          value: *info_900_rgb
+        "400":
+          value: "#ffffff"
+        "400-hex":
+          value: "#ffffff"
+        "400-rgb":
+          value: "255, 255, 255"
+        "500":
+          value: *info_100
+        "500-hex":
+          value: *info_100
+        "500-rgb":
+          value: *info_100_rgb
+        "600":
+          value: *info_100
+        "600-hex":
+          value: *info_100
+        "600-rgb":
+          value: *info_100_rgb
+        "700":
+          value: *info_200
+        "700-hex":
+          value: *info_200
+        "700-rgb":
+          value: *info_200_rgb
+        "800":
+          value: *info_200
+        "800-hex":
+          value: *info_200
+        "800-rgb":
+          value: *info_200_rgb
+        "900":
+          value: *info_300
+        "900-hex":
+          value: *info_300
+        "900-rgb":
+          value: *info_300_rgb
+        "950":
+          value: *info_300
+        "950-hex":
+          value: *info_300
+        "950-rgb":
+          value: *info_300_rgb
+        def:
+          value: *info_100
+        def-hex:
+          value: *info_100
+        def-rgb:
+          value: *info_100_rgb
+    transparent:
+      value: "transparent"
+    transparent-hex:
+      value: "transparent"
+    transparent-rgb:
+      value: "transparent"
+    transparent-invert:
+      value: black
+    white:
+      value: "#ffffff"
+    white-hex:
+      value: "#ffffff"
+    white-rgb:
+      value: "255, 255, 255"
+    black:
+      value: "#000000"
+    black-hex:
+      value: "#000000"
+    black-rgb:
+      value: "0, 0, 0"
+    background:
+      value: "transparent"
+# -----------------------------------
+    gray:
+      "50":
+        value: &gray_50 "#f9fafb"
+      "50-hex":
+        value: *gray_50
+      "50-rgb":
+        value: &gray_50_rgb "249, 250, 251"
+      "100":
+        value: &gray_100 "#f3f4f6"
+      "100-hex":
+        value: *gray_100
+      "100-rgb":
+        value: &gray_100_rgb "243, 244, 246"
+      "200":
+        value: &gray_200 "#e5e7eb"
+      "200-hex":
+        value: *gray_200
+      "200-rgb":
+        value: &gray_200_rgb "229, 231, 235"
+      "300":
+        value: &gray_300 "#d1d5db"
+      "300-hex":
+        value: *gray_300
+      "300-rgb":
+        value: &gray_300_rgb "209, 213, 219"
+      "400":
+        value: &gray_400 "#9ca3af"
+      "400-hex":
+        value: *gray_400
+      "400-rgb":
+        value: &gray_400_rgb "156, 163, 175"
+      "500":
+        value: &gray_500 "#6b7280"
+      "500-hex":
+        value: *gray_500
+      "500-rgb":
+        value: &gray_500_rgb "107, 114, 128"
+      "600":
+        value: &gray_600 "#4b5563"
+      "600-hex":
+        value: *gray_600
+      "600-rgb":
+        value: &gray_600_rgb "75, 85, 99"
+      "700":
+        value: &gray_700 "#374151"
+      "700-hex":
+        value: *gray_700
+      "700-rgb":
+        value: &gray_700_rgb "55, 65, 81"
+      "800":
+        value: &gray_800 "#1f2937"
+      "800-hex":
+        value: *gray_800
+      "800-rgb":
+        value: &gray_800_rgb "31, 41, 55"
+      "900":
+        value: &gray_900 "#111827"
+      "900-hex":
+        value: *gray_900
+      "900-rgb":
+        value: &gray_900_rgb "17, 24, 39"
+      def:
+        value: *gray_500
+      def-hex:
+        value: *gray_500
+      def-rgb:
+        value: *gray_500_rgb
+    red:
+      "50":
+        value: &red_50 "#fef2f2"
+      "50-hex":
+        value: *red_50
+      "50-rgb":
+        value: &red_50_rgb "254, 242, 242"
+      "100":
+        value: &red_100 "#fee2e2"
+      "100-hex":
+        value: *red_100
+      "100-rgb":
+        value: &red_100_rgb "254, 226, 226"
+      "200":
+        value: &red_200 "#fecaca"
+      "200-hex":
+        value: *red_200
+      "200-rgb":
+        value: &red_200_rgb "254, 202, 202"
+      "300":
+        value: &red_300 "#fca5a5"
+      "300-hex":
+        value: *red_300
+      "300-rgb":
+        value: &red_300_rgb "252, 165, 165"
+      "400":
+        value: &red_400 "#f87171"
+      "400-hex":
+        value: *red_400
+      "400-rgb":
+        value: &red_400_rgb "248, 113, 113"
+      "500":
+        value: &red_500 "#ef4444"
+      "500-hex":
+        value: *red_500
+      "500-rgb":
+        value: &red_500_rgb "239, 68, 68"
+      "600":
+        value: &red_600 "#dc2626"
+      "600-hex":
+        value: *red_600
+      "600-rgb":
+        value: &red_600_rgb "220, 38, 38"
+      "700":
+        value: &red_700 "#b91c1c"
+      "700-hex":
+        value: *red_700
+      "700-rgb":
+        value: &red_700_rgb "185, 28, 28"
+      "800":
+        value: &red_800 "#991b1b"
+      "800-hex":
+        value: *red_800
+      "800-rgb":
+        value: &red_800_rgb "153, 27, 27"
+      "900":
+        value: &red_900 "#7f1d1d"
+      "900-hex":
+        value: *red_900
+      "900-rgb":
+        value: &red_900_rgb "127, 29, 29"
+      def:
+        value: *red_500
+      def-hex:
+        value: *red_500
+      def-rgb:
+        value: *red_500_rgb
+    orange:
+      "50":
+        value: &orange_50 "#fff7ed"
+      "50-hex":
+        value: *orange_50
+      "50-rgb":
+        value: &orange_50_rgb "255, 247, 237"
+      "100":
+        value: &orange_100 "#ffedd5"
+      "100-hex":
+        value: *orange_100
+      "100-rgb":
+        value: &orange_100_rgb "255, 237, 213"
+      "200":
+        value: &orange_200 "#fed7aa"
+      "200-hex":
+        value: *orange_200
+      "200-rgb":
+        value: &orange_200_rgb "254, 215, 170"
+      "300":
+        value: &orange_300 "#fdba74"
+      "300-hex":
+        value: *orange_300
+      "300-rgb":
+        value: &orange_300_rgb "253, 186, 116"
+      "400":
+        value: &orange_400 "#fb923c"
+      "400-hex":
+        value: *orange_400
+      "400-rgb":
+        value: &orange_400_rgb "251, 146, 60"
+      "500":
+        value: &orange_500 "#f97316"
+      "500-hex":
+        value: *orange_500
+      "500-rgb":
+        value: &orange_500_rgb "249, 115, 22"
+      "600":
+        value: &orange_600 "#ea580c"
+      "600-hex":
+        value: *orange_600
+      "600-rgb":
+        value: &orange_600_rgb "234, 88, 12"
+      "700":
+        value: &orange_700 "#c2410c"
+      "700-hex":
+        value: *orange_700
+      "700-rgb":
+        value: &orange_700_rgb "194, 65, 12"
+      "800":
+        value: &orange_800 "#9a3412"
+      "800-hex":
+        value: *orange_800
+      "800-rgb":
+        value: &orange_800_rgb "154, 52, 18"
+      "900":
+        value: &orange_900 "#7c2d12"
+      "900-hex":
+        value: *orange_900
+      "900-rgb":
+        value: &orange_900_rgb "124, 45, 18"
+      def:
+        value: *orange_500
+      def-hex:
+        value: *orange_500
+      def-rgb:
+        value: *orange_500_rgb
+    yellow:
+      "50":
+        value: &yellow_50 "#fefce8"
+      "50-hex":
+        value: *yellow_50
+      "50-rgb":
+        value: &yellow_50_rgb "254, 252, 232"
+      "100":
+        value: &yellow_100 "#fef9c3"
+      "100-hex":
+        value: *yellow_100
+      "100-rgb":
+        value: &yellow_100_rgb "254, 249, 195"
+      "200":
+        value: &yellow_200 "#fef08a"
+      "200-hex":
+        value: *yellow_200
+      "200-rgb":
+        value: &yellow_200_rgb "254, 240, 138"
+      "300":
+        value: &yellow_300 "#fde047"
+      "300-hex":
+        value: *yellow_300
+      "300-rgb":
+        value: &yellow_300_rgb "253, 224, 71"
+      "400":
+        value: &yellow_400 "#facc15"
+      "400-hex":
+        value: *yellow_400
+      "400-rgb":
+        value: &yellow_400_rgb "250, 204, 21"
+      "500":
+        value: &yellow_500 "#eab308"
+      "500-hex":
+        value: *yellow_500
+      "500-rgb":
+        value: &yellow_500_rgb "234, 179, 8"
+      "600":
+        value: &yellow_600 "#ca8a04"
+      "600-hex":
+        value: *yellow_600
+      "600-rgb":
+        value: &yellow_600_rgb "202, 138, 4"
+      "700":
+        value: &yellow_700 "#a16207"
+      "700-hex":
+        value: *yellow_700
+      "700-rgb":
+        value: &yellow_700_rgb "161, 98, 7"
+      "800":
+        value: &yellow_800 "#854d0e"
+      "800-hex":
+        value: *yellow_800
+      "800-rgb":
+        value: &yellow_800_rgb "133, 77, 14"
+      "900":
+        value: &yellow_900 "#713f12"
+      "900-hex":
+        value: *yellow_900
+      "900-rgb":
+        value: &yellow_900_rgb "113, 63, 18"
+      def:
+        value: *yellow_500
+      def-hex:
+        value: *yellow_500
+      def-rgb:
+        value: *yellow_500_rgb
+    green:
+      "50":
+        value: &green_50 "#f0fdf4"
+      "50-hex":
+        value: *green_50
+      "50-rgb":
+        value: &green_50_rgb "240, 253, 244"
+      "100":
+        value: &green_100 "#dcfce7"
+      "100-hex":
+        value: *green_100
+      "100-rgb":
+        value: &green_100_rgb "220, 252, 231"
+      "200":
+        value: &green_200 "#bbf7d0"
+      "200-hex":
+        value: *green_200
+      "200-rgb":
+        value: &green_200_rgb "187, 247, 208"
+      "300":
+        value: &green_300 "#86efac"
+      "300-hex":
+        value: *green_300
+      "300-rgb":
+        value: &green_300_rgb "134, 239, 172"
+      "400":
+        value: &green_400 "#4ade80"
+      "400-hex":
+        value: *green_400
+      "400-rgb":
+        value: &green_400_rgb "74, 222, 128"
+      "500":
+        value: &green_500 "#22c55e"
+      "500-hex":
+        value: *green_500
+      "500-rgb":
+        value: &green_500_rgb "34, 197, 94"
+      "600":
+        value: &green_600 "#16a34a"
+      "600-hex":
+        value: *green_600
+      "600-rgb":
+        value: &green_600_rgb "22, 163, 74"
+      "700":
+        value: &green_700 "#15803d"
+      "700-hex":
+        value: *green_700
+      "700-rgb":
+        value: &green_700_rgb "21, 128, 61"
+      "800":
+        value: &green_800 "#166534"
+      "800-hex":
+        value: *green_800
+      "800-rgb":
+        value: &green_800_rgb "22, 101, 52"
+      "900":
+        value: &green_900 "#14532d"
+      "900-hex":
+        value: *green_900
+      "900-rgb":
+        value: &green_900_rgb "20, 83, 45"
+      def:
+        value: *green_500
+      def-hex:
+        value: *green_500
+      def-rgb:
+        value: *green_500_rgb
+    sky:
+      "50":
+        value: &sky_50 "#f0f9ff"
+      "50-hex":
+        value: *sky_50
+      "50-rgb":
+        value: &sky_50_rgb "240, 249, 255"
+      "100":
+        value: &sky_100 "#e0f2fe"
+      "100-hex":
+        value: *sky_100
+      "100-rgb":
+        value: &sky_100_rgb "224, 242, 254"
+      "200":
+        value: &sky_200 "#bae6fd"
+      "200-hex":
+        value: *sky_200
+      "200-rgb":
+        value: &sky_200_rgb "186, 230, 253"
+      "300":
+        value: &sky_300 "#7dd3fc"
+      "300-hex":
+        value: *sky_300
+      "300-rgb":
+        value: &sky_300_rgb "125, 211, 252"
+      "400":
+        value: &sky_400 "#38bdf8"
+      "400-hex":
+        value: *sky_400
+      "400-rgb":
+        value: &sky_400_rgb "56, 189, 248"
+      "500":
+        value: &sky_500 "#0ea5e9"
+      "500-hex":
+        value: *sky_500
+      "500-rgb":
+        value: &sky_500_rgb "14, 165, 233"
+      "600":
+        value: &sky_600 "#0284c7"
+      "600-hex":
+        value: *sky_600
+      "600-rgb":
+        value: &sky_600_rgb "2, 132, 199"
+      "700":
+        value: &sky_700 "#0369a1"
+      "700-hex":
+        value: *sky_700
+      "700-rgb":
+        value: &sky_700_rgb "3, 105, 161"
+      "800":
+        value: &sky_800 "#075985"
+      "800-hex":
+        value: *sky_800
+      "800-rgb":
+        value: &sky_800_rgb "7, 89, 133"
+      "900":
+        value: &sky_900 "#0c4a6e"
+      "900-hex":
+        value: *sky_900
+      "900-rgb":
+        value: &sky_900_rgb "12, 74, 110"
+      def:
+        value: *sky_500
+      def-hex:
+        value: *sky_500
+      def-rgb:
+        value: *sky_500_rgb
+    blue:
+      "50":
+        value: &blue_50 "#eff6ff"
+      "50-hex":
+        value: *blue_50
+      "50-rgb":
+        value: &blue_50_rgb "239, 246, 255"
+      "100":
+        value: &blue_100 "#dbeafe"
+      "100-hex":
+        value: *blue_100
+      "100-rgb":
+        value: &blue_100_rgb "219, 234, 254"
+      "200":
+        value: &blue_200 "#bfdbfe"
+      "200-hex":
+        value: *blue_200
+      "200-rgb":
+        value: &blue_200_rgb "191, 219, 254"
+      "300":
+        value: &blue_300 "#93c5fd"
+      "300-hex":
+        value: *blue_300
+      "300-rgb":
+        value: &blue_300_rgb "147, 197, 253"
+      "400":
+        value: &blue_400 "#60a5fa"
+      "400-hex":
+        value: *blue_400
+      "400-rgb":
+        value: &blue_400_rgb "96, 165, 250"
+      "500":
+        value: &blue_500 "#3b82f6"
+      "500-hex":
+        value: *blue_500
+      "500-rgb":
+        value: &blue_500_rgb "59, 130, 246"
+      "600":
+        value: &blue_600 "#2563eb"
+      "600-hex":
+        value: *blue_600
+      "600-rgb":
+        value: &blue_600_rgb "37, 99, 235"
+      "700":
+        value: &blue_700 "#1d4ed8"
+      "700-hex":
+        value: *blue_700
+      "700-rgb":
+        value: &blue_700_rgb "29, 78, 216"
+      "800":
+        value: &blue_800 "#1e40af"
+      "800-hex":
+        value: *blue_800
+      "800-rgb":
+        value: &blue_800_rgb "30, 64, 175"
+      "900":
+        value: &blue_900 "#1e3a8a"
+      "900-hex":
+        value: *blue_900
+      "900-rgb":
+        value: &blue_900_rgb "30, 58, 138"
+      def:
+        value: *blue_500
+      def-hex:
+        value: *blue_500
+      def-rgb:
+        value: *blue_500_rgb
