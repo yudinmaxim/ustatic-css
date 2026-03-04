@@ -1,0 +1,5 @@
+base:
+  underline:
+    color:
+      value: '{base.color.variant.primary}'
+     

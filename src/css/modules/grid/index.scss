@@ -1,0 +1,94 @@
+@import "../../variables";
+
+$grid-template-columns: token("base.grid.template.columns") !default;
+$grid-template-rows: token("base.grid.template.rows") !default;
+$grid-template-colspan: token("base.grid.template.colspan") !default;
+
+.grid {
+  display: grid;
+}
+
+.grid-container {
+  container-type: inline-size;
+  container-name: grid;
+}
+
+.grid-columns {
+  grid-template-columns: $grid-template-columns;
+
+  &--1fr-auto {
+    grid-template-columns: 1fr auto;
+  }
+
+  &--auto-1fr {
+    grid-template-columns: auto 1fr;
+  }
+
+  &--1fr-1fr {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &--1fr-2fr {
+    grid-template-columns: 1fr 2fr;
+  }
+
+  &--1fr-1fr-1fr {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  $columns: ();
+  @for $i from 1 through 10 {
+    $columns: append($columns, $i);
+  }
+  $columns: append($columns, auto-fill);
+
+  @each $size, $sizeValue in $sizes {
+    @each $n, $nValue in $columns {
+      &--#{$n}-#{$size} {
+        grid-template-columns: repeat($n, minmax($sizeValue, 1fr));
+        @container grid (max-width: 1800px) {
+          // grid-template-columns: repeat(auto-fill, minmax($sizeValue, 1fr));
+          grid-template-columns: 1fr;
+        }
+      }
+    }
+  }
+}
+
+.grid-rows {
+  grid-template-rows: $grid-template-rows;
+
+  &--auto-1fr-auto {
+    grid-template-rows: auto 1fr auto;
+  }
+
+  &--1fr-auto {
+    grid-template-rows: 1fr auto;
+  }
+
+  &---auto-1fr {
+    grid-template-rows: auto 1fr;
+  }
+
+  &--1fr-1fr-1fr {
+    grid-template-rows: repeat(3, 1fr);
+  }
+
+  &--1fr-1fr {
+    grid-template-rows: 1fr 1fr;
+  }
+}
+
+.grid-col-span {
+  &-1 {
+    grid-column: span 1;
+  }
+
+  &-2 {
+    grid-column: span 2;
+  }
+
+  &-3 {
+    grid-column: span 3;
+  }
+}

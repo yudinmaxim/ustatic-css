@@ -1,0 +1,33 @@
+base:
+  border:
+    radius:
+      def:
+        value: "{base.border.radius.base}"
+      none:
+        value: 0
+      sm:
+        value: 0.125rem
+        comment: "примерно 2px"
+      base:
+        value: 0.25rem
+        comment: "примерно 4px"
+      md:
+        value: 0.375rem
+        comment: "примерно 6px"
+      lg:
+        value: 0.5rem
+        comment: "примерно 8px"
+      xl:
+        value: 0.75rem
+        comment: "примерно 12px"
+      2xl:
+        value: 1rem
+        comment: "примерно 16px"
+      3xl:
+        value: 1.5rem
+        comment: "примерно 24px"
+      full:
+        value: 9999px
+        comment: "делает элемент полностью круглым"
+    rounded:
+      value: 100%

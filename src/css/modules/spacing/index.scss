@@ -1,0 +1,56 @@
+@import "../../variables";
+
+@each $spaceKey, $spaceValue in $positions {
+  @each $dirKey, $dirValue in $directions {
+    // Создание классов для margin.
+    @if $dirKey == "" {
+      .m-#{$spaceKey} {
+        margin: $spaceValue;
+      }
+      .-m-#{$spaceKey} {
+        margin: calc(-1 * $spaceValue);
+      }
+    } @else {
+      .m#{$dirKey}-#{$spaceKey} {
+        @each $prop in $dirValue {
+          @if $prop != "" {
+            margin-#{$prop}: $spaceValue;
+          }
+        }
+      }
+
+      .-m#{$dirKey}-#{$spaceKey} {
+        @each $prop in $dirValue {
+          @if $prop != "" {
+            margin-#{$prop}: calc(-1 * $spaceValue);
+          }
+        }
+      }
+    }
+    // Создание классов для padding.
+    @if $dirKey == "" {
+      .p-#{$spaceKey} {
+        padding: $spaceValue;
+      }
+      .-p-#{$spaceKey} {
+        padding: calc(-1 * $spaceValue);
+      }
+    } @else {
+      .p#{$dirKey}-#{$spaceKey} {
+        @each $prop in $dirValue {
+          @if $prop != "" {
+            padding-#{$prop}: $spaceValue;
+          }
+        }
+      }
+
+      .-p#{$dirKey}-#{$spaceKey} {
+        @each $prop in $dirValue {
+          @if $prop != "" {
+            padding-#{$prop}: calc(-1 * $spaceValue);
+          }
+        }
+      }
+    }
+  }
+}

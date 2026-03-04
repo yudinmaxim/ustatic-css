@@ -1,0 +1,38 @@
+@use "sass:list";
+@import '../../utils/token';
+@import '../../variables.scss';
+
+.divider {
+  &-x {
+    width: 100%;
+    height: 1px;
+    background-color: #000;
+    margin: 20px 0;
+
+    &--small {
+      margin: 10px 0;
+    }
+    &--medium {
+      margin: 20px 0;
+    }
+    &--large {
+      margin: 30px 0;
+    }
+  }
+  &-y {
+    width: 1px;
+    height: 100%;
+    background-color: #000;
+    margin: 20px 0;
+
+    &--small {
+      margin: 10px 0;
+    }
+    &--medium {
+      margin: 20px 0;
+    }
+    &--large {
+      margin: 30px 0;
+    }
+  }
+}

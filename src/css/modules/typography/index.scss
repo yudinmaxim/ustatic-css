@@ -1,0 +1,139 @@
+@use "sass:list";
+@import '../../utils/token';
+@import '../../variables.scss';
+@import "../../assets/tokens/list";
+
+.font {
+  &-family-inherit {
+    font-family: inherit;
+  }
+  &-size-inherit {
+    font-size: inherit;
+  }
+
+  @each $weight, $value in $font-weights {
+    &-#{$weight} {
+      font-weight: $value;
+    }
+  }
+
+  &-caps {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+}
+
+.text {
+  @each $size, $values in $text-sizes {
+    $font-size: nth($values, 1);
+    $line-height: nth($values, 2);
+    &-#{$size} {
+      font-size: $font-size;
+      line-height: $line-height;
+    }
+  }
+
+  @each $key, $value in $palette-rgb {
+    // "" + - исправление ошибки использования в качестве имени класса имени цвета
+    &-#{"" + $key} {
+      color: token("base.color.text");
+      fill: token("base.color.text");
+      @include set-token("base.color.text", rgba($value, token("base.color.opacity")));
+    }
+  }
+
+  @each $key in $text-algins {
+    &-#{$key} {
+      text-align: $key;
+    }
+  }
+
+  @each $key in $vertical-algins {
+    &-#{$key} {
+      vertical-align: $key;
+    }
+  }
+
+  &-none {
+    color: token("base.color.transparent");
+  }
+
+  &-decoration-none {
+    text-decoration: none;
+  }
+  &-style-clear {
+    font-style: normal;
+  }
+  &-ellipsis {
+    text-overflow: ellipsis;
+  }
+
+}
+
+.hover\:text {
+  @each $key, $value in $palette-rgb {
+    // "" + - исправление ошибки использования в качестве имени класса имени цвета
+    &-#{"" + $key} {
+      &:hover {
+        color: token("base.color.text");
+        @include set-token("base.color.text", rgba($value, token("base.color.opacity")));
+      }
+    }
+  }
+}
+
+.line-height {
+  @each $size, $values in $text-sizes {
+    $line-height: nth($values, 2);
+    &-#{$size} {
+      line-height: $line-height;
+    }
+  }
+}
+
+.italic {
+  font-style: italic;
+}
+.underline {
+  text-decoration: underline;
+}
+
+.left-align {
+  text-align: left;
+}
+.center {
+  text-align: center;
+}
+.right-align {
+  text-align: right;
+}
+.justify {
+  text-align: justify;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.pre-wrap {
+  white-space: pre-wrap;
+}
+.break-word {
+  word-wrap: break-word;
+}
+
+.list-style-none {
+  list-style: none;
+}
+
+.truncate {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.list-reset {
+  list-style: none;
+  padding-left: 0;
+}

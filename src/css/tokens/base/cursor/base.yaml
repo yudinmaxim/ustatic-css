@@ -1,0 +1,18 @@
+base:
+  cursor:
+    pointer:
+      value: 'pointer'
+    move:
+      value: 'move'
+    default:
+      value: 'auto'
+    disabled:
+      value: 'not-allowed'
+    resize-ew:
+      value: 'ew-resize'    
+    resize-ns:
+      value: 'ns-resize'
+    wait:
+      value: 'wait'
+    help:
+      value: 'help'

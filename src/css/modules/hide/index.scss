@@ -1,0 +1,27 @@
+@import "../../variables";
+
+.hide {
+  display: none !important;
+}
+
+@each $breakpoint, $width in $screens {
+  @if $breakpoint == 'xs' {
+    // Пропускаем `xs`, так как это начальный брейкпоинт.
+  } @else {
+    // Получаем предыдущий брейкпоинт в списке.
+    $prev-breakpoint: nth(nth(map-keys($screens), index(map-keys($screens), $breakpoint) - 1), 1);
+    $prev-width: map-get($screens, $prev-breakpoint);
+
+    // Создаем custom media query для текущего брейкпоинта.
+    @media (min-width: $prev-width) and (max-width: calc($width - 1px)) {
+      .hide-#{$breakpoint} { display: none !important }
+    }
+  }
+}
+
+// Генерация custom media для последнего брейкпоинта без max-width.
+$last-breakpoint: nth(map-keys($screens), length(map-keys($screens)));
+$last-width: map-get($screens, $last-breakpoint);
+@media (min-width: $last-width) {
+  .hide-full { display: none !important }
+}

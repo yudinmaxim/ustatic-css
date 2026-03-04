@@ -1,0 +1,17 @@
+
+$vertical-alignments: (
+  baseline: baseline,
+  top: top,
+  middle: middle,
+  bottom: bottom
+) !default;
+
+@mixin vertical-align($value) {
+  vertical-align: $value;
+}
+
+@each $key, $value in $vertical-alignments {
+  .align-#{$key} {
+    @include vertical-align($value);
+  }
+}
