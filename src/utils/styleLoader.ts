@@ -1,4 +1,4 @@
-interface IStyleLoaderOptions {
+export interface IStyleLoaderOptions {
   modules?: string[];
   classes?: string[];
 }
@@ -233,4 +233,4 @@ const loadStyles = async (options?: IStyleLoaderOptions): Promise<void> => {
   }
 }
 
-export { loadStyles, type IStyleLoaderOptions }
+export { loadStyles }

@@ -1,40 +1,3 @@
-<template>
-  <div class="mb-6">
-    <div class="flex justify-between items-center mb-3">
-      <h3 class="text-lg font-semibold m-0">
-        Редактор HTML исходников
-      </h3>
-      <button
-        class="px-2 py-1 rounded text-sm bg-gray-200 hover:bg-gray-300"
-        @click="copyCode"
-      >
-        Копировать
-      </button>
-    </div>
-
-    <div class="relative">
-      <!-- Редактор исходника с подсветкой синтаксиса (overlay: подсветка + textarea) -->
-      <div class="code-editor w-full h-64 border border-gray-300 rounded text-sm bg-[#1e1e1e]">
-        <pre
-          ref="preEl"
-          class="code-highlight hljs"
-          aria-hidden="true"
-          v-html="highlighted"
-        />
-        <textarea
-          ref="taEl"
-          v-model="localValue"
-          class="code-input"
-          spellcheck="false"
-          @scroll="syncScroll"
-          @input="onInput"
-          @keydown="onKeyDown"
-        />
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { ref, watch, onMounted, onBeforeUnmount } from 'vue'
 import hljs from 'highlight.js/lib/core'
@@ -199,6 +162,43 @@ const copyCode = async () => {
   }
 }
 </script>
+
+<template>
+  <div class="mb-6">
+    <div class="flex justify-between items-center mb-3">
+      <h3 class="text-lg font-semibold m-0">
+        Редактор HTML исходников
+      </h3>
+      <button
+        class="px-2 py-1 rounded text-sm bg-gray-200 hover:bg-gray-300"
+        @click="copyCode"
+      >
+        Копировать
+      </button>
+    </div>
+
+    <div class="relative">
+      <!-- Редактор исходника с подсветкой синтаксиса (overlay: подсветка + textarea) -->
+      <div class="code-editor w-full h-64 border border-gray-300 rounded text-sm">
+        <pre
+          ref="preEl"
+          class="code-highlight hljs"
+          aria-hidden="true"
+          v-html="highlighted"
+        />
+        <textarea
+          ref="taEl"
+          v-model="localValue"
+          class="code-input"
+          spellcheck="false"
+          @scroll="syncScroll"
+          @input="onInput"
+          @keydown="onKeyDown"
+        />
+      </div>
+    </div>
+  </div>
+</template>
 
 <style>
 /* Контейнер overlay: подсветка (снизу) + textarea (сверху) */

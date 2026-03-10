@@ -1,11 +1,12 @@
 import { loadStyles } from './utils/styleLoader'
+import type { IStyleLoaderOptions } from './utils/styleLoader'
 
-interface PluginOptions {
+interface PluginOptions extends IStyleLoaderOptions {
   prefix?: string
 }
 
 const plugin = {
-  install(app: any, options?: PluginOptions) {
+  install(app: never, options?: PluginOptions) {
     // Проверяем, что document доступен
     if (typeof document === 'undefined') return
 

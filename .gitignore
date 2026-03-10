@@ -77,3 +77,4 @@ __snapshots__
 .settings
 *storybook.log
 storybook-static
+.npmrc
