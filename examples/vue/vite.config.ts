@@ -6,7 +6,10 @@ export default defineConfig({
   plugins: [ vue() ],
   resolve: {
     alias: {
-      '@': resolve(__dirname, 'src')
+      '@': resolve(__dirname, 'src'),
+      '@utypes': resolve(__dirname, 'src/types'),
+      '@components': resolve(__dirname, 'src/components'),
+      '@ui-kit': resolve(__dirname, 'src/ui-kit')
     }
   },
   build: {

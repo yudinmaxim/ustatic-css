@@ -22,8 +22,12 @@
     /* Aliases */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@utypes/*": ["src/types/*"],
+      "@components/*": ["src/components/*"],
+      "@ui-kit": ["src/ui-kit/index.ts"],
+      "@ui-kit/*": ["src/ui-kit/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue"]
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "src/**/*.d.ts"]
 }

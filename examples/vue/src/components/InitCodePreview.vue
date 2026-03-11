@@ -1,62 +1,25 @@
-<template>
-  <div class="code-preview p-4 bg-gray-50 rounded border border-gray-200 mb-6">
-    <div class="flex justify-between items-center mb-3">
-      <h3 class="text-lg font-semibold text-gray-800 m-0">
-        Код инициализации
-      </h3>
-      <button
-        class="px-3 py-1.5 rounded text-sm bg-blue-500 text-white hover:bg-blue-600 transition-colors"
-        @click="copyCode"
-      >
-        {{ copied ? 'Скопировано!' : 'Копировать' }}
-      </button>
-    </div>
-
-    <pre class="m-0 p-4 bg-white rounded border border-gray-200 overflow-x-auto text-sm"><code v-html="highlightedCode" /></pre>
-
-    <div class="mt-4 p-3 bg-blue-50 border border-blue-200 rounded">
-      <p class="text-sm text-blue-800 m-0">
-        <strong>💡 Совет:</strong> {{ tip }}
-      </p>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import hljs from 'highlight.js/lib/core'
 
-interface Config {
-  type: 'modules' | 'classes'
-  modules: string[]
-  classesInput: string
-  options: {
-    loadVars: boolean
-    loadBase: boolean
-  }
-}
+import type { IConfig } from '@utypes/interface'
+import { Button, Code } from '@ui-kit'
 
 const props = defineProps<{
-  config: Config
+  config: IConfig
 }>()
 
 const copied = ref(false)
 
 const plainInitializationCode = computed(() => {
-  const { type, modules, classesInput, options } = props.config
+  const { type, modules, classesInput } = props.config
 
   if (type === 'modules') {
     const modulesStr = modules.length > 0
-      ? `['${modules.join("', '")}']`
+      ? `['${modules.join('\', \'')}']`
       : '[]'
 
-    const opts = []
-    if (options.loadVars) opts.push('loadVars: true')
-    if (options.loadBase) opts.push('loadBase: true')
-    const optsStr = opts.length > 0 ? `, { ${opts.join(', ')} }` : ''
-
     return `app.use(ustaticCss, {
-  modules: ${modulesStr}${optsStr}
+  modules: ${modulesStr}
 })`
   }
 
@@ -67,7 +30,7 @@ const plainInitializationCode = computed(() => {
       .filter(c => c)
 
     const classesStr = classes.length > 0
-      ? `['${classes.join("', '")}']`
+      ? `['${classes.join('\', \'')}']`
       : '[]'
 
     return `app.use(ustaticCss, {
@@ -75,7 +38,7 @@ const plainInitializationCode = computed(() => {
 })`
   }
 
-  return `app.use(ustaticCss)`
+  return 'app.use(ustaticCss)'
 })
 
 const fullCode = computed(() => {
@@ -86,14 +49,6 @@ import App from './App.vue'
 const app = createApp(App)
 ${plainInitializationCode.value}
 app.mount('#app')`
-})
-
-const highlightedCode = computed(() => {
-  try {
-    return hljs.highlight(fullCode.value, { language: 'typescript' }).value
-  } catch {
-    return hljs.highlightAuto(fullCode.value).value
-  }
 })
 
 const tip = computed(() => {
@@ -132,6 +87,32 @@ const copyCode = async () => {
   }
 }
 </script>
+
+<template>
+  <div class="code-preview p-4 bg-gray-50 rounded-base border border-gray-200 mb-6">
+    <div class="flex justify-between items-center mb-3">
+      <h3 class="text-lg font-semibold text-gray-800 m-0">
+        Код инициализации
+      </h3>
+      <Button
+        size="small"
+        @click="copyCode"
+      >
+        {{ copied ? 'Скопировано!' : 'Копировать' }}
+      </Button>
+    </div>
+
+    <Code
+      :code="fullCode"
+    />
+
+    <div class="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-base">
+      <p class="text-sm text-blue-800 m-0">
+        <strong>💡 Совет:</strong> {{ tip }}
+      </p>
+    </div>
+  </div>
+</template>
 
 <style scoped>
 code {

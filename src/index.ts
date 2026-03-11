@@ -1,4 +1,4 @@
-import { loadStyles } from './utils/styleLoader'
+import { loadStyles, getModulesFromClasses } from './utils/styleLoader'
 import type { IStyleLoaderOptions } from './utils/styleLoader'
 
 interface PluginOptions extends IStyleLoaderOptions {
@@ -19,5 +19,7 @@ const plugin = {
 export {
   plugin as ustaticCss,
   type PluginOptions,
-  loadStyles
+  loadStyles,
+
+  getModulesFromClasses
 }

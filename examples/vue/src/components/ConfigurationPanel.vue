@@ -1,17 +1,9 @@
 <script setup lang="ts">
 import { ref, reactive, watch } from 'vue'
 
-import Button from '../ui-kit/button.vue'
-
-interface Config {
-  type: 'modules' | 'classes'
-  modules: string[]
-  classesInput: string
-  options: {
-    loadVars: boolean
-    loadBase: boolean
-  }
-}
+import { getModulesFromClasses } from 'ustatic-css/scripts'
+import type { IConfig } from '@utypes/interface'
+import { Button } from '@ui-kit'
 
 const availableModules = [
   'align',
@@ -40,18 +32,14 @@ const initTypes = [
   { value: 'classes', label: 'Классы (автоподбор)' }
 ] as const
 
-const config = reactive<Config>({
+const config = reactive<IConfig>({
   type: 'modules',
   modules: [ 'flexbox', 'spacing', 'typography' ],
   classesInput: 'flex, p-4, text-lg',
-  options: {
-    loadVars: true,
-    loadBase: true
-  }
 })
 
 const emit = defineEmits<{
-  (e: 'apply', config: Config): void
+  (e: 'apply', config: IConfig): void
   (e: 'reset'): void
 }>()
 
@@ -73,7 +61,6 @@ const resetConfig = () => {
   config.type = 'modules'
   config.modules = [ 'flexbox', 'spacing', 'typography' ]
   config.classesInput = 'flex, p-4, text-lg'
-  config.options = { loadVars: true, loadBase: true }
   emit('reset')
 }
 
@@ -86,7 +73,7 @@ watch(
 </script>
 
 <template>
-  <div class="configuration-panel p-4 bg-gray-50 rounded border border-gray-200 mb-6">
+  <div class="configuration-panel p-4 bg-gray-50 rounded-base border border-gray-200 mb-6">
     <h3 class="text-lg font-semibold mb-4">
       Конфигурация инициализации
     </h3>
@@ -114,15 +101,15 @@ watch(
         Модули для подключения
       </label>
       <div class="flex flex-wrap gap-2">
-        <button
+        <Button
           v-for="module in availableModules"
           :key="module"
-          class="px-3 py-1.5 rounded text-sm font-medium transition-colors"
-          :class="config.modules.includes(module) ? 'bg-blue-500 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'"
+          size="small"
+          :state="config.modules.includes(module) ? 'active' : 'normal'"
           @click="toggleModule(module)"
         >
           {{ module }}
-        </button>
+        </Button>
       </div>
     </div>
 
@@ -134,53 +121,39 @@ watch(
       <textarea
         v-model="config.classesInput"
         rows="3"
-        class="w-full p-2 border border-gray-300 rounded text-sm font-mono"
+        class="w-full p-2 border border-gray-300 rounded-base text-sm font-mono"
         placeholder="flex, p-4, text-lg, bg-primary"
       />
-      <p class="text-xs text-gray-500 mt-1">
+      <p class="text-xs text-gray-500">
         Перечислите классы через запятую
+      </p>
+      <p>
+        Необходимые модули: <span class="flex flex-row gap-1">
+          <Button
+            v-for="item in getModulesFromClasses(config.classesInput)"
+            :key="item"
+            :label="item"
+            size="small"
+            state="active"
+            class="pointer-events-none"
+          />
+        </span>
       </p>
     </div>
 
-    <!-- Дополнительные опции -->
-    <div class="mb-4">
-      <label class="block text-sm font-medium text-gray-700 mb-2">
-        Дополнительные опции
-      </label>
-      <div class="space-y-2">
-        <label class="flex items-center gap-2 cursor-pointer">
-          <input
-            v-model="config.options.loadVars"
-            type="checkbox"
-            class="text-blue-600 rounded"
-          >
-          <span class="text-sm">Загрузить CSS-переменные</span>
-        </label>
-        <label class="flex items-center gap-2 cursor-pointer">
-          <input
-            v-model="config.options.loadBase"
-            type="checkbox"
-            class="text-blue-600 rounded"
-          >
-          <span class="text-sm">Загрузить базовые стили</span>
-        </label>
-      </div>
-    </div>
-
     <!-- Кнопки действий -->
-    <div class="flex gap-2">
-      <button
-        class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
+    <!-- <div class="flex gap-2">
+      <Button
+        state="active"
         @click="applyConfig"
       >
         Применить конфигурацию
-      </button>
-      <button
-        class="px-4 py-2 bg-gray-200 text-gray-700 rounded hover:bg-gray-300 transition-colors"
+      </Button>
+      <Button
         @click="resetConfig"
       >
         Сбросить
-      </button>
-    </div>
+      </Button>
+    </div> -->
   </div>
 </template>

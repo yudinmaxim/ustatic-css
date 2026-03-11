@@ -13,6 +13,10 @@ export interface IProps {
   classes?: string | string[]
 }
 
+defineOptions({
+  name: 'Button'
+})
+
 const {
   label,
   size = 'default',
@@ -28,11 +32,11 @@ const slots = useSlots()
 const haveSlot = computed(() => !!slots.default)
 
 const stateClasses = computed(() => {
-  let btnClasses = 'rounded font-medium active:pulse h-fit'
+  let btnClasses = 'rounded-base font-medium active:pulse h-fit'
 
   switch (size) {
     case 'small': {
-      btnClasses += ' px-2 py-1 text-xs -h'
+      btnClasses += ' px-2 py-1 text-xs'
     } break
     case 'default': {
       btnClasses += ' px-4 py-2 text-sm'
@@ -60,8 +64,6 @@ const stateClasses = computed(() => {
 })
 
 const click = () => {
-  if (state === 'disable') return
-
   emit('click')
 }
 </script>

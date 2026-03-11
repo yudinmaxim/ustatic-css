@@ -116,10 +116,17 @@ const classToModuleMap: Record<string, string> = {
   'show': 'hide',
 }
 
-const getModulesFromClasses = (classes: string[]): string[] => {
+export const getModulesFromClasses = (classes: string | string[]): string[] => {
+  if (!classes) return []
+
+  let _classes = Array.isArray(classes) ? classes : []
+
+  if (classes?.length > 0 && !Array.isArray(classes)) {
+    _classes = classes?.replaceAll(' ', '')?.split(',')
+  }
   const modules = new Set<string>()
 
-  classes.forEach(className => {
+  _classes.forEach(className => {
     // Проверяем точные соответствия
     if (classToModuleMap[className]) {
       modules.add(classToModuleMap[className])
@@ -174,7 +181,7 @@ const loadCSS = (cssPath: string): Promise<void> => {
     })
 }
 
-const loadStyles = async (options?: IStyleLoaderOptions): Promise<void> => {
+export const loadStyles = async (options?: IStyleLoaderOptions): Promise<void> => {
   // Проверяем, что document доступен
   if (typeof document === 'undefined') return
 
@@ -232,5 +239,3 @@ const loadStyles = async (options?: IStyleLoaderOptions): Promise<void> => {
     console.error('Failed to load CSS files:', error)
   }
 }
-
-export { loadStyles }
