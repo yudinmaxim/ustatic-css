@@ -1,11 +1,11 @@
 <template>
-  <div class="mb-6 border border-gray-200 rounded overflow-hidden">
+  <div class="mb-6 border border-gray-200 rounded-base overflow-hidden">
     <div class="flex justify-between items-center p-3 bg-gray-50 border-b border-gray-200">
       <h4 class="text-md font-semibold m-0">
         {{ title }}
       </h4>
       <button
-        class="px-2 py-1 rounded text-sm bg-gray-200 hover:bg-gray-300 transition-colors"
+        class="px-2 py-1 rounded-base text-sm bg-gray-200 hover:bg-gray-300"
         @click="toggleCode"
       >
         {{ showCode ? 'Скрыть код' : 'Показать код' }}
@@ -18,7 +18,7 @@
       </div>
 
       <div v-if="showCode" class="mt-4">
-        <pre class="m-0 p-4 bg-gray-100 rounded overflow-x-auto"><code>{{ code }}</code></pre>
+        <pre class="m-0 p-4 bg-gray-100 rounded-base overflow-x-auto"><code>{{ code }}</code></pre>
       </div>
     </div>
   </div>

@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import { ref, reactive, watch } from 'vue'
 
-import { getModulesFromClasses } from 'ustatic-css/scripts'
+import { getModulesFromClasses, useTokens } from 'ustatic-css/scripts'
 import type { IConfig } from '@utypes/interface'
-import { Button } from '@ui-kit'
+import { UButton, UTag } from '@ui-kit'
 
 const availableModules = [
   'align',
@@ -31,6 +31,10 @@ const initTypes = [
   { value: 'modules', label: 'Модули' },
   { value: 'classes', label: 'Классы (автоподбор)' }
 ] as const
+
+const {
+  setCssTokenViaClass
+} = useTokens()
 
 const config = reactive<IConfig>({
   type: 'modules',
@@ -84,14 +88,14 @@ watch(
         Тип инициализации
       </label>
       <div class="flex gap-2">
-        <Button
+        <UButton
           v-for="type in initTypes"
           :key="type.value"
-          :state="config.type === type.value ? 'active' : 'normal'"
+          :variant="config.type === type.value ? 'primary' : 'default'"
           @click="config.type = type.value"
         >
           {{ type.label }}
-        </Button>
+        </UButton>
       </div>
     </div>
 
@@ -101,15 +105,15 @@ watch(
         Модули для подключения
       </label>
       <div class="flex flex-wrap gap-2">
-        <Button
+        <UButton
           v-for="module in availableModules"
           :key="module"
           size="small"
-          :state="config.modules.includes(module) ? 'active' : 'normal'"
+          :variant="config.modules.includes(module) ? 'primary' : 'default'"
           @click="toggleModule(module)"
         >
           {{ module }}
-        </Button>
+        </UButton>
       </div>
     </div>
 
@@ -129,13 +133,12 @@ watch(
       </p>
       <p>
         Необходимые модули: <span class="flex flex-row gap-1">
-          <Button
+          <UTag
             v-for="item in getModulesFromClasses(config.classesInput)"
             :key="item"
             :label="item"
             size="small"
-            state="active"
-            class="pointer-events-none"
+            variant="info"
           />
         </span>
       </p>
@@ -143,17 +146,17 @@ watch(
 
     <!-- Кнопки действий -->
     <!-- <div class="flex gap-2">
-      <Button
-        state="active"
+      <UButton
+        variant="active"
         @click="applyConfig"
       >
         Применить конфигурацию
-      </Button>
-      <Button
+      </UButton>
+      <UButton
         @click="resetConfig"
       >
         Сбросить
-      </Button>
+      </UButton>
     </div> -->
   </div>
 </template>

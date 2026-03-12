@@ -170,7 +170,7 @@ const copyCode = async () => {
         Редактор HTML исходников
       </h3>
       <button
-        class="px-2 py-1 rounded text-sm bg-gray-200 hover:bg-gray-300"
+        class="px-2 py-1 rounded-base text-sm bg-gray-200 hover:bg-gray-300"
         @click="copyCode"
       >
         Копировать
@@ -179,7 +179,7 @@ const copyCode = async () => {
 
     <div class="relative">
       <!-- Редактор исходника с подсветкой синтаксиса (overlay: подсветка + textarea) -->
-      <div class="code-editor w-full h-64 border border-gray-300 rounded text-sm">
+      <div class="code-editor w-full h-64 border border-gray-300 rounded-base text-sm">
         <pre
           ref="preEl"
           class="code-highlight hljs"

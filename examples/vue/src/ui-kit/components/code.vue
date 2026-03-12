@@ -3,16 +3,29 @@ import {
   computed
 } from 'vue'
 import hljs from 'highlight.js/lib/core'
+import css from 'highlight.js/lib/languages/css'
+import html from 'highlight.js/lib/languages/xml'
+import javascript from 'highlight.js/lib/languages/javascript'
+import typescript from 'highlight.js/lib/languages/typescript'
 
 export interface IProps {
   code: string,
   lang?: string
 }
 
+defineOptions({
+  name: 'UCode'
+})
+
 const {
   code,
   lang = 'typescript'
 } = defineProps<IProps>()
+
+hljs.registerLanguage('html', html)
+hljs.registerLanguage('css', css)
+hljs.registerLanguage('javascript', javascript)
+hljs.registerLanguage('typescript', typescript)
 
 const highlightedCode = computed(() => {
   try {

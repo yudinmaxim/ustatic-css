@@ -2,7 +2,7 @@
 import { computed, ref } from 'vue'
 
 import type { IConfig } from '@utypes/interface'
-import { Button, Code } from '@ui-kit'
+import { UButton, UCode } from '@ui-kit'
 
 const props = defineProps<{
   config: IConfig
@@ -94,15 +94,15 @@ const copyCode = async () => {
       <h3 class="text-lg font-semibold text-gray-800 m-0">
         Код инициализации
       </h3>
-      <Button
+      <UButton
         size="small"
         @click="copyCode"
       >
         {{ copied ? 'Скопировано!' : 'Копировать' }}
-      </Button>
+      </UButton>
     </div>
 
-    <Code
+    <UCode
       :code="fullCode"
     />
 

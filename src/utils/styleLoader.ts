@@ -136,7 +136,7 @@ export const getModulesFromClasses = (classes: string | string[]): string[] => {
     // Проверяем частичные соответствия (префиксы)
     for (const [ prefix, module ] of Object.entries(classToModuleMap)) {
       // проверим классы на совпадение с префиксом в модуле
-      if (className.startsWith(prefix)) {
+      if (className.split('-')?.[0] === prefix?.split('-')?.[0]) {
         modules.add(module)
         break
       }

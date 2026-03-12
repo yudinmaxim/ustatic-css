@@ -11,7 +11,7 @@
       >
         <a
           href="#"
-          class="block p-2 rounded text-gray-700 no-underline hover:bg-gray-100 transition-colors"
+          class="block p-2 rounded-base text-gray-700 no-underline hover:bg-gray-100"
           :class="{ 'bg-blue-500 text-white hover:bg-blue-600': activeModule === module.id }"
           @click.prevent="selectModule(module.id)"
         >

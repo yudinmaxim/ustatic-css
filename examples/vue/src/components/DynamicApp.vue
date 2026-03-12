@@ -13,7 +13,7 @@
     <!-- Контейнер для динамического приложения -->
     <div
       ref="appContainer"
-      class="app-mount-point border-2 border-dashed border-gray-300 rounded-lg p-4 bg-gray-50 min-h-96"
+      class="app-mount-point border-2 border-dashed border-gray-300 rounded-base p-4 bg-gray-50 h-96"
     >
       <div
         v-if="!appMounted"
