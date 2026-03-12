@@ -12,21 +12,13 @@ interface Config {
   type: 'modules' | 'classes'
   modules: string[]
   classesInput: string
-  options: {
-    loadVars: boolean
-    loadBase: boolean
-  }
 }
 
 // Текущая конфигурация
 const currentConfig = reactive<Config>({
   type: 'modules',
   modules: [ 'flexbox', 'spacing', 'typography' ],
-  classesInput: 'flex, p-4, text-lg',
-  options: {
-    loadVars: true,
-    loadBase: true
-  }
+  classesInput: 'flex, p-4, text-lg'
 })
 
 // Обработчики событий конфигурации
@@ -38,7 +30,6 @@ const handleConfigReset = () => {
   currentConfig.type = 'modules'
   currentConfig.modules = [ 'flexbox', 'spacing', 'typography' ]
   currentConfig.classesInput = 'flex, p-4, text-lg'
-  currentConfig.options = { loadVars: true, loadBase: true }
 }
 
 // Код для редактора
@@ -63,7 +54,7 @@ const code = ref(`<div class="p-4 bg-blue-100 rounded-base text-center">
         </p>
       </header>
 
-      <main class="mt-8">
+      <main class="flex flex-col gap-8 mt-8">
         <div class="grid grid-columns--1fr-2fr gap-2">
           <!-- Панель конфигурации -->
           <ConfigurationPanel
@@ -74,15 +65,18 @@ const code = ref(`<div class="p-4 bg-blue-100 rounded-base text-center">
           <!-- Код инициализации -->
           <InitCodePreview :config="currentConfig" />
         </div>
-        <!-- Динамическое приложение -->
-        <div class="grid grid-columns--1fr-1fr gap-2 mt-6">
-          <DynamicApp :config="currentConfig" />
-        </div>
 
         <!-- Редактор и предпросмотр HTML -->
         <div class="grid grid-columns--1fr-1fr gap-2">
           <UCodeEditor v-model="code" />
-          <Preview :html="code" />
+          <Preview :html="code" :config="currentConfig" />
+        </div>
+
+        <!-- Динамическое приложение -->
+        <div class="grid grid-columns--1fr-1fr gap-2 mt-6">
+          <Suspense>
+            <DynamicApp :config="currentConfig" />
+          </Suspense>
         </div>
       </main>
     </div>
