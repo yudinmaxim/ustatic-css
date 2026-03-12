@@ -1,47 +1,12 @@
-<template>
-  <div class="min-h-screen bg-white">
-    <div class="max-w-6xl mx-auto p-5">
-      <header class="mb-8 pb-6 border-b border-gray-200">
-        <h1 class="text-2xl font-bold">
-          Ustatic CSS Playground - Vue
-        </h1>
-        <p class="text-gray-600">
-          Интерактивная демонстрация различных типов инициализации
-        </p>
-      </header>
-
-      <main class="mt-8">
-        <!-- Панель конфигурации -->
-        <ConfigurationPanel
-          @apply="handleConfigApply"
-          @reset="handleConfigReset"
-        />
-
-        <!-- Код инициализации -->
-        <InitCodePreview :config="currentConfig" />
-
-        <!-- Динамическое приложение -->
-        <div v-if="false" class="grid grid-columns--1fr-1fr gap-8 mt-6">
-          <DynamicApp :config="currentConfig" />
-
-          <!-- Редактор и предпросмотр HTML -->
-          <div>
-            <CodeEditor v-model="code" />
-            <Preview :html="code" />
-          </div>
-        </div>
-      </main>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { ref, reactive } from 'vue'
-import ConfigurationPanel from './components/ConfigurationPanel.vue'
-import InitCodePreview from './components/InitCodePreview.vue'
-import DynamicApp from './components/DynamicApp.vue'
-import CodeEditor from './components/CodeEditor.vue'
-import Preview from './components/Preview.vue'
+
+import { UCodeEditor } from '@ui-kit'
+
+import ConfigurationPanel from '@components/ConfigurationPanel.vue'
+import InitCodePreview from '@components/InitCodePreview.vue'
+import DynamicApp from '@components/DynamicApp.vue'
+import Preview from '@components/Preview.vue'
 
 interface Config {
   type: 'modules' | 'classes'
@@ -85,3 +50,41 @@ const code = ref(`<div class="p-4 bg-blue-100 rounded-base text-center">
   </button>
 </div>`)
 </script>
+
+<template>
+  <div class="h-100vh bg-white overflow-y-auto">
+    <div class="max-w-3/4 mx-auto p-5">
+      <header class="mb-8 pb-6 border-b border-gray-200">
+        <h1 class="text-2xl font-bold">
+          Ustatic CSS Playground - Vue
+        </h1>
+        <p class="text-gray-600">
+          Интерактивная демонстрация различных типов инициализации
+        </p>
+      </header>
+
+      <main class="mt-8">
+        <div class="grid grid-columns--1fr-2fr gap-2">
+          <!-- Панель конфигурации -->
+          <ConfigurationPanel
+            @apply="handleConfigApply"
+            @reset="handleConfigReset"
+          />
+
+          <!-- Код инициализации -->
+          <InitCodePreview :config="currentConfig" />
+        </div>
+        <!-- Динамическое приложение -->
+        <div class="grid grid-columns--1fr-1fr gap-2 mt-6">
+          <DynamicApp :config="currentConfig" />
+        </div>
+
+        <!-- Редактор и предпросмотр HTML -->
+        <div class="grid grid-columns--1fr-1fr gap-2">
+          <UCodeEditor v-model="code" />
+          <Preview :html="code" />
+        </div>
+      </main>
+    </div>
+  </div>
+</template>

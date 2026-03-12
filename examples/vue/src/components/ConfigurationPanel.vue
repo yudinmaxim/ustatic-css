@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { ref, reactive, watch } from 'vue'
+import { reactive, watch } from 'vue'
 
-import { getModulesFromClasses, useTokens } from 'ustatic-css/scripts'
+import { getModulesFromClasses } from 'ustatic-css/scripts'
 import type { IConfig } from '@utypes/interface'
-import { UButton, UTag } from '@ui-kit'
+import { UButton, UTag, UIsland } from '@ui-kit'
 
 const availableModules = [
   'align',
@@ -32,10 +32,6 @@ const initTypes = [
   { value: 'classes', label: 'Классы (автоподбор)' }
 ] as const
 
-const {
-  setCssTokenViaClass
-} = useTokens()
-
 const config = reactive<IConfig>({
   type: 'modules',
   modules: [ 'flexbox', 'spacing', 'typography' ],
@@ -57,17 +53,6 @@ const toggleModule = (module: string) => {
   emit('apply', { ...config })
 }
 
-const applyConfig = () => {
-  emit('apply', { ...config })
-}
-
-const resetConfig = () => {
-  config.type = 'modules'
-  config.modules = [ 'flexbox', 'spacing', 'typography' ]
-  config.classesInput = 'flex, p-4, text-lg'
-  emit('reset')
-}
-
 watch(
   () => config.type,
   () => {
@@ -77,11 +62,9 @@ watch(
 </script>
 
 <template>
-  <div class="configuration-panel p-4 bg-gray-50 rounded-base border border-gray-200 mb-6">
-    <h3 class="text-lg font-semibold mb-4">
-      Конфигурация инициализации
-    </h3>
-
+  <UIsland
+    title="Конфигурация инициализации"
+  >
     <!-- Тип инициализации -->
     <div class="mb-4">
       <label class="block text-sm font-medium text-gray-700 mb-2">
@@ -100,7 +83,7 @@ watch(
     </div>
 
     <!-- Выбор модулей -->
-    <div v-if="config.type === 'modules'" class="mb-4">
+    <div v-if="config.type === 'modules'">
       <label class="block text-sm font-medium text-gray-700 mb-2">
         Модули для подключения
       </label>
@@ -118,7 +101,7 @@ watch(
     </div>
 
     <!-- Ввод классов -->
-    <div v-if="config.type === 'classes'" class="mb-4">
+    <div v-if="config.type === 'classes'">
       <label class="block text-sm font-medium text-gray-700 mb-2">
         Классы для автоподбора модулей
       </label>
@@ -143,20 +126,5 @@ watch(
         </span>
       </p>
     </div>
-
-    <!-- Кнопки действий -->
-    <!-- <div class="flex gap-2">
-      <UButton
-        variant="active"
-        @click="applyConfig"
-      >
-        Применить конфигурацию
-      </UButton>
-      <UButton
-        @click="resetConfig"
-      >
-        Сбросить
-      </UButton>
-    </div> -->
-  </div>
+  </UIsland>
 </template>
