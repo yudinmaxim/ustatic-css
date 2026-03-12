@@ -32,11 +32,12 @@
 
 ## 🌐 Документация
 
-Подробная документация доступна в директории `@/help`:
+Полная документация доступна в директории `help/`:
 
 - [📘 `useCssProperties` — Управление CSS-свойствами](./help/useCssProperties_help.md)
 - [📘 `useTokens` — Работа с токенами CSS](./help/useTokens_help.md)
-- [📘 Утилитарные классы](./help/ustatic_utility_help.md)
+- [📘 Утилитарные классы (подробно)](./help/ustatic_utility_help.md)
+- [📗 Словарь всех классов](./help/ustatic_classes.md) — полный список с примерами использования
 
 ## 🚀 Быстрый старт
 
@@ -68,13 +69,42 @@ import 'ustatic-css/flexbox';
 Используйте классы в разметке:
 
 ```html
-<div class="flex justify-between items-center p-4 bg-primary text-white rounded-lg">
-  <span class="text-lg font-semibold">Заголовок</span>
-  <button class="px-3 py-1 bg-white text-primary rounded hover:bg-gray-100">
+<!-- Карточка с flexbox -->
+<div class="flex justify-between items-center p-4 bg-white border border-gray-200 rounded-base">
+  <span class="text-lg font-semibold text-gray-800">Заголовок</span>
+  <button class="px-4 py-2 bg-blue-500 text-white rounded-base hover:bg-blue-600 cursor-pointer">
     Кнопка
   </button>
 </div>
+
+<!-- Бейдж -->
+<span class="inline-block px-2 py-1 text-xs font-semibold text-red-600 bg-red-100 rounded-base">
+  New
+</span>
+
+<!-- Анимация вращения -->
+<div class="animation:spin-4">⚙️</div>
 ```
+
+### Доступные классы
+
+**Основные модули:**
+- **Типографика**: `.text-{size}`, `.font-{weight}`, `.text-{color}-{brightness}`
+- **Отступы**: `.m-{space}`, `.p-{space}`, `.mt-{space}`, `.px-{space}` и т.д.
+- **Flexbox**: `.flex`, `.items-center`, `.justify-between`, `.gap-{size}`
+- **Позиционирование**: `.relative`, `.absolute`, `.z-{index}`
+- **Фон**: `.bg-{color}-{brightness}`, `.bg-opacity-{0|25|50|75|100}`
+- **Границы**: `.border`, `.border-{color}-{brightness}`, `.rounded-{size}` (например, `.rounded-base`, `.rounded-lg`)
+- **Размеры**: `.w-{size}`, `.h-{size}`, `.min-w-{size}`, `.max-h-{size}`
+- **Эффекты**: `.opacity-{0-100}`, `.rotate-{angle}`
+- **Анимации**: `.blink`, `.animation:spin-{1-10}`, `.active:pulse`
+
+**Цвета с яркостью:** Все цветовые классы поддерживают указания яркости через дефис:
+- `.bg-red-500`, `.bg-blue-300`, `.bg-green-700`
+- `.text-gray-600`, `.text-primary-400`
+- `.border-purple-500`, `.border-orange-200`
+
+Полный список из 350+ классов см. в [Словаре утилитарных классов](./help/ustatic_classes.md).
 
 #### Активация стилей в рантайме
 
@@ -114,38 +144,47 @@ app.mount('#app');
 
 **Доступные модули:** `align`, `animations`, `base`, `bg`, `border`, `cursor`, `display`, `effects`, `filters`, `flexbox`, `grid`, `hide`, `interactivity`, `outline`, `position`, `scroll`, `sizing`, `spacing`, `typography`
 
-Если опции не заданы — подключаются базовые стили и переменные.
+Если опции не заданы — подключаются базовые стили (`ustatic.css`) и переменные (`vars.css`).
 
-#### Использование без фреймворков (универсальный метод)
-
-Для активации стилей из любого приложения (Vanilla JS, React, Svelte, Nuxt, SSR) используйте универсальный метод загрузчика:
+#### Примеры использования загрузчика
 
 ```js
+// Vue 3: загрузить конкретные модули
+app.use(ustaticCss, {
+  modules: ['flexbox', 'spacing', 'typography', 'border']
+});
+
+// Vue 3: автоподбор по классам
+app.use(ustaticCss, {
+  classes: ['flex', 'p-4', 'text-lg', 'bg-blue-500']
+});
+
+// Vanilla JS / React / Svelte: явная загрузка
 import { loadStyles } from 'ustatic-css/scripts';
 
-// Явно указать модули
 await loadStyles({ modules: ['typography', 'spacing'] });
 
-// Или автоподбор по используемым классам
-loadStyles({ classes: ['flex', 'p-4', 'text-lg'] });
+// Автоподбор по классам
+await loadStyles({ classes: ['flex', 'justify-between', 'items-center'] });
 ```
 
-Примечания:
+#### SSR-совместимость
 
-- Метод безопасно работает при SSR: если document недоступен, загрузка пропускается на сервере и выполняется в браузере.
-- Если опции не заданы, будут подключены базовые стили и переменные.
+Метод `loadStyles` безопасно работает при SSR: если `document` недоступен, загрузка пропускается на сервере и выполняется в браузере.
 
 ## 🧩 Особенности
 
 - **Готовый Vue-плагин** — активация и подгрузка модульных стилей в рантайме
-- **Универсальный загрузчик стилей** — метод `loadStyles` для любых сред (Vanilla/React/Svelte/Nuxt/SSR)
+- **Универсальный загрузчик** — метод `loadStyles` для любых сред (Vanilla/React/Svelte/Nuxt/SSR)
+- **Автоподбор модулей** — загрузчик автоматически определит нужные модули по списку классов
 - **Токены дизайн-системы** — все стили основаны на единой системе токенов
-- **Утилитарные классы** — более 20 модулей для типографики, отступов, позиционирования и других стилей
+- **350+ утилитарных классов** — 19 модулей для типографики, отступов, позиционирования, цветов и эффектов
+- **Цвета с яркостью** — поддержка оттенков вида `{color}-{brightness}` (red-500, blue-300, green-700)
 - **Динамические хуки** — `useCssProperties` и `useTokens` для управления стилями в JavaScript
 - **Адаптивность** — поддержка брейкпоинтов `xs`, `md`, `def`, `lg`
-- **Мультиязычность** — документация на русском языке, легко расширяемая
-- **Модульность** — импорт только нужных компонентов
-- **Поддержка современных стандартов** — ESM, TypeScript, SCSS
+- **Модульность** — импорт только нужных компонентов для уменьшения размера бандла
+- **SSR-совместимость** — безопасная работа на сервере и в браузере
+- **ESM и CJS** — поддержка современных стандартов модулей
 
 ## TODO
 [ ] Разработка интерактивных примеров и документации на работу с библиотекой

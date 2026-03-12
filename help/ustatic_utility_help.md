@@ -27,7 +27,7 @@
 
 ## Соглашения и префиксы
 
-- Цветовые утилиты используют палитру из токенов: `<palette>` (primary, secondary, success, info, warning, danger, gray-100..900 и др.).
+- Цветовые утилиты используют палитру из токенов: `<palette>` (primary, secondary, success, info, warning, danger, gray-100..900 и др.) и цвета с указанием яркости: `<color>-<brightness>` (red-500, blue-300, orange-600 и т.д.).
 - Псевдосостояния реализуются точечно для отдельных модулей:
   - `hover:bg-<palette>`
   - `hover:text-<palette>`
@@ -41,7 +41,7 @@
 ### 1. Типографика (typography)
 
 - Размеры текста (из токенов): `.text-2xs`, `.text-xs`, `.text-sm`, `.text-base`, `.text-lg`, `.text-xl`, `.text-2xl`
-- Цвет текста: `.text-<palette>`, `.text-none` (прозрачный)
+- Цвет текста: `.text-<palette>`, `.text-<color>-<brightness>` (например, `.text-red-500`, `.text-blue-300`), `.text-none` (прозрачный)
 - Выравнивание текста: `.text-left`, `.text-center`, `.text-right`, `.text-justify`, `.text-start`, `.text-end`
 - Вертикальное выравнивание (также доступно как отдельный модуль align): `.text-top`, `.text-middle`, `.text-bottom`, `.text-baseline`, `.text-text-top`, `.text-text-bottom`, `.text-sub`, `.text-super`
 - Начертание шрифта: `.font-thin`, `.font-extralight`, `.font-light`, `.font-regular`, `.font-medium`, `.font-semibold`, `.font-bold`, `.font-extrabold`, `.font-black`
@@ -51,7 +51,7 @@
   - `.text-decoration-none`, `.text-style-clear`
   - `.nowrap`, `.pre-wrap`, `.break-word`
   - `.list-style-none`, `.list-reset`, `.truncate`
-- Ховеры по цвету: `.hover:text-<palette>`
+- Ховеры по цвету: `.hover:text-<palette>`, `.hover:text-<color>-<brightness>`
 
 Пример:
 ```html
@@ -136,19 +136,19 @@
   - `.border` (дефолтная ширина), `.border-none`
   - `.border-0..5`
   - По сторонам: `.border-t`, `.border-r`, `.border-b`, `.border-l` и их варианты с шириной: `.border-t-0..5` и т.д.
-- Цвет границы: `.border-<palette>`, `.border-transparent`
-- Стиль: `.border-dashed;` (solid по умолчанию). Варианты `.border-dotted`/`.border-double`/`.border-solid` отсутствуют.
+- Цвет границы: `.border-<palette>`, `.border-<color>-<brightness>` (например, `.border-red-500`, `.border-gray-300`), `.border-transparent`
+- Стиль: `.border-dashed` (solid по умолчанию). Варианты `.border-dotted`/`.border-double`/`.border-solid` отсутствуют.
 - Скругления:
-  - Общие: `.rounded-none`, `.rounded-sm`, `.rounded-base`, `.rounded-md`, `.rounded-lg`, `.rounded-xl`, `.rounded-2xl`, `.rounded-3xl`, `.rounded-full`
+  - Общие: `.rounded-none`, `.rounded-sm`, `.rounded-base`, `.rounded-md`, `.rounded-lg`, `.rounded-xl`, `.rounded-2xl`, `.rounded-3xl`, `.rounded-full`, `.circle`
   - Стороны: `.rounded-t-*`, `.rounded-r-*`, `.rounded-b-*`, `.rounded-l-*`
   - Углы: `.rounded-tl-*`, `.rounded-tr-*`, `.rounded-bl-*`, `.rounded-br-*`
   - Алиаса `.rounded` (без суффикса) нет — используйте `.rounded-base`
 
 ### 9. Фон (bg)
 
-- Цвет фона: `.bg-<palette>`
+- Цвет фона: `.bg-<palette>`, `.bg-<color>-<brightness>` (например, `.bg-red-500`, `.bg-blue-300`)
 - Прозрачность: `.bg-opacity-0|25|50|75|100`
-- Ховер по фону: `.hover:bg-<palette>`
+- Ховер по фону: `.hover:bg-<palette>`, `.hover:bg-<color>-<brightness>`
 - Сброс: `.bg-none`
 - Дополнительно: `.bg-filter-blur-1..10` (backdrop-filter: blur(px))
 
@@ -162,8 +162,9 @@
 ### 11. Анимации (animations)
 
 - Мерцание: `.blink`
-- Подчеркивание при hover: `.hover:underline--<palette>`
+- Подчеркивание при hover: `.hover:underline--<palette>`, `.hover:underline--<color>-<brightness>`
 - Вращение: `.animation:spin-1..10` — анимация spin с шагом 0.25s (1 → 0.25s, 2 → 0.5s, ...)
+- Пульсация при нажатии: `.active:pulse`
 
 Пример:
 ```html
@@ -193,10 +194,10 @@
 ### 15. Контуры (outline)
 
 - Сброс: `.outline-none`
-- Толщина/цвет: `.outline-<size>-<palette>` (size из `$sizes-short`)
+- Толщина/цвет: `.outline-<size>-<palette>`, `.outline-<size>-<color>-<brightness>` (size из `$sizes-short`)
 - Толщина (без цвета): `.outline-<size>`
 - Стиль: `.outline-style--solid|dotted|groove|inset`
-- Смещение: `.outline-offset-<N>` и `.-outline-offset-<N>`
+- Смещение: `.outline-offset-<N>` и `.-outline-offset-<N>` (N от 0 до 10)
 
 ### 16. Фильтры (filters)
 
