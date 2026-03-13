@@ -6,7 +6,7 @@ import { UCodeEditor } from '@ui-kit'
 import ConfigurationPanel from '@components/ConfigurationPanel.vue'
 import InitCodePreview from '@components/InitCodePreview.vue'
 import DynamicApp from '@components/DynamicApp.vue'
-import Preview from '@components/Preview.vue'
+import PreviewWithFrame from '@components/PreviewWithFrame.vue'
 
 interface Config {
   type: 'modules' | 'classes'
@@ -23,7 +23,10 @@ const currentConfig = reactive<Config>({
 
 // Обработчики событий конфигурации
 const handleConfigApply = (config: Config) => {
-  Object.assign(currentConfig, config)
+  // Полностью заменяем конфиг для триггера watch
+  currentConfig.type = config.type
+  currentConfig.modules = config.modules
+  currentConfig.classesInput = config.classesInput
 }
 
 const handleConfigReset = () => {
@@ -58,6 +61,7 @@ const code = ref(`<div class="p-4 bg-blue-100 rounded-base text-center">
         <div class="grid grid-columns--1fr-2fr gap-2">
           <!-- Панель конфигурации -->
           <ConfigurationPanel
+            :config="currentConfig"
             @apply="handleConfigApply"
             @reset="handleConfigReset"
           />
@@ -69,15 +73,15 @@ const code = ref(`<div class="p-4 bg-blue-100 rounded-base text-center">
         <!-- Редактор и предпросмотр HTML -->
         <div class="grid grid-columns--1fr-1fr gap-2">
           <UCodeEditor v-model="code" />
-          <Preview :html="code" :config="currentConfig" />
+          <PreviewWithFrame :html="code" :config="currentConfig" />
         </div>
 
         <!-- Динамическое приложение -->
-        <div class="grid grid-columns--1fr-1fr gap-2 mt-6">
+        <!-- <div class="grid grid-columns--1fr-1fr gap-2 mt-6">
           <Suspense>
             <DynamicApp :config="currentConfig" />
           </Suspense>
-        </div>
+        </div> -->
       </main>
     </div>
   </div>

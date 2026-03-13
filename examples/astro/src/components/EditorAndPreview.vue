@@ -164,16 +164,22 @@ onMounted(() => {
       <p class="text-sm text-gray-600 mb-2">
         Стили изолированы через iframe - загружаются только выбранные модули
       </p>
-      <div class="mt-4 border border-gray-300 rounded-base bg-white overflow-hidden">
+      <div class="mt-4 border border-gray-300 rounded-base bg-white overflow-hidden relative h-300">
+        <!-- Оверлей загрузки -->
+        <div
+          v-if="!stylesLoaded"
+          class="absolute inset-0 bg-white/90 flex items-center justify-center z-10"
+        >
+          <div class="text-gray-400 text-sm font-medium">
+            Загрузка стилей...
+          </div>
+        </div>
         <iframe
           ref="previewFrameRef"
-          class="w-full h-300 border-0"
+          class="w-full h-full border-0"
           title="Preview"
           :class="{ 'opacity-50': !stylesLoaded }"
         />
-      </div>
-      <div v-if="!stylesLoaded" class="text-gray-400 text-center text-sm mt-2">
-        Загрузка стилей...
       </div>
     </div>
   </div>

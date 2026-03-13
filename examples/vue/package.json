@@ -4,7 +4,9 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "copy:css": "node scripts/copy-css.js",
+    "prebuild": "npm run copy:css",
+    "dev": "npm run copy:css && vite",
     "build": "vite build",
     "preview": "vite preview"
   },
