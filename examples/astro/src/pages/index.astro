@@ -1,0 +1,89 @@
+---
+import Layout from '../layouts/Layout.astro'
+
+// Пример HTML кода для редактора
+const defaultCode = `<div class="p-4 bg-blue-100 rounded-base text-center">
+  <h2 class="text-xl font-bold mb-2">Пример заголовка</h2>
+  <p class="text-gray-700">Это пример текста с использованием утилитарных классов</p>
+  <button class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-base hover:bg-blue-600">
+    Пример кнопки
+  </button>
+</div>`
+---
+
+<Layout>
+  <div class="h-100vh bg-white overflow-y-auto">
+    <div class="max-w-3/4 mx-auto p-5">
+      <header class="mb-8 pb-6 border-b border-gray-200">
+        <h1 class="text-2xl font-bold">
+          Ustatic CSS Playground - Astro
+        </h1>
+        <p class="text-gray-600">
+          Интерактивная демонстрация различных типов инициализации
+        </p>
+      </header>
+
+      <main class="flex flex-col gap-8 mt-8">
+        <!-- Панель конфигурации и код инициализации -->
+        <div class="grid grid-columns--1fr-2fr gap-2">
+          <div class="p-4 bg-gray-50 rounded-base border border-gray-200">
+            <h3 class="text-lg font-semibold mb-4">Панель конфигурации</h3>
+            <p class="text-sm text-gray-600">
+              Vue компонент ConfigurationPanel будет загружен как остров
+            </p>
+          </div>
+
+          <div class="p-4 bg-gray-50 rounded-base border border-gray-200">
+            <h3 class="text-lg font-semibold mb-4">Код инициализации</h3>
+            <p class="text-sm text-gray-600">
+              Vue компонент InitCodePreview будет загружен как остров
+            </p>
+          </div>
+        </div>
+
+        <!-- Редактор и предпросмотр HTML -->
+        <div class="grid grid-columns--1fr-1fr gap-2">
+          <div class="p-4 bg-gray-50 rounded-base border border-gray-200">
+            <h3 class="text-lg font-semibold mb-4">Редактор кода</h3>
+            <p class="text-sm text-gray-600">
+              Vue компонент UCodeEditor будет загружен как остров
+            </p>
+            <pre class="mt-4 p-3 bg-gray-100 rounded-base text-sm font-mono overflow-auto">
+{defaultCode}
+            </pre>
+          </div>
+
+          <div class="p-4 bg-gray-50 rounded-base border border-gray-200">
+            <h3 class="text-lg font-semibold mb-4">Предпросмотр</h3>
+            <p class="text-sm text-gray-600">
+              Vue компонент Preview будет загружен как остров
+            </p>
+            <div class="mt-4 p-4 border border-gray-300 rounded-base bg-gray-50">
+              <div class="p-4 bg-blue-100 rounded-base text-center">
+                <h2 class="text-xl font-bold mb-2">Пример заголовка</h2>
+                <p class="text-gray-700">Это пример текста с использованием утилитарных классов</p>
+                <button class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-base hover:bg-blue-600">
+                  Пример кнопки
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Динамическое приложение -->
+        <div class="grid grid-columns--1fr-1fr gap-2 mt-6">
+          <div class="p-4 bg-gray-50 rounded-base border border-gray-200">
+            <h3 class="text-lg font-semibold mb-4">Динамическое приложение</h3>
+            <p class="text-sm text-gray-600">
+              Vue компонент DynamicApp будет загружен как остров
+            </p>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  /* Дополнительные стили при необходимости */
+</style>

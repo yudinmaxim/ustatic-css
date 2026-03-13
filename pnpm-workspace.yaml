@@ -1,5 +1,8 @@
 packages:
-  - examples
+  - examples/vue
+  - examples/svelte
+  - examples/astro
+  - docs
 
 onlyBuiltDependencies:
   - esbuild

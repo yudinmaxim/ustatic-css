@@ -1,0 +1,26 @@
+{
+  "name": "astro",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "copy:css": "node scripts/copy-css.js",
+    "prebuild": "npm run copy:css",
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@codemirror/lang-html": "^6.4.11",
+    "@codemirror/lang-javascript": "^6.2.5",
+    "@codemirror/state": "^6.6.0",
+    "@vitejs/plugin-vue": "^5.2.4",
+    "astro": "^6.0.4",
+    "ustatic-css": "workspace:*",
+    "vue": "^3.5.29",
+    "vue-codemirror": "^6.1.1"
+  }
+}
