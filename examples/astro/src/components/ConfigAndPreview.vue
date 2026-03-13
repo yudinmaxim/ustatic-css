@@ -1,38 +1,48 @@
 <script setup lang="ts">
-import { reactive } from 'vue'
+import { onMounted } from 'vue'
+import { useStore } from '@nanostores/vue'
 
-import { getModulesFromClasses } from 'ustatic-css/scripts'
 import type { IConfig } from '@utypes/interface'
+import { appStore, setConfig } from '../stores/app'
 import ConfigurationPanel from './ConfigurationPanel.vue'
 import InitCodePreview from './InitCodePreview.vue'
 
-const config = reactive<IConfig>({
+// Используем useStore для реактивности
+const $appState = useStore(appStore)
+
+// Инициализируем состояние из хранилища или используем дефолтное
+const initConfig: IConfig = {
   type: 'modules',
   modules: [ 'flexbox', 'spacing', 'typography' ],
   classesInput: 'flex, p-4, text-lg',
+}
+
+onMounted(() => {
+  // Инициализируем хранилище если оно пустое
+  if (!$appState.value?.config) {
+    setConfig(initConfig)
+  }
 })
 
 const handleApply = (newConfig: IConfig) => {
-  Object.assign(config, newConfig)
+  setConfig(newConfig)
 }
 
 const handleReset = () => {
-  config.type = 'modules'
-  config.modules = [ 'flexbox', 'spacing', 'typography' ]
-  config.classesInput = 'flex, p-4, text-lg'
+  setConfig(initConfig)
 }
 </script>
 
 <template>
   <div class="grid grid-columns--1fr-2fr gap-2">
     <ConfigurationPanel
-      :model-value="config"
+      :model-value="$appState?.config"
       @apply="handleApply"
       @reset="handleReset"
     />
 
     <InitCodePreview
-      :config="config"
+      :config="$appState?.config"
     />
   </div>
 </template>

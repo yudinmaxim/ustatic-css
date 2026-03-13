@@ -17,8 +17,10 @@
     "@codemirror/lang-html": "^6.4.11",
     "@codemirror/lang-javascript": "^6.2.5",
     "@codemirror/state": "^6.6.0",
+    "@nanostores/vue": "^1.1.0",
     "@vitejs/plugin-vue": "^5.2.4",
     "astro": "^6.0.4",
+    "nanostores": "^1.1.1",
     "ustatic-css": "workspace:*",
     "vue": "^3.5.29",
     "vue-codemirror": "^6.1.1"
