@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import ConfigAndPreview from '../components/ConfigAndPreview.vue'
 
 // Пример HTML кода для редактора
 const defaultCode = `<div class="p-4 bg-blue-100 rounded-base text-center">
@@ -25,21 +26,7 @@ const defaultCode = `<div class="p-4 bg-blue-100 rounded-base text-center">
 
       <main class="flex flex-col gap-8 mt-8">
         <!-- Панель конфигурации и код инициализации -->
-        <div class="grid grid-columns--1fr-2fr gap-2">
-          <div class="p-4 bg-gray-50 rounded-base border border-gray-200">
-            <h3 class="text-lg font-semibold mb-4">Панель конфигурации</h3>
-            <p class="text-sm text-gray-600">
-              Vue компонент ConfigurationPanel будет загружен как остров
-            </p>
-          </div>
-
-          <div class="p-4 bg-gray-50 rounded-base border border-gray-200">
-            <h3 class="text-lg font-semibold mb-4">Код инициализации</h3>
-            <p class="text-sm text-gray-600">
-              Vue компонент InitCodePreview будет загружен как остров
-            </p>
-          </div>
-        </div>
+        <ConfigAndPreview client:only="vue" />
 
         <!-- Редактор и предпросмотр HTML -->
         <div class="grid grid-columns--1fr-1fr gap-2">

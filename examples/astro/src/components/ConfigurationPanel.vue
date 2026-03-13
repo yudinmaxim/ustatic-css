@@ -5,6 +5,10 @@ import { getModulesFromClasses } from 'ustatic-css/scripts'
 import type { IConfig } from '@utypes/interface'
 import { UButton, UTag, UIsland } from '@ui-kit'
 
+const props = defineProps<{
+  modelValue?: IConfig
+}>()
+
 const availableModules = [
   'align',
   'animations',
@@ -32,7 +36,7 @@ const initTypes = [
   { value: 'classes', label: 'Классы (автоподбор)' }
 ] as const
 
-const config = reactive<IConfig>({
+const config = reactive<IConfig>(props.modelValue ?? {
   type: 'modules',
   modules: [ 'flexbox', 'spacing', 'typography' ],
   classesInput: 'flex, p-4, text-lg',
@@ -58,6 +62,16 @@ watch(
   () => {
     emit('apply', { ...config })
   }
+)
+
+watch(
+  () => props.modelValue,
+  (newVal) => {
+    if (newVal) {
+      Object.assign(config, newVal)
+    }
+  },
+  { deep: true }
 )
 </script>
 
