@@ -176,7 +176,7 @@ const detectMode = (): 'ssr' | 'browser' => {
 /**
  * Возвращает список ссылок на CSS файлы для SSR и браузера
  * Использует ту же логику формирования путей, что и loadStyles
- * 
+ *
  * @param options - опции загрузчика стилей
  * @param options.mode - режим работы ('ssr' или 'browser'), по умолчанию определяется автоматически
  * @param options.basePath - базовый путь для CSS файлов (для SSR режима)
@@ -204,7 +204,7 @@ export const getStyleLinks = async (options?: IStyleLinksOptions): Promise<IStyl
     if (mode === 'browser') {
       // В браузере используем import(...?url) для получения правильного URL от Vite
       try {
-        const { default: css } = await import(/* @vite-ignore */ `${modulePath}?url`)
+        const { default: css } = await import(`${modulePath}?url`)
         return css
       } catch (error) {
         console.error('Failed to get CSS URL:', error)
@@ -290,7 +290,7 @@ const loadCSS = (cssPath: string): Promise<void> => {
  * @returns Promise с URL файла
  */
 const getCssUrl = (cssPath: string): Promise<string> => {
-  return import(/* @vite-ignore */ `${cssPath}?url`)
+  return import(`${cssPath}?url`)
     .then(({ default: css }) => css)
     .catch((error) => {
       console.error('Failed to get CSS URL:', error)
