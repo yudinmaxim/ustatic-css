@@ -37,6 +37,7 @@ const slots = useSlots()
 const haveSlot = computed(() => !!slots.default)
 
 const stateClasses = computed(() => {
+  // #ustatic-css: rounded-base font-medium active:pulse h-fit
   const defaultStyle = 'rounded-base font-medium active:pulse h-fit'
   return `${defaultStyle} ${sizeStyle(size)} ${variantStyle(variant)} ${classes ?? ''} u-button`
 })

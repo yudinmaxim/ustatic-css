@@ -109,7 +109,7 @@ onMounted(() => {
     <!-- Оверлей загрузки -->
     <div
       v-if="!stylesLoaded"
-      class="absolute inset-0 bg-white/90 flex items-center justify-center z-10"
+      class="absolute inset-0 bg-white flex items-center justify-center z-10"
     >
       <div class="text-gray-400 text-sm font-medium">
         Загрузка стилей...
