@@ -87,3 +87,7 @@ examples/docs
 examples/vue/dist
 examples/svelte/dist
 examples/astro/dist
+
+# AI rules and configs
+.clinerules
+.qwen/
