@@ -3,7 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
 
 export default defineConfig({
-  plugins: [ vue() ],
+  plugins: [vue()],
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),
@@ -13,7 +13,7 @@ export default defineConfig({
     }
   },
   build: {
-    outDir: '../docs',
+    outDir: 'dist',
     emptyOutDir: true,
     rollupOptions: {
       input: {
@@ -21,7 +21,7 @@ export default defineConfig({
       }
     }
   },
-  // В dev режиме используем '/', в build - '/style-framework/'
+  // В dev dev режиме используем '/', в build - '/style-framework/'
   base: process.env.NODE_ENV === 'production' ? '/style-framework/' : '/',
   server: {
     fs: {

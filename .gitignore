@@ -78,3 +78,12 @@ __snapshots__
 *storybook.log
 storybook-static
 .npmrc
+
+# Tech docs
+techdocs/
+
+# Build outputs for examples
+examples/docs
+examples/vue/dist
+examples/svelte/dist
+examples/astro/dist
