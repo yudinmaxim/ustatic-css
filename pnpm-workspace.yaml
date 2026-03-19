@@ -2,7 +2,8 @@ packages:
   - examples/vue
   - examples/svelte
   - examples/astro
-  - docs
+  - docs/astro
+  - docs/vitepress
 
 onlyBuiltDependencies:
   - esbuild
