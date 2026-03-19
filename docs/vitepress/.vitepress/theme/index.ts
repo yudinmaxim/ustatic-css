@@ -1,14 +1,31 @@
 import DefaultTheme from 'vitepress/theme'
-import CodePreview from '../components/CodePreview.vue'
 import type { Theme } from 'vitepress'
+import { enhanceAppWithComponentView } from 'vitepress-plugin-component/client'
 
 import { ustaticCss } from 'ustatic-css/scripts'
+import ColorSwatch from '../components/ColorSwatch.vue'
 
 export default {
   extends: DefaultTheme,
   enhanceApp({ app }) {
     app.use(ustaticCss)
-    // Регистрируем компонент CodePreview
-    app.component('CodePreview', CodePreview)
+
+    enhanceAppWithComponentView(app, {
+      localeMappings: {
+        ru: {
+          previewLabel: 'Предпросмотр',
+          codeLabel: 'Код',
+        },
+      },
+    })
+
+    // Регистрируем компонент ColorSwatch
+    app.component('ColorSwatch', ColorSwatch)
+
+    // Добавляем класс для восстановления прокрутки
+    if (typeof document !== 'undefined') {
+      document.documentElement.classList.add('overflow-y-auto')
+      document.body.classList.add('overflow-y-auto', 'min-h-screen')
+    }
   },
 } satisfies Theme

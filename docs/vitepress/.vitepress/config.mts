@@ -1,6 +1,8 @@
 import { defineConfig } from 'vitepress'
+import { componentViewMarkdownPlugin } from 'vitepress-plugin-component'
 
 export default defineConfig({
+  lang: 'ru-RU',
   srcDir: './docs',
   title: 'uStatic CSS',
   description: 'Утилитарный CSS-фреймворк для быстрой разработки интерфейсов',
@@ -36,6 +38,8 @@ export default defineConfig({
         text: 'Reference',
         items: [
           { text: 'Словарь классов', link: '/reference/classes' },
+          { text: 'Палитра цветов', link: '/reference/colors' },
+          { text: 'Акцентные цвета', link: '/reference/variants' },
         ],
       },
     ],
@@ -46,5 +50,10 @@ export default defineConfig({
       message: 'MIT License',
       copyright: 'Copyright © 2026',
     },
+  },
+  markdown: {
+    config: (md) => {
+      md.use(componentViewMarkdownPlugin)
+    }
   },
 })

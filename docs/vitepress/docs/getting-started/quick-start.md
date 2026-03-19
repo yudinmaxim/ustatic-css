@@ -8,26 +8,34 @@
 import 'ustatic-css';
 ```
 
-```html
-<!-- Кнопка -->
-<button class="flex items-center justify-center gap-2 p-4 bg-blue-500 text-white rounded-base hover:bg-blue-600 cursor-pointer">
-  Нажми меня
+::: component-view
+<!-- Button -->
+<button class="flex items-center justify-center gap-2 p-4 bg-blue-500 text-white rounded-base hover:bg-blue-600 cursor-pointer active:pulse ">
+  Press me
 </button>
+:::
 
-<!-- Карточка -->
+::: component-view
+<!-- Card -->
 <div class="block p-6 bg-white border border-gray-200 rounded-base">
-  <h3 class="text-lg font-bold text-gray-800">Заголовок</h3>
-  <p class="text-gray-600 mt-2">Описание карточки</p>
+  <h3 class="text-lg font-bold text-gray-800">Card header</h3>
+  <p class="text-gray-600 mt-2">Card description</p>
 </div>
+:::
 
-<!-- Бейдж -->
+::: component-view
+<!-- Bage -->
 <span class="inline-block px-2 py-1 text-xs font-semibold text-red-600 bg-red-100 rounded-base">
   New
 </span>
+:::
 
-<!-- Анимация вращения -->
-<div class="animation:spin-4">⚙️</div>
-```
+::: component-view
+<!-- Spin animation -->
+<div class="relative">
+  <div class="size-fit animation:spin-4">⚙️</div>
+</div>
+:::
 
 ## Цвета с яркостью
 

@@ -280,38 +280,20 @@ $font-weights: (
 
 /**
  * $colors-variants
- * 
- * Цветовые варианты и их инвертированные значения.
- * Каждый элемент содержит пару (цвет, инвертированный цвет).
- * 
+ *
+ * Цветовые варианты.
+ * Каждый элемент содержит значение цвета.
+ *
  * @example .bg-primary // background-color: #3b82f6
- * @example .text-primary-invert // color: #ffffff
+ * @example .text-primary // color: #3b82f6
  */
 $colors-variants: (
-  "primary": (
-    token("base.color.variant.primary"),
-    token("base.color.variant.primary-invert"),
-  ),
-  "secondary": (
-    token("base.color.variant.secondary"),
-    token("base.color.variant.secondary-invert"),
-  ),
-  "success": (
-    token("base.color.variant.success"),
-    token("base.color.variant.success-invert"),
-  ),
-  "info": (
-    token("base.color.variant.info"),
-    token("base.color.variant.info-invert"),
-  ),
-  "warning": (
-    token("base.color.variant.warning"),
-    token("base.color.variant.warning-invert"),
-  ),
-  "danger": (
-    token("base.color.variant.danger"),
-    token("base.color.variant.danger-invert"),
-  ),
+  "primary": token("base.color.variant.primary"),
+  "secondary": token("base.color.variant.secondary"),
+  "success": token("base.color.variant.success"),
+  "info": token("base.color.variant.info"),
+  "warning": token("base.color.variant.warning"),
+  "danger": token("base.color.variant.danger"),
 ) !default;
 
 /**
