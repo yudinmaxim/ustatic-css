@@ -1,61 +1,10 @@
-<template>
-  <div class="dynamic-app-container">
-    <div class="mb-4 flex items-center gap-2">
-      <span class="text-sm text-gray-600">Статус:</span>
-      <span
-        class="px-2 py-1 rounded text-xs font-medium"
-        :class="appStatus.class"
-      >
-        {{ appStatus.text }}
-      </span>
-    </div>
-    
-    <!-- Контейнер для динамического приложения -->
-    <div
-      ref="appContainer"
-      class="app-mount-point border-2 border-dashed border-gray-300 rounded-base p-4 bg-gray-50 h-96"
-    >
-      <div
-        v-if="!appMounted"
-        class="flex items-center justify-center h-64 text-gray-400"
-      >
-        <span>Приложение не инициализировано</span>
-      </div>
-    </div>
-
-    <!-- Логи -->
-    <div v-if="logs.length > 0" class="mt-4">
-      <h4 class="text-sm font-semibold text-gray-700 mb-2">
-        Логи инициализации
-      </h4>
-      <div class="max-h-40 overflow-y-auto bg-gray-900 rounded p-3 text-xs font-mono text-gray-100">
-        <div
-          v-for="(log, index) in logs"
-          :key="index"
-          class="mb-1"
-          :class="log.type === 'error' ? 'text-red-400' : log.type === 'success' ? 'text-green-400' : 'text-gray-300'"
-        >
-          [{{ log.time }}] {{ log.message }}
-        </div>
-      </div>
-    </div>
-  </div>
-</template>
-
 <script setup lang="ts">
 import { ref, onBeforeUnmount, watch, nextTick } from 'vue'
 import { createApp, h } from 'vue'
-import DemoApp from './DemoApp.vue'
 
-interface Config {
-  type: 'modules' | 'classes'
-  modules: string[]
-  classesInput: string
-  options: {
-    loadVars: boolean
-    loadBase: boolean
-  }
-}
+import { UButton } from '@ui-kit'
+import type { IConfig } from '@utypes/interface'
+import DemoApp from './DemoApp.vue'
 
 interface LogEntry {
   time: string
@@ -63,8 +12,11 @@ interface LogEntry {
   type: 'info' | 'success' | 'error'
 }
 
-const props = defineProps<{
-  config: Config
+const {
+  config,
+  autoApply = true
+} = defineProps<{
+  config: IConfig
   autoApply?: boolean
 }>()
 
@@ -127,13 +79,11 @@ const initApp = async () => {
     })
 
     // Применяем конфигурацию
-    const { type, modules, classesInput, options } = props.config
+    const { type, modules, classesInput } = config
 
     if (type === 'modules') {
       // Режим модулей
-      const pluginOptions: any = { modules: [...modules] }
-      if (options.loadVars) pluginOptions.loadVars = true
-      if (options.loadBase) pluginOptions.loadBase = true
+      const pluginOptions: any = { modules: [ ...modules ] }
 
       app.use(ustaticCss, pluginOptions)
       addLog(`Подключены модули: ${modules.join(', ') || 'нет'}`, 'success')
@@ -172,11 +122,12 @@ const initApp = async () => {
   }
 }
 
+const handRefresh = ref(0)
 // Следим за изменениями конфигурации
 watch(
-  () => props.config,
+  [ () => config, handRefresh ],
   () => {
-    if (props.autoApply !== false) {
+    if (autoApply !== false) {
       initApp()
     }
   },
@@ -192,6 +143,59 @@ onBeforeUnmount(() => {
 await nextTick()
 initApp()
 </script>
+
+<template>
+  <div class="dynamic-app-container">
+    <div class="mb-4 flex items-center justify-between">
+      <div class="flex flex-row items-center gap-2">
+        <span class="text-sm text-gray-600">Статус:</span>
+        <span
+          class="px-2 py-1 rounded text-xs font-medium"
+          :class="appStatus.class"
+        >
+          {{ appStatus.text }}
+        </span>
+      </div>
+      <UButton
+        v-if="!appMounted"
+        size="small"
+        @click="handRefresh++"
+      >
+        Инициализация
+      </UButton>
+    </div>
+
+    <!-- Контейнер для динамического приложения -->
+    <div
+      ref="appContainer"
+      class="app-mount-point border-2 border-dashed border-gray-300 rounded-base p-4 bg-gray-50"
+    >
+      <div
+        v-if="!appMounted"
+        class="flex flex-col gap-4 items-center justify-center h-64 text-gray-400"
+      >
+        <span>Приложение не инициализировано</span>
+      </div>
+    </div>
+
+    <!-- Логи -->
+    <div v-if="logs.length > 0" class="mt-4">
+      <h4 class="text-sm font-semibold text-gray-700 mb-2">
+        Логи инициализации
+      </h4>
+      <div class="max-h-40 overflow-y-auto bg-gray-900 rounded p-3 text-xs font-mono text-gray-100">
+        <div
+          v-for="(log, index) in logs"
+          :key="index"
+          class="mb-1"
+          :class="log.type === 'error' ? 'text-red-400' : log.type === 'success' ? 'text-green-400' : 'text-gray-300'"
+        >
+          [{{ log.time }}] {{ log.message }}
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
 
 <style scoped>
 .app-mount-point {

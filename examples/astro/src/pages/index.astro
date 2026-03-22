@@ -1,0 +1,33 @@
+---
+import Layout from '../layouts/Layout.astro'
+import ConfigAndPreview from '../components/ConfigAndPreview.vue'
+import EditorAndPreview from '../components/EditorAndPreview.vue'
+---
+
+<Layout>
+  <div class="h-100vh bg-white overflow-y-auto">
+    <div class="max-w-3/4 mx-auto p-5">
+      <header class="mb-8 pb-6 border-b border-gray-200">
+        <h1 class="text-2xl font-bold">
+          Ustatic CSS Playground - Astro
+        </h1>
+        <p class="text-gray-600">
+          Интерактивная демонстрация различных типов инициализации
+        </p>
+      </header>
+
+      <main class="flex flex-col gap-8 mt-8">
+        <!-- Панель конфигурации и код инициализации -->
+        <ConfigAndPreview client:only="vue" />
+
+        <!-- Редактор и предпросмотр HTML -->
+        <EditorAndPreview client:only="vue" />
+
+      </main>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  /* Дополнительные стили при необходимости */
+</style>

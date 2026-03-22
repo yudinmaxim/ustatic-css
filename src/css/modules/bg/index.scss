@@ -3,26 +3,6 @@
 @import '../../variables.scss';
 @import "../../assets/tokens/list";
 
-// .bg {
-//   @each $name, $pair in $colors-variants {
-//     $color: list.nth($pair, 1);
-//     $color-invert: list.nth($pair, 2);
-//     &-#{$name} {
-//       background-color: $color;
-//     }
-//     &-#{$name}-invert {
-//       background-color: $color-invert;
-//     }
-//   }
-
-//   &-transparent {
-//     background-color: token("base.color.transparent");
-//   }
-
-//   &-none {
-//     background-color: token("base.color.transparent");
-//   }
-// }
 
 .bg {
   @each $key, $value in $palette-rgb {

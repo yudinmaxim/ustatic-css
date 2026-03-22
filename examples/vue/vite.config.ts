@@ -3,7 +3,7 @@ import vue from '@vitejs/plugin-vue'
 import { resolve } from 'path'
 
 export default defineConfig({
-  plugins: [ vue() ],
+  plugins: [vue()],
   resolve: {
     alias: {
       '@': resolve(__dirname, 'src'),
@@ -13,15 +13,20 @@ export default defineConfig({
     }
   },
   build: {
-    outDir: '../docs',
-    emptyOutDir: true
+    outDir: 'dist',
+    emptyOutDir: true,
+    rollupOptions: {
+      input: {
+        main: resolve(__dirname, 'index.html')
+      }
+    }
   },
-  base: '/style-framework/',
+  // В dev dev режиме используем '/', в build - '/style-framework/'
+  base: process.env.NODE_ENV === 'production' ? '/style-framework/' : '/',
   server: {
     fs: {
       allow: [
         searchForWorkspaceRoot(process.cwd()),
-
         '/home/maxim/Projects/personal-projects/style-framework/',
       ]
     },

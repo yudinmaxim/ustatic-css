@@ -194,10 +194,12 @@
 ### 15. Контуры (outline)
 
 - Сброс: `.outline-none`
-- Толщина/цвет: `.outline-<size>-<palette>`, `.outline-<size>-<color>-<brightness>` (size из `$sizes-short`)
-- Толщина (без цвета): `.outline-<size>`
-- Стиль: `.outline-style--solid|dotted|groove|inset`
+- Ширина: `.outline-<size>` (1-5)
+- Цвет: `.outline-<palette>`, `.outline-<color>-<brightness>`
+- Стиль: `.outline-style--solid|dotted|dashed|groove|ridge|inset|outset`
 - Смещение: `.outline-offset-<N>` и `.-outline-offset-<N>` (N от 0 до 10)
+
+**Примечание:** Ширина и цвет задаются раздельно. Пример: `class="outline-2 outline-primary"`
 
 ### 16. Фильтры (filters)
 

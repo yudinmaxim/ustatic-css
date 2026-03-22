@@ -17,6 +17,7 @@ export const useStyle = (options?: IStyleOptions) => {
   const variantStyle = (variant: TVariant) => {
     if (variant in variants) return variants[variant]
 
+    // #ustatic-css: bg-primary text-white hover:bg-primary-400 bg-warning text-gray-700 hover:bg-warning-400 bg-danger hover:bg-danger-400 bg-info hover:bg-gray-300
     switch (variant) {
       case 'primary': return 'bg-primary text-white hover:bg-primary-400'
       case 'warning': return 'bg-warning text-gray-700 hover:bg-warning-400'
@@ -31,6 +32,7 @@ export const useStyle = (options?: IStyleOptions) => {
   const sizeStyle = (size: TSize) => {
     if (size in sizes) return sizes[size]
 
+    // #ustatic-css: px-2 py-1 text-xs px-4 py-2 text-sm px-6 py-4 text-lg
     switch (size) {
       case 'small': {
         return 'px-2 py-1 text-xs'

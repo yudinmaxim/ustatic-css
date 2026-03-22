@@ -2,15 +2,15 @@
 import {
   computed
 } from 'vue'
-import hljs from 'highlight.js/lib/core'
-import css from 'highlight.js/lib/languages/css'
-import html from 'highlight.js/lib/languages/xml'
-import javascript from 'highlight.js/lib/languages/javascript'
-import typescript from 'highlight.js/lib/languages/typescript'
+
+import { Codemirror } from 'vue-codemirror'
+import { html } from '@codemirror/lang-html'
+import { javascript } from '@codemirror/lang-javascript'
+import { EditorState } from '@codemirror/state'
 
 export interface IProps {
-  code: string,
-  lang?: string
+  lang?: 'html' | 'javascript' | 'typescript'
+  readOnly?: boolean
 }
 
 defineOptions({
@@ -18,27 +18,31 @@ defineOptions({
 })
 
 const {
-  code,
-  lang = 'typescript'
+  lang = 'html',
+  readOnly
 } = defineProps<IProps>()
 
-hljs.registerLanguage('html', html)
-hljs.registerLanguage('css', css)
-hljs.registerLanguage('javascript', javascript)
-hljs.registerLanguage('typescript', typescript)
+const langExt = lang === 'html'
+  ? html
+  : lang === 'javascript'
+    ? javascript
+    : lang === 'typescript'
+      ? javascript
+      : html
 
-const highlightedCode = computed(() => {
-  try {
-    return hljs.highlight(code, { language: lang }).value
-  } catch {
-    return hljs.highlightAuto(code).value
-  }
-})
+const extensions = [ langExt(), EditorState.readOnly.of(readOnly) ]
+
+const model = defineModel<string>()
 
 </script>
 
 <template>
-  <pre
-    class="m-0 p-4 bg-white rounded-base border border-gray-200 overflow-x-auto text-sm"
-  ><code v-html="highlightedCode" /></pre>
+  <div class="overflow-y-auto">
+    <codemirror
+      v-model="model"
+      :indentWithTab="true"
+      :tabSize="2"
+      :extensions="extensions"
+    />
+  </div>
 </template>

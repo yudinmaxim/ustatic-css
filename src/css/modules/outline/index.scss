@@ -7,19 +7,19 @@
     outline: none;
   }
 
+  // Только ширина
   @each $size, $sizeValue in $sizes-short {
-    @each $color, $value in $palette-rgb {
-      &-#{$size}-#{"#{$color}"} {
-        outline: $sizeValue solid token("base.color.outline");
-        @include set-token("base.color.outline", rgba($value, token("base.color.opacity")));
-      }
+    &-#{$size} {
+      outline-width: $sizeValue;
+      outline-style: solid;
     }
   }
 
-  // Короткое написание для дефолтного outline без указания цвета
-  @each $size, $sizeValue in $sizes-short {
-    &-#{$size} {
-      outline: $sizeValue solid;
+  // Только цвет
+  @each $color, $value in $palette-rgb {
+    &-#{"#{$color}"} {
+      outline-color: token("base.color.outline");
+      @include set-token("base.color.outline", rgba($value, token("base.color.opacity")));
     }
   }
 
@@ -32,21 +32,32 @@
       outline-style: dotted;
     }
 
+    &--dashed {
+      outline-style: dashed;
+    }
+
     &--groove {
       outline-style: groove;
+    }
+
+    &--ridge {
+      outline-style: ridge;
     }
 
     &--inset {
       outline-style: inset;
     }
+
+    &--outset {
+      outline-style: outset;
+    }
   }
 }
 
-
-  @for $offsetStep from -10 through 10 {
-    $modifier: if($offsetStep < 0, "\-outline-offset", "outline-offset");
-    $value: abs($offsetStep);
-    .#{$modifier}-#{$value} {
-      outline-offset: #{$offsetStep}px;
-    }
+@for $offsetStep from -10 through 10 {
+  $modifier: if($offsetStep < 0, "\-outline-offset", "outline-offset");
+  $value: abs($offsetStep);
+  .#{$modifier}-#{$value} {
+    outline-offset: #{$offsetStep}px;
   }
+}

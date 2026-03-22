@@ -2,7 +2,7 @@
 import { computed, ref } from 'vue'
 
 import type { IConfig } from '@utypes/interface'
-import { UButton, UCode } from '@ui-kit'
+import { UCodeEditor } from '@ui-kit'
 
 const props = defineProps<{
   config: IConfig
@@ -89,61 +89,11 @@ const copyCode = async () => {
 </script>
 
 <template>
-  <div class="code-preview p-4 bg-gray-50 rounded-base border border-gray-200 mb-6">
-    <div class="flex justify-between items-center mb-3">
-      <h3 class="text-lg font-semibold text-gray-800 m-0">
-        Код инициализации
-      </h3>
-      <UButton
-        size="small"
-        @click="copyCode"
-      >
-        {{ copied ? 'Скопировано!' : 'Копировать' }}
-      </UButton>
-    </div>
-
-    <UCode
-      :code="fullCode"
-    />
-
-    <div class="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-base">
-      <p class="text-sm text-blue-800 m-0">
-        <strong>💡 Совет:</strong> {{ tip }}
-      </p>
-    </div>
-  </div>
+  <UCodeEditor
+    :modelValue="fullCode"
+    :tip="tip"
+    lang="typescript"
+    useTip
+  />
 </template>
 
-<style scoped>
-code {
-  font-family: 'JetBrainsMono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-}
-
-/* Светлая тема для highlight.js */
-pre code.hljs {
-  display: block;
-  overflow-x: auto;
-  padding: 1em;
-  background: #ffffff;
-  color: #24292e;
-}
-.hljs-keyword,
-.hljs-built_in {
-  color: #d73a49;
-  font-weight: 600;
-}
-.hljs-string,
-.hljs-meta {
-  color: #032f62;
-}
-.hljs-comment {
-  color: #6a737d;
-  font-style: italic;
-}
-.hljs-function {
-  color: #6f42c1;
-}
-.hljs-title {
-  color: #6f42c1;
-}
-</style>
