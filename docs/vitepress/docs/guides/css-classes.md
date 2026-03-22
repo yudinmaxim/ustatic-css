@@ -1,87 +1,131 @@
+---
+title: CSS-классы — Обзор
+outline: false
+---
+
 # Использование CSS-классов
+
+uStatic CSS предоставляет более 350 утилитарных классов для быстрой разработки интерфейсов.
 
 ## Основные модули
 
-### Типографика (typography)
+### [Типографика](/guides/typography)
 
-- Размеры: `.text-2xs`, `.text-xs`, `.text-sm`, `.text-base`, `.text-lg`, `.text-xl`, `.text-2xl`
-- Вес: `.font-thin`, `.font-light`, `.font-regular`, `.font-medium`, `.font-semibold`, `.font-bold`, `.font-extrabold`, `.font-black`
-- Цвет: `.text-{color}`, `.text-{color}-{brightness}` (например, `.text-red-500`)
+Размеры, вес и цвет текста:
 
-### Отступы (spacing)
+```html
+<p class="text-sm font-medium">Текст</p>
+<p class="text-lg font-bold">Заголовок</p>
+<span class="text-blue-500">Акцентный текст</span>
+```
 
-- Margin: `.m-{size}`, `.mx-{size}`, `.my-{size}`, `.mt-{size}`, `.mr-{size}`, `.mb-{size}`, `.ml-{size}`
-- Padding: `.p-{size}`, `.px-{size}`, `.py-{size}`, `.pt-{size}`, `.pr-{size}`, `.pb-{size}`, `.pl-{size}`
-- Отрицательные: `.-m-{size}`, `.-mt-{size}` и т.д.
+### [Отступы](/guides/spacing)
 
-**Доступные значения:** `0`, `px`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `12`, `18`, `64`
+Margin и padding:
 
-### Flexbox
+```html
+<div class="p-4 m-2">Отступы</div>
+<div class="px-4 py-2">Горизонтальные и вертикальные</div>
+<div class="-mt-4">Отрицательный margin</div>
+```
 
-- Контейнер: `.flex`, `.flex-column`, `.flex-wrap`
-- Выравнивание: `.items-center`, `.items-start`, `.items-end`, `.justify-center`, `.justify-between`
-- Gap: `.gap-1`, `.gap-2`, `.gap-4` и т.д.
+### [Flexbox](/guides/flexbox)
 
-### Grid
+Flexbox-контейнеры:
 
-- Контейнер: `.grid`
-- Колонки: `.grid-columns--1fr-1fr`, `.grid-columns--1fr-2fr`, `.grid-columns--3-32`
+```html
+<div class="flex justify-between items-center gap-4">Контейнер</div>
+```
 
-### Позиционирование
+### [Grid](/guides/grid)
 
-- Тип: `.relative`, `.absolute`, `.fixed`
-- Координаты: `.top-0`, `.right-4`, `.bottom-2`, `.left-auto`
-- Z-index: `.z-10`, `.z-20`, `.z-50`, `.z-i-modal`
+Grid-сетки:
 
-### Границы
+```html
+<div class="grid grid-columns--1fr-1fr gap-4">Сетка</div>
+```
 
-- Ширина: `.border`, `.border-0` … `.border-5`
-- Стороны: `.border-t`, `.border-r`, `.border-b`, `.border-l`
-- Скругления: `.rounded-none`, `.rounded-sm`, `.rounded-base`, `.rounded-lg`, `.rounded-full`
+### [Позиционирование](/guides/position)
 
-**Важно:** Класс `.rounded` без суффикса не существует — используйте `.rounded-base`.
+Позиционирование элементов:
 
-### Фон
+```html
+<div class="relative">
+  <div class="absolute top-0 right-0">Абсолютный элемент</div>
+</div>
+```
 
-- Цвет: `.bg-{color}`, `.bg-{color}-{brightness}`
-- Прозрачность: `.bg-opacity-0`, `.bg-opacity-25`, `.bg-opacity-50`, `.bg-opacity-75`, `.bg-opacity-100`
+### [Границы](/guides/border)
 
-### Эффекты
+Границы и скругления:
 
-- Прозрачность: `.opacity-0` … `.opacity-100`
-- Поворот: `.rotate-0`, `.rotate-45`, `.rotate-90`, `.rotate-180`
+```html
+<div class="border border-gray-200 rounded-base">Карточка</div>
+```
 
-### Анимации
+### [Фон](/guides/bg)
 
-- Вращение: `.animation:spin-1` … `.animation:spin-10`
-- Мигание: `.blink`
-- Подчёркивание: `.hover:underline--primary`
+Цвет и прозрачность фона:
 
-## Псевдоклассы
+```html
+<div class="bg-blue-500 bg-opacity-50">Фон</div>
+```
 
-- `.hover:bg-{color}` — фон при наведении
-- `.hover:text-{color}` — цвет текста при наведении
-- `.hover:opacity-{value}` — прозрачность при наведении
-- `.active:pulse` — пульсация при нажатии
+### [Эффекты](/guides/effects)
+
+Прозрачность и поворот:
+
+```html
+<div class="opacity-50 rotate-45">Эффект</div>
+```
+
+### [Курсор](/guides/cursor)
+
+Вид курсора:
+
+```html
+<button class="cursor-pointer">Кнопка</button>
+```
+
+### [Отображение](/guides/display)
+
+Тип отображения:
+
+```html
+<div class="hidden">Скрыто</div>
+<div class="inline-block">Строчно-блочный</div>
+```
+
+### [Выравнивание](/guides/align)
+
+Вертикальное выравнивание:
+
+```html
+<span class="align-middle">По центру</span>
+```
 
 ## Примеры
 
-```html
-<!-- Карточка -->
+### Карточка
+
+::: component-view
 <div class="flex justify-between items-center p-4 bg-white border border-gray-200 rounded-base">
   <span class="text-lg font-semibold text-gray-800">Заголовок</span>
-  <button class="px-4 py-2 bg-blue-500 text-white rounded-base hover:bg-blue-600">
+  <button class="px-4 py-2 bg-blue-500 text-white rounded-base hover:bg-blue-600 cursor-pointer active:pulse">
     Кнопка
   </button>
 </div>
+:::
 
-<!-- Сетка -->
+### Сетка
+
+::: component-view
 <div class="grid grid-columns--1fr-1fr gap-4">
   <div class="p-4 bg-gray-100 rounded-base">Элемент 1</div>
   <div class="p-4 bg-gray-100 rounded-base">Элемент 2</div>
 </div>
-```
+:::
 
-## Полный справочник
+## Навигация по модулям
 
-Полный список из 350+ классов см. в [Словаре классов](/reference/classes).
+Выберите модуль в левом меню для подробной документации.

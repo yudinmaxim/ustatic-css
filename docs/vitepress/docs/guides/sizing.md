@@ -1,0 +1,44 @@
+---
+title: Размеры (Sizing)
+outline:
+  level: 2
+---
+
+# Размеры (Sizing)
+
+Классы для управления размерами элементов.
+
+## Ширина
+
+| Класс | Описание |
+|-------|----------|
+| `.w-full` | 100% ширины |
+| `.w-screen` | 100% ширины экрана |
+| `.w-auto` | Автоматическая ширина |
+
+## Высота
+
+| Класс | Описание |
+|-------|----------|
+| `.h-full` | 100% высоты |
+| `.h-screen` | 100% высоты экрана |
+| `.h-auto` | Автоматическая высота |
+
+## Примеры
+
+::: component-view
+<div class="flex flex-column gap-4">
+  <div class="w-full p-4 bg-blue-500 text-white rounded-base">
+    w-full (100% ширины)
+  </div>
+  <div class="h-32 p-4 bg-green-500 text-white rounded-base">
+    h-32 (фиксированная высота)
+  </div>
+</div>
+:::
+
+```html
+<div class="w-full">100% ширины</div>
+<div class="h-full">100% высоты</div>
+<div class="w-auto">Автоматическая ширина</div>
+```

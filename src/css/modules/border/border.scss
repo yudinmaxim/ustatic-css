@@ -54,10 +54,27 @@
     }
   }
 
+  // Цвета границ для всех сторон
   @each $name, $value in $palette-rgb {
     &-#{"" + $name} {
       border-color: token("base.color.border");
       @include set-token("base.color.border", rgba($value, token("base.color.opacity")));
+    }
+  }
+
+  // Цвета границ по сторонам (border-t-red-500, border-b-blue-300, etc.)
+  @each $dirKey, $dirValue in $directions {
+    @if $dirKey != "" {
+      @each $subKey in $dirValue {
+        @if $subKey != "" {
+          @each $name, $value in $palette-rgb {
+            &-#{$dirKey}-#{"" + $name} {
+              border-#{$subKey}-color: token("base.color.border");
+              @include set-token("base.color.border", rgba($value, token("base.color.opacity")));
+            }
+          }
+        }
+      }
     }
   }
 
