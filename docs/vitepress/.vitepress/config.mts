@@ -4,6 +4,7 @@ import { componentViewMarkdownPlugin } from 'vitepress-plugin-component'
 export default defineConfig({
   lang: 'ru-RU',
   srcDir: './docs',
+  base: '/ustatic-css/',
   title: 'uStatic CSS',
   description: 'Утилитарный CSS-фреймворк для быстрой разработки интерфейсов',
   themeConfig: {
