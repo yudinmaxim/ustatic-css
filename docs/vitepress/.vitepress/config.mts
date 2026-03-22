@@ -7,6 +7,10 @@ export default defineConfig({
   title: 'uStatic CSS',
   description: 'Утилитарный CSS-фреймворк для быстрой разработки интерфейсов',
   themeConfig: {
+    outline: {
+      level: 2,
+      label: 'На этой странице',
+    },
     nav: [
       { text: 'Главная', link: '/' },
       { text: 'Getting Started', link: '/getting-started/introduction' },
@@ -35,11 +39,17 @@ export default defineConfig({
         ],
       },
       {
-        text: 'Reference',
+        text: 'Палитра',
         items: [
-          { text: 'Словарь классов', link: '/reference/classes' },
-          { text: 'Палитра цветов', link: '/reference/colors' },
+          { text: 'Цвета', link: '/reference/colors-palette' },
+          { text: 'Примеры', link: '/reference/colors-examples' },
           { text: 'Акцентные цвета', link: '/reference/variants' },
+        ],
+      },
+      {
+        text: 'Анимации',
+        items: [
+          { text: 'Обзор', link: '/reference/animations' },
         ],
       },
     ],

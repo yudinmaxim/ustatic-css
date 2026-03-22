@@ -37,6 +37,20 @@ import 'ustatic-css';
 </div>
 :::
 
+::: component-view
+<!-- Hover lift -->
+<div class="hover-lift inline-block p-4 bg-white border border-gray-200 rounded-base">
+  Наведи на меня
+</div>
+:::
+
+::: component-view
+<!-- Pulse on active -->
+<button class="px-4 py-2 bg-blue-500 text-white rounded-base cursor-pointer active:pulse">
+  Нажми меня
+</button>
+:::
+
 ## Цвета с яркостью
 
 Все цветовые классы поддерживают указания яркости через дефис:
@@ -73,6 +87,15 @@ import 'ustatic-css';
 <div class="relative">
   <div class="absolute top-0 right-0">Абсолютный элемент</div>
 </div>
+```
+
+### Анимации
+
+```html
+<div class="blink">Мигающий элемент</div>
+<div class="animation:spin-4">Вращающийся элемент</div>
+<button class="active:pulse">Кнопка с пульсацией</button>
+<div class="hover-lift">Карточка с подъёмом</div>
 ```
 
 ## Следующие шаги
