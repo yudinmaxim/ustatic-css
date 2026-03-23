@@ -1,0 +1,17 @@
+# Исключить из npm пакета
+.github/
+docs/
+examples/
+.qodo/
+.qwen/
+.idea/
+.vscode/
+*.md
+*.md.backup
+*.log
+.eslint*
+.gitignore
+.pnpm-workspace.yaml
+sd.config.cjs
+tsconfig.json
+vite.config.ts
