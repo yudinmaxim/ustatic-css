@@ -50,7 +50,7 @@
   ],
   "scripts": {
     "tokens": "style-dictionary build --config ./sd.config.cjs",
-    "build": "bun run tokens && vite build",
+    "build": "pnpm run tokens && vite build",
     "dev:vue": "cd examples/vue && pnpm dev"
   },
   "devDependencies": {
