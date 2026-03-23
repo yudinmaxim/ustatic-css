@@ -7,6 +7,15 @@ export default defineConfig({
   base: '/ustatic-css/',
   title: 'uStatic CSS',
   description: 'Утилитарный CSS-фреймворк для быстрой разработки интерфейсов',
+  vite: {
+    css: {
+      devSourcemap: false,
+    },
+    build: {
+      cssCodeSplit: false,
+      assetsInlineLimit: 0,
+    },
+  },
   themeConfig: {
     outline: {
       level: 2,

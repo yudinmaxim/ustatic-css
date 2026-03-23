@@ -290,7 +290,14 @@ const loadCSS = (cssPath: string): Promise<void> => {
  * @returns Promise с URL файла
  */
 const getCssUrl = (cssPath: string): Promise<string> => {
-  return import(`${cssPath}?url`)
+  // Определяем базовый путь из <base> тега или используем значение по умолчанию
+  const baseElement = document.querySelector('base')
+  const basePath = baseElement?.pathname?.replace(/\/$/, '') || ''
+  
+  // Формируем полный путь
+  const fullPath = basePath ? `${basePath}${cssPath}` : cssPath
+  
+  return import(`${fullPath}?url`)
     .then(({ default: css }) => css)
     .catch((error) => {
       console.error('Failed to get CSS URL:', error)
