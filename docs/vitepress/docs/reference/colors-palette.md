@@ -12,7 +12,7 @@ outline:
 
 ### Серый (Gray) {#серый-gray}
 
-<div class="color-grid">
+<div class="flex flex-row flex-wrap gap-2">
   <ColorSwatch backgroundClasses="bg-gray-50" textClasses="text-gray-900" shade="50" />
   <ColorSwatch backgroundClasses="bg-gray-100" textClasses="text-gray-900" shade="100" />
   <ColorSwatch backgroundClasses="bg-gray-200" textClasses="text-gray-900" shade="200" />
@@ -40,7 +40,7 @@ outline:
 
 ### Синий (Blue) {#синий-blue}
 
-<div class="color-grid">
+<div class="flex flex-row flex-wrap gap-2">
   <ColorSwatch backgroundClasses="bg-blue-50" textClasses="text-blue-900" shade="50" />
   <ColorSwatch backgroundClasses="bg-blue-100" textClasses="text-blue-900" shade="100" />
   <ColorSwatch backgroundClasses="bg-blue-200" textClasses="text-blue-900" shade="200" />
@@ -68,7 +68,7 @@ outline:
 
 ### Зелёный (Green) {#зелёный-green}
 
-<div class="color-grid">
+<div class="flex flex-row flex-wrap gap-2">
   <ColorSwatch backgroundClasses="bg-green-50" textClasses="text-green-900" shade="50" />
   <ColorSwatch backgroundClasses="bg-green-100" textClasses="text-green-900" shade="100" />
   <ColorSwatch backgroundClasses="bg-green-200" textClasses="text-green-900" shade="200" />
@@ -96,7 +96,7 @@ outline:
 
 ### Красный (Red) {#красный-red}
 
-<div class="color-grid">
+<div class="flex flex-row flex-wrap gap-2">
   <ColorSwatch backgroundClasses="bg-red-50" textClasses="text-red-900" shade="50" />
   <ColorSwatch backgroundClasses="bg-red-100" textClasses="text-red-900" shade="100" />
   <ColorSwatch backgroundClasses="bg-red-200" textClasses="text-red-900" shade="200" />
@@ -124,7 +124,7 @@ outline:
 
 ### Жёлтый (Yellow) {#жёлтый-yellow}
 
-<div class="color-grid">
+<div class="flex flex-row flex-wrap gap-2">
   <ColorSwatch backgroundClasses="bg-yellow-50" textClasses="text-yellow-900" shade="50" />
   <ColorSwatch backgroundClasses="bg-yellow-100" textClasses="text-yellow-900" shade="100" />
   <ColorSwatch backgroundClasses="bg-yellow-200" textClasses="text-yellow-900" shade="200" />
@@ -152,7 +152,7 @@ outline:
 
 ### Оранжевый (Orange) {#оранжевый-orange}
 
-<div class="color-grid">
+<div class="flex flex-row flex-wrap gap-2">
   <ColorSwatch backgroundClasses="bg-orange-50" textClasses="text-orange-900" shade="50" />
   <ColorSwatch backgroundClasses="bg-orange-100" textClasses="text-orange-900" shade="100" />
   <ColorSwatch backgroundClasses="bg-orange-200" textClasses="text-orange-900" shade="200" />
@@ -180,7 +180,7 @@ outline:
 
 ### Голубой (Sky) {#голубой-sky}
 
-<div class="color-grid">
+<div class="flex flex-row flex-wrap gap-2">
   <ColorSwatch backgroundClasses="bg-sky-50" textClasses="text-sky-900" shade="50" />
   <ColorSwatch backgroundClasses="bg-sky-100" textClasses="text-sky-900" shade="100" />
   <ColorSwatch backgroundClasses="bg-sky-200" textClasses="text-sky-900" shade="200" />
@@ -205,12 +205,3 @@ outline:
 | `bg-sky-700` | `--color-sky-700` | Активный элемент |
 | `bg-sky-800` | `--color-sky-800` | Тёмный фон |
 | `bg-sky-900` | `--color-sky-900` | Самый тёмный |
-
-<style>
-.color-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  gap: 1rem;
-  margin: 1.5rem 0;
-}
-</style>

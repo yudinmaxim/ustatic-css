@@ -9,7 +9,7 @@ export default defineConfig({
   description: 'Утилитарный CSS-фреймворк для быстрой разработки интерфейсов',
   vite: {
     optimizeDeps: {
-      exclude: [ 'ustatic-css' ],
+      include: [ 'ustatic-css' ],
     },
     css: {
       devSourcemap: false,
@@ -27,11 +27,11 @@ export default defineConfig({
     },
     nav: [
       { text: 'Главная', link: '/' },
-      { text: 'Getting Started', link: '/getting-started/introduction' },
+      { text: 'С чего начать?', link: '/getting-started/introduction' },
     ],
     sidebar: [
       {
-        text: 'Getting Started',
+        text: 'Начало работы',
         items: [
           { text: 'Введение', link: '/getting-started/introduction' },
           { text: 'Установка', link: '/getting-started/installation' },
@@ -39,7 +39,7 @@ export default defineConfig({
         ],
       },
       {
-        text: 'Guides',
+        text: 'Описание',
         items: [
           { text: 'Обзор', link: '/guides/css-classes' },
           {

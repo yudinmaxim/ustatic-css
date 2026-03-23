@@ -1,15 +1,16 @@
+// из-за конфликтов сборщика vitepress
+import 'ustatic-css/ustatic'
+import 'ustatic-css/vars'
+
 import DefaultTheme from 'vitepress/theme'
 import type { Theme } from 'vitepress'
 import { enhanceAppWithComponentView } from 'vitepress-plugin-component/client'
 
-import { ustaticCss } from 'ustatic-css/scripts'
 import ColorSwatch from '../components/ColorSwatch.vue'
 
 export default {
   extends: DefaultTheme,
   enhanceApp({ app }) {
-    // Устанавливаем плагин uStatic CSS с базовым путём для GitHub Pages
-    app.use(ustaticCss, { basePath: '/ustatic-css' })
 
     enhanceAppWithComponentView(app, {
       localeMappings: {

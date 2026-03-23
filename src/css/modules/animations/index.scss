@@ -1,7 +1,7 @@
 @use "sass:list";
 @import '../../utils/token';
 @import '../../variables.scss';
-@import "../../assets/tokens/list";
+@import "../../assets/tokens/ustatic-list";
 
 .blink {
   animation-name: blink;
@@ -15,32 +15,55 @@
   }
 }
 
-.hover\:underline {
-  @each $key, $value in $palette-rgb {
-    position: relative;
-    display: inline-block;
-    text-decoration: none;
+.hover {
+  &\:underline {
+    @each $key, $value in $palette-rgb {
+      position: relative;
+      display: inline-block;
+      text-decoration: none;
 
-    &--#{"" + $key} {
-      &::after {
-        content: "";
-        position: absolute;
-        left: 50%;
-        bottom: 0;
-        width: 0;
-        height: 1px;
-        border-radius: 4px;
-        background-color: token("base.underline.color");
-        @include set-token("base.underline.color", rgba($value, token("base.color.opacity")));
-        transition:
-          width 0.3s ease,
-          left 0.3s ease;
-      }
+      &--#{"" + $key} {
+        &::after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          bottom: 0;
+          width: 0;
+          height: 1px;
+          border-radius: 4px;
+          background-color: token("base.underline.color");
+          @include set-token("base.underline.color", rgba($value, token("base.color.opacity")));
+          transition:
+            width 0.3s ease,
+            left 0.3s ease;
+        }
 
-      &:hover::after {
-        width: 100%;
-        left: 0;
+        &:hover::after {
+          width: 100%;
+          left: 0;
+        }
       }
+    }
+  }
+
+  &\:lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(calc(-1 * token('base.step.0d5')));
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+  }
+
+  &\:show {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    z-index: 20;
+
+    &:hover {
+      opacity: 1;
+      visibility: visible;
     }
   }
 }
@@ -124,25 +147,5 @@
   transform: scale(0.95);
 }
 
-// Hover lift - подъём элемента при наведении
-.hover-lift {
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
 
-  &:hover {
-    transform: translateY(calc(-1 * token('base.step.0d5')));
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  }
-}
 
-// Tooltip visibility classes
-.tooltip-hidden {
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.2s ease, visibility 0.2s ease;
-  z-index: 20;
-}
-
-.tooltip-visible {
-  opacity: 1;
-  visibility: visible;
-}

@@ -17,12 +17,17 @@
   },
   "homepage": "https://yudinmaxim.github.io/ustatic-css/",
   "exports": {
-    ".": "./dist/css/utility-css.css",
+    ".": "./dist/css/ustatic.css",
     "./package.json": {
       "import": "./package.json",
       "require": "./package.json"
     },
-    "./vars": "./dist/css/vars.css",
+    "./ustatic": {
+      "import": "./dist/css/ustatic.css"
+    },
+    "./vars": {
+      "import": "./dist/css/ustatic-vars.css"
+    },
     "./base": "./dist/css/modules/base.css",
     "./align": "./dist/css/modules/align.css",
     "./animations": "./dist/css/modules/animations.css",
@@ -54,7 +59,8 @@
     }
   },
   "files": [
-    "dist/**/*.*"
+    "dist/**/*.*",
+    "src/**/*"
   ],
   "publishConfig": {
     "access": "public",

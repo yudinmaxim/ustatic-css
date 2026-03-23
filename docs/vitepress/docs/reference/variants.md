@@ -4,7 +4,7 @@
 
 ### Primary
 
-<div class="color-grid">
+<div class="flex flex-row flex-wrap gap-2">
   <ColorSwatch color="primary" shade="50" backgroundClasses="bg-primary-50" textClasses="text-gray-900" />
   <ColorSwatch color="primary" shade="100" backgroundClasses="bg-primary-100" textClasses="text-gray-900" />
   <ColorSwatch color="primary" shade="200" backgroundClasses="bg-primary-200" textClasses="text-gray-900" />
@@ -20,7 +20,7 @@
 
 ### Secondary
 
-<div class="color-grid">
+<div class="flex flex-row flex-wrap gap-2">
   <ColorSwatch color="secondary" shade="50" backgroundClasses="bg-secondary-50" textClasses="text-gray-900" />
   <ColorSwatch color="secondary" shade="100" backgroundClasses="bg-secondary-100" textClasses="text-gray-900" />
   <ColorSwatch color="secondary" shade="200" backgroundClasses="bg-secondary-200" textClasses="text-gray-900" />
@@ -36,7 +36,7 @@
 
 ### Success
 
-<div class="color-grid">
+<div class="flex flex-row flex-wrap gap-2">
   <ColorSwatch color="success" shade="50" backgroundClasses="bg-success-50" textClasses="text-gray-900" />
   <ColorSwatch color="success" shade="100" backgroundClasses="bg-success-100" textClasses="text-gray-900" />
   <ColorSwatch color="success" shade="200" backgroundClasses="bg-success-200" textClasses="text-gray-900" />
@@ -52,7 +52,7 @@
 
 ### Info
 
-<div class="color-grid">
+<div class="flex flex-row flex-wrap gap-2">
   <ColorSwatch color="info" shade="50" backgroundClasses="bg-info-50" textClasses="text-gray-900" />
   <ColorSwatch color="info" shade="100" backgroundClasses="bg-info-100" textClasses="text-gray-900" />
   <ColorSwatch color="info" shade="200" backgroundClasses="bg-info-200" textClasses="text-gray-900" />
@@ -68,7 +68,7 @@
 
 ### Warning
 
-<div class="color-grid">
+<div class="flex flex-row flex-wrap gap-2">
   <ColorSwatch color="warning" shade="50" backgroundClasses="bg-warning-50" textClasses="text-gray-900" />
   <ColorSwatch color="warning" shade="100" backgroundClasses="bg-warning-100" textClasses="text-gray-900" />
   <ColorSwatch color="warning" shade="200" backgroundClasses="bg-warning-200" textClasses="text-gray-900" />
@@ -84,7 +84,7 @@
 
 ### Danger
 
-<div class="color-grid">
+<div class="flex flex-row flex-wrap gap-2">
   <ColorSwatch color="danger" shade="50" backgroundClasses="bg-danger-50" textClasses="text-gray-900" />
   <ColorSwatch color="danger" shade="100" backgroundClasses="bg-danger-100" textClasses="text-gray-900" />
   <ColorSwatch color="danger" shade="200" backgroundClasses="bg-danger-200" textClasses="text-gray-900" />
@@ -137,12 +137,3 @@
   <span class="px-2 py-1 bg-danger-100 text-danger-700 rounded-base text-sm">Danger</span>
 </div>
 :::
-
-<style>
-.color-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-  gap: 1rem;
-  margin: 1.5rem 0;
-}
-</style>

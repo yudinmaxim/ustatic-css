@@ -3,7 +3,6 @@ import { classMap } from './styleloader.classmap'
 export interface IStyleLoaderOptions {
   modules?: string[];
   classes?: string[];
-  basePath?: string;
 }
 
 let icssLoaded = false
@@ -38,42 +37,107 @@ export const getModulesFromClasses = (classes: string | string[]): string[] => {
   return Array.from(modules)
 }
 
-/**
- * Определяет базовый путь для загрузки CSS
- * @param options - опции загрузчика
- * @returns базовый путь
- */
-const getBasePath = (options?: IStyleLoaderOptions): string => {
-  // Если передан basePath явно — используем его
-  if (options?.basePath) {
-    return options.basePath.replace(/\/$/, '')
-  }
+export interface IStyleLink {
+  href: string
+  rel: string
+  type: string
+}
 
-  // Пытаемся определить из <base> тега
-  const baseElement = document.querySelector('base')
-  if (baseElement) {
-    const href = baseElement.getAttribute('href')
-    if (href) {
-      return href.replace(/\/$/, '')
-    }
-  }
-
-  // По умолчанию — корень сайта
-  return ''
+export interface IStyleLinksOptions extends IStyleLoaderOptions {
+  /**
+   * Базовый путь для CSS файлов
+   * По умолчанию используется для SSR: пути относительно public папки
+   * Для браузера: используется import(...?url) для получения правильного URL
+   */
+  basePath?: string
+  /**
+   * Режим работы: 'ssr' | 'browser'
+   * Если не указан, определяется автоматически
+   */
+  mode?: 'ssr' | 'browser'
 }
 
 /**
- * Формирует полный URL до CSS файла
- * @param cssPath - относительный путь к CSS файлу
- * @param basePath - базовый путь
- * @returns полный URL
+ * Определяет режим работы автоматически
  */
-const getCssUrl = (cssPath: string, basePath: string): string => {
-  // Убираем ведущие "../" из пути
-  const cleanPath = cssPath.replace(/^\.\.\//, '')
+const detectMode = (): 'ssr' | 'browser' => {
+  return typeof document === 'undefined' ? 'ssr' : 'browser'
+}
 
-  // Формируем полный путь
-  return basePath ? `${basePath}/${cleanPath}` : `/${cleanPath}`
+/**
+ * Возвращает список ссылок на CSS файлы для SSR и браузера
+ * Использует ту же логику формирования путей, что и loadStyles
+ *
+ * @param options - опции загрузчика стилей
+ * @param options.mode - режим работы ('ssr' или 'browser'), по умолчанию определяется автоматически
+ * @param options.basePath - базовый путь для CSS файлов (для SSR режима)
+ * @returns Promise с массивом объектов IStyleLink для вставки в <head>
+ */
+export const getStyleLinks = async (options?: IStyleLinksOptions): Promise<IStyleLink[]> => {
+  const mode = options?.mode ?? detectMode()
+  const basePath = options?.basePath ?? '/ustatic-css'
+
+  let modulesToLoad: string[] = getModulesFromClasses(options?.classes ?? [])
+
+  // Если переданы модули, используем их
+  if (options?.modules && options.modules.length > 0) {
+    modulesToLoad = modulesToLoad.concat(options.modules
+      .filter((module: string) => {
+        return !modulesToLoad.includes(module)
+      })
+    )
+  }
+
+  const linkPromises: Promise<IStyleLink>[] = []
+
+  // Функция для получения URL в зависимости от режима
+  const getHref = async (modulePath: string, moduleName: string): Promise<string> => {
+    if (mode === 'browser') {
+      // В браузере используем import(...?url) для получения правильного URL от Vite
+      try {
+        const { default: css } = await import(`${modulePath}?url`)
+        return css
+      } catch (error) {
+        console.error('Failed to get CSS URL:', error)
+        throw error
+      }
+    } else {
+      // В SSR режиме возвращаем путь относительно public папки
+      // moduleName - это имя файла без .css или имя модуля
+      return `${basePath}/${moduleName}`
+    }
+  }
+
+  // Если ничего не передано, загружаем все модули
+  if (modulesToLoad?.length === 0) {
+    linkPromises.push(
+      getHref('../css/ustatic.css', 'ustatic.css').then(href => ({ href, rel: 'stylesheet', type: 'text/css' })),
+      getHref('../css/vars.css', 'vars.css').then(href => ({ href, rel: 'stylesheet', type: 'text/css' }))
+    )
+  } else if (modulesToLoad.includes('ustatic.css') || modulesToLoad.includes('vars.css')) {
+    // Загружаем основные CSS файлы
+    linkPromises.push(
+      getHref('../css/ustatic.css', 'ustatic.css').then(href => ({ href, rel: 'stylesheet', type: 'text/css' })),
+      getHref('../css/vars.css', 'vars.css').then(href => ({ href, rel: 'stylesheet', type: 'text/css' }))
+    )
+  } else {
+    // Загружаем модули по отдельности
+    modulesToLoad.forEach(module => {
+      if (module === 'ustatic.css' || module === 'vars.css') {
+        return
+      }
+      linkPromises.push(
+        getHref(`../css/modules/${module}.css`, `modules/${module}.css`).then(href => ({ href, rel: 'stylesheet', type: 'text/css' }))
+      )
+    })
+
+    // Всегда добавляем vars.css
+    linkPromises.push(
+      getHref('../css/vars.css', 'vars.css').then(href => ({ href, rel: 'stylesheet', type: 'text/css' }))
+    )
+  }
+
+  return Promise.all(linkPromises)
 }
 
 /**
@@ -90,11 +154,11 @@ const loadCSS = (href: string): void => {
     (linkElement) => {
       const linkHref = linkElement.getAttribute('href')
       if (!linkHref) return false
-
+      
       // Сравниваем пути без параметров и timestamp
       const cleanHref = linkHref.split('?')[0]
       const cleanNewHref = href.split('?')[0]
-
+      
       return cleanHref === cleanNewHref
     }
   )
@@ -109,34 +173,58 @@ const loadCSS = (href: string): void => {
 }
 
 /**
- * Загружает CSS стили согласно конфигурации
- *
- * @param options - опции загрузчика
- * @param options.modules - список модулей для загрузки
- * @param options.classes - список классов для определения модулей
- * @param options.basePath - базовый путь для CSS файлов
+ * Формирует URL CSS файла на основе basePath
+ * @param cssPath - относительный путь к CSS файлу
+ * @param basePath - базовый путь из options
+ * @returns URL CSS файла
  */
+const getCssUrl = (cssPath: string, basePath: string): string => {
+  // Убираем ведущие "../" из пути
+  const cleanPath = cssPath.replace(/^\.\.\//, '')
+  
+  // Формируем полный путь
+  return basePath ? `${basePath}/${cleanPath}` : `/${cleanPath}`
+}
+
 export const loadStyles = async (options?: IStyleLoaderOptions): Promise<void> => {
+  console.log('ustatic-css - loadStyles', { options })
   // Проверяем, что document доступен
   if (typeof document === 'undefined') return
 
   if (icssLoaded) return
   icssLoaded = true
 
-  const basePath = getBasePath(options)
+  console.log('ustatic-css - loadStyles - start loading', { options })
+
+  // Определяем basePath из options или из <base> тега
+  let basePath = options?.basePath || ''
+  
+  if (!basePath && typeof document !== 'undefined') {
+    const baseElement = document.querySelector('base')
+    if (baseElement) {
+      basePath = baseElement.getAttribute('href')?.replace(/\/$/, '') || ''
+    }
+  }
+
   let modulesToLoad: string[] = getModulesFromClasses(options?.classes ?? [])
 
   // Если переданы модули, используем их
   if (options?.modules && options.modules.length > 0) {
-    modulesToLoad = modulesToLoad.concat(
-      options.modules.filter(module => !modulesToLoad.includes(module))
+    modulesToLoad = modulesToLoad.concat(options.modules
+      .filter((module: string) => {
+        return !modulesToLoad.includes(module)
+      })
     )
   }
-
   // Если ничего не передано, загружаем все модули
   if (modulesToLoad?.length === 0) {
-    modulesToLoad = [ 'ustatic.css', 'vars.css' ]
+    modulesToLoad = [
+      'ustatic.css',
+      'vars.css'
+    ]
   }
+
+  console.info('uCSS modules for load', { modulesToLoad, basePath, options })
 
   try {
     if (modulesToLoad.includes('ustatic.css') || modulesToLoad.includes('vars.css')) {
@@ -145,65 +233,25 @@ export const loadStyles = async (options?: IStyleLoaderOptions): Promise<void> =
       loadCSS(getCssUrl('../css/vars.css', basePath))
     } else if (modulesToLoad?.length > 0) {
       // Загружаем модули по отдельности
+      const modulePromises: Promise<void>[] = []
+
       modulesToLoad.forEach(module => {
         if (module === 'ustatic.css' || module === 'vars.css') {
           return
         }
-        loadCSS(getCssUrl(`../css/modules/${module}.css`, basePath))
+
+        // Формируем путь к модулю
+        const modulePath = getCssUrl(`../css/modules/${module}.css`, basePath)
+        modulePromises.push(loadCSS(modulePath))
       })
 
-      // Всегда добавляем vars.css
-      loadCSS(getCssUrl('../css/vars.css', basePath))
+      modulePromises.push(loadCSS(getCssUrl('../css/vars.css', basePath)))
+
+      await Promise.all(modulePromises)
+    } else {
+      console.log('No css for load')
     }
   } catch (error) {
     console.error('Failed to load CSS files:', error)
   }
-}
-
-/**
- * Получает список ссылок на CSS файлы (для SSR)
- *
- * @param options - опции загрузчика
- * @returns Promise с массивом ссылок
- */
-export const getStyleLinks = async (options?: IStyleLoaderOptions & { mode?: 'ssr' | 'browser' }): Promise<{ href: string; rel: string; type: string }[]> => {
-  const basePath = getBasePath(options)
-  let modulesToLoad: string[] = getModulesFromClasses(options?.classes ?? [])
-
-  if (options?.modules && options.modules.length > 0) {
-    modulesToLoad = modulesToLoad.concat(
-      options.modules.filter(module => !modulesToLoad.includes(module))
-    )
-  }
-
-  const links: { href: string; rel: string; type: string }[] = []
-
-  if (modulesToLoad?.length === 0 || modulesToLoad.includes('ustatic.css')) {
-    links.push({
-      href: getCssUrl('../css/ustatic.css', basePath),
-      rel: 'stylesheet',
-      type: 'text/css'
-    })
-  }
-
-  if (modulesToLoad?.length === 0 || !modulesToLoad.includes('ustatic.css')) {
-    links.push({
-      href: getCssUrl('../css/vars.css', basePath),
-      rel: 'stylesheet',
-      type: 'text/css'
-    })
-  }
-
-  modulesToLoad.forEach(module => {
-    if (module === 'ustatic.css' || module === 'vars.css') {
-      return
-    }
-    links.push({
-      href: getCssUrl(`../css/modules/${module}.css`, basePath),
-      rel: 'stylesheet',
-      type: 'text/css'
-    })
-  })
-
-  return links
 }

@@ -9,7 +9,7 @@ export interface IProps {
 const props = defineProps<IProps>()
 
 const copied = ref(false)
-const isTooltipVisible = ref(false)
+const isHovered = ref(false)
 let timeout: ReturnType<typeof setTimeout>
 
 function copyToClipboard() {
@@ -22,81 +22,55 @@ function copyToClipboard() {
     }, 2000)
   })
 }
+
+function handleMouseEnter() {
+  isHovered.value = true
+}
+
+function handleMouseLeave() {
+  isHovered.value = false
+}
 </script>
 
 <template>
   <div
-    class="color-swatch flex flex-col items-center cursor-pointer relative rounded-lg hover-lift"
+    class="relative flex items-center justify-center size-24 cursor-pointer rounded-lg hover:lift"
     :class="backgroundClasses"
     @click="copyToClipboard"
+    @mouseenter="handleMouseEnter"
+    @mouseleave="handleMouseLeave"
   >
-    <div class="color-swatch__content w-full h-12 flex items-center justify-center relative">
-      <div class="color-swatch__text-container relative w-full h-full flex items-center justify-center">
-        <transition name="fade" mode="out-in">
-          <span
-            v-if="!copied"
-            key="shade"
-            class="color-swatch__shade text-xs font-semibold absolute"
-            :class="textClasses"
-          >
-            {{ shade }}
-          </span>
-          <span
-            v-else
-            key="copied"
-            class="color-swatch__copied text-xs font-semibold absolute"
-            :class="textClasses"
-          >
-            Скопировано
-          </span>
-        </transition>
-      </div>
-      <div 
-        class="color-swatch__tooltip tooltip-hidden"
-        :class="{ 'tooltip-visible': isTooltipVisible }"
-        @mouseenter="isTooltipVisible = true"
-        @mouseleave="isTooltipVisible = false"
+    <transition name="fade" mode="out-in">
+      <span
+        v-if="copied"
+        key="copied"
+        class="color-swatch__text text-xs font-semibold"
+        :class="textClasses"
       >
-        <span>{{ backgroundClasses }}</span>
-      </div>
-    </div>
+        Скопировано
+      </span>
+      <span
+        v-else-if="isHovered"
+        key="classes"
+        class="color-swatch__text text-xs font-semibold"
+        :class="textClasses"
+      >
+        {{ backgroundClasses }}
+      </span>
+      <span
+        v-else
+        key="shade"
+        class="color-swatch__text text-xs font-semibold"
+        :class="textClasses"
+      >
+        {{ shade }}
+      </span>
+    </transition>
   </div>
 </template>
 
-<style scoped lang="scss">
-@import 'ustatic-css/utils/token';
-
-.color-swatch {
-  overflow: visible;
-}
-
-.color-swatch__text-container {
-  // Ensure the container doesn't affect layout
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.color-swatch__shade,
-.color-swatch__copied {
-  // Center both absolutely positioned spans
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.color-swatch__tooltip {
-  position: absolute;
-  bottom: calc(100% + token('base.step.2'));
-  left: 50%;
-  transform: translateX(-50%);
-  padding: token('base.step.1d5') token('base.step.3');
-  background-color: var(--vp-c-bg);
-  border: 1px solid var(--vp-c-border);
-  border-radius: token('base.border.radius.md');
-  font-size: token('base.text.size.xs');
-  font-family: var(--vp-font-family-mono);
-  color: var(--vp-c-text-2);
-  white-space: nowrap;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+<style scoped>
+.color-swatch__text {
+  word-break: break-all;
 }
 </style>

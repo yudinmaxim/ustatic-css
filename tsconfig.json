@@ -29,6 +29,7 @@
       "@/*": ["src/*"],
       "@src/*": ["src/*"],
       "@utils/*": ["src/css/utils/*"],
+      "@css/*": ["src/css/*"],
     },
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "package.json"],

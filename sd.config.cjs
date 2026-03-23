@@ -65,7 +65,7 @@ module.exports = {
       'transformGroup': 'scss',
       'buildPath': 'src/css/assets/tokens/',
       'files': [ {
-        'destination': '_prefix.scss',
+        'destination': '_ustatic-prefix.scss',
         'format': 'scss/prefix-variable'
       } ]
     },
@@ -75,7 +75,7 @@ module.exports = {
       buildPath: 'src/css/assets/tokens/',
       files: [
         {
-          destination: '_list.scss',
+          destination: '_ustatic-list.scss',
           format: 'scss/map-custom',
           options: {
             mapName: 'palette',
@@ -94,7 +94,7 @@ module.exports = {
       files: [
         {
           format: 'css/variables',
-          destination: '_vars.scss',
+          destination: '_ustatic-vars.scss',
           options: {
             showFileHeader: false
           },
