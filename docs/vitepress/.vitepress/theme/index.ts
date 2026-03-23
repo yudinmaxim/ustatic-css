@@ -8,7 +8,8 @@ import ColorSwatch from '../components/ColorSwatch.vue'
 export default {
   extends: DefaultTheme,
   enhanceApp({ app }) {
-    app.use(ustaticCss)
+    // Устанавливаем плагин uStatic CSS с базовым путём для GitHub Pages
+    app.use(ustaticCss, { basePath: '/ustatic-css' })
 
     enhanceAppWithComponentView(app, {
       localeMappings: {

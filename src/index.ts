@@ -5,23 +5,52 @@ export * from './utils/styleLoader'
 export * from './utils/useCssProperties'
 export * from './utils/useTokens'
 
-interface PluginOptions extends IStyleLoaderOptions {
-  prefix?: string
+export interface PluginOptions extends IStyleLoaderOptions {
+  /**
+   * Загружать ли стили автоматически при установке плагина
+   * @default true
+   */
+  autoLoad?: boolean
 }
 
-const plugin = {
-  install(app: never, options?: PluginOptions) {
-    // Проверяем, что document доступен
+/**
+ * Vue плагин для загрузки uStatic CSS
+ *
+ * @example
+ * app.use(ustaticCss, { basePath: '/my-app' })
+ */
+const ustaticCss = {
+  install(app: any, options?: PluginOptions) {
+    // Проверяем, что document доступен (не SSR)
     if (typeof document === 'undefined') return
 
-    console.log('plugin options', options)
-    // Загружаем стили через новый модуль
-    loadStyles(options)
+    const autoLoad = options?.autoLoad ?? true
+
+    // Предоставляем глобальную функцию для загрузки стилей
+    app.config.globalProperties.$loadUStaticStyles = (opts?: IStyleLoaderOptions) => {
+      return loadStyles({ ...options, ...opts })
+    }
+
+    // Автозагрузка при установке плагина
+    if (autoLoad) {
+      loadStyles(options)
+    }
   }
 }
 
+/**
+ * Композиция функция для загрузки стилей
+ *
+ * @example
+ * useUStaticStyles({ modules: ['flexbox', 'spacing'] })
+ */
+export const useUStaticStyles = (options?: IStyleLoaderOptions): void => {
+  if (typeof document === 'undefined') return
+
+  loadStyles(options)
+}
+
 export {
-  plugin as ustaticCss,
-  type PluginOptions,
+  ustaticCss,
   loadStyles
 }

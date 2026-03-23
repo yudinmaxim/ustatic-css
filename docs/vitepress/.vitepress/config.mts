@@ -8,13 +8,17 @@ export default defineConfig({
   title: 'uStatic CSS',
   description: 'Утилитарный CSS-фреймворк для быстрой разработки интерфейсов',
   vite: {
+    optimizeDeps: {
+      exclude: [ 'ustatic-css' ],
+    },
     css: {
       devSourcemap: false,
     },
     build: {
-      cssCodeSplit: false,
+      cssCodeSplit: true,
       assetsInlineLimit: 0,
     },
+    publicDir: './public',
   },
   themeConfig: {
     outline: {
