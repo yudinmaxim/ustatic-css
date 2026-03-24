@@ -10,7 +10,7 @@
   "types": "dist/types/src/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/yudinmaxim/ustatic-css.git"
+    "url": "git+https://github.com/yudinmaxim/ustatic-css.git"
   },
   "bugs": {
     "url": "https://github.com/yudinmaxim/ustatic-css/issues"
