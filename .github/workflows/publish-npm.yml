@@ -16,7 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      id-token: write
+      id-token: write          # необходимо для OIDC
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -27,6 +27,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '22'
+          registry-url: 'https://registry.npmjs.org'   # необязательно, но не вредит
 
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
@@ -55,16 +56,27 @@ jobs:
       - name: Update npm to latest (for OIDC support)
         run: npm install -g npm@latest
 
-      - name: Publish from tag (push)
+      - name: Set version from tag (push)
         if: github.event_name == 'push'
         run: |
           VERSION="${GITHUB_REF#refs/tags/npm_v}"
-          TAG=$([[ "$VERSION" == *beta* ]] && echo "beta" || echo "latest")
-          npm publish --access public --provenance --new-version "$VERSION" --tag "$TAG"
+          npm version $VERSION --allow-same-version --no-git-tag-version
 
-      - name: Publish manually (workflow_dispatch)
+      - name: Set version from input (workflow_dispatch)
         if: github.event_name == 'workflow_dispatch'
         run: |
           VERSION="${{ github.event.inputs.version }}"
-          TAG=$([[ "$VERSION" == *beta* ]] && echo "beta" || echo "latest")
-          npm publish --access public --provenance --new-version "$VERSION" --tag "$TAG"
+          npm version $VERSION --allow-same-version --no-git-tag-version
+
+      - name: Determine npm tag
+        id: tag
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          if [[ "$VERSION" == *beta* ]]; then
+            echo "npm_tag=beta" >> $GITHUB_OUTPUT
+          else
+            echo "npm_tag=latest" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Publish to npm
+        run: npm publish --access public --provenance --tag ${{ steps.tag.outputs.npm_tag }}
