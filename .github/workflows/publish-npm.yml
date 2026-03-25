@@ -1,8 +1,9 @@
 name: Publish to npm
 
 on:
-  release:
-    types: [published]
+  push:
+    tags:
+      - 'npm_v*'
   workflow_dispatch:
     inputs:
       version:
@@ -55,17 +56,20 @@ jobs:
       - name: Update npm to latest (for OIDC support)
         run: npm install -g npm@latest
 
-      - name: Update version (workflow_dispatch)
-        if: github.event_name == 'workflow_dispatch'
+      - name: Update version from tag and publish
+        if: github.event_name == 'push'
         run: |
-          npm version ${{ github.event.inputs.version }} --no-git-tag-version
+          VERSION="${GITHUB_REF#refs/tags/npm_v}"
+          TAG=$([[ "$VERSION" == *beta* ]] && echo "beta" || echo "latest")
+          npm version $VERSION --allow-same-version --no-git-tag-version --publish --tag $TAG
         working-directory: ./
 
-      - name: Publish to npm
+      - name: Update version and publish (workflow_dispatch)
+        if: github.event_name == 'workflow_dispatch'
         run: |
-          if [ "${{ github.event_name }}" == "release" ]; then
-            npm publish --access public --no-git-checks --provenance
-          else
-            TAG=$([[ "${{ github.event.inputs.version }}" == *beta* ]] && echo "beta" || echo "latest")
-            npm publish --access public --no-git-checks --provenance --tag $TAG
-          fi
+          VERSION="${{ github.event.inputs.version }}"
+          TAG=$([[ "$VERSION" == *beta* ]] && echo "beta" || echo "latest")
+          npm version $VERSION --allow-same-version --no-git-tag-version --publish --tag $TAG
+        working-directory: ./
+
+      
