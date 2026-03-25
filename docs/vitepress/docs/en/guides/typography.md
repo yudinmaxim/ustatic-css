@@ -47,6 +47,12 @@ All palette colors are available via `.text-{color}-{brightness}`:
 </div>
 :::
 
+```html
+<span class="text-gray-900">Primary text</span>
+<span class="text-gray-500">Secondary text</span>
+<span class="text-blue-500">Accent text</span>
+```
+
 ## Examples
 
 ::: component-view
@@ -58,3 +64,9 @@ All palette colors are available via `.text-{color}-{brightness}`:
   <p class="text-xl font-bold">Extra large bold text</p>
 </div>
 :::
+
+```html
+<p class="text-2xs font-light">Extra small light text</p>
+<p class="text-base font-medium">Base medium text</p>
+<p class="text-xl font-bold">Extra large bold text</p>
+```

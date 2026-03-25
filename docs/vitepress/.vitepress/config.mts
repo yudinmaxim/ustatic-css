@@ -1,21 +1,46 @@
 import { defineConfig } from 'vitepress'
 import { componentViewMarkdownPlugin } from 'vitepress-plugin-component'
 import { withI18n } from 'vitepress-i18n'
-
+import { withSidebar } from 'vitepress-sidebar'
+import type { VitePressSidebarOptions } from 'vitepress-sidebar/types'
 import type { VitePressI18nOptions } from 'vitepress-i18n/types'
 
+const defaultLocale: string = 'ru'
+const defineSupportLocales = [ defaultLocale, 'en' ]
+
+const commonSidebarConfig: VitePressSidebarOptions = {
+  debugPrint: true,
+  collapsed: false,
+  capitalizeFirst: true,
+  useTitleFromFileHeading: true,
+  useTitleFromFrontmatter: true,
+  useFolderTitleFromIndexFile: true,
+  sortMenusByFrontmatterOrder: true
+}
+const vitePressSidebarConfig = [
+  ...defineSupportLocales.map((lang) => {
+    return {
+      ...commonSidebarConfig,
+      documentRootPath: `/docs/${lang}`,
+      resolvePath: defaultLocale === lang ? '/' : `/${lang}/`,
+      ...(defaultLocale === lang ? {} : { basePath: `/${lang}/` })
+    }
+  })
+]
+
 const vitePressI18nOptions: VitePressI18nOptions = {
-  locales: [ 'en', 'ru' ],
-  rootLocale: 'ru',
+  locales: [ ...defineSupportLocales ],
+  rootLocale: defaultLocale,
   searchProvider: 'local',
   description: {
     ru: 'Утилитарный CSS-фреймворк для быстрой разработки интерфейсов',
+    en: 'Utility CSS framework for rapid UI development',
   },
   themeConfig: {
     ru: {
       nav: [
-        { text: 'Главная', link: '/' },
-        { text: 'С чего начать?', link: '/getting-started/introduction/' },
+        { text: 'Главная', link: '/ru/' },
+        { text: 'С чего начать?', link: '/ru/getting-started/introduction/' },
       ],
     },
     en: {
@@ -44,92 +69,82 @@ const vitePressOptions = {
   srcDir: './docs',
   base: '/ustatic-css/',
   title: 'uStatic CSS',
-  // locales: {
-  //   ru: {
-  //     lang: 'ru-RU',
-  //     label: 'Русский',
-  //     title: 'uStatic CSS',
-  //     description: 'Утилитарный CSS-фреймворк для быстрой разработки интерфейсов',
-  //     link: '/ru/',
-  //   },
-  //   en: {
-  //     lang: 'en-US',
-  //     label: 'English',
-  //     title: 'uStatic CSS',
-  //     description: 'Utility CSS framework for rapid UI development',
-  //     link: '/en/',
-  //   },
-  // },
+  lastUpdated: true,
+  cleanUrls: true,
+  metaChunk: true,
+  rewrites: {
+    'en/:rest*': ':rest*'
+  },
   themeConfig: {
     outline: {
       level: 2,
     },
 
     sidebar: {
-      '/': [
+      '/ru/': [
         {
           text: 'Начало работы',
           items: [
-            { text: 'Введение', link: '/getting-started/introduction' },
-            { text: 'Установка', link: '/getting-started/installation' },
-            { text: 'Быстрый старт', link: '/getting-started/quick-start' },
+            { text: 'Введение', link: '/ru/getting-started/introduction' },
+            { text: 'Установка', link: '/ru/getting-started/installation' },
+            { text: 'Быстрый старт', link: '/ru/getting-started/quick-start' },
           ],
         },
         {
           text: 'Описание',
           items: [
-            { text: 'Обзор', link: '/guides/css-classes' },
+            { text: 'Обзор', link: '/ru/guides/css-classes' },
             {
               text: 'Модули',
               items: [
-                { text: 'Выравнивание', link: '/guides/align' },
-                { text: 'Базовые стили', link: '/guides/base' },
-                { text: 'Фон', link: '/guides/bg' },
-                { text: 'Границы', link: '/guides/border' },
-                { text: 'Курсор', link: '/guides/cursor' },
-                { text: 'Отображение', link: '/guides/display' },
-                { text: 'Эффекты', link: '/guides/effects' },
-                { text: 'Фильтры', link: '/guides/filters' },
-                { text: 'Flexbox', link: '/guides/flexbox' },
-                { text: 'Grid', link: '/guides/grid' },
-                { text: 'Скрытие', link: '/guides/hide' },
-                { text: 'Интерактивность', link: '/guides/interactivity' },
-                { text: 'Контур', link: '/guides/outline' },
-                { text: 'Позиционирование', link: '/guides/position' },
-                { text: 'Прокрутка', link: '/guides/scroll' },
-                { text: 'Размеры', link: '/guides/sizing' },
-                { text: 'Отступы', link: '/guides/spacing' },
-                { text: 'Типографика', link: '/guides/typography' },
+                { text: 'Выравнивание', link: '/ru/guides/align' },
+                { text: 'Базовые стили', link: '/ru/guides/base' },
+                { text: 'Фон', link: '/ru/guides/bg' },
+                { text: 'Границы', link: '/ru/guides/border' },
+                { text: 'Курсор', link: '/ru/guides/cursor' },
+                { text: 'Отображение', link: '/ru/guides/display' },
+                { text: 'Эффекты', link: '/ru/guides/effects' },
+                { text: 'Фильтры', link: '/ru/guides/filters' },
+                { text: 'Flexbox', link: '/ru/guides/flexbox' },
+                { text: 'Grid', link: '/ru/guides/grid' },
+                { text: 'Скрытие', link: '/ru/guides/hide' },
+                { text: 'Интерактивность', link: '/ru/guides/interactivity' },
+                { text: 'Контур', link: '/ru/guides/outline' },
+                { text: 'Позиционирование', link: '/ru/guides/position' },
+                { text: 'Прокрутка', link: '/ru/guides/scroll' },
+                { text: 'Размеры', link: '/ru/guides/sizing' },
+                { text: 'Отступы', link: '/ru/guides/spacing' },
+                { text: 'Типографика', link: '/ru/guides/typography' },
               ],
             },
-            { text: 'Рантайм загрузка', link: '/guides/runtime-loading' },
+            { text: 'Рантайм загрузка', link: '/ru/guides/runtime-loading' },
           ],
         },
         {
           text: 'API',
           items: [
-            { text: 'useCssProperties', link: '/api/use-css-properties' },
-            { text: 'useTokens', link: '/api/use-tokens' },
+            { text: 'useCssProperties', link: '/ru/api/use-css-properties' },
+            { text: 'useTokens', link: '/ru/api/use-tokens' },
           ],
         },
         {
           text: 'Палитра',
           items: [
-            { text: 'Цвета', link: '/reference/colors-palette' },
-            { text: 'Примеры', link: '/reference/colors-examples' },
-            { text: 'Акцентные цвета', link: '/reference/variants' },
+            { text: 'Цвета', link: '/ru/reference/colors-palette' },
+            { text: 'Примеры', link: '/ru/reference/colors-examples' },
+            { text: 'Акцентные цвета', link: '/ru/reference/variants' },
           ],
         },
         {
           text: 'Анимации',
           items: [
-            { text: 'Обзор', link: '/reference/animations' },
+            { text: 'Обзор', link: '/ru/reference/animations' },
           ],
         },
         {
           text: 'Справочник',
           items: [
-            { text: 'Классы', link: '/reference/classes' },
+            { text: 'Классы', link: '/ru/reference/classes' },
           ],
         },
       ],
@@ -216,4 +231,12 @@ const vitePressOptions = {
   },
 }
 
-export default defineConfig(withI18n(vitePressOptions, vitePressI18nOptions))
+export default defineConfig(
+  withSidebar(
+    withI18n(
+      vitePressOptions,
+      vitePressI18nOptions
+    ),
+    vitePressSidebarConfig
+  )
+)

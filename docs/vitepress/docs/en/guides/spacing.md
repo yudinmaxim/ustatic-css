@@ -55,3 +55,23 @@ Classes for managing margin and padding.
   <div class="p-8 bg-yellow-100 rounded-base">p-8</div>
 </div>
 :::
+
+```html
+<div class="p-4">padding 4</div>
+<div class="p-6">padding 6</div>
+<div class="p-8">padding 8</div>
+```
+
+::: component-view
+<div class="flex gap-4">
+  <div class="m-2 p-4 bg-blue-100 rounded-base">m-2</div>
+  <div class="m-4 p-4 bg-green-100 rounded-base">m-4</div>
+  <div class="m-6 p-4 bg-yellow-100 rounded-base">m-6</div>
+</div>
+:::
+
+```html
+<div class="m-2 p-4">margin 2</div>
+<div class="m-4 p-4">margin 4</div>
+<div class="m-6 p-4">margin 6</div>
+```

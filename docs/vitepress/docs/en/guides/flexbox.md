@@ -58,3 +58,27 @@ Classes for managing flexbox containers and items.
   <span>Right</span>
 </div>
 :::
+
+```html
+<div class="flex justify-between items-center gap-4">
+  <span>Left</span>
+  <span>Center</span>
+  <span>Right</span>
+</div>
+```
+
+::: component-view
+<div class="flex flex-column items-center gap-2 p-4 bg-gray-100 rounded-base">
+  <span>Item 1</span>
+  <span>Item 2</span>
+  <span>Item 3</span>
+</div>
+:::
+
+```html
+<div class="flex flex-column items-center gap-2">
+  <span>Item 1</span>
+  <span>Item 2</span>
+  <span>Item 3</span>
+</div>
+```
