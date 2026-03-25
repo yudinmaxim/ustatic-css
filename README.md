@@ -1,63 +1,67 @@
 # ustatic-css
 
-> **u**tility **static** **css** framework — набор утилитарных CSS-классов для быстрой разработки интерфейсов.
+> **u**tility **static** **css** framework — a set of utility CSS classes for rapid interface development.
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-0.0.1-blue" alt="Версия">
-  <img src="https://img.shields.io/badge/license-MIT-green" alt="Лицензия">
-  <img src="https://img.shields.io/badge/module-ESM%20%7C%20CJS-lightgrey" alt="Модули">
+  <img src="https://img.shields.io/badge/version-0.0.1-blue" alt="Version">
+  <img src="https://img.shields.io/badge/license-MIT-green" alt="License">
+  <img src="https://img.shields.io/badge/module-ESM%20%7C%20CJS-lightgrey" alt="Modules">
 </p>
 
-## 📦 Обзор
+**[🇷🇺 Русская версия](./README.ru.md)**
 
-**ustatic-css** — утилитарный CSS-фреймворк для создания современных интерфейсов. Основан на токенах дизайн-системы.
+---
 
-### Почему ustatic-css?
+## 📦 Overview
 
-В микрофронтендах типичные утилитарные фреймворки (Tailwind, UnoCSS) создают сложности:
-- Сложные конфигурации, требующие синхронизации между командами
-- Дублирование стилей между модулями, увеличивающее размер бандла
+**ustatic-css** is a utility CSS framework for building modern interfaces. Built on design system tokens.
 
-**ustatic-css** решает эти проблемы:
-- Единая система токенов для консистентности между микрофронтендами
-- Модульная загрузка только нужных стилей
-- Возможность активации классов в рантайме
+### Why ustatic-css?
 
-### Проект включает
+In micro-frontends, typical utility frameworks (Tailwind, UnoCSS) create challenges:
+- Complex configurations requiring synchronization between teams
+- Style duplication between modules, increasing bundle size
 
-- 🎨 Утилитарные CSS-классы для типографики, отступов, позиционирования, цветов
-- 🧩 Хуки `useCssProperties` и `useTokens` для управления стилями в JavaScript
-- 🌐 Адаптивный дизайн с брейкпоинтами `xs`, `md`, `def`, `lg`
-- 🔌 Экспорт модулей как ESM и CJS
+**ustatic-css** solves these problems:
+- Unified token system for consistency across micro-frontends
+- Modular loading of only required styles
+- Runtime class activation capability
 
-## 🌐 Документация
+### Project includes
 
-Полная документация доступна в директории `help/`:
+- 🎨 Utility CSS classes for typography, spacing, positioning, colors
+- 🧩 `useCssProperties` and `useTokens` hooks for style management in JavaScript
+- 🌐 Responsive design with breakpoints `xs`, `md`, `def`, `lg`
+- 🔌 Module exports as ESM and CJS
 
-- [📘 `useCssProperties` — Управление CSS-свойствами](./help/useCssProperties_help.md)
-- [📘 `useTokens` — Работа с токенами CSS](./help/useTokens_help.md)
-- [📘 Утилитарные классы (подробно)](./help/ustatic_utility_help.md)
-- [📗 Словарь всех классов](./help/ustatic_classes.md) — полный список с примерами использования
+## 🌐 Documentation
 
-## 🚀 Быстрый старт
+Full documentation is available at [https://yudinmaxim.github.io/ustatic-css/](https://yudinmaxim.github.io/ustatic-css/)
 
-### Установка
+- [📘 `useCssProperties` — CSS Properties Management](https://yudinmaxim.github.io/ustatic-css/api/use-css-properties)
+- [📘 `useTokens` — CSS Tokens Usage](https://yudinmaxim.github.io/ustatic-css/api/use-tokens)
+- [📘 Utility Classes (detailed)](https://yudinmaxim.github.io/ustatic-css/guides/css-classes)
+- [📗 Dictionary of All Classes](https://yudinmaxim.github.io/ustatic-css/reference/classes)
+
+## 🚀 Quick Start
+
+### Installation
 
 ```bash
 npm install ustatic-css
 ```
 
-### Использование
+### Usage
 
-#### CSS-классы
+#### CSS Classes
 
-Подключите основной файл стилей:
+Import the main stylesheet:
 
 ```js
 import 'ustatic-css';
 ```
 
-Или импортируйте отдельные модули:
+Or import individual modules:
 
 ```js
 import 'ustatic-css/base';
@@ -66,53 +70,53 @@ import 'ustatic-css/spacing';
 import 'ustatic-css/flexbox';
 ```
 
-Используйте классы в разметке:
+Use classes in markup:
 
 ```html
-<!-- Карточка с flexbox -->
+<!-- Card with flexbox -->
 <div class="flex justify-between items-center p-4 bg-white border border-gray-200 rounded-base">
-  <span class="text-lg font-semibold text-gray-800">Заголовок</span>
+  <span class="text-lg font-semibold text-gray-800">Title</span>
   <button class="px-4 py-2 bg-blue-500 text-white rounded-base hover:bg-blue-600 cursor-pointer">
-    Кнопка
+    Button
   </button>
 </div>
 
-<!-- Бейдж -->
+<!-- Badge -->
 <span class="inline-block px-2 py-1 text-xs font-semibold text-red-600 bg-red-100 rounded-base">
   New
 </span>
 
-<!-- Анимация вращения -->
+<!-- Spinning animation -->
 <div class="animation:spin-4">⚙️</div>
 ```
 
-### Доступные классы
+### Available Classes
 
-**Основные модули:**
-- **Типографика**: `.text-{size}`, `.font-{weight}`, `.text-{color}-{brightness}`
-- **Отступы**: `.m-{space}`, `.p-{space}`, `.mt-{space}`, `.px-{space}` и т.д.
+**Core modules:**
+- **Typography**: `.text-{size}`, `.font-{weight}`, `.text-{color}-{brightness}`
+- **Spacing**: `.m-{space}`, `.p-{space}`, `.mt-{space}`, `.px-{space}`, etc.
 - **Flexbox**: `.flex`, `.items-center`, `.justify-between`, `.gap-{size}`
-- **Позиционирование**: `.relative`, `.absolute`, `.z-{index}`
-- **Фон**: `.bg-{color}-{brightness}`, `.bg-opacity-{0|25|50|75|100}`
-- **Границы**: `.border`, `.border-{color}-{brightness}`, `.rounded-{size}` (например, `.rounded-base`, `.rounded-lg`)
-- **Размеры**: `.w-{size}`, `.h-{size}`, `.min-w-{size}`, `.max-h-{size}`
-- **Эффекты**: `.opacity-{0-100}`, `.rotate-{angle}`
-- **Анимации**: `.blink`, `.animation:spin-{1-10}`, `.active:pulse`
+- **Positioning**: `.relative`, `.absolute`, `.z-{index}`
+- **Background**: `.bg-{color}-{brightness}`, `.bg-opacity-{0|25|50|75|100}`
+- **Borders**: `.border`, `.border-{color}-{brightness}`, `.rounded-{size}` (e.g., `.rounded-base`, `.rounded-lg`)
+- **Sizing**: `.w-{size}`, `.h-{size}`, `.min-w-{size}`, `.max-h-{size}`
+- **Effects**: `.opacity-{0-100}`, `.rotate-{angle}`
+- **Animations**: `.blink`, `.animation:spin-{1-10}`, `.active:pulse`
 
-**Цвета с яркостью:** Все цветовые классы поддерживают указания яркости через дефис:
+**Colors with brightness:** All color classes support brightness specification via hyphen:
 - `.bg-red-500`, `.bg-blue-300`, `.bg-green-700`
 - `.text-gray-600`, `.text-primary-400`
 - `.border-purple-500`, `.border-orange-200`
 
-Полный список из 350+ классов см. в [Словаре утилитарных классов](./help/ustatic_classes.md).
+For the complete list of 350+ classes, see [Utility Classes Dictionary](https://yudinmaxim.github.io/ustatic-css/reference/classes).
 
-#### Активация стилей в рантайме
+#### Runtime Style Activation
 
-Для загрузки стилей используйте готовый Vue-плагин или универсальный метод. Прямой динамический импорт CSS через `import()` не требуется.
+To load styles, use the ready-made Vue plugin or the universal method. Direct dynamic CSS import via `import()` is not required.
 
-#### Vue 3 плагин (готовый)
+#### Vue 3 Plugin (ready-made)
 
-Пакет предоставляет готовый плагин для активации стилей на лету.
+The package provides a ready-made plugin for on-the-fly style activation.
 
 ```js
 // main.js / main.ts
@@ -122,12 +126,12 @@ import App from './App.vue';
 
 const app = createApp(App);
 
-// Вариант 1: загрузить конкретные модули фреймворка
+// Option 1: load specific framework modules
 app.use(ustaticCss, {
-  modules: ['flexbox', 'spacing', 'typography'] // см. список модулей ниже
+  modules: ['flexbox', 'spacing', 'typography'] // see module list below
 });
 
-// Вариант 2: автоподбор модулей по используемым классам
+// Option 2: auto-detect modules from used classes
 app.use(ustaticCss, {
   classes: ['flex', 'p-4', 'text-lg']
 });
@@ -135,68 +139,66 @@ app.use(ustaticCss, {
 app.mount('#app');
 ```
 
-Опции плагина/загрузчика:
+Plugin/loader options:
 
-| Опция | Тип | Описание |
-|-------|-----|----------|
-| `modules` | `string[]` | Список модулей для подключения |
-| `classes` | `string[]` | Список классов для автоподбора модулей |
+| Option | Type | Description |
+|--------|------|-------------|
+| `modules` | `string[]` | List of modules to include |
+| `classes` | `string[]` | List of classes for auto-detection |
 
-**Доступные модули:** `align`, `animations`, `base`, `bg`, `border`, `cursor`, `display`, `effects`, `filters`, `flexbox`, `grid`, `hide`, `interactivity`, `outline`, `position`, `scroll`, `sizing`, `spacing`, `typography`
+**Available modules:** `align`, `animations`, `base`, `bg`, `border`, `cursor`, `display`, `effects`, `filters`, `flexbox`, `grid`, `hide`, `interactivity`, `outline`, `position`, `scroll`, `sizing`, `spacing`, `typography`
 
-Если опции не заданы — подключаются базовые стили (`ustatic.css`) и переменные (`vars.css`).
+If no options are provided — base styles (`ustatic.css`) and variables (`vars.css`) are loaded.
 
-#### Примеры использования загрузчика
+#### Loader Usage Examples
 
 ```js
-// Vue 3: загрузить конкретные модули
+// Vue 3: load specific modules
 app.use(ustaticCss, {
   modules: ['flexbox', 'spacing', 'typography', 'border']
 });
 
-// Vue 3: автоподбор по классам
+// Vue 3: auto-detect from classes
 app.use(ustaticCss, {
   classes: ['flex', 'p-4', 'text-lg', 'bg-blue-500']
 });
 
-// Vanilla JS / React / Svelte: явная загрузка
+// Vanilla JS / React / Svelte: explicit loading
 import { loadStyles } from 'ustatic-css/scripts';
 
 await loadStyles({ modules: ['typography', 'spacing'] });
 
-// Автоподбор по классам
+// Auto-detect from classes
 await loadStyles({ classes: ['flex', 'justify-between', 'items-center'] });
 ```
 
-#### SSR-совместимость
+#### SSR Compatibility
 
-Метод `loadStyles` безопасно работает при SSR: если `document` недоступен, загрузка пропускается на сервере и выполняется в браузере.
+The `loadStyles` method works safely with SSR: if `document` is not available, loading is skipped on the server and performed in the browser.
 
-## 🧩 Особенности
+## 🧩 Features
 
-- **Готовый Vue-плагин** — активация и подгрузка модульных стилей в рантайме
-- **Универсальный загрузчик** — метод `loadStyles` для любых сред (Vanilla/React/Svelte/Nuxt/SSR)
-- **Автоподбор модулей** — загрузчик автоматически определит нужные модули по списку классов
-- **Токены дизайн-системы** — все стили основаны на единой системе токенов
-- **350+ утилитарных классов** — 19 модулей для типографики, отступов, позиционирования, цветов и эффектов
-- **Цвета с яркостью** — поддержка оттенков вида `{color}-{brightness}` (red-500, blue-300, green-700)
-- **Динамические хуки** — `useCssProperties` и `useTokens` для управления стилями в JavaScript
-- **Адаптивность** — поддержка брейкпоинтов `xs`, `md`, `def`, `lg`
-- **Модульность** — импорт только нужных компонентов для уменьшения размера бандла
-- **SSR-совместимость** — безопасная работа на сервере и в браузере
-- **ESM и CJS** — поддержка современных стандартов модулей
+- **Ready Vue Plugin** — activation and on-demand loading of modular styles at runtime
+- **Universal Loader** — `loadStyles` method for any environment (Vanilla/React/Svelte/Nuxt/SSR)
+- **Auto-detection** — loader automatically determines required modules from class list
+- **Design System Tokens** — all styles based on a unified token system
+- **350+ Utility Classes** — 19 modules for typography, spacing, positioning, colors, and effects
+- **Colors with Brightness** — support for shades like `{color}-{brightness}` (red-500, blue-300, green-700)
+- **Dynamic Hooks** — `useCssProperties` and `useTokens` for style management in JavaScript
+- **Responsiveness** — breakpoint support for `xs`, `md`, `def`, `lg`
+- **Modularity** — import only needed components to reduce bundle size
+- **SSR Compatibility** — safe operation on server and browser
+- **ESM and CJS** — modern module standards support
 
 ## TODO
-[ ] Разработка интерактивных примеров и документации на работу с библиотекой
+[ ] Develop interactive examples and library usage documentation
 
-[ ] Публикация в публичных сервисах
+[ ] Publish to public registries
 
+## 📄 License
 
-## 📄 Лицензия
-
-Этот проект распространяется под лицензией MIT. Подробнее см. в файле [LICENSE](./LICENSE).
+This project is licensed under the MIT license. See [LICENSE](./LICENSE) for details.
 
 ---
 
-🤖 *Часть документации создана с применением искусственного интеллекта для улучшения читаемости и полноты.*
-
+🤖 *Part of the documentation was created using artificial intelligence to improve readability and completeness.*
