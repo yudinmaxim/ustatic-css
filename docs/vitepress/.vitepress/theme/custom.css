@@ -1,0 +1,17 @@
+/* Кастомные стили для VitePress - минимальные улучшения */
+
+/* Улучшение видимости вложенности в сайдбаре */
+.VPSidebarGroup .VPSidebarGroup .item > .link {
+  padding-left: 24px;
+  font-size: 13px;
+}
+
+.VPSidebarGroup .VPSidebarGroup .VPSidebarGroup .item > .link {
+  padding-left: 36px;
+  font-size: 13px;
+}
+
+/* Плавные переходы */
+.VPSidebarItem .item > .link {
+  transition: background-color 0.15s ease, color 0.15s ease;
+}

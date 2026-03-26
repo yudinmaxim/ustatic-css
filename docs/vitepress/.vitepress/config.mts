@@ -1,55 +1,22 @@
 import { defineConfig } from 'vitepress'
 import { componentViewMarkdownPlugin } from 'vitepress-plugin-component'
+import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
 import { withI18n } from 'vitepress-i18n'
-import { withSidebar } from 'vitepress-sidebar'
-import type { VitePressSidebarOptions } from 'vitepress-sidebar/types'
-import type { VitePressI18nOptions } from 'vitepress-i18n/types'
 
 const defaultLocale = 'ru'
-// Используем формат объектов для явного указания путей и локалей
 const supportedLocales = [
   { path: 'ru', locale: 'ru' },
   { path: 'en', locale: 'en' },
 ]
 
-/**
- * Настройки сайдбара для каждой локали
- */
-const commonSidebarConfig: VitePressSidebarOptions = {
-  debugPrint: false,
-  collapsed: false,
-  capitalizeFirst: true,
-  useTitleFromFileHeading: true,
-  useTitleFromFrontmatter: true,
-  useFolderTitleFromIndexFile: true,
-  sortMenusByFrontmatterOrder: true,
-  excludeByPrefix: [ 'node_modules', '.git' ],
-}
-
-const vitePressSidebarConfig = supportedLocales.map((langObj) => {
-  const lang = typeof langObj === 'string' ? langObj : langObj.path
-  return {
-    ...commonSidebarConfig,
-    documentRootPath: `/docs/${lang}`,
-    resolvePath: `/${lang}/`,
-    basePath: `/${lang}/`,
-  }
-})
-
-/**
- * Настройки i18n
- */
-const vitePressI18nOptions: VitePressI18nOptions = {
+const vitePressI18nOptions = {
   locales: supportedLocales,
   rootLocale: defaultLocale,
   searchProvider: 'local',
-  // Названия для переключателя языков
   label: {
     ru: 'Русский',
     en: 'English',
   },
-  // Ссылки на главные страницы локалей (для переключения языков)
-  // Важно: указываем пути ОТНОСИТЕЛЬНО base
   link: {
     ru: '/ru/',
     en: '/en/',
@@ -58,7 +25,6 @@ const vitePressI18nOptions: VitePressI18nOptions = {
     ru: 'Утилитарный CSS-фреймворк для быстрой разработки интерфейсов',
     en: 'Utility CSS framework for rapid UI development',
   },
-  // Переводы для UI элементов (кнопки, лейблы и т.д.)
   ui: {
     ru: {
       sidebarMenuLabel: 'Меню',
@@ -89,25 +55,130 @@ const vitePressI18nOptions: VitePressI18nOptions = {
     ru: {
       nav: [
         { text: 'Главная', link: '/ru/' },
-        { text: 'С чего начать?', link: '/ru/getting-started/introduction/' },
+        { text: 'Начало работы', link: '/ru/getting-started/installation/' },
+        { text: 'Модули', link: '/ru/guides/align/' },
+        { text: 'API', link: '/ru/api/use-tokens/' },
+      ],
+      sidebar: [
+        {
+          text: 'Начало работы',
+          collapsed: false,
+          items: [
+            { text: 'Установка', link: '/ru/getting-started/installation' },
+            { text: 'Введение', link: '/ru/getting-started/introduction' },
+            { text: 'Быстрый старт', link: '/ru/getting-started/quick-start' },
+          ],
+        },
+        {
+          text: 'Модули',
+          collapsed: false,
+          items: [
+            { text: 'Выравнивание', link: '/ru/modules/align' },
+            { text: 'Базовые стили', link: '/ru/guides/base' },
+            { text: 'Фон', link: '/ru/modules/bg' },
+            { text: 'Границы', link: '/ru/guides/border' },
+            { text: 'Курсор', link: '/ru/guides/cursor' },
+            { text: 'Тип отображения', link: '/ru/guides/display' },
+            { text: 'Эффекты', link: '/ru/guides/effects' },
+            { text: 'Фильтры', link: '/ru/guides/filters' },
+            { text: 'Flexbox', link: '/ru/guides/flexbox' },
+            { text: 'Grid', link: '/ru/guides/grid' },
+            { text: 'Интерактивность', link: '/ru/guides/interactivity' },
+            { text: 'Контур', link: '/ru/guides/outline' },
+            { text: 'Позиционирование', link: '/ru/guides/position' },
+            { text: 'Прокрутка', link: '/ru/guides/scroll' },
+            { text: 'Размеры', link: '/ru/guides/sizing' },
+            { text: 'Отступы', link: '/ru/guides/spacing' },
+            { text: 'Типографика', link: '/ru/guides/typography' },
+          ],
+        },
+        {
+          text: 'Справочник',
+          collapsed: false,
+          items: [
+            { text: 'CSS классы', link: '/ru/guides/css-classes' },
+            { text: 'Анимации', link: '/ru/reference/animations' },
+            { text: 'Палитра цветов', link: '/ru/reference/colors-palette' },
+            { text: 'Примеры цветов', link: '/ru/reference/colors-examples' },
+            { text: 'Варианты', link: '/ru/reference/variants' },
+          ],
+        },
+        {
+          text: 'API',
+          collapsed: false,
+          items: [
+            { text: 'useCssProperties', link: '/ru/api/use-css-properties' },
+            { text: 'useTokens', link: '/ru/api/use-tokens' },
+            { text: 'Runtime загрузка', link: '/ru/guides/runtime-loading' },
+          ],
+        },
       ],
     },
     en: {
       nav: [
         { text: 'Home', link: '/en/' },
-        { text: 'Getting Started', link: '/en/getting-started/introduction/' },
+        { text: 'Getting Started', link: '/en/getting-started/installation' },
+        { text: 'Modules', link: '/en/guides/align' },
+        { text: 'API', link: '/en/api/use-tokens' },
+      ],
+      sidebar: [
+        {
+          text: 'Getting Started',
+          collapsed: false,
+          items: [
+            { text: 'Installation', link: '/en/getting-started/installation' },
+            { text: 'Introduction', link: '/en/getting-started/introduction' },
+            { text: 'Quick Start', link: '/en/getting-started/quick-start' },
+          ],
+        },
+        {
+          text: 'Modules',
+          collapsed: false,
+          items: [
+            { text: 'Align', link: '/en/guides/align' },
+            { text: 'Background', link: '/en/guides/bg' },
+            { text: 'Border', link: '/en/guides/border' },
+            { text: 'Cursor', link: '/en/guides/cursor' },
+            { text: 'Display', link: '/en/guides/display' },
+            { text: 'Effects', link: '/en/guides/effects' },
+            { text: 'Flexbox', link: '/en/guides/flexbox' },
+            { text: 'Grid', link: '/en/guides/grid' },
+            { text: 'Hide', link: '/en/guides/hide' },
+            { text: 'Interactivity', link: '/en/guides/interactivity' },
+            { text: 'Outline', link: '/en/guides/outline' },
+            { text: 'Position', link: '/en/guides/position' },
+            { text: 'Scroll', link: '/en/guides/scroll' },
+            { text: 'Sizing', link: '/en/guides/sizing' },
+            { text: 'Spacing', link: '/en/guides/spacing' },
+            { text: 'Typography', link: '/en/guides/typography' },
+          ],
+        },
+        {
+          text: 'Reference',
+          collapsed: false,
+          items: [
+            { text: 'CSS Classes', link: '/en/guides/css-classes/' },
+            { text: 'Animations', link: '/en/reference/animations/' },
+            { text: 'Color Palette', link: '/en/reference/colors-palette/' },
+          ],
+        },
+        {
+          text: 'API',
+          collapsed: false,
+          items: [
+            { text: 'useCssProperties', link: '/en/api/use-css-properties/' },
+            { text: 'useTokens', link: '/en/api/use-tokens/' },
+          ],
+        },
       ],
     },
   },
 }
 
-/**
- * Базовые настройки VitePress
- */
 const vitePressOptions = {
   vite: {
     optimizeDeps: {
-      include: [ 'ustatic-css' ],
+      include: ['ustatic-css'],
     },
     css: {
       devSourcemap: false,
@@ -118,14 +189,12 @@ const vitePressOptions = {
     },
     publicDir: './public',
   },
-  // Важно: srcDir указывает на корень с документами
   srcDir: './docs',
   base: '/ustatic-css/',
   title: 'uStatic CSS',
   lastUpdated: true,
   cleanUrls: true,
   metaChunk: true,
-  // Редирект для правильного маппинга путей
   rewrites: {
     'ru/:rest*': 'ru/:rest*',
     'en/:rest*': 'en/:rest*',
@@ -142,19 +211,15 @@ const vitePressOptions = {
       copyright: 'Copyright © 2026',
     },
   },
+  lastUpdatedText: 'Последнее обновление',
   markdown: {
     config: (md) => {
       md.use(componentViewMarkdownPlugin)
+      md.use(tabsMarkdownPlugin)
     },
   },
 }
 
 export default defineConfig(
-  withSidebar(
-    withI18n(
-      vitePressOptions,
-      vitePressI18nOptions
-    ),
-    vitePressSidebarConfig
-  )
+  withI18n(vitePressOptions, vitePressI18nOptions)
 )

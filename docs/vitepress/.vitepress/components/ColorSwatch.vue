@@ -34,7 +34,7 @@ function handleMouseLeave() {
 
 <template>
   <div
-    class="relative flex items-center justify-center size-24 cursor-pointer rounded-lg hover:lift"
+    class="relative flex items-center justify-center size-24 cursor-pointer rounded-lg hover:lift transition-all"
     :class="backgroundClasses"
     @click="copyToClipboard"
     @mouseenter="handleMouseEnter"
@@ -44,7 +44,7 @@ function handleMouseLeave() {
       <span
         v-if="copied"
         key="copied"
-        class="color-swatch__text text-xs font-semibold"
+        class="text-xs font-semibold"
         :class="textClasses"
       >
         Скопировано
@@ -52,7 +52,7 @@ function handleMouseLeave() {
       <span
         v-else-if="isHovered"
         key="classes"
-        class="color-swatch__text text-xs font-semibold"
+        class="text-xs font-semibold px-1 text-center break-all"
         :class="textClasses"
       >
         {{ backgroundClasses }}
@@ -60,7 +60,7 @@ function handleMouseLeave() {
       <span
         v-else
         key="shade"
-        class="color-swatch__text text-xs font-semibold"
+        class="text-xs font-semibold"
         :class="textClasses"
       >
         {{ shade }}
@@ -70,7 +70,13 @@ function handleMouseLeave() {
 </template>
 
 <style scoped>
-.color-swatch__text {
-  word-break: break-all;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

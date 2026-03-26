@@ -39,7 +39,7 @@ import 'ustatic-css';
 
 ::: component-view
 <!-- Hover lift -->
-<div class="hover-lift inline-block p-4 bg-white border border-gray-200 rounded-base">
+<div class="hover:lift inline-block p-4 bg-white border border-gray-200 rounded-base">
   Hover me
 </div>
 :::
@@ -95,7 +95,7 @@ All color classes support brightness specification via hyphen:
 <div class="blink">Blinking element</div>
 <div class="animation:spin-4">Spinning element</div>
 <button class="active:pulse">Button with pulse</button>
-<div class="hover-lift">Card with lift</div>
+<div class="hover:lift">Card with lift</div>
 ```
 
 ## Next Steps

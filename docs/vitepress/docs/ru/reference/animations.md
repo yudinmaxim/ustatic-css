@@ -101,13 +101,13 @@ uStatic CSS включает набор утилитарных классов д
 Подъём элемента при наведении:
 
 ::: component-view
-<div class="hover-lift inline-block p-4 bg-white border border-gray-200 rounded-base">
+<div class="hover:lift inline-block p-4 bg-white border border-gray-200 rounded-base">
   Наведи на меня
 </div>
 :::
 
 ```html
-<div class="hover-lift">Наведи на меня</div>
+<div class="hover:lift">Наведи на меня</div>
 ```
 
 **Эффект:** при наведении элемент поднимается вверх с тенью.
@@ -152,7 +152,7 @@ uStatic CSS включает набор утилитарных классов д
 ### Интерактивная карточка
 
 ::: component-view
-<div class="hover-lift inline-block p-6 bg-white border border-gray-200 rounded-base cursor-pointer">
+<div class="hover:lift inline-block p-6 bg-white border border-gray-200 rounded-base cursor-pointer">
   <h3 class="text-lg font-bold text-gray-800 mb-2">Карточка</h3>
   <p class="text-gray-600">Наведи на меня для эффекта подъёма</p>
 </div>

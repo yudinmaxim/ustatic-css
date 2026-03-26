@@ -2,6 +2,8 @@
 
 **uStatic CSS** (от *utility static CSS*) — это набор утилитарных CSS-классов для быстрой разработки современных интерфейсов. Основан на токенах дизайн-системы.
 
+> ВАЖНО: библиотека находится в разработке и могут быть разрушающие изменения. Не рекомендуется к использованию в критических проектах
+
 ## Почему uStatic CSS?
 
 В микрофронтендах типичные утилитарные фреймворки (Tailwind, UnoCSS) создают сложности:
@@ -22,6 +24,40 @@
 - 🌐 **Адаптивный дизайн** с брейкпоинтами `xs`, `md`, `def`, `lg`
 - 🔌 **Экспорт модулей** как ESM и CJS
 - ⚡ **SSR-совместимость** — безопасная работа на сервере и в браузере
+
+## Быстрый пример
+
+Оцените мощь uStatic CSS на примере кнопок с акцентными цветами:
+
+::: component-view
+<div class="flex gap-2 flex-wrap">
+  <button class="px-4 py-2 bg-primary-500 text-white rounded-base hover:bg-primary-600 cursor-pointer active:pulse">
+    Primary
+  </button>
+  <button class="px-4 py-2 bg-secondary-500 text-white rounded-base hover:bg-secondary-600 cursor-pointer active:pulse">
+    Secondary
+  </button>
+  <button class="px-4 py-2 bg-success-500 text-white rounded-base hover:bg-success-600 cursor-pointer active:pulse">
+    Success
+  </button>
+  <button class="px-4 py-2 bg-info-500 text-white rounded-base hover:bg-info-600 cursor-pointer active:pulse">
+    Info
+  </button>
+  <button class="px-4 py-2 bg-warning-500 text-white rounded-base hover:bg-warning-600 cursor-pointer active:pulse">
+    Warning
+  </button>
+  <button class="px-4 py-2 bg-danger-500 text-white rounded-base hover:bg-danger-600 cursor-pointer active:pulse">
+    Danger
+  </button>
+</div>
+:::
+
+Этот пример демонстрирует:
+- **Цветовые варианты** — `bg-primary-500`, `bg-success-500`, и т.д.
+- **Hover-эффекты** — `hover:bg-primary-600`
+- **Скругление** — `rounded-base`
+- **Курсор** — `cursor-pointer`
+- **Анимацию нажатия** — `active:pulse`
 
 ## Доступные модули
 
@@ -46,8 +82,3 @@
 | `align` | Вертикальное выравнивание |
 | `interactivity` | Интерактивность |
 | `base` | Базовые стили |
-
-## Следующие шаги
-
-- [Установка](/ru/getting-started/installation) — как установить пакет
-- [Быстрый старт](/ru/getting-started/quick-start) — первый пример использования

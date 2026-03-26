@@ -1,48 +1,47 @@
-# Установка *
-
-> * покет находится в разработке и пока ещё не опубликован
+# Установка
 
 ## Требования
 
 - Node.js 18+
 - npm, pnpm или yarn
 
-## Установка через npm
+## Установка
 
+:::tabs
+== npm
 ```bash
 npm install ustatic-css
 ```
 
-## Установка через pnpm
-
+== pnpm
 ```bash
 pnpm add ustatic-css
 ```
 
-## Установка через yarn
-
+== yarn
 ```bash
 yarn add ustatic-css
 ```
+:::
 
 ## Подключение в проекте
 
-### ESM
-
+:::tabs
+== ESM
 ```javascript
 import 'ustatic-css';
 ```
 
-### CJS
-
+== CJS
 ```javascript
 require('ustatic-css');
 ```
+:::
 
 ## Использование с фреймворками
 
-### Vue 3
-
+:::tabs
+== Vue 3
 Добавьте плагин в `main.js`:
 
 ```javascript
@@ -55,8 +54,7 @@ app.use(ustaticCss);
 app.mount('#app');
 ```
 
-### React / Svelte / Vanilla JS
-
+== React / Svelte / Vanilla JS
 Используйте функцию `loadStyles`:
 
 ```javascript
@@ -65,8 +63,4 @@ import { loadStyles } from 'ustatic-css/scripts';
 // Загрузка нужных модулей
 await loadStyles({ modules: ['flexbox', 'spacing', 'typography'] });
 ```
-
-## Следующие шаги
-
-- [Быстрый старт](/ru/getting-started/quick-start) — первый пример
-- [CSS-классы](/ru/guides/css-classes) — полный справочник
+:::

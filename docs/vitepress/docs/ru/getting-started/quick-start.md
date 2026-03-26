@@ -26,28 +26,29 @@ import 'ustatic-css';
 ::: component-view
 <!-- Bage -->
 <span class="inline-block px-2 py-1 text-xs font-semibold text-red-600 bg-red-100 rounded-base">
-  New
+  Simple bage
 </span>
 :::
 
 ::: component-view
 <!-- Spin animation -->
-<div class="relative">
+<div class="relative flex flex-row gap-2">
   <div class="size-fit animation:spin-4">⚙️</div>
+  <span>Loading...</span>
 </div>
 :::
 
 ::: component-view
 <!-- Hover lift -->
-<div class="hover-lift inline-block p-4 bg-white border border-gray-200 rounded-base">
-  Наведи на меня
+<div class="hover:lift inline-block p-4 bg-white border border-gray-200 rounded-base">
+  Hover on
 </div>
 :::
 
 ::: component-view
 <!-- Pulse on active -->
 <button class="px-4 py-2 bg-blue-500 text-white rounded-base cursor-pointer active:pulse">
-  Нажми меня
+  Push me
 </button>
 :::
 
@@ -95,10 +96,5 @@ import 'ustatic-css';
 <div class="blink">Мигающий элемент</div>
 <div class="animation:spin-4">Вращающийся элемент</div>
 <button class="active:pulse">Кнопка с пульсацией</button>
-<div class="hover-lift">Карточка с подъёмом</div>
+<div class="hover:lift">Карточка с подъёмом</div>
 ```
-
-## Следующие шаги
-
-- [CSS-классы](/ru/guides/css-classes) — полный справочник
-- [Рантайм загрузка](/ru/guides/runtime-loading) — динамическая загрузка

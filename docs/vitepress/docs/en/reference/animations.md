@@ -101,13 +101,13 @@ Element scaling:
 Element lift on hover:
 
 ::: component-view
-<div class="hover-lift inline-block p-4 bg-white border border-gray-200 rounded-base">
+<div class="hover:lift inline-block p-4 bg-white border border-gray-200 rounded-base">
   Hover me
 </div>
 :::
 
 ```html
-<div class="hover-lift">Hover me</div>
+<div class="hover:lift">Hover me</div>
 ```
 
 **Effect:** on hover, the element lifts up with a shadow.
@@ -152,7 +152,7 @@ Classes for managing tooltip visibility:
 ### Interactive Card
 
 ::: component-view
-<div class="hover-lift inline-block p-6 bg-white border border-gray-200 rounded-base cursor-pointer">
+<div class="hover:lift inline-block p-6 bg-white border border-gray-200 rounded-base cursor-pointer">
   <h3 class="text-lg font-bold text-gray-800 mb-2">Card</h3>
   <p class="text-gray-600">Hover for lift effect</p>
 </div>

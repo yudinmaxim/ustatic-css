@@ -4,21 +4,21 @@
 
 @import './modules/base';
 
-@import './modules/typography';
-@import './modules/display';
 @import './modules/align';
-@import './modules/spacing';
-@import './modules/grid';
-@import './modules/flexbox';
-@import './modules/position';
-@import './modules/border';
-@import './modules/hide';
-@import './modules/sizing';
-@import './modules/bg';
-@import './modules/filters';
-@import './modules/effects';
-@import './modules/interactivity/';
-@import './modules/cursor';
-@import './modules/scroll';
 @import './modules/animations';
+@import './modules/bg';
+@import './modules/border';
+@import './modules/cursor';
+@import './modules/display';
+@import './modules/effects';
+@import './modules/filters';
+@import './modules/flexbox';
+@import './modules/grid';
+@import './modules/hide';
+@import './modules/interactivity/';
 @import './modules/outline/';
+@import './modules/position';
+@import './modules/scroll';
+@import './modules/sizing';
+@import './modules/spacing';
+@import './modules/typography';

@@ -5,8 +5,10 @@ import 'ustatic-css/vars'
 import DefaultTheme from 'vitepress/theme'
 import type { Theme } from 'vitepress'
 import { enhanceAppWithComponentView } from 'vitepress-plugin-component/client'
+import { enhanceAppWithTabs } from 'vitepress-plugin-tabs/client'
 
 import ColorSwatch from '../components/ColorSwatch.vue'
+import './custom.css'
 
 export default {
   extends: DefaultTheme,
@@ -20,6 +22,8 @@ export default {
         },
       },
     })
+
+    enhanceAppWithTabs(app)
 
     // Регистрируем компонент ColorSwatch
     app.component('ColorSwatch', ColorSwatch)
