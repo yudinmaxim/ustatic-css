@@ -68,5 +68,5 @@ await loadStyles({ modules: ['flexbox', 'spacing', 'typography'] });
 
 ## Следующие шаги
 
-- [Быстрый старт](/getting-started/quick-start) — первый пример
-- [CSS-классы](/guides/css-classes) — полный справочник
+- [Быстрый старт](/ru/getting-started/quick-start) — первый пример
+- [CSS-классы](/ru/guides/css-classes) — полный справочник

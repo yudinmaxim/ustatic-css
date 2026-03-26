@@ -49,5 +49,5 @@
 
 ## Следующие шаги
 
-- [Установка](/getting-started/installation) — как установить пакет
-- [Быстрый старт](/getting-started/quick-start) — первый пример использования
+- [Установка](/ru/getting-started/installation) — как установить пакет
+- [Быстрый старт](/ru/getting-started/quick-start) — первый пример использования

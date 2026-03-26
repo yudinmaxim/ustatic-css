@@ -100,5 +100,5 @@ import 'ustatic-css';
 
 ## Следующие шаги
 
-- [CSS-классы](/guides/css-classes) — полный справочник
-- [Рантайм загрузка](/guides/runtime-loading) — динамическая загрузка
+- [CSS-классы](/ru/guides/css-classes) — полный справочник
+- [Рантайм загрузка](/ru/guides/runtime-loading) — динамическая загрузка

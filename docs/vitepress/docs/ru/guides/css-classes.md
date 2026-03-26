@@ -9,7 +9,7 @@ uStatic CSS предоставляет более 350 утилитарных к�
 
 ## Основные модули
 
-### [Типографика](/guides/typography)
+### [Типографика](/ru/guides/typography)
 
 Размеры, вес и цвет текста:
 
@@ -19,7 +19,7 @@ uStatic CSS предоставляет более 350 утилитарных к�
 <span class="text-blue-500">Акцентный текст</span>
 ```
 
-### [Отступы](/guides/spacing)
+### [Отступы](/ru/guides/spacing)
 
 Margin и padding:
 
@@ -29,7 +29,7 @@ Margin и padding:
 <div class="-mt-4">Отрицательный margin</div>
 ```
 
-### [Flexbox](/guides/flexbox)
+### [Flexbox](/ru/guides/flexbox)
 
 Flexbox-контейнеры:
 
@@ -37,7 +37,7 @@ Flexbox-контейнеры:
 <div class="flex justify-between items-center gap-4">Контейнер</div>
 ```
 
-### [Grid](/guides/grid)
+### [Grid](/ru/guides/grid)
 
 Grid-сетки:
 
@@ -45,7 +45,7 @@ Grid-сетки:
 <div class="grid grid-columns--1fr-1fr gap-4">Сетка</div>
 ```
 
-### [Позиционирование](/guides/position)
+### [Позиционирование](/ru/guides/position)
 
 Позиционирование элементов:
 
@@ -55,7 +55,7 @@ Grid-сетки:
 </div>
 ```
 
-### [Границы](/guides/border)
+### [Границы](/ru/guides/border)
 
 Границы и скругления:
 
@@ -63,7 +63,7 @@ Grid-сетки:
 <div class="border border-gray-200 rounded-base">Карточка</div>
 ```
 
-### [Фон](/guides/bg)
+### [Фон](/ru/guides/bg)
 
 Цвет и прозрачность фона:
 
@@ -71,7 +71,7 @@ Grid-сетки:
 <div class="bg-blue-500 bg-opacity-50">Фон</div>
 ```
 
-### [Эффекты](/guides/effects)
+### [Эффекты](/ru/guides/effects)
 
 Прозрачность и поворот:
 
@@ -79,7 +79,7 @@ Grid-сетки:
 <div class="opacity-50 rotate-45">Эффект</div>
 ```
 
-### [Курсор](/guides/cursor)
+### [Курсор](/ru/guides/cursor)
 
 Вид курсора:
 
@@ -87,7 +87,7 @@ Grid-сетки:
 <button class="cursor-pointer">Кнопка</button>
 ```
 
-### [Отображение](/guides/display)
+### [Отображение](/ru/guides/display)
 
 Тип отображения:
 
@@ -96,7 +96,7 @@ Grid-сетки:
 <div class="inline-block">Строчно-блочный</div>
 ```
 
-### [Выравнивание](/guides/align)
+### [Выравнивание](/ru/guides/align)
 
 Вертикальное выравнивание:
 
