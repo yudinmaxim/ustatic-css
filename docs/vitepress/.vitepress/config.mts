@@ -156,7 +156,7 @@ const vitePressI18nOptions = {
           ],
         },
         {
-          text: 'Modules',
+          text: 'Manuals',
           collapsed: false,
           items: [
             { text: 'Align', link: '/en/guides/align' },
