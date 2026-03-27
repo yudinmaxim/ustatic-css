@@ -3,7 +3,18 @@ import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts'
 import { name } from './package.json'
 import { fileURLToPath } from 'node:url'
+import fs from 'fs'
+
 const dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(fileURLToPath(import.meta.url))
+
+// Генерация entries для ресетов
+const resetDir = resolve(dirname, './src/css/modules/base/resets')
+const resetFiles = fs.readdirSync(resetDir).filter(file => file.endsWith('.scss') && file !== 'index.scss')
+const resetEntries: Record<string, string> = {}
+for (const file of resetFiles) {
+  const nameWithoutExt = file.replace('.scss', '')
+  resetEntries[`resets/${nameWithoutExt}`] = resolve(resetDir, file)
+}
 
 const entries = {
   index: resolve(dirname, './src/index.ts'),
@@ -16,6 +27,7 @@ const entries = {
   align: resolve(dirname, './src/css/modules/align/index.scss'),
   animations: resolve(dirname, './src/css/modules/animations/index.scss'),
   base: resolve(dirname, './src/css/modules/base/index.scss'),
+  // resets удалён, так как теперь есть отдельные entries
   bg: resolve(dirname, './src/css/modules/bg/index.scss'),
   border: resolve(dirname, './src/css/modules/border/index.scss'),
   cursor: resolve(dirname, './src/css/modules/cursor/index.scss'),
@@ -31,8 +43,11 @@ const entries = {
   scroll: resolve(dirname, './src/css/modules/scroll/index.scss'),
   sizing: resolve(dirname, './src/css/modules/sizing/index.scss'),
   spacing: resolve(dirname, './src/css/modules/spacing/index.scss'),
-  typography: resolve(dirname, './src/css/modules/typography/index.scss')
+  typography: resolve(dirname, './src/css/modules/typography/index.scss'),
+  // Добавляем entries для ресетов
+  ...resetEntries
 }
+
 export default defineConfig({
   base: './',
   plugins: [ dts({
@@ -78,6 +93,11 @@ export default defineConfig({
             // Для ustatic создаем отдельный файл
             if (moduleName === 'ustatic' || moduleName === 'ustatic-index') {
               return 'css/ustatic.css'
+            }
+            // Для ресетов помещаем в base/resets
+            if (moduleName.startsWith('resets/')) {
+              const subName = moduleName.replace('resets/', '')
+              return `css/modules/base/resets/${subName}.css`
             }
             return `css/modules/${moduleName}.css`
           }

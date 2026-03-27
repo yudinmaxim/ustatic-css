@@ -1,0 +1,35 @@
+---
+import { Code } from "@astrojs/starlight/components";
+import { Tabs, TabItem } from "@astrojs/starlight/components";
+import prettier from "prettier";
+
+interface Props {
+  title?: string;
+}
+
+// Получаем содержимое слота как строку
+const rawHtml = await Astro.slots.render("default");
+
+// Форматируем HTML с отступами
+const slotHtml = await prettier.format(rawHtml, {
+  parser: 'html',
+  printWidth: 80,
+  tabWidth: 2,
+  useTabs: false,
+  htmlWhitespaceSensitivity: 'ignore', // или 'strict'
+  singleAttributePerLine: false,        // атрибуты в одну строку
+});
+---
+
+<div class="border-1 border-gray-200 rounded-md p-2">
+  <Tabs>
+    <TabItem label="Просмотр" icon="laptop">
+      <div class="p-4">
+        <slot />
+      </div>
+    </TabItem>
+    <TabItem label="Код" icon="forward-slash"
+      ><Code code={slotHtml} lang="html" /></TabItem
+    >
+  </Tabs>
+</div>

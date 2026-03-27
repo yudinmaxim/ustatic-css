@@ -10,9 +10,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "ustatic-css": "workspace:*",
     "@astrojs/starlight": "^0.38.1",
     "astro": "^6.0.1",
-    "sharp": "^0.34.2"
+    "prettier": "^3.8.1",
+    "sharp": "^0.34.2",
+    "ustatic-css": "workspace:*"
   }
 }

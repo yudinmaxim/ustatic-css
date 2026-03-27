@@ -1,0 +1,53 @@
+@import 'token';
+
+// Миксины для переиспользуемых стилей
+// ============================================
+
+// Сброс стилей для формных элементов (button, input, optgroup, select, textarea)
+// Устанавливает наследование шрифтов, размеров, отступов и цвета
+@mixin reset-form-elements {
+  font-family: inherit; /* 1 */
+  font-feature-settings: inherit; /* 1 */
+  font-variation-settings: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  font-weight: inherit; /* 1 */
+  line-height: inherit; /* 1 */
+  letter-spacing: inherit; /* 1 */
+  color: inherit; /* 1 */
+  margin: 0; /* 2 */
+  padding: 0; /* 3 */
+}
+// Сброс text-transform для button и select
+@mixin reset-button-select-text-transform {
+  text-transform: none;
+}
+
+// Сброс appearance и фона для кнопко-подобных элементов
+@mixin reset-button-like-elements {
+  -webkit-appearance: button; /* 1 */
+  background-color: transparent; /* 2 */
+  background-image: none; /* 2 */
+}
+
+// Сброс высоты для спин-кнопок WebKit
+@mixin reset-spin-buttons {
+  height: auto;
+}
+
+// Сброс стилей для кнопки загрузки файла в WebKit
+@mixin reset-file-upload-button {
+  -webkit-appearance: button; /* 1 */
+  font: inherit; /* 2 */
+}
+
+// Сброс стилей для плейсхолдеров (opacity и цвет)
+@mixin reset-placeholder {
+  &::-moz-placeholder {
+    opacity: 1;
+    color: token("base.color.gray.400");
+  }
+  &::placeholder {
+    opacity: 1;
+    color: token("base.color.gray.400");
+  }
+}

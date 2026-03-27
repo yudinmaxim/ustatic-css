@@ -1,0 +1,93 @@
+---
+title: Введение
+description: Обзор uStatic CSS — утилитарного CSS-фреймворка
+---
+
+import Demo from '../../../../components/Demo.astro'
+
+# Введение
+
+**uStatic CSS** (от *utility static CSS*) — это набор утилитарных CSS-классов для быстрой разработки современных интерфейсов. Основан на токенах дизайн-системы.
+
+:::note[Важно]
+Библиотека находится в разработке, возможны разрушающие изменения. Не рекомендуется к использованию в критических проектах.
+:::
+
+## Почему uStatic CSS?
+
+В микрофронтендах типичные утилитарные фреймворки (Tailwind, UnoCSS) создают сложности:
+
+- Сложные конфигурации, требующие синхронизации между командами
+- Дублирование стилей между модулями, увеличивающее размер бандла
+
+**uStatic CSS** решает эти проблемы:
+
+- Единая система токенов для консистентности между микрофронтендами
+- Модульная загрузка только нужных стилей
+- Возможность активации модулей в рантайме
+
+## Возможности
+
+- 🎨 **350+ утилитарных классов** для типографики, отступов, позиционирования, цветов
+- 🧩 **Хуки `useCssProperties` и `useTokens`** для управления стилями в JavaScript
+- 🌐 **Адаптивный дизайн** с брейкпоинтами `xs`, `md`, `def`, `lg`
+- 🔌 **Экспорт модулей** как ESM и CJS
+- ⚡ **SSR-совместимость** — безопасная работа на сервере и в браузере
+
+## Быстрый пример
+
+Оцените мощь uStatic CSS на примере кнопок с акцентными цветами:
+
+<Demo title="Кнопки">
+  <div class="flex gap-2 flex-wrap">
+    <button class="px-4 py-2 bg-primary-500 text-white rounded-base hover:bg-primary-600 cursor-pointer active:pulse">
+      Primary
+    </button>
+    <button class="px-4 py-2 bg-secondary-500 text-white rounded-base hover:bg-secondary-600 cursor-pointer active:pulse">
+      Secondary
+    </button>
+    <button class="px-4 py-2 bg-success-500 text-white rounded-base hover:bg-success-600 cursor-pointer active:pulse">
+      Success
+    </button>
+    <button class="px-4 py-2 bg-info-500 text-white rounded-base hover:bg-info-600 cursor-pointer active:pulse">
+      Info
+    </button>
+    <button class="px-4 py-2 bg-warning-500 text-white rounded-base hover:bg-warning-600 cursor-pointer active:pulse">
+      Warning
+    </button>
+    <button class="px-4 py-2 bg-danger-500 text-white rounded-base hover:bg-danger-600 cursor-pointer active:pulse">
+      Danger
+    </button>
+  </div>
+</Demo>
+
+Этот пример демонстрирует:
+- **Цветовые варианты** — `bg-primary-500`, `bg-success-500`, и т.д.
+- **Hover-эффекты** — `hover:bg-primary-600`
+- **Скругление** — `rounded-base`
+- **Курсор** — `cursor-pointer`
+- **Анимацию нажатия** — `active:pulse`
+
+## Доступные модули
+
+| Модуль | Описание |
+|--------|----------|
+| `typography` | Типографика: размеры, вес, цвета текста |
+| `spacing` | Отступы: margin и padding |
+| `flexbox` | Flex-контейнеры и выравнивание |
+| `grid` | Grid-сетки |
+| `position` | Позиционирование: relative, absolute, fixed |
+| `bg` | Фон: цвета, прозрачность |
+| `border` | Границы и скругления |
+| `effects` | Эффекты: прозрачность, поворот |
+| `animations` | Анимации: вращение, мигание |
+| `sizing` | Размеры: ширина, высота |
+| `cursor` | Курсоры |
+| `display` | Отображение и переполнение |
+| `filters` | Фильтры: grayscale |
+| `outline` | Обводки |
+| `scroll` | Скроллбары |
+| `hide` | Скрытие элементов |
+| `align` | Вертикальное выравнивание |
+| `interactivity` | Интерактивность |
+| `base` | Базовые стили |

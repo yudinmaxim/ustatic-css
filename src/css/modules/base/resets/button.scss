@@ -1,0 +1,31 @@
+@import '../../../utils/mixins';
+
+button:focus-visible {
+  outline: none;
+}
+
+button {
+  @include reset-form-elements;
+  @include reset-button-select-text-transform;
+}
+
+button,
+input:where([type='button']),
+input:where([type='reset']),
+input:where([type='submit']) {
+  @include reset-button-like-elements;
+}
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  @include reset-spin-buttons;
+}
+
+::-webkit-file-upload-button {
+  @include reset-file-upload-button;
+}
+
+button,
+[role="button"] {
+  cursor: pointer;
+}

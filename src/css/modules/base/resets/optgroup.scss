@@ -1,0 +1,5 @@
+@import '../../../utils/mixins';
+
+optgroup {
+  @include reset-form-elements;
+}

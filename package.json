@@ -28,7 +28,8 @@
     "./vars": {
       "import": "./dist/css/ustatic-vars.css"
     },
-    "./base": "./dist/css/modules/base.css",
+    "./reset-style": "./dist/css/modules/base.css",
+    "./resets/*": "./dist/css/modules/base/resets/*.css",
     "./align": "./dist/css/modules/align.css",
     "./animations": "./dist/css/modules/animations.css",
     "./bg": "./dist/css/modules/bg.css",
@@ -49,6 +50,7 @@
     "./typography": "./dist/css/modules/typography.css",
     "./tokens-cfg/**/*": "./src/css/tokens/**/*",
     "./tokens-scss/**/*": "./src/css/assets/tokens/**/*",
+
     "./prefix": "./src/css/assets/tokens/_prefix.scss",
     "./lists": "./src/css/assets/tokens/_list.scss",
     "./utils/token": "./src/css/utils/_token.scss",

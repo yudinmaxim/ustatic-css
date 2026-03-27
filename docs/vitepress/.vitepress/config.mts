@@ -3,6 +3,12 @@ import { componentViewMarkdownPlugin } from 'vitepress-plugin-component'
 import { tabsMarkdownPlugin } from 'vitepress-plugin-tabs'
 import { withI18n } from 'vitepress-i18n'
 
+import { nav } from './nav.ru'
+import { sidebar } from './sidebar.ru'
+
+import * as enNav from './nav.en'
+import * as enSidebar from './sidebar.en'
+
 const defaultLocale = 'ru'
 const supportedLocales = [
   { path: 'ru', locale: 'ru' },
@@ -53,149 +59,12 @@ const vitePressI18nOptions = {
   },
   themeConfig: {
     ru: {
-      nav: [
-        { text: 'Главная', link: '/ru/' },
-        { text: 'Начало работы', link: '/ru/getting-started/installation/' },
-        { text: 'Модули', link: '/ru/guides/align/' },
-        { text: 'API', link: '/ru/api/use-tokens/' },
-      ],
-      sidebar: [
-        {
-          text: 'Начало работы',
-          collapsed: false,
-          items: [
-            { text: 'Установка', link: '/ru/getting-started/installation' },
-            { text: 'Введение', link: '/ru/getting-started/introduction' },
-            { text: 'Быстрый старт', link: '/ru/getting-started/quick-start' },
-          ],
-        },
-        {
-          text: 'Руководство',
-          collapsed: false,
-          items: [
-            { text: 'Выравнивание', link: '/ru/guides/align' },
-            { text: 'Базовые стили', link: '/ru/guides/base' },
-            { text: 'Фон', link: '/ru/guides/bg' },
-            { text: 'Границы', link: '/ru/guides/border' },
-            { text: 'Курсор', link: '/ru/guides/cursor' },
-            { text: 'Отображение', link: '/ru/guides/display' },
-            { text: 'Эффекты', link: '/ru/guides/effects' },
-            { text: 'Фильтры', link: '/ru/guides/filters' },
-            { text: 'Flexbox', link: '/ru/guides/flexbox' },
-            { text: 'Сетка', link: '/ru/guides/grid' },
-            { text: 'Интерактивность', link: '/ru/guides/interactivity' },
-            { text: 'Контур', link: '/ru/guides/outline' },
-            { text: 'Позиционирование', link: '/ru/guides/position' },
-            { text: 'Прокрутка', link: '/ru/guides/scroll' },
-            { text: 'Размеры', link: '/ru/guides/sizing' },
-            { text: 'Отступы', link: '/ru/guides/spacing' },
-            { text: 'Типографика', link: '/ru/guides/typography' },
-          ],
-        },
-        {
-          text: 'Справочник',
-          collapsed: false,
-          items: [
-            { text: 'CSS классы', link: '/ru/guides/css-classes' },
-            { text: 'Анимации', link: '/ru/reference/animations' },
-            { text: 'Палитра цветов', link: '/ru/reference/colors-palette' },
-            { text: 'Примеры цветов', link: '/ru/reference/colors-examples' },
-            { text: 'Варианты', link: '/ru/reference/variants' },
-          ],
-        },
-        {
-          text: 'Модули',
-          collapsed: false,
-          items: [
-            { text: 'Выравнивание', link: '/ru/modules/align/' },
-            { text: 'Фон', link: '/ru/modules/bg/' },
-            { text: 'Границы', link: '/ru/modules/border/' },
-            { text: 'Курсор', link: '/ru/modules/cursor/' },
-            { text: 'Отображение', link: '/ru/modules/display/' },
-            { text: 'Эффекты', link: '/ru/modules/effects/' },
-            { text: 'Фильтры', link: '/ru/modules/filters/' },
-            { text: 'Flexbox', link: '/ru/modules/flexbox/' },
-            { text: 'Сетка', link: '/ru/modules/grid/' },
-            { text: 'Скрытие', link: '/ru/modules/hide/' },
-            { text: 'Интерактивность', link: '/ru/modules/interactivity/' },
-            { text: 'Контур', link: '/ru/modules/outline/' },
-            { text: 'Позиционирование', link: '/ru/modules/position/' },
-            { text: 'Предустановки', link: '/ru/modules/presets/' },
-            { text: 'Прокрутка', link: '/ru/modules/scroll/' },
-            { text: 'Размеры', link: '/ru/modules/sizing/' },
-            { text: 'Отступы', link: '/ru/modules/spacing/' },
-            { text: 'Типографика', link: '/ru/modules/typography/' },
-          ],
-        },
-        {
-          text: 'API',
-          collapsed: false,
-          items: [
-            { text: 'useCssProperties', link: '/ru/api/use-css-properties' },
-            { text: 'useTokens', link: '/ru/api/use-tokens' },
-            { text: 'Runtime загрузка', link: '/ru/guides/runtime-loading' },
-          ],
-        },
-      ],
+      nav,
+      sidebar,
     },
     en: {
-      nav: [
-        { text: 'Home', link: '/en/' },
-        { text: 'Getting Started', link: '/en/getting-started/installation' },
-        { text: 'Modules', link: '/en/guides/align' },
-        { text: 'API', link: '/en/api/use-tokens' },
-      ],
-      sidebar: [
-        {
-          text: 'Getting Started',
-          collapsed: false,
-          items: [
-            { text: 'Installation', link: '/en/getting-started/installation' },
-            { text: 'Introduction', link: '/en/getting-started/introduction' },
-            { text: 'Quick Start', link: '/en/getting-started/quick-start' },
-          ],
-        },
-        {
-          text: 'Manuals',
-          collapsed: false,
-          items: [
-            { text: 'Align', link: '/en/guides/align' },
-            { text: 'Background', link: '/en/guides/bg' },
-            { text: 'Border', link: '/en/guides/border' },
-            { text: 'Cursor', link: '/en/guides/cursor' },
-            { text: 'Display', link: '/en/guides/display' },
-            { text: 'Effects', link: '/en/guides/effects' },
-            { text: 'Filters', link: '/en/guides/filters' },
-            { text: 'Flexbox', link: '/en/guides/flexbox' },
-            { text: 'Grid', link: '/en/guides/grid' },
-            { text: 'Hide', link: '/en/guides/hide' },
-            { text: 'Interactivity', link: '/en/guides/interactivity' },
-            { text: 'Outline', link: '/en/guides/outline' },
-            { text: 'Position', link: '/en/guides/position' },
-            { text: 'Scroll', link: '/en/guides/scroll' },
-            { text: 'Sizing', link: '/en/guides/sizing' },
-            { text: 'Spacing', link: '/en/guides/spacing' },
-            { text: 'Typography', link: '/en/guides/typography' },
-          ],
-        },
-        {
-          text: 'Reference',
-          collapsed: false,
-          items: [
-            { text: 'CSS Classes', link: '/en/guides/css-classes/' },
-            { text: 'Animations', link: '/en/reference/animations/' },
-            { text: 'Color Palette', link: '/en/reference/colors-palette/' },
-          ],
-        },
-        {
-          text: 'API',
-          collapsed: false,
-          items: [
-            { text: 'useCssProperties', link: '/en/api/use-css-properties/' },
-            { text: 'useTokens', link: '/en/api/use-tokens/' },
-          ],
-        },
-      ],
+      nav: enNav.nav,
+      sidebar: enSidebar.sidebar
     },
   },
 }
@@ -203,7 +72,7 @@ const vitePressI18nOptions = {
 const vitePressOptions = {
   vite: {
     optimizeDeps: {
-      include: ['ustatic-css'],
+      include: [ 'ustatic-css' ],
     },
     css: {
       devSourcemap: false,
