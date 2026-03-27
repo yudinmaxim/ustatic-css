@@ -5,7 +5,7 @@ import {
 } from "./chunk-TCXBSQ4M.js";
 
 // ../../node_modules/.pnpm/vitepress-plugin-component@1.1.1/node_modules/vitepress-plugin-component/src/client/index.ts
-import ComponentView from "/home/maxim/Projects/personal-projects/ustatic-css/node_modules/.pnpm/vitepress-plugin-component@1.1.1/node_modules/vitepress-plugin-component/src/client/ComponentView.vue";
+import ComponentView from "/home/maxim/WebstormProjects/ustatic-css/node_modules/.pnpm/vitepress-plugin-component@1.1.1/node_modules/vitepress-plugin-component/src/client/ComponentView.vue";
 
 // ../../node_modules/.pnpm/vitepress-plugin-component@1.1.1/node_modules/vitepress-plugin-component/src/client/useLocaleMappings.ts
 var localeMappingSymbol = Symbol(

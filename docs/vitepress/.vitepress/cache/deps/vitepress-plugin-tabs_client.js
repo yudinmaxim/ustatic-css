@@ -25,7 +25,7 @@ import {
 } from "./chunk-TCXBSQ4M.js";
 
 // ../../node_modules/.pnpm/vitepress-plugin-tabs@0.8.0_vitepress@1.6.4_@algolia+client-search@5.49.2_@types+node@2_5b828b3ca11d6827f5140fbb147b65d0/node_modules/vitepress-plugin-tabs/dist/client/browser/index.js
-import "/home/maxim/Projects/personal-projects/ustatic-css/node_modules/.pnpm/vitepress-plugin-tabs@0.8.0_vitepress@1.6.4_@algolia+client-search@5.49.2_@types+node@2_5b828b3ca11d6827f5140fbb147b65d0/node_modules/vitepress-plugin-tabs/dist/client/browser/index.css";
+import "/home/maxim/WebstormProjects/ustatic-css/node_modules/.pnpm/vitepress-plugin-tabs@0.8.0_vitepress@1.6.4_@algolia+client-search@5.49.2_@types+node@2_5b828b3ca11d6827f5140fbb147b65d0/node_modules/vitepress-plugin-tabs/dist/client/browser/index.css";
 var useStabilizeScrollPosition = (targetEle) => {
   if (typeof document === "undefined") {
     const mock = (f) => async (...args) => f(...args);
