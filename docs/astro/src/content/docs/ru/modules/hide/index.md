@@ -12,34 +12,33 @@ description: Справочник по модулю hide
 ### Скрытие на всех размерах
 
 ```html
-<div class="hide">
-  Этот элемент никогда не отображается
-</div>
+<div class="hide">Этот элемент никогда не отображается</div>
 ```
 
 ### Скрытие на брейкпоинтах
 
-| Класс | Диапазон | Описание |
-|-------|----------|----------|
-| `.hide-md` | 768px - 1279px | Скрыт на экранах ≥ 768px |
-| `.hide-lg` | 1280px - 1919px | Скрыт на экранах ≥ 1280px |
-| `.hide-full` | ≥ 1920px | Скрыт на больших экранах |
+Библиотека использует 4 брейкпоинта: `xs` (480px), `md` (768px), `def` (1024px), `lg` (1280px).
+Класс `.hide-{breakpoint}` скрывает элемент в диапазоне от **предыдущего** брейкпоинта до текущего.
+
+| Класс        | Диапазон скрытия | Когда виден                                    |
+| ------------ | ---------------- | ---------------------------------------------- |
+| `.hide-md`   | 0px – 767px      | На экранах ≥ 768px (md, def, lg)               |
+| `.hide-def`  | 768px – 1023px   | На экранах < 768px (xs) или ≥ 1024px (def, lg) |
+| `.hide-lg`   | 1024px – 1279px  | На экранах < 1024px (xs, md) или ≥ 1280px (lg) |
+| `.hide-full` | ≥ 1280px         | На экранах < 1280px (xs, md, def)              |
 
 ```html
-<!-- Скрыт на планшетах и десктопах -->
-<div class="hide-md">
-  Видно только на мобильных (< 768px)
-</div>
+<!-- Скрыт на мобильных и маленьких планшетах -->
+<div class="hide-md">Видно на экранах ≥ 768px</div>
 
-<!-- Скрыт на десктопах -->
-<div class="hide-lg">
-  Видно на мобильных и планшетах (< 1280px)
-</div>
+<!-- Скрыт в диапазоне md (планшет) -->
+<div class="hide-def">Видно на xs (< 768px) или ≥ 1024px</div>
 
-<!-- Скрыт на очень больших экранах -->
-<div class="hide-full">
-  Видно на экранах < 1920px
-</div>
+<!-- Скрыт в диапазоне def (десктоп) -->
+<div class="hide-lg">Видно на xs, md (< 1024px) или ≥ 1280px</div>
+
+<!-- Скрыт на больших экранах -->
+<div class="hide-full">Видно на экранах < 1280px</div>
 ```
 
 ## Примеры использования
@@ -50,8 +49,12 @@ description: Справочник по модулю hide
 <!-- Кнопка гамбургер (видна только на мобильных) -->
 <button class="hide-lg cursor-pointer p-2">
   <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-          d="M4 6h16M4 12h16M4 18h16"/>
+    <path
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      stroke-width="2"
+      d="M4 6h16M4 12h16M4 18h16"
+    />
   </svg>
 </button>
 
@@ -76,7 +79,7 @@ description: Справочник по модулю hide
       <a href="#" class="block py-2 hover:bg-gray-50">Пункт 3</a>
     </nav>
   </aside>
-  
+
   <!-- Основной контент -->
   <main class="flex-1 p-4">
     <h1 class="text-2xl font-bold">Заголовок</h1>
@@ -144,7 +147,7 @@ description: Справочник по модулю hide
       <p class="text-gray-600">Описание товара</p>
     </div>
   </div>
-  
+
   <!-- Десктопный вид (таблица) -->
   <table class="hide-md w-full border">
     <thead>
@@ -174,34 +177,43 @@ description: Справочник по модулю hide
 
 ```html
 <div class="flex flex-column gap-4">
-  <!-- Только мобильные -->
+  <!-- Только ≥ md -->
   <div class="hide-md bg-primary-100 p-4 rounded">
-    <strong>Только мобильные</strong>
-    <p>Видно на экранах &lt; 768px</p>
+    <strong>Видно на ≥ 768px</strong>
+    <p>Скрыт на xs (&lt; 768px)</p>
   </div>
-  
-  <!-- Мобильные и планшеты -->
-  <div class="hide-lg bg-primary-200 p-4 rounded">
-    <strong>Мобильные и планшеты</strong>
-    <p>Видно на экранах &lt; 1280px</p>
+
+  <!-- Всё кроме md диапазона -->
+  <div class="hide-def bg-primary-200 p-4 rounded">
+    <strong>Видно вне 768–1023px</strong>
+    <p>Видно на xs (&lt; 768px) или ≥ 1024px</p>
   </div>
-  
-  <!-- Все кроме больших экранов -->
-  <div class="hide-full bg-primary-300 p-4 rounded">
-    <strong>Все кроме больших экранов</strong>
-    <p>Видно на экранах &lt; 1920px</p>
+
+  <!-- Всё кроме def диапазона -->
+  <div class="hide-lg bg-primary-300 p-4 rounded">
+    <strong>Видно вне 1024–1279px</strong>
+    <p>Видно на xs, md (&lt; 1024px) или ≥ 1280px</p>
+  </div>
+
+  <!-- Только &lt; lg -->
+  <div class="hide-full bg-primary-400 p-4 rounded">
+    <strong>Только &lt; 1280px</strong>
+    <p>Скрыт на lg (≥ 1280px)</p>
   </div>
 </div>
 ```
 
 ## Логика работы
 
-| Класс | Min-width | Max-width | Когда виден |
-|-------|-----------|-----------|-------------|
-| `.hide` | — | — | Никогда |
-| `.hide-md` | 768px | 1279px | < 768px |
-| `.hide-lg` | 1280px | 1919px | < 1280px |
-| `.hide-full` | 1920px | — | < 1920px |
+Брейкпоинты библиотеки: `xs: 480px`, `md: 768px`, `def: 1024px`, `lg: 1280px`
+
+| Класс        | Media query                                          | Когда виден           |
+| ------------ | ---------------------------------------------------- | --------------------- |
+| `.hide`      | —                                                    | Никогда               |
+| `.hide-md`   | `@media (min-width: 0) and (max-width: 767px)`       | ≥ 768px               |
+| `.hide-def`  | `@media (min-width: 768px) and (max-width: 1023px)`  | < 768px или ≥ 1024px  |
+| `.hide-lg`   | `@media (min-width: 1024px) and (max-width: 1279px)` | < 1024px или ≥ 1280px |
+| `.hide-full` | `@media (min-width: 1280px)`                         | < 1280px              |
 
 ## CSS свойства
 
@@ -210,19 +222,25 @@ description: Справочник по модулю hide
   display: none !important;
 }
 
-@media (min-width: 768px) and (max-width: 1279px) {
+@media (min-width: 0) and (max-width: 767px) {
   .hide-md {
     display: none !important;
   }
 }
 
-@media (min-width: 1280px) and (max-width: 1919px) {
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hide-def {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
   .hide-lg {
     display: none !important;
   }
 }
 
-@media (min-width: 1920px) {
+@media (min-width: 1280px) {
   .hide-full {
     display: none !important;
   }
@@ -231,12 +249,13 @@ description: Справочник по модулю hide
 
 ## Таблица классов
 
-| Класс | Описание |
-|-------|----------|
-| `.hide` | Скрыт всегда |
-| `.hide-md` | Скрыт на экранах ≥ 768px |
-| `.hide-lg` | Скрыт на экранах ≥ 1280px |
-| `.hide-full` | Скрыт на экранах ≥ 1920px |
+| Класс        | Описание                             |
+| ------------ | ------------------------------------ |
+| `.hide`      | Скрыт всегда                         |
+| `.hide-md`   | Скрыт на экранах < 768px (xs)        |
+| `.hide-def`  | Скрыт на экранах 768px–1023px (md)   |
+| `.hide-lg`   | Скрыт на экранах 1024px–1279px (def) |
+| `.hide-full` | Скрыт на экранах ≥ 1280px (lg)       |
 
 ## См. также
 

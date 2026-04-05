@@ -9,15 +9,15 @@ description: Справочник по модулю typography
 
 ## Размер текста
 
-| Класс | Размер | Высота строки |
-|-------|--------|---------------|
-| `.text-2xs` | 10px | 12px |
-| `.text-xs` | 12px | 16px |
-| `.text-sm` | 14px | 20px |
-| `.text-base` | 16px | 24px |
-| `.text-lg` | 18px | 28px |
-| `.text-xl` | 20px | 28px |
-| `.text-2xl` | 24px | 32px |
+| Класс        | Размер | Высота строки |
+| ------------ | ------ | ------------- |
+| `.text-2xs`  | 10px   | 12px          |
+| `.text-xs`   | 12px   | 16px          |
+| `.text-sm`   | 14px   | 20px          |
+| `.text-base` | 16px   | 24px          |
+| `.text-lg`   | 18px   | 28px          |
+| `.text-xl`   | 20px   | 28px          |
+| `.text-2xl`  | 24px   | 32px          |
 
 ```html
 <div class="flex flex-column gap-2">
@@ -91,14 +91,14 @@ description: Справочник по модулю typography
 
 ## Выравнивание текста
 
-| Класс | CSS свойство |
-|-------|--------------|
-| `.text-left` | `text-align: left` |
-| `.text-center` | `text-align: center` |
-| `.text-right` | `text-align: right` |
+| Класс           | CSS свойство          |
+| --------------- | --------------------- |
+| `.text-left`    | `text-align: left`    |
+| `.text-center`  | `text-align: center`  |
+| `.text-right`   | `text-align: right`   |
 | `.text-justify` | `text-align: justify` |
-| `.text-start` | `text-align: start` |
-| `.text-end` | `text-align: end` |
+| `.text-start`   | `text-align: start`   |
+| `.text-end`     | `text-align: end`     |
 
 ```html
 <div class="border p-4">
@@ -111,17 +111,17 @@ description: Справочник по модулю typography
 
 ## Толщина шрифта
 
-| Класс | Значение | Описание |
-|-------|----------|----------|
-| `.font-thin` | 100 | Тонкий |
-| `.font-extralight` | 200 | Сверхлёгкий |
-| `.font-light` | 300 | Лёгкий |
-| `.font-regular` | 400 | Обычный |
-| `.font-medium` | 500 | Средний |
-| `.font-semibold` | 600 | Полужирный |
-| `.font-bold` | 700 | Жирный |
-| `.font-extrabold` | 800 | Сверхжирный |
-| `.font-black` | 900 | Чёрный |
+| Класс              | Значение | Описание    |
+| ------------------ | -------- | ----------- |
+| `.font-thin`       | 100      | Тонкий      |
+| `.font-extralight` | 200      | Сверхлёгкий |
+| `.font-light`      | 300      | Лёгкий      |
+| `.font-regular`    | 400      | Обычный     |
+| `.font-medium`     | 500      | Средний     |
+| `.font-semibold`   | 600      | Полужирный  |
+| `.font-bold`       | 700      | Жирный      |
+| `.font-extrabold`  | 800      | Сверхжирный |
+| `.font-black`      | 900      | Чёрный      |
 
 ```html
 <div class="flex flex-column gap-2">
@@ -150,29 +150,27 @@ description: Справочник по модулю typography
 
 ## Высота строки (line-height)
 
-| Класс | Высота |
-|-------|--------|
-| `.line-height-2xs` | 12px |
-| `.line-height-xs` | 16px |
-| `.line-height-sm` | 20px |
-| `.line-height-base` | 24px |
-| `.line-height-lg` | 28px |
-| `.line-height-xl` | 28px |
-| `.line-height-2xl` | 32px |
+| Класс               | Высота |
+| ------------------- | ------ |
+| `.line-height-2xs`  | 12px   |
+| `.line-height-xs`   | 16px   |
+| `.line-height-sm`   | 20px   |
+| `.line-height-base` | 24px   |
+| `.line-height-lg`   | 28px   |
+| `.line-height-xl`   | 28px   |
+| `.line-height-2xl`  | 32px   |
 
 ```html
-<p class="line-height-base">
-  Базовая высота строки для удобного чтения
-</p>
+<p class="line-height-base">Базовая высота строки для удобного чтения</p>
 ```
 
 ## Вертикальное выравнивание
 
-| Класс | CSS свойство |
-|-------|--------------|
-| `.text-top` | `vertical-align: top` |
-| `.text-middle` | `vertical-align: middle` |
-| `.text-bottom` | `vertical-align: bottom` |
+| Класс            | CSS свойство               |
+| ---------------- | -------------------------- |
+| `.text-top`      | `vertical-align: top`      |
+| `.text-middle`   | `vertical-align: middle`   |
+| `.text-bottom`   | `vertical-align: bottom`   |
 | `.text-baseline` | `vertical-align: baseline` |
 
 ```html
@@ -193,10 +191,7 @@ description: Справочник по модулю typography
 <p class="whitespace-nowrap">Текст без переноса строк</p>
 
 <!-- Сохранение пробелов -->
-<p class="whitespace-pre-wrap">
-  Сохраняет    пробелы
-  и переносы
-</p>
+<p class="whitespace-pre-wrap">Сохраняет пробелы и переносы</p>
 ```
 
 ### Обрезка текста
@@ -208,17 +203,13 @@ description: Справочник по модулю typography
 </div>
 
 <!-- Обрезка без многоточия -->
-<div class="w-64 overflow-hidden whitespace-nowrap">
-  Обрезанный текст
-</div>
+<div class="w-64 overflow-hidden whitespace-nowrap">Обрезанный текст</div>
 ```
 
 ### Разрыв слов
 
 ```html
-<p class="break-word">
-  Длинноесловокотороене разрывается
-</p>
+<p class="break-word">Длинноесловокотороене разрывается</p>
 ```
 
 ### Списки
@@ -243,12 +234,8 @@ description: Справочник по модулю typography
 ```html
 <article>
   <h1 class="text-2xl font-bold mb-4">Заголовок статьи</h1>
-  <p class="text-gray-600 text-sm mb-6">
-    Опубликовано 26 марта 2024
-  </p>
-  <p class="text-base line-height-base">
-    Основной текст статьи...
-  </p>
+  <p class="text-gray-600 text-sm mb-6">Опубликовано 26 марта 2024</p>
+  <p class="text-base line-height-base">Основной текст статьи...</p>
 </article>
 ```
 
@@ -257,14 +244,10 @@ description: Справочник по модулю typography
 ```html
 <div class="border rounded-lg p-4">
   <h3 class="text-lg font-bold mb-2">Название товара</h3>
-  <p class="text-gray-600 text-sm mb-4">
-    Краткое описание товара
-  </p>
+  <p class="text-gray-600 text-sm mb-4">Краткое описание товара</p>
   <div class="flex justify-between items-center">
     <span class="text-xl font-bold text-primary-500">$99.99</span>
-    <button class="text-sm text-primary-500 hover:underline">
-      В корзину
-    </button>
+    <button class="text-sm text-primary-500 hover:underline">В корзину</button>
   </div>
 </div>
 ```
@@ -274,15 +257,11 @@ description: Справочник по модулю typography
 ```html
 <nav class="flex items-center gap-6">
   <a href="/" class="text-lg font-bold">Логотип</a>
-  <a href="/about" class="text-gray-600 hover:text-primary-500">
-    О нас
-  </a>
+  <a href="/about" class="text-gray-600 hover:text-primary-500"> О нас </a>
   <a href="/products" class="text-gray-600 hover:text-primary-500">
     Продукты
   </a>
-  <a href="/contact" class="text-gray-600 hover:text-primary-500">
-    Контакты
-  </a>
+  <a href="/contact" class="text-gray-600 hover:text-primary-500"> Контакты </a>
 </nav>
 ```
 
@@ -290,21 +269,15 @@ description: Справочник по модулю typography
 
 ```html
 <blockquote class="border-l-4 border-primary-500 pl-4 italic">
-  <p class="text-lg text-gray-700">
-    «Цитата известного человека»
-  </p>
-  <footer class="text-sm text-gray-500 mt-2">
-    — Автор цитаты
-  </footer>
+  <p class="text-lg text-gray-700">«Цитата известного человека»</p>
+  <footer class="text-sm text-gray-500 mt-2">— Автор цитаты</footer>
 </blockquote>
 ```
 
 ### Подсказка
 
 ```html
-<p class="text-xs text-gray-500">
-  * Обязательное поле
-</p>
+<p class="text-xs text-gray-500">* Обязательное поле</p>
 ```
 
 ### Уведомление
@@ -328,7 +301,8 @@ description: Справочник по модулю typography
 
 ```html
 <p>
-  Используйте <code class="bg-gray-100 px-2 py-1 rounded text-sm">npm install</code> 
+  Используйте
+  <code class="bg-gray-100 px-2 py-1 rounded text-sm">npm install</code>
   для установки пакета
 </p>
 
@@ -341,55 +315,59 @@ description: Справочник по модулю typography
 
 ### Размер
 
-| Классы |
-|--------|
+| Классы                                                                          |
+| ------------------------------------------------------------------------------- |
 | `text-2xs`, `text-xs`, `text-sm`, `text-base`, `text-lg`, `text-xl`, `text-2xl` |
 
 ### Цвет
 
-| Категория | Классы |
-|-----------|--------|
+| Категория    | Классы                                                                                       |
+| ------------ | -------------------------------------------------------------------------------------------- |
 | **Основные** | `text-primary`, `text-secondary`, `text-success`, `text-danger`, `text-warning`, `text-info` |
-| **Серый** | `text-gray-50`, `text-gray-100` ... `text-gray-900` |
-| **Цвета** | `text-red-*`, `text-blue-*`, `text-green-*`, `text-yellow-*` |
-| **Спец.** | `text-white`, `text-black`, `text-none` |
-| **Hover** | `hover:text-{color}` |
+| **Серый**    | `text-gray-50`, `text-gray-100` ... `text-gray-900`                                          |
+| **Цвета**    | `text-red-*`, `text-blue-*`, `text-green-*`, `text-yellow-*`                                 |
+| **Спец.**    | `text-white`, `text-black`, `text-none`                                                      |
+| **Hover**    | `hover:text-{color}`                                                                         |
 
 ### Выравнивание
 
-| Классы |
-|--------|
+| Классы                                                                             |
+| ---------------------------------------------------------------------------------- |
 | `text-left`, `text-center`, `text-right`, `text-justify`, `text-start`, `text-end` |
 
 ### Толщина
 
-| Классы |
-|--------|
+| Классы                                                                                                                                    |
+| ----------------------------------------------------------------------------------------------------------------------------------------- |
 | `font-thin`, `font-extralight`, `font-light`, `font-regular`, `font-medium`, `font-semibold`, `font-bold`, `font-extrabold`, `font-black` |
 
 ### Стиль
 
-| Классы |
-|--------|
+| Классы                                                                        |
+| ----------------------------------------------------------------------------- |
 | `italic`, `underline`, `line-through`, `uppercase`, `lowercase`, `capitalize` |
 
 ### Высота строки
 
-| Классы |
-|--------|
+| Классы                                                                                                                           |
+| -------------------------------------------------------------------------------------------------------------------------------- |
 | `line-height-2xs`, `line-height-xs`, `line-height-sm`, `line-height-base`, `line-height-lg`, `line-height-xl`, `line-height-2xl` |
 
 ### Вертикальное
 
-| Классы |
-|--------|
+| Классы                                                    |
+| --------------------------------------------------------- |
 | `text-top`, `text-middle`, `text-bottom`, `text-baseline` |
 
 ### Дополнительно
 
-| Классы |
-|--------|
-| `whitespace-nowrap`, `whitespace-pre-wrap`, `truncate`, `text-ellipsis`, `break-word`, `list-style-none`, `list-reset` |
+| Классы                                                                                                                                         |
+| ---------------------------------------------------------------------------------------------------------------------------------------------- |
+| `whitespace-nowrap` (`nowrap`), `whitespace-pre-wrap` (`pre-wrap`), `truncate`, `text-ellipsis`, `break-word`, `list-style-none`, `list-reset` |
+| `font-family-inherit`, `font-size-inherit`, `font-caps`                                                                                        |
+| `text-decoration-none`, `text-style-clear`                                                                                                     |
+| `text-text-top`, `text-text-bottom`, `text-sub`, `text-super`                                                                                  |
+| Алиасы выравнивания: `left-align`, `center`, `right-align`, `justify`                                                                          |
 
 ## См. также
 

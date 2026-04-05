@@ -15,6 +15,7 @@ uStatic CSS включает набор утилитарных классов д
 Мигание элемента:
 
 ::: component-view
+
 <div class="blink text-lg">Мигающий текст</div>
 :::
 
@@ -27,6 +28,7 @@ uStatic CSS включает набор утилитарных классов д
 Вращение элемента. Доступно от 1 до 10 (умножается на 0.25с):
 
 ::: component-view
+
 <div class="animation:spin-4">⚙️</div>
 :::
 
@@ -40,7 +42,7 @@ uStatic CSS включает набор утилитарных классов д
 
 ::: component-view
 <button class="px-4 py-2 bg-blue-500 text-white rounded-base cursor-pointer active:pulse">
-  Нажми меня
+Нажми меня
 </button>
 :::
 
@@ -61,6 +63,7 @@ uStatic CSS включает набор утилитарных классов д
 ```
 
 **Классы:**
+
 - `.fade-enter-active`, `.fade-leave-active` — transition
 - `.fade-enter-from`, `.fade-leave-to` — невидимое состояние (opacity: 0)
 - `.fade-enter-to`, `.fade-leave-from` — видимое состояние (opacity: 1)
@@ -76,6 +79,7 @@ uStatic CSS включает набор утилитарных классов д
 ```
 
 **Классы:**
+
 - `.slide-up-enter-active`, `.slide-up-leave-active` — transition
 - `.slide-up-enter-from` — невидимое состояние со смещением вниз
 - `.slide-up-leave-to` — невидимое состояние со смещением вверх
@@ -91,6 +95,7 @@ uStatic CSS включает набор утилитарных классов д
 ```
 
 **Классы:**
+
 - `.scale-enter-active`, `.scale-leave-active` — transition
 - `.scale-enter-from`, `.scale-leave-to` — невидимое состояние с уменьшением (scale: 0.95)
 
@@ -101,6 +106,7 @@ uStatic CSS включает набор утилитарных классов д
 Подъём элемента при наведении:
 
 ::: component-view
+
 <div class="hover:lift inline-block p-4 bg-white border border-gray-200 rounded-base">
   Наведи на меня
 </div>
@@ -112,33 +118,30 @@ uStatic CSS включает набор утилитарных классов д
 
 **Эффект:** при наведении элемент поднимается вверх с тенью.
 
-### Tooltip Visibility
+### Hover Show/Hide
 
-Классы для управления видимостью tooltip:
-
-::: component-view
-<div class="relative inline-block">
-  <span>Наведи на меня</span>
-  <div class="tooltip-hidden tooltip-visible absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-2 py-1 bg-gray-800 text-white text-xs rounded whitespace-nowrap">
-    Подсказка
-  </div>
-</div>
-:::
+Классы для управления видимостью при наведении:
 
 ```html
-<div class="tooltip-hidden">Скрытый tooltip</div>
-<div class="tooltip-visible">Видимый tooltip</div>
+<!-- Скрыт по умолчанию, появляется при наведении -->
+<div class="hover:show">Появляется при наведении</div>
+
+<!-- Подъём при наведении -->
+<div class="hover:lift">Поднимается при наведении</div>
 ```
 
 **Классы:**
-- `.tooltip-hidden` — скрытое состояние (opacity: 0, visibility: hidden)
-- `.tooltip-visible` — видимое состояние (opacity: 1, visibility: visible)
+
+- `.hover:show` — скрыт по умолчанию (opacity: 0, visibility: hidden), показывается при наведении
+- `.hover:lift` — поднимается вверх с тенью при наведении
+- `.hover:underline--{color}` — анимированное подчёркивание при наведении (например, `.hover:underline--primary-500`)
 
 ## Примеры использования
 
 ### Анимация загрузки
 
 ::: component-view
+
 <div class="flex items-center gap-2">
   <div class="animation:spin-2">
     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -152,6 +155,7 @@ uStatic CSS включает набор утилитарных классов д
 ### Интерактивная карточка
 
 ::: component-view
+
 <div class="hover:lift inline-block p-6 bg-white border border-gray-200 rounded-base cursor-pointer">
   <h3 class="text-lg font-bold text-gray-800 mb-2">Карточка</h3>
   <p class="text-gray-600">Наведи на меня для эффекта подъёма</p>
@@ -161,6 +165,7 @@ uStatic CSS включает набор утилитарных классов д
 ### Уведомление с анимацией
 
 ::: component-view
+
 <div class="inline-block p-4 bg-green-50 border border-green-200 rounded-base active:pulse cursor-pointer">
   ✓ Успешно выполнено
 </div>

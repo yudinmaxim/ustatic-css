@@ -3,6 +3,8 @@ title: Quick Start
 description: First example of using uStatic CSS
 ---
 
+import Demo from '../../../../components/Demo.astro'
+
 # Quick Start
 
 ## Using CSS Classes
@@ -10,29 +12,46 @@ description: First example of using uStatic CSS
 Connect the main styles file and use classes in your markup:
 
 ```javascript
-import 'ustatic-css';
+import "ustatic-css";
 ```
 
-```html
-<!-- Button -->
-<button class="flex items-center justify-center gap-2 p-4 bg-blue-500 text-white rounded-base hover:bg-blue-600 cursor-pointer">
-  Click Me
-</button>
+<Demo title="Button">
+  <button class="flex items-center justify-center gap-2 p-4 bg-blue-500 text-white rounded-base hover:bg-blue-600 cursor-pointer active:pulse">
+    Click Me
+  </button>
+</Demo>
 
-<!-- Card -->
-<div class="block p-6 bg-white border border-gray-200 rounded-base">
-  <h3 class="text-lg font-bold text-gray-800">Title</h3>
-  <p class="text-gray-600 mt-2">Card description</p>
-</div>
+<Demo title="Card">
+  <div class="block p-6 bg-white border border-gray-200 rounded-base">
+    <h3 class="text-lg font-bold text-gray-800">Title</h3>
+    <p class="text-gray-600 mt-2">Card description</p>
+  </div>
+</Demo>
 
-<!-- Badge -->
-<span class="inline-block px-2 py-1 text-xs font-semibold text-red-600 bg-red-100 rounded-base">
-  New
-</span>
+<Demo title="Badge">
+  <span class="inline-block px-2 py-1 text-xs font-semibold text-red-600 bg-red-100 rounded-base">
+    New
+  </span>
+</Demo>
 
-<!-- Spin animation -->
-<div class="animation:spin-4">⚙️</div>
-```
+<Demo title="Spin animation">
+  <div class="relative flex flex-row gap-2">
+    <div class="size-fit animation:spin-4">⚙️</div>
+    <span>Loading...</span>
+  </div>
+</Demo>
+
+<Demo title="Hover lift">
+  <div class="hover:lift inline-block p-4 bg-white border border-gray-200 rounded-base">
+    Hover on
+  </div>
+</Demo>
+
+<Demo title="Pulse on active">
+  <button class="px-4 py-2 bg-blue-500 text-white rounded-base cursor-pointer active:pulse">
+    Push me
+  </button>
+</Demo>
 
 ## Colors with Brightness
 

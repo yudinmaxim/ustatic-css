@@ -8,7 +8,7 @@ hero:
     file: ../../../assets/houston.webp
   actions:
     - text: Начать использовать
-      link: /getting-started/introduction/
+      link: /ru/getting-started/introduction/
       icon: right-arrow
       variant: primary
     - text: Посмотреть на GitHub
@@ -42,9 +42,13 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 
 ```html
 <!-- Карточка с flexbox -->
-<div class="flex justify-between items-center p-4 bg-white border border-gray-200 rounded-base">
+<div
+  class="flex justify-between items-center p-4 bg-white border border-gray-200 rounded-base"
+>
   <span class="text-lg font-semibold text-gray-800">Заголовок</span>
-  <button class="px-4 py-2 bg-blue-500 text-white rounded-base hover:bg-blue-600 cursor-pointer">
+  <button
+    class="px-4 py-2 bg-blue-500 text-white rounded-base hover:bg-blue-600 cursor-pointer"
+  >
     Кнопка
   </button>
 </div>
@@ -59,4 +63,4 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 - **Позиционирование**: relative, absolute, fixed, z-index
 - **Фон и границы**: цвета, прозрачность, скругления
 - **Анимации**: вращение, мигание, подчёркивание
-- **И многое другое...
+- \*\*И многое другое...

@@ -4,11 +4,11 @@
 @import 'ustatic-css/resets/reset';
 
 /* Исправление прокрутки для документации */
-/* html {
+html {
   overflow-y: auto !important;
 }
 
 body {
   overflow-y: auto !important;
   min-height: 100vh;
-} */
+}

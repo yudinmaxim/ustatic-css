@@ -42,12 +42,12 @@ description: Справочник по модулю flexbox
 
 ## Направление (flex-direction)
 
-| Класс | CSS свойство |
-|-------|--------------|
-| `.flex-row` | `flex-direction: row` |
-| `.flex-row-reverse` | `flex-direction: row-reverse` |
-| `.flex-column` | `flex-direction: column` |
-| `.flex-column-reverse` | `flex-direction: column-reverse` |
+| Класс                                        | CSS свойство                     |
+| -------------------------------------------- | -------------------------------- |
+| `.flex-row`                                  | `flex-direction: row`            |
+| `.flex-row-reverse`                          | `flex-direction: row-reverse`    |
+| `.flex-column` (`.flex-col`)                 | `flex-direction: column`         |
+| `.flex-column-reverse` (`.flex-col-reverse`) | `flex-direction: column-reverse` |
 
 ```html
 <!-- Ряд (по умолчанию) -->
@@ -67,13 +67,13 @@ description: Справочник по модулю flexbox
 
 ## Выравнивание элементов (align-items)
 
-| Класс | CSS свойство |
-|-------|--------------|
-| `.items-start` | `align-items: flex-start` |
-| `.items-end` | `align-items: flex-end` |
-| `.items-center` | `align-items: center` |
-| `.items-baseline` | `align-items: baseline` |
-| `.items-stretch` | `align-items: stretch` |
+| Класс             | CSS свойство              |
+| ----------------- | ------------------------- |
+| `.items-start`    | `align-items: flex-start` |
+| `.items-end`      | `align-items: flex-end`   |
+| `.items-center`   | `align-items: center`     |
+| `.items-baseline` | `align-items: baseline`   |
+| `.items-stretch`  | `align-items: stretch`    |
 
 ```html
 <!-- По центру вертикально -->
@@ -94,14 +94,14 @@ description: Справочник по модулю flexbox
 
 ## Выравнивание контента (justify-content)
 
-| Класс | CSS свойство |
-|-------|--------------|
-| `.justify-start` | `justify-content: flex-start` |
-| `.justify-end` | `justify-content: flex-end` |
-| `.justify-center` | `justify-content: center` |
+| Класс              | CSS свойство                     |
+| ------------------ | -------------------------------- |
+| `.justify-start`   | `justify-content: flex-start`    |
+| `.justify-end`     | `justify-content: flex-end`      |
+| `.justify-center`  | `justify-content: center`        |
 | `.justify-between` | `justify-content: space-between` |
-| `.justify-around` | `justify-content: space-around` |
-| `.justify-evenly` | `justify-content: space-evenly` |
+| `.justify-around`  | `justify-content: space-around`  |
+| `.justify-evenly`  | `justify-content: space-evenly`  |
 
 ```html
 <!-- По центру горизонтально -->
@@ -129,14 +129,15 @@ description: Справочник по модулю flexbox
 
 Для многократно обёрнутого flex-контейнера:
 
-| Класс | CSS свойство |
-|-------|--------------|
-| `.content-start` | `align-content: flex-start` |
-| `.content-end` | `align-content: flex-end` |
-| `.content-center` | `align-content: center` |
-| `.content-between` | `align-content: space-between` |
-| `.content-around` | `align-content: space-around` |
-| `.content-stretch` | `align-content: stretch` |
+| Класс               | CSS свойство                   |
+| ------------------- | ------------------------------ |
+| `.content-start`    | `align-content: flex-start`    |
+| `.content-end`      | `align-content: flex-end`      |
+| `.content-center`   | `align-content: center`        |
+| `.content-between`  | `align-content: space-between` |
+| `.content-around`   | `align-content: space-around`  |
+| `.content-baseline` | `align-content: baseline`      |
+| `.content-stretch`  | `align-content: stretch`       |
 
 ```html
 <!-- Центрирование нескольких строк -->
@@ -150,13 +151,13 @@ description: Справочник по модулю flexbox
 
 ## Выравнивание отдельного элемента (align-self)
 
-| Класс | CSS свойство |
-|-------|--------------|
-| `.self-start` | `align-self: flex-start` |
-| `.self-end` | `align-self: flex-end` |
-| `.self-center` | `align-self: center` |
-| `.self-baseline` | `align-self: baseline` |
-| `.self-stretch` | `align-self: stretch` |
+| Класс            | CSS свойство             |
+| ---------------- | ------------------------ |
+| `.self-start`    | `align-self: flex-start` |
+| `.self-end`      | `align-self: flex-end`   |
+| `.self-center`   | `align-self: center`     |
+| `.self-baseline` | `align-self: baseline`   |
+| `.self-stretch`  | `align-self: stretch`    |
 
 ```html
 <div class="flex items-center h-32 border gap-4">
@@ -169,12 +170,12 @@ description: Справочник по модулю flexbox
 
 ##伸缩 (flex)
 
-| Класс | CSS свойство |
-|-------|--------------|
-| `.flex-0` | `flex: 0 0 auto` |
+| Класс        | CSS свойство     |
+| ------------ | ---------------- |
+| `.flex-0`    | `flex: 0 0 auto` |
 | `.flex-auto` | `flex: 1 1 auto` |
-| `.flex-1` | `flex: 1` |
-| `.flex-none` | `flex: none` |
+| `.flex-1`    | `flex: 1`        |
+| `.flex-none` | `flex: none`     |
 
 ```html
 <!-- Равномерное распределение -->
@@ -193,8 +194,8 @@ description: Справочник по модулю flexbox
 
 ## Grow (растяжение)
 
-| Класс | CSS свойство |
-|-------|--------------|
+| Класс     | CSS свойство   |
+| --------- | -------------- |
 | `.grow-0` | `flex-grow: 0` |
 | `.grow-1` | `flex-grow: 1` |
 | `.grow-2` | `flex-grow: 2` |
@@ -211,8 +212,8 @@ description: Справочник по модулю flexbox
 
 ## Shrink (сжатие)
 
-| Класс | CSS свойство |
-|-------|--------------|
+| Класс       | CSS свойство     |
+| ----------- | ---------------- |
 | `.shrink-0` | `flex-shrink: 0` |
 | `.shrink-1` | `flex-shrink: 1` |
 | `.shrink-2` | `flex-shrink: 2` |
@@ -227,10 +228,10 @@ description: Справочник по модулю flexbox
 
 ## Порядок (order)
 
-| Класс | CSS свойство |
-|-------|--------------|
-| `.order-0` ... `.order-11` | `order: 0` ... `11` |
-| `.order-last` | `order: 99999` |
+| Класс                      | CSS свойство        |
+| -------------------------- | ------------------- |
+| `.order-0` ... `.order-10` | `order: 0` ... `10` |
+| `.order-last`              | `order: 99999`      |
 
 ```html
 <!-- Изменение порядка -->
@@ -260,14 +261,16 @@ description: Справочник по модулю flexbox
 
 ```html
 <div class="border rounded-lg overflow-hidden">
-  <img src="image.jpg" alt="Изображение" class="w-full h-48 object-cover">
+  <img src="image.jpg" alt="Изображение" class="w-full h-48 object-cover" />
   <div class="p-4">
     <h3 class="text-lg font-bold mb-2">Заголовок</h3>
     <p class="text-gray-600">Описание</p>
   </div>
   <div class="flex justify-between items-center px-4 py-3 bg-gray-50 border-t">
     <span class="text-primary-500 font-bold">$99.99</span>
-    <button class="bg-primary-500 text-white px-4 py-2 rounded hover:bg-primary-600">
+    <button
+      class="bg-primary-500 text-white px-4 py-2 rounded hover:bg-primary-600"
+    >
       Купить
     </button>
   </div>
@@ -280,11 +283,11 @@ description: Справочник по модулю flexbox
 <form class="flex flex-column gap-4">
   <div class="flex flex-column gap-1">
     <label class="text-sm font-medium">Email</label>
-    <input type="email" class="border rounded px-4 py-2">
+    <input type="email" class="border rounded px-4 py-2" />
   </div>
   <div class="flex flex-column gap-1">
     <label class="text-sm font-medium">Пароль</label>
-    <input type="password" class="border rounded px-4 py-2">
+    <input type="password" class="border rounded px-4 py-2" />
   </div>
   <button type="submit" class="bg-primary-500 text-white px-4 py-2 rounded">
     Войти
@@ -297,15 +300,15 @@ description: Справочник по модулю flexbox
 ```html
 <div class="flex flex-wrap gap-4">
   <div class="w-48">
-    <img src="photo1.jpg" class="w-full h-32 object-cover rounded">
+    <img src="photo1.jpg" class="w-full h-32 object-cover rounded" />
     <p class="text-center mt-2 text-sm">Подпись 1</p>
   </div>
   <div class="w-48">
-    <img src="photo2.jpg" class="w-full h-32 object-cover rounded">
+    <img src="photo2.jpg" class="w-full h-32 object-cover rounded" />
     <p class="text-center mt-2 text-sm">Подпись 2</p>
   </div>
   <div class="w-48">
-    <img src="photo3.jpg" class="w-full h-32 object-cover rounded">
+    <img src="photo3.jpg" class="w-full h-32 object-cover rounded" />
     <p class="text-center mt-2 text-sm">Подпись 3</p>
   </div>
 </div>
@@ -313,18 +316,18 @@ description: Справочник по модулю flexbox
 
 ## Таблица классов
 
-| Категория | Классы |
-|-----------|--------|
-| **Display** | `flex`, `flex-column`, `flex-row`, `flex-wrap`, `flex-nowrap` |
-| **Direction** | `flex-row`, `flex-row-reverse`, `flex-column`, `flex-column-reverse` |
-| **Align Items** | `items-start`, `items-end`, `items-center`, `items-baseline`, `items-stretch` |
-| **Justify** | `justify-start`, `justify-end`, `justify-center`, `justify-between`, `justify-around`, `justify-evenly` |
+| Категория         | Классы                                                                                                   |
+| ----------------- | -------------------------------------------------------------------------------------------------------- |
+| **Display**       | `flex`, `flex-column`, `flex-row`, `flex-wrap`, `flex-nowrap`                                            |
+| **Direction**     | `flex-row`, `flex-row-reverse`, `flex-column`, `flex-column-reverse`                                     |
+| **Align Items**   | `items-start`, `items-end`, `items-center`, `items-baseline`, `items-stretch`                            |
+| **Justify**       | `justify-start`, `justify-end`, `justify-center`, `justify-between`, `justify-around`, `justify-evenly`  |
 | **Align Content** | `content-start`, `content-end`, `content-center`, `content-between`, `content-around`, `content-stretch` |
-| **Align Self** | `self-start`, `self-end`, `self-center`, `self-baseline`, `self-stretch` |
-| **Flex** | `flex-0`, `flex-auto`, `flex-1`, `flex-none` |
-| **Grow** | `grow`, `grow-0`, `grow-1`, `grow-2`, `grow-3` |
-| **Shrink** | `shrink`, `shrink-0`, `shrink-1`, `shrink-2`, `shrink-3` |
-| **Order** | `order-0` ... `order-11`, `order-last` |
+| **Align Self**    | `self-start`, `self-end`, `self-center`, `self-baseline`, `self-stretch`                                 |
+| **Flex**          | `flex-0`, `flex-auto`, `flex-1`, `flex-none`                                                             |
+| **Grow**          | `grow`, `grow-0`, `grow-1`, `grow-2`, `grow-3`                                                           |
+| **Shrink**        | `shrink`, `shrink-0`, `shrink-1`, `shrink-2`, `shrink-3`                                                 |
+| **Order**         | `order-0` ... `order-11`, `order-last`                                                                   |
 
 ## См. также
 
