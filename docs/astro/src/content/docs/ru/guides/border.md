@@ -130,7 +130,7 @@ outline:
 | `.rounded-xl` | Очень большое скругление |
 | `.rounded-full` | Полное скругление (круг) |
 
-**Важно:** Класс `.rounded` без суффикса не существует — используйте `.rounded-base`.
+**Важно:** Используйте `.rounded` для базового скругления или `.rounded-base` для 4px.
 
 ::: component-view
 <div class="flex gap-4 items-center flex-wrap">

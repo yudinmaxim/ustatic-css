@@ -164,17 +164,37 @@ app.use(ustaticCss, {
 });
 
 // Vanilla JS / React / Svelte: явная загрузка
-import { loadStyles } from 'ustatic-css/scripts';
+import { loadStyles, configureUstaticCss } from 'ustatic-css/scripts';
 
-await loadStyles({ modules: ['typography', 'spacing'] });
+loadStyles({ modules: ['typography', 'spacing'] });
 
 // Автоподбор по классам
-await loadStyles({ classes: ['flex', 'justify-between', 'items-center'] });
+loadStyles({ classes: ['flex', 'justify-between', 'items-center'] });
+
+// Глобальная конфигурация basePath (один раз)
+configureUstaticCss({ basePath: '/assets/ustatic-css' });
+loadStyles(); // использует глобальный basePath
 ```
+
+> **Примечание:** `loadStyles` маппит классы на **целые CSS-модули**, а не на отдельные свойства. Например, использование `p-4` загружает весь модуль `spacing.css` (~37 KB), а не одно правило. Модули кэшируются браузером после первой загрузки.
 
 #### SSR-совместимость
 
-Метод `loadStyles` безопасно работает при SSR: если `document` недоступен, загрузка пропускается на сервере и выполняется в браузере.
+Метод `loadStyles` безопасно работает при SSR: если `document` недоступен, загрузка пропускается на сервере и выполняется в браузере. Для генерации HTML на сервере используйте `getStyleLinks`:
+
+```ts
+import { getStyleLinks } from 'ustatic-css/scripts';
+
+// В SSR (Astro, Next.js и т.д.)
+const links = getStyleLinks({ mode: 'ssr', basePath: '/ustatic-css' });
+// links = [
+//   { href: '/ustatic-css/modules/flexbox.css', rel: 'stylesheet', type: 'text/css' },
+//   { href: '/ustatic-css/vars.css', rel: 'stylesheet', type: 'text/css' }
+// ]
+// Преобразуйте в <link> теги в HTML-шаблоне
+```
+
+**Одинаковый `basePath` на сервере и клиенте** предотвращает дублирование CSS при гидратации: `loadStyles` проверяет DOM перед добавлением `<link>`.
 
 ## 🧩 Особенности
 

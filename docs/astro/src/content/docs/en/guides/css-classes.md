@@ -44,7 +44,7 @@ description: Complete reference of uStatic CSS utility classes
 - Sides: `.border-t`, `.border-r`, `.border-b`, `.border-l`
 - Radius: `.rounded-none`, `.rounded-sm`, `.rounded-base`, `.rounded-lg`, `.rounded-full`
 
-**Important:** The `.rounded` class without suffix doesn't exist — use `.rounded-base`.
+**Important:** Use `.rounded` for default radius or `.rounded-base` for 4px.
 
 ### Background
 

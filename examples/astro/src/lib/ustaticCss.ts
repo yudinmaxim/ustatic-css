@@ -24,11 +24,9 @@ const isBrowser = typeof document !== 'undefined'
  * Генерирует HTML с <link> тегами для подключения стилей
  * Используется при SSR (server-side rendering)
  */
-export const getStylesheetLinks = async (options?: IUstaticCssInitOptions): Promise<string> => {
-  // В SSR режиме используем basePath '/ustatic-css' который соответствует public/ustatic-css
-  const links = await getStyleLinks({ ...options, mode: 'ssr', basePath: '/ustatic-css' })
+export const getStylesheetLinks = (options?: IUstaticCssInitOptions): string => {
+  const links = getStyleLinks({ ...options, mode: 'ssr', basePath: '/ustatic-css' })
 
-  // Генерируем HTML с link тегами
   return links
     .map((link: IStyleLink) => `<link rel="${link.rel}" type="${link.type}" href="${link.href}" />`)
     .join('\n\t\t')
@@ -48,16 +46,14 @@ export const getStylesheetLinks = async (options?: IUstaticCssInitOptions): Prom
  * // В браузере (клиент)
  * await initUstaticCss({ modules: ['flexbox', 'spacing'] })
  */
-export const initUstaticCss = async (options?: IUstaticCssInitOptions): Promise<string | void> => {
-  // SSR режим - возвращаем HTML с link тегами
+export const initUstaticCss = (options?: IUstaticCssInitOptions): string | void => {
   if (!isBrowser) {
     console.log('ustatic-css [SSR] - генерация ссылок на стили', { options })
     return getStylesheetLinks(options)
   }
 
-  // Браузер - динамическая загрузка
   console.log('ustatic-css [Client] - динамическая загрузка стилей', { options })
-  await browserLoadStyles(options)
+  browserLoadStyles(options)
 }
 
 export type { IStyleLoaderOptions }

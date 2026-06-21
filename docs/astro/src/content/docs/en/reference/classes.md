@@ -57,7 +57,7 @@ description: Complete list of all uStatic CSS utility classes
 | `.rounded-xl` | 12px radius |
 | `.rounded-full` | Full radius |
 
-**Important:** `.rounded` without suffix doesn't exist — use `.rounded-base`.
+**Important:** Use `.rounded` for default radius or `.rounded-base` for 4px.
 
 ---
 

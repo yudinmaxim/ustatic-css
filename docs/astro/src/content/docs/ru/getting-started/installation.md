@@ -1,16 +1,16 @@
 ---
-title: Installation
-description: How to install and configure uStatic CSS
+title: Установка
+description: Как установить и настроить uStatic CSS
 ---
 
-# Installation
+# Установка
 
-## Requirements
+## Требования
 
 - Node.js 18+
-- npm, pnpm or yarn
+- npm, pnpm или yarn
 
-## Install
+## Установка пакета
 
 :::tab-group
 :::tab[npm]
@@ -30,7 +30,7 @@ yarn add ustatic-css
 :::
 :::
 
-## Connect in Your Project
+## Подключение в проекте
 
 :::tab-group
 :::tab[ESM]
@@ -45,11 +45,11 @@ require('ustatic-css');
 :::
 :::
 
-## Usage with Frameworks
+## Использование с фреймворками
 
 :::tab-group
 :::tab[Vue 3]
-Add the plugin to `main.js`:
+Добавьте плагин в `main.js`:
 
 ```javascript
 import { createApp } from "vue";
@@ -62,18 +62,18 @@ app.mount("#app");
 ```
 :::
 :::tab[React / Svelte / Vanilla JS]
-Use the `loadStyles` function:
+Используйте функцию `loadStyles`:
 
 ```javascript
 import { loadStyles } from "ustatic-css/scripts";
 
-// Load required modules
+// Загрузите необходимые модули
 await loadStyles({ modules: ["flexbox", "spacing", "typography"] });
 ```
 :::
 :::
 
-## Next Steps
+## Следующие шаги
 
-- [Quick Start](/en/getting-started/quick-start) — first example
-- [Using CSS Classes](/en/guides/css-classes) — complete class reference
+- [Быстрый старт](/ru/getting-started/quick-start) — первый пример
+- [Использование CSS-классов](/ru/guides/css-classes) — полный справочник классов

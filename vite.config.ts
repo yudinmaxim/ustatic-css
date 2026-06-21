@@ -75,7 +75,6 @@ export default defineConfig({
     rollupOptions: {
       output: {
         entryFileNames: chunkInfo => {
-          // Разделяем JS файлы по директориям в зависимости от точки входа
           if (chunkInfo.name !== 'index') {
             return 'css/[name].js'
           }
@@ -86,7 +85,7 @@ export default defineConfig({
           if (assetInfo.name?.endsWith('.css')) {
             // Определяем, к какой точке входа относится файл
             if (assetInfo.name.includes('vars')) {
-              return 'css/ustatic-vars.css'
+              return 'css/vars.css'
             }
             // Для остальных модулей создаем отдельные файлы
             const moduleName = assetInfo.name.replace('.css', '')

@@ -82,7 +82,9 @@ export const classMap: Record<string, string> = {
   'scroll': 'scroll',
 
   // animations
+  'animation': 'animations',
   'animate': 'animations',
+  'pulse': 'animations',
 
   // outline
   'outline': 'outline',

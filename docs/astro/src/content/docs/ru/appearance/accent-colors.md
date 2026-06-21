@@ -8,6 +8,8 @@ outline:
 
 Акцентные цвета используются для выделения важных элементов интерфейса и привлечения внимания пользователя.
 
+Цветовые утилитарные классы: `bg-{color}` для фона, `text-{color}` для текста, `border-{color}` для границ.
+
 ## Назначение акцентных цветов
 
 Акцентные цвета применяются для:
@@ -54,15 +56,15 @@ outline:
 
 ::: component-view
 <div class="space-y-4">
-  <button class="bg-success hover:bg-success/90 text-white px-4 py-2 rounded transition-colors">
+  <button class="bg-success text-white px-4 py-2 rounded transition-colors">
     ✓ Подтвердить
   </button>
   
-  <span class="bg-success/10 text-success px-3 py-1 rounded-full text-sm font-medium">
+  <span class="bg-success bg-opacity-25 text-success px-3 py-1 rounded-full text-sm font-medium">
     Активен
   </span>
   
-  <div class="bg-success/10 border-l-4 border-success p-4 rounded">
+  <div class="bg-success bg-opacity-25 border-l-4 border-success p-4 rounded">
     <p class="text-success font-medium">✓ Операция выполнена успешно</p>
   </div>
 </div>
@@ -74,15 +76,15 @@ outline:
 
 ::: component-view
 <div class="space-y-4">
-  <button class="bg-danger hover:bg-danger/90 text-white px-4 py-2 rounded transition-colors">
+  <button class="bg-danger text-white px-4 py-2 rounded transition-colors">
     ✗ Удалить
   </button>
   
-  <span class="bg-danger/10 text-danger px-3 py-1 rounded-full text-sm font-medium">
+  <span class="bg-danger bg-opacity-25 text-danger px-3 py-1 rounded-full text-sm font-medium">
     Ошибка
   </span>
   
-  <div class="bg-danger/10 border-l-4 border-danger p-4 rounded">
+  <div class="bg-danger bg-opacity-25 border-l-4 border-danger p-4 rounded">
     <p class="text-danger font-medium">✗ Произошла ошибка</p>
   </div>
 </div>
@@ -94,15 +96,15 @@ outline:
 
 ::: component-view
 <div class="space-y-4">
-  <button class="bg-warning hover:bg-warning/90 text-white px-4 py-2 rounded transition-colors">
+  <button class="bg-warning text-white px-4 py-2 rounded transition-colors">
     ⚠ Внимание
   </button>
   
-  <span class="bg-warning/10 text-warning px-3 py-1 rounded-full text-sm font-medium">
+  <span class="bg-warning bg-opacity-25 text-warning px-3 py-1 rounded-full text-sm font-medium">
     Ожидание
   </span>
   
-  <div class="bg-warning/10 border-l-4 border-warning p-4 rounded">
+  <div class="bg-warning bg-opacity-25 border-l-4 border-warning p-4 rounded">
     <p class="text-warning font-medium">⚠ Важная информация</p>
   </div>
 </div>
@@ -114,11 +116,11 @@ outline:
 
 ::: component-view
 <div class="space-y-4">
-  <div class="bg-info/10 border-l-4 border-info p-4 rounded">
+  <div class="bg-info bg-opacity-25 border-l-4 border-info p-4 rounded">
     <p class="text-info font-medium">ℹ Полезная информация</p>
   </div>
   
-  <span class="bg-info/10 text-info px-3 py-1 rounded-full text-sm font-medium">
+  <span class="bg-info bg-opacity-25 text-info px-3 py-1 rounded-full text-sm font-medium">
     Новое
   </span>
 </div>
@@ -136,7 +138,7 @@ outline:
   <button class="bg-white border border-gray-300 hover:bg-gray-50 text-gray-700 px-4 py-2 rounded font-medium transition-colors">
     Отмена
   </button>
-  <button class="bg-danger hover:bg-danger/90 text-white px-4 py-2 rounded font-medium transition-colors">
+  <button class="bg-danger text-white px-4 py-2 rounded font-medium transition-colors">
     Удалить
   </button>
 </div>
@@ -151,7 +153,7 @@ outline:
     <input 
       type="email" 
       value="user@example.com"
-      class="w-full px-4 py-2 border border-success rounded focus:outline-none focus:border-success focus:ring-2 focus:ring-success/20"
+      class="w-full px-4 py-2 border border-success rounded focus:outline-none focus:border-success"
     >
     <p class="text-success text-sm mt-1">✓ Корректный email</p>
   </div>
@@ -160,7 +162,7 @@ outline:
     <label class="block text-sm font-medium text-gray-700 mb-1">Пароль</label>
     <input 
       type="password" 
-      class="w-full px-4 py-2 border border-danger rounded focus:outline-none focus:border-danger focus:ring-2 focus:ring-danger/20"
+      class="w-full px-4 py-2 border border-danger rounded focus:outline-none focus:border-danger"
       placeholder="Минимум 8 символов"
     >
     <p class="text-danger text-sm mt-1">✗ Пароль слишком короткий</p>
@@ -171,7 +173,7 @@ outline:
 ### Карточка товара с акцентами
 
 ::: component-view
-<div class="border border-gray-200 rounded-lg overflow-hidden bg-white max-w-sm shadow-sm hover:shadow-lg transition-shadow">
+<div class="border border-gray-200 overflow-hidden bg-white max-w-sm shadow-sm hover:shadow-lg transition-shadow">
   <div class="h-40 bg-gradient-to-br from-primary-100 to-primary-200 relative">
     <span class="absolute top-2 right-2 bg-danger text-white px-2 py-1 rounded text-sm font-medium">
       -20%
@@ -180,7 +182,7 @@ outline:
   <div class="p-4">
     <div class="flex justify-between items-start mb-2">
       <h3 class="text-lg font-bold text-gray-900">Товар</h3>
-      <span class="bg-success/10 text-success px-2 py-1 rounded text-sm font-medium">
+      <span class="bg-success bg-opacity-25 text-success px-2 py-1 rounded text-sm font-medium">
         В наличии
       </span>
     </div>
@@ -198,16 +200,10 @@ outline:
 ### Навигация с активным пунктом
 
 ::: component-view
-<nav class="flex gap-1 bg-gray-100 p-1 rounded-lg">
-  <a href="#" class="px-4 py-2 text-gray-600 hover:text-gray-900 rounded">
-    Главная
-  </a>
-  <a href="#" class="px-4 py-2 bg-primary-500 text-white rounded font-medium">
-    Продукты
-  </a>
-  <a href="#" class="px-4 py-2 text-gray-600 hover:text-gray-900 rounded">
-    О нас
-  </a>
+<nav class="flex gap-1 bg-gray-100 p-1 rounded">
+  <a href="#" class="px-4 py-2 text-gray-600 hover:text-gray-900 rounded">Главная</a>
+  <a href="#" class="px-4 py-2 bg-primary-500 text-white rounded font-medium">Продукты</a>
+  <a href="#" class="px-4 py-2 text-gray-600 hover:text-gray-900 rounded">О нас</a>
 </nav>
 :::
 
@@ -284,4 +280,5 @@ outline:
 
 - [Палитра цветов](/ru/appearance/color-palette/) — полная цветовая палитра
 - [Фон](/ru/modules/bg/) — классы для фона
-- [Типографика](/ru/modules/typography/) — цвет текста
+- [Границы](/ru/modules/border/) — классы для границ
+- [Справочник цветов](/ru/reference/colors-palette/) — значения токенов цветов
