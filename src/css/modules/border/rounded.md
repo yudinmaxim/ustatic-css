@@ -7,7 +7,7 @@ CSS классы для скругления углов элементов.
 ```html
 <div class="rounded-none">Без скругления</div>
 <div class="rounded-sm">Маленькое (2px)</div>
-<div class="rounded-base">База (4px)</div>
+<div class="rounded">База (4px)</div>
 <div class="rounded-md">Среднее (6px)</div>
 <div class="rounded-lg">Большое (8px)</div>
 <div class="rounded-xl">Очень большое (12px)</div>
@@ -67,7 +67,7 @@ CSS классы для скругления углов элементов.
 |-------|--------|
 | `.rounded-none` | 0 |
 | `.rounded-sm` | 2px |
-| `.rounded-base` | 4px |
+| `.rounded` | 4px |
 | `.rounded-md` | 6px |
 | `.rounded-lg` | 8px |
 | `.rounded-xl` | 12px |

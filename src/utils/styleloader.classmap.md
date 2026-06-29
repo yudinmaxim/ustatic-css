@@ -52,7 +52,7 @@ export const classMap: Record<string, string> = {
 | **Outline** | `outline-*` | `outline` |
 | **Grid** | `grid-*`, `col-*`, `row-*` | `grid` |
 | **Filters** | `filter-*`, `blur-*`, `brightness-*`, `contrast-*`, `grayscale-*`, `hue-rotate-*`, `invert-*`, `saturate-*`, `sepia-*` | `filters` |
-| **Hide/Show** | `hide-*`, `show-*` | `hide` |
+| **Hide/Show** | `hidden-*`, `show-*` | `hidden` |
 
 ## Использование
 

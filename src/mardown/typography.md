@@ -71,7 +71,7 @@ CSS классы для управления текстом — шрифт, ра
 <span class="font-thin">Тонкий (100)</span>
 <span class="font-extralight">Сверхлёгкий (200)</span>
 <span class="font-light">Лёгкий (300)</span>
-<span class="font-regular">Обычный (400)</span>
+<span class="font-normal">Обычный (400)</span>
 <span class="font-medium">Средний (500)</span>
 <span class="font-semibold">Полужирный (600)</span>
 <span class="font-bold">Жирный (700)</span>

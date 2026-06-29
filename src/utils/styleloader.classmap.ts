@@ -74,8 +74,9 @@ export const classMap: Record<string, string> = {
   'opacity': 'effects',
 
   // interactivity
-  'cursor': 'interactivity',
+  'cursor': 'cursor',
   'pointer-events': 'interactivity',
+  'select': 'interactivity',
   'resize': 'interactivity',
 
   // scroll
@@ -106,6 +107,6 @@ export const classMap: Record<string, string> = {
   'sepia': 'filters',
 
   // hide
-  'hide': 'hide',
-  'show': 'hide',
+  'hidden': 'hidden',
+  'show': 'hidden',
 }

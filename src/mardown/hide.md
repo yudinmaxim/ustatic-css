@@ -6,46 +6,46 @@ CSS классы для скрытия элементов на разных бр
 
 ### Скрытие на всех размерах
 ```html
-<div class="hide">Скрыт всегда</div>
+<div class="hidden">Скрыт всегда</div>
 ```
 
 ### Скрытие на брейкпоинтах
 
 ```html
 <!-- Скрыт на md (768px+) -->
-<div class="hide-md">Скрыт на экранах >= 768px</div>
+<div class="hidden-md">Скрыт на экранах >= 768px</div>
 
 <!-- Скрыт на lg (1280px+) -->
-<div class="hide-lg">Скрыт на экранах >= 1280px</div>
+<div class="hidden-lg">Скрыт на экранах >= 1280px</div>
 
 <!-- Скрыт на больших экранах (def 1920px+) -->
-<div class="hide-full">Скрыт на экранах >= 1920px</div>
+<div class="hidden-full">Скрыт на экранах >= 1920px</div>
 ```
 
 ## Логика работы
 
 | Класс | Диапазон |
 |-------|----------|
-| `.hide-md` | min-width: 768px и max-width: 1279px |
-| `.hide-lg` | min-width: 1280px и max-width: 1919px |
-| `.hide-full` | min-width: 1920px |
+| `.hidden-md` | min-width: 768px и max-width: 1279px |
+| `.hidden-lg` | min-width: 1280px и max-width: 1919px |
+| `.hidden-full` | min-width: 1920px |
 
 ## Примеры
 
 ```html
 <!-- Мобильное меню, скрытое на десктопе -->
-<nav class="hide-lg">
+<nav class="hidden-lg">
   <button>Меню</button>
 </nav>
 
 <!-- Десктопное меню, скрытое на мобильных -->
-<nav class="hide-md hide-full">
+<nav class="hidden-md hidden-full">
   <a href="#">Главная</a>
   <a href="#">О нас</a>
 </nav>
 
 <!-- Скрытие на всех -->
-<div class="hide">
+<div class="hidden">
   Этот элемент никогда не отображается
 </div>
 ```
@@ -53,12 +53,12 @@ CSS классы для скрытия элементов на разных бр
 ## CSS свойства
 
 ```scss
-.hide {
+.hidden {
   display: none !important;
 }
 
 @media (min-width: 768px) and (max-width: 1279px) {
-  .hide-md {
+  .hidden-md {
     display: none !important;
   }
 }

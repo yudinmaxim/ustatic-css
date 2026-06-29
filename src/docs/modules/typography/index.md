@@ -111,7 +111,7 @@
 | `.font-thin` | 100 | Тонкий |
 | `.font-extralight` | 200 | Сверхлёгкий |
 | `.font-light` | 300 | Лёгкий |
-| `.font-regular` | 400 | Обычный |
+| `.font-normal` | 400 | Обычный |
 | `.font-medium` | 500 | Средний |
 | `.font-semibold` | 600 | Полужирный |
 | `.font-bold` | 700 | Жирный |
@@ -123,7 +123,7 @@
   <span class="font-thin">Thin (100)</span>
   <span class="font-extralight">Extra Light (200)</span>
   <span class="font-light">Light (300)</span>
-  <span class="font-regular">Regular (400)</span>
+  <span class="font-normal">Regular (400)</span>
   <span class="font-medium">Medium (500)</span>
   <span class="font-semibold">Semi Bold (600)</span>
   <span class="font-bold">Bold (700)</span>
@@ -360,7 +360,7 @@
 
 | Классы |
 |--------|
-| `font-thin`, `font-extralight`, `font-light`, `font-regular`, `font-medium`, `font-semibold`, `font-bold`, `font-extrabold`, `font-black` |
+| `font-thin`, `font-extralight`, `font-light`, `font-normal`, `font-medium`, `font-semibold`, `font-bold`, `font-extrabold`, `font-black` |
 
 ### Стиль
 

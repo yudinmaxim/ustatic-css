@@ -1,6 +1,6 @@
 # Интерактивность (interactivity)
 
-Классы для управления интерактивным поведением элементов: pointer-events и user-select.
+Классы для управления интерактивным поведением элементов: pointer-events и select.
 
 ## Pointer events
 
@@ -40,27 +40,27 @@
 
 | Класс | CSS свойство | Описание |
 |-------|--------------|----------|
-| `.user-select-none` | `user-select: none` | Запретить выделение |
-| `.user-select-auto` | `user-select: auto` | Разрешить выделение (по умолчанию) |
-| `.user-select-all` | `user-select: all` | Выделить всё при клике |
-| `.user-select-text` | `user-select: text` | Разрешить выделение текста |
+| `.select-none` | `select: none` | Запретить выделение |
+| `.select-auto` | `select: auto` | Разрешить выделение (по умолчанию) |
+| `.select-all` | `select: all` | Выделить всё при клике |
+| `.select-text` | `select: text` | Разрешить выделение текста |
 
 ### Примеры
 
 ```html
 <!-- Защита от копирования -->
-<article class="user-select-none">
+<article class="select-none">
   <h1>Защищённый контент</h1>
   <p>Этот текст нельзя выделить и скопировать</p>
 </article>
 
 <!-- Кнопка "Выделить всё" -->
-<textarea class="user-select-all border rounded p-2 w-full">
+<textarea class="select-all border rounded p-2 w-full">
 Текст для копирования. Кликните для выделения всего содержимого.
 </textarea>
 
 <!-- Элемент интерфейса без выделения -->
-<button class="user-select-none bg-primary-500 text-white px-4 py-2 rounded">
+<button class="select-none bg-primary-500 text-white px-4 py-2 rounded">
   Кнопка без выделения
 </button>
 ```
@@ -107,10 +107,10 @@
 
 ```html
 <div class="border rounded-lg p-6">
-  <h1 class="text-2xl font-bold user-select-none">Заголовок</h1>
+  <h1 class="text-2xl font-bold select-none">Заголовок</h1>
   
   <!-- Защищённый текст -->
-  <div class="user-select-none mt-4 p-4 bg-gray-50 rounded">
+  <div class="select-none mt-4 p-4 bg-gray-50 rounded">
     <p>Этот контент защищён от копирования</p>
     <p class="text-sm text-gray-500 mt-2">
       Выделение текста отключено для защиты авторских прав
@@ -118,9 +118,9 @@
   </div>
   
   <!-- Разрешённый текст -->
-  <div class="user-select-auto mt-4 p-4 bg-blue-50 rounded">
+  <div class="select-auto mt-4 p-4 bg-blue-50 rounded">
     <p>Этот текст можно выделять и копировать</p>
-    <code class="user-select-all bg-white px-2 py-1 rounded mt-2 block">
+    <code class="select-all bg-white px-2 py-1 rounded mt-2 block">
       npm install ustatic-css
     </code>
   </div>
@@ -180,7 +180,7 @@
 ```html
 <div class="relative group">
   <pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto">
-    <code class="user-select-all">npm install ustatic-css</code>
+    <code class="select-all">npm install ustatic-css</code>
   </pre>
   
   <!-- Кнопка копирования -->
@@ -199,7 +199,7 @@
 ```html
 <div class="relative inline-block">
   <!-- Элемент с подсказкой -->
-  <button class="bg-primary-500 text-white px-4 py-2 rounded user-select-none">
+  <button class="bg-primary-500 text-white px-4 py-2 rounded select-none">
     Наведи на меня
   </button>
   
@@ -228,10 +228,10 @@
 
 | Класс | CSS | Когда использовать |
 |-------|-----|-------------------|
-| `.user-select-none` | `user-select: none` | Кнопки, элементы интерфейса, защита контента |
-| `.user-select-auto` | `user-select: auto` | Сброс к поведению по умолчанию |
-| `.user-select-all` | `user-select: all` | Код, команды для копирования |
-| `.user-select-text` | `user-select: text` | Явное разрешение выделения текста |
+| `.select-none` | `select: none` | Кнопки, элементы интерфейса, защита контента |
+| `.select-auto` | `select: auto` | Сброс к поведению по умолчанию |
+| `.select-all` | `select: all` | Код, команды для копирования |
+| `.select-text` | `select: text` | Явное разрешение выделения текста |
 
 ## См. также
 

@@ -7,7 +7,7 @@
 ### Скрытие на всех размерах
 
 ```html
-<div class="hide">
+<div class="hidden">
   Этот элемент никогда не отображается
 </div>
 ```
@@ -16,23 +16,23 @@
 
 | Класс | Диапазон | Описание |
 |-------|----------|----------|
-| `.hide-md` | 768px - 1279px | Скрыт на экранах ≥ 768px |
-| `.hide-lg` | 1280px - 1919px | Скрыт на экранах ≥ 1280px |
-| `.hide-full` | ≥ 1920px | Скрыт на больших экранах |
+| `.hidden-md` | 768px - 1279px | Скрыт на экранах ≥ 768px |
+| `.hidden-lg` | 1280px - 1919px | Скрыт на экранах ≥ 1280px |
+| `.hidden-full` | ≥ 1920px | Скрыт на больших экранах |
 
 ```html
 <!-- Скрыт на планшетах и десктопах -->
-<div class="hide-md">
+<div class="hidden-md">
   Видно только на мобильных (< 768px)
 </div>
 
 <!-- Скрыт на десктопах -->
-<div class="hide-lg">
+<div class="hidden-lg">
   Видно на мобильных и планшетах (< 1280px)
 </div>
 
 <!-- Скрыт на очень больших экранах -->
-<div class="hide-full">
+<div class="hidden-full">
   Видно на экранах < 1920px
 </div>
 ```
@@ -43,7 +43,7 @@
 
 ```html
 <!-- Кнопка гамбургер (видна только на мобильных) -->
-<button class="hide-lg cursor-pointer p-2">
+<button class="hidden-lg cursor-pointer p-2">
   <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
           d="M4 6h16M4 12h16M4 18h16"/>
@@ -51,7 +51,7 @@
 </button>
 
 <!-- Десктопное меню (скрыто на мобильных) -->
-<nav class="hide-md hide-full">
+<nav class="hidden-md hidden-full">
   <a href="/" class="px-4 py-2 hover:bg-gray-100">Главная</a>
   <a href="/about" class="px-4 py-2 hover:bg-gray-100">О нас</a>
   <a href="/products" class="px-4 py-2 hover:bg-gray-100">Продукты</a>
@@ -64,7 +64,7 @@
 ```html
 <div class="flex">
   <!-- Сайдбар (скрыт на мобильных) -->
-  <aside class="hide-md w-64 bg-white border-r p-4">
+  <aside class="hidden-md w-64 bg-white border-r p-4">
     <nav class="space-y-2">
       <a href="#" class="block py-2 hover:bg-gray-50">Пункт 1</a>
       <a href="#" class="block py-2 hover:bg-gray-50">Пункт 2</a>
@@ -108,7 +108,7 @@
 
 ```html
 <!-- Промо-блок (только мобильные) -->
-<div class="hide-lg bg-primary-500 text-white p-4 text-center">
+<div class="hidden-lg bg-primary-500 text-white p-4 text-center">
   <p>🎉 Специальное предложение для мобильных пользователей!</p>
   <button class="mt-2 bg-white text-primary-500 px-4 py-2 rounded">
     Узнать больше
@@ -127,7 +127,7 @@
 ```html
 <div>
   <!-- Мобильный вид (карточки) -->
-  <div class="hide-lg space-y-4">
+  <div class="hidden-lg space-y-4">
     <div class="border rounded-lg p-4">
       <h3 class="font-bold">Товар 1</h3>
       <p class="text-primary-500">$99</p>
@@ -141,7 +141,7 @@
   </div>
   
   <!-- Десктопный вид (таблица) -->
-  <table class="hide-md w-full border">
+  <table class="hidden-md w-full border">
     <thead>
       <tr class="bg-gray-50">
         <th class="border p-2">Название</th>
@@ -170,19 +170,19 @@
 ```html
 <div class="flex flex-column gap-4">
   <!-- Только мобильные -->
-  <div class="hide-md bg-primary-100 p-4 rounded">
+  <div class="hidden-md bg-primary-100 p-4 rounded">
     <strong>Только мобильные</strong>
     <p>Видно на экранах &lt; 768px</p>
   </div>
   
   <!-- Мобильные и планшеты -->
-  <div class="hide-lg bg-primary-200 p-4 rounded">
+  <div class="hidden-lg bg-primary-200 p-4 rounded">
     <strong>Мобильные и планшеты</strong>
     <p>Видно на экранах &lt; 1280px</p>
   </div>
   
   <!-- Все кроме больших экранов -->
-  <div class="hide-full bg-primary-300 p-4 rounded">
+  <div class="hidden-full bg-primary-300 p-4 rounded">
     <strong>Все кроме больших экранов</strong>
     <p>Видно на экранах &lt; 1920px</p>
   </div>
@@ -193,32 +193,32 @@
 
 | Класс | Min-width | Max-width | Когда виден |
 |-------|-----------|-----------|-------------|
-| `.hide` | — | — | Никогда |
-| `.hide-md` | 768px | 1279px | < 768px |
-| `.hide-lg` | 1280px | 1919px | < 1280px |
-| `.hide-full` | 1920px | — | < 1920px |
+| `.hidden` | — | — | Никогда |
+| `.hidden-md` | 768px | 1279px | < 768px |
+| `.hidden-lg` | 1280px | 1919px | < 1280px |
+| `.hidden-full` | 1920px | — | < 1920px |
 
 ## CSS свойства
 
 ```scss
-.hide {
+.hidden {
   display: none !important;
 }
 
 @media (min-width: 768px) and (max-width: 1279px) {
-  .hide-md {
+  .hidden-md {
     display: none !important;
   }
 }
 
 @media (min-width: 1280px) and (max-width: 1919px) {
-  .hide-lg {
+  .hidden-lg {
     display: none !important;
   }
 }
 
 @media (min-width: 1920px) {
-  .hide-full {
+  .hidden-full {
     display: none !important;
   }
 }
@@ -228,10 +228,10 @@
 
 | Класс | Описание |
 |-------|----------|
-| `.hide` | Скрыт всегда |
-| `.hide-md` | Скрыт на экранах ≥ 768px |
-| `.hide-lg` | Скрыт на экранах ≥ 1280px |
-| `.hide-full` | Скрыт на экранах ≥ 1920px |
+| `.hidden` | Скрыт всегда |
+| `.hidden-md` | Скрыт на экранах ≥ 768px |
+| `.hidden-lg` | Скрыт на экранах ≥ 1280px |
+| `.hidden-full` | Скрыт на экранах ≥ 1920px |
 
 ## См. также
 

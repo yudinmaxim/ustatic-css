@@ -20,16 +20,16 @@ CSS классы для управления интерактивным пове
 
 ```html
 <!-- Запретить выделение -->
-<p class="user-select-none">Нельзя выделить</p>
+<p class="select-none">Нельзя выделить</p>
 
 <!-- Разрешить выделение -->
-<p class="user-select-auto">По умолчанию</p>
+<p class="select-auto">По умолчанию</p>
 
 <!-- Выделить всё при клике -->
-<button class="user-select-all">Выделить всё</p>
+<button class="select-all">Выделить всё</p>
 
 <!-- Разрешить только текст -->
-<p class="user-select-text">Только текст</p>
+<p class="select-text">Только текст</p>
 ```
 
 ## Примеры
@@ -39,10 +39,10 @@ CSS классы для управления интерактивным пове
 <div class="pointer-events-none fixed inset-0 bg-black/50"></div>
 
 <!-- Защита текста от копирования -->
-<article class="user-select-none">
+<article class="select-none">
   Контент защищён от копирования
 </textarea>
 
 <!-- Кнопка "Выделить всё" -->
-<textarea class="user-select-all">Текст для копирования</textarea>
+<textarea class="select-all">Текст для копирования</textarea>
 ```

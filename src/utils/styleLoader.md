@@ -91,7 +91,7 @@ await loadStyles({
 | `outline` | `outline` |
 | `grid`, `col`, `row` | `grid` |
 | `filter`, `blur`, `grayscale` | `filters` |
-| `hide`, `show` | `hide` |
+| `hidden`, `show` | `hidden` |
 
 ## Режимы работы
 

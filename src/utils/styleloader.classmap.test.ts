@@ -30,7 +30,7 @@ describe('getModulesFromClasses', () => {
   })
 
   it('strips variant prefixes before matching', () => {
-    const result = getModulesFromClasses(['hover:bg-blue-500', 'rounded-base'])
+    const result = getModulesFromClasses(['hover:bg-blue-500', 'rounded'])
     expect(result).toContain('bg')
     expect(result).toContain('border')
   })
@@ -75,11 +75,11 @@ describe('getModulesFromClasses', () => {
     ['m-2', 'spacing'],
     ['text-lg', 'typography'],
     ['hover:bg-blue-500', 'bg'],
-    ['rounded-base', 'border'],
+    ['rounded', 'border'],
     ['w-1/2', 'sizing'],
     ['animation:spin-4', 'animations'],
     ['active:pulse', 'animations'],
-    ['cursor-pointer', 'interactivity'],
+    ['cursor-pointer', 'cursor'],
     ['grid-cols-3', 'grid'],
   ])('maps %s → %s module (contract)', (className, module) => {
     expect(getModulesFromClasses([className])).toContain(module)
