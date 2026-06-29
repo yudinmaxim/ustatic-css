@@ -150,7 +150,7 @@ onMounted(() => {
 <template>
   <div class="grid grid-columns--1fr-1fr gap-2">
     <!-- Редактор кода -->
-    <div class="p-4 bg-gray-50 rounded-base border border-gray-200">
+    <div class="p-4 bg-gray-50 rounded border border-gray-200">
       <h3 class="text-lg font-semibold mb-4">Редактор кода</h3>
       <UCodeEditor
         v-model="htmlCode"
@@ -159,12 +159,12 @@ onMounted(() => {
     </div>
 
     <!-- Предпросмотр с изоляцией стилей через iframe -->
-    <div class="p-4 bg-gray-50 rounded-base border border-gray-200">
+    <div class="p-4 bg-gray-50 rounded border border-gray-200">
       <h3 class="text-lg font-semibold mb-4">Предпросмотр</h3>
       <p class="text-sm text-gray-600 mb-2">
         Стили изолированы через iframe - загружаются только выбранные модули
       </p>
-      <div class="mt-4 border border-gray-300 rounded-base bg-white overflow-hidden relative h-300">
+      <div class="mt-4 border border-gray-300 rounded bg-white overflow-hidden relative h-300">
         <!-- Оверлей загрузки -->
         <div
           v-if="!stylesLoaded"

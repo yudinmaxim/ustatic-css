@@ -105,7 +105,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="p-4 border border-gray-300 rounded-base bg-white overflow-hidden relative h-300">
+  <div class="p-4 border border-gray-300 rounded bg-white overflow-hidden relative h-300">
     <!-- Оверлей загрузки -->
     <div
       v-if="!stylesLoaded"

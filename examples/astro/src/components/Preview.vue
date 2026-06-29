@@ -16,7 +16,7 @@ const sanitizedHtml = computed(() => {
 
 <template>
   <UIsland title="Предпросмотр">
-    <div class="p-4 border border-gray-300 rounded-base bg-gray-50">
+    <div class="p-4 border border-gray-300 rounded bg-gray-50">
       <div v-html="sanitizedHtml" />
     </div>
   </UIsland>

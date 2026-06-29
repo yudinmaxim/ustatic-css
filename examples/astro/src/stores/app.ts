@@ -28,10 +28,10 @@ export const appStore = atom<IAppState>({
     modules: [ 'flexbox', 'spacing', 'typography' ],
     classesInput: 'flex, p-4, text-lg'
   },
-  htmlCode: `<div class="p-4 bg-blue-100 rounded-base text-center">
+  htmlCode: `<div class="p-4 bg-blue-100 rounded text-center">
   <h2 class="text-xl font-bold mb-2">Пример заголовка</h2>
   <p class="text-gray-700">Это пример текста с использованием утилитарных классов</p>
-  <button class="mt-4 px-4 py-2 bg-blue-500 text-white rounded-base hover:bg-blue-600">
+  <button class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600">
     Пример кнопки
   </button>
 </div>`,

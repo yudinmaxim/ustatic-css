@@ -57,14 +57,14 @@ const copyCode = async () => {
     </template>
 
     <div class="flex flex-col gap-4">
-      <div class="rounded-base border border-gray-200 mt-4">
+      <div class="rounded border border-gray-200 mt-4">
         <UCode
           :modelValue="model"
           :lang="lang"
           @update:model-value="updateCode"
         />
       </div>
-      <div v-if="useTip" class="p-3 bg-blue-50 border border-blue-200 rounded-base">
+      <div v-if="useTip" class="p-3 bg-blue-50 border border-blue-200 rounded">
         <p class="text-sm text-blue-800 m-0">
           <strong>💡 Совет:</strong> {{ tip }}
         </p>
