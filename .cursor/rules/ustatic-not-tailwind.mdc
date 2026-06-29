@@ -1,0 +1,42 @@
+---
+description: ustatic-css — это НЕ Tailwind; анти-паттерны при работе с utility-классами
+alwaysApply: true
+---
+
+# ustatic-css ≠ Tailwind
+
+Этот репозиторий — **ustatic-css**. Не подставляй классы Tailwind из памяти без проверки реестра.
+
+## Перед использованием класса
+
+Проверь в `help/class-registry.json` или прочитай `help/tailwind-vs-ustatic.md`.
+
+## Частые ошибки
+
+| Неверно | Верно (ustatic) |
+|---------|-----------------|
+| `animate-spin` | `animation:spin-4` |
+| `cursor-not-allowed` | `cursor-disabled` |
+| `md:flex`, `lg:p-8` | нет responsive-префиксов (кроме `hidden-md`, …) |
+| `space-x-4` | `gap-4` |
+| `shadow-md`, `ring-2` | нет в библиотеке |
+| `grid-cols-3` | `grid-columns--3-32` |
+| `w-[300px]` | нет arbitrary values |
+| `bg-blue-500/50` | `bg-blue-500 bg-opacity-50` |
+
+## Канонические имена (совпадают с привычным TW)
+
+- `rounded` — базовое скругление (не `rounded`)
+- `font-normal` — weight 400
+- `select-none` / `select-all` — select
+- `hidden` / `hidden-md` — скрытие на брейкпоинтах
+
+## Уникальный синтаксис
+
+- Псевдосостояния в имени: `hover:bg-blue-500`, `animation:spin-4`, `active:pulse`
+- Модификаторы через `--`: `grid-columns--1fr-auto`, `hover:underline--red-500`
+- CSS-переменные: `--u-*` (префикс `u`). Классы **без** префикса.
+
+## Если класса нет
+
+Не выдумывай TW-аналог. Ищи в `src/css/modules/` или спроси пользователя.

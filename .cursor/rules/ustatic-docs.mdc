@@ -1,0 +1,21 @@
+---
+description: Документация ustatic-css на Astro Starlight
+globs: docs/astro/**
+alwaysApply: false
+---
+
+# Astro-документация ustatic-css
+
+- Контент: `docs/astro/src/content/docs/{ru,en}/`
+- RU полнее EN — при добавлении страниц синхронизируй локали по возможности
+- План работ: `docs/astro/plan/plan.md`
+
+## Примеры в MDX
+
+- Только классы из `help/class-registry.json`
+- **Не** копировать примеры Tailwind (`sm:px-6`, `md:flex`, `rounded` без суффикса)
+- Сверять с `help/tailwind-vs-ustatic.md`
+
+## Компоненты
+
+Демо: `docs/astro/src/components/Demo.astro`
