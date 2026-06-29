@@ -5,18 +5,17 @@ description: First usage example of uStatic CSS
 
 import Demo from '../../../../components/Demo.astro'
 
-# Quick Start
-
 Import the stylesheet and use utility classes in your markup:
 
 ```javascript
 import "ustatic-css";
+
 ```
 
 Here's a typical UI element built from utility classes:
 
 <Demo>
-  <div class="p-6 bg-white border border-gray-200 rounded max-w-sm">
+  <div class="p-6 bg-white border border-gray-200 rounded max-w-96">
     <h3 class="text-lg font-bold text-gray-800">Card title</h3>
     <p class="text-gray-600 mt-2 mb-4">Card description with style examples.</p>
     <div class="flex items-center gap-2">
@@ -57,7 +56,7 @@ All colors support brightness shades via a hyphen: `bg-red-500`, `text-gray-600`
 |----------|----------------|
 | Typography | `text-sm`, `text-lg`, `font-bold`, `font-medium` |
 | Spacing | `p-4`, `m-2`, `px-4`, `py-2`, `mt-2`, `gap-2` |
-| Flexbox | `flex`, `flex-column`, `justify-between`, `items-center` |
+| Flexbox | `flex`, `flex-col`, `justify-between`, `items-center` |
 | Positioning | `relative`, `absolute`, `top-0`, `right-0` |
 | Animations | `blink`, `animation:spin-4`, `active:pulse`, `hover:lift` |
-| Sizing | `w-full`, `max-w-sm`, `h-32`, `size-fit` |
+| Sizing | `w-full`, `max-w-96`, `h-32`, `size-fit` |

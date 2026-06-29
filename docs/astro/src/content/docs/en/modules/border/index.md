@@ -3,8 +3,6 @@ title: Border
 description: Border module reference
 ---
 
-# Border
-
 Module providing classes for managing element borders: thickness, color, style, radius.
 
 ## Border Width
@@ -174,7 +172,7 @@ Module providing classes for managing element borders: thickness, color, style, 
 ### Card with Border
 
 ```html
-<div class="border border-gray-200 rounded-lg p-6 bg-white max-w-sm">
+<div class="border border-gray-200 rounded-lg p-6 bg-white max-w-96">
   <h3 class="text-lg font-bold mb-2">Card Title</h3>
   <p class="text-gray-600">Card description with border</p>
 </div>
@@ -185,9 +183,7 @@ Module providing classes for managing element borders: thickness, color, style, 
 ```html
 <input
   type="text"
-  class="border border-gray-300 rounded px-4 py-2
-         focus:outline-none focus:border-primary-500 focus:ring-2
-         focus:ring-primary-200"
+  class="border border-gray-300 rounded px-4 py-2 focus:border-primary-500 focus:ring-2 focus:ring-primary-200"
   placeholder="Enter text"
 />
 ```
@@ -215,8 +211,7 @@ Module providing classes for managing element borders: thickness, color, style, 
 
 ```html
 <button
-  class="border border-primary-500 text-primary-500 px-4 py-2 rounded
-         hover:bg-primary-50 cursor-pointer"
+  class="border border-primary-500 text-primary-500 px-4 py-2 rounded hover:bg-primary-50 cursor-pointer"
 >
   Outlined Button
 </button>
@@ -225,7 +220,7 @@ Module providing classes for managing element borders: thickness, color, style, 
 ### Content Divider
 
 ```html
-<article class="prose">
+<article >
   <p>First paragraph...</p>
 
   <hr class="divider-x--medium my-8" />

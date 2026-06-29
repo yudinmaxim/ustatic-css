@@ -3,8 +3,6 @@ title: Flexbox
 description: Flexbox module reference
 ---
 
-# Flexbox
-
 Module for flexbox layout — flexible alignment and distribution of elements.
 
 ## Basic Classes
@@ -18,7 +16,7 @@ Module for flexbox layout — flexible alignment and distribution of elements.
   <div>Item 3</div>
 </div>
 
-<div class="flex-column">
+<div class="flex-col">
   <div>Item 1</div>
   <div>Item 2</div>
 </div>

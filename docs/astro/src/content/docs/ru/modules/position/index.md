@@ -14,7 +14,7 @@ description: Справочник по модулю position
 | `.relative` | `position: relative` | Относительное позиционирование |
 | `.absolute` | `position: absolute` | Абсолютное позиционирование |
 | `.fixed` | `position: fixed` | Фиксированное позиционирование |
-| `.sticky` | `position: sticky` | Липкое позиционирование |
+| `.relative` | `position: relative` | Липкое позиционирование |
 | `.absolute-center` | — | Абсолютное центрирование |
 
 ```html
@@ -75,8 +75,7 @@ description: Справочник по модулю position
 
 <!-- Центрирование -->
 <div class="relative h-64 border">
-  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
-              bg-primary-100 p-4">
+  <div class="absolute absolute-center bg-primary-100 p-4">
     По центру
   </div>
 </div>
@@ -105,7 +104,7 @@ description: Справочник по модулю position
 | Класс | Z-index | Назначение |
 |-------|---------|------------|
 | `.z-auto` | auto | Автоматически |
-| `.z-i-hidden` | -1 | Скрытый |
+| `.z-i-hide` | -1 | Скрытый |
 | `.z-i-icon` | 1 | Иконки |
 | `.z-i-menu` | 20 | Меню |
 | `.z-i-teleport` | 20 | Телепорт |
@@ -131,7 +130,7 @@ description: Справочник по модулю position
 
 ```html
 <header class="fixed top-0 left-0 right-0 z-i-menu bg-white border-b">
-  <div class="flex items-center justify-between px-6 py-4 max-w-7xl mx-auto">
+  <div class="flex items-center justify-between px-6 py-4 max-w-256 mx-auto">
     <a href="/" class="text-xl font-bold">Логотип</a>
     <nav class="flex items-center gap-6">
       <a href="/about" class="hover:text-primary-500">О нас</a>
@@ -142,7 +141,7 @@ description: Справочник по модулю position
 </header>
 
 <!-- Основной контент с отступом -->
-<main class="pt-16">
+<main class="pt-12">
   <h1>Заголовок</h1>
   <p>Контент страницы...</p>
 </main>
@@ -152,10 +151,9 @@ description: Справочник по модулю position
 
 ```html
 <!-- Затемнение фона -->
-<div class="fixed inset-0 z-i-modal bg-black bg-opacity-50 
-            flex items-center justify-center">
+<div class="fixed top-0 right-0 bottom-0 left-0 z-i-modal bg-black bg-opacity-50 flex items-center justify-center">
   <!-- Модальное окно -->
-  <div class="bg-white rounded-lg p-6 max-w-md mx-4 relative z-i-modal">
+  <div class="bg-white rounded-lg p-6 max-w-96 mx-4 relative z-i-modal">
     <h2 class="text-xl font-bold mb-4">Заголовок</h2>
     <p class="text-gray-600 mb-6">Содержимое модального окна</p>
     
@@ -184,12 +182,9 @@ description: Справочник по модулю position
   </button>
   
   <!-- Тултип -->
-  <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 
-              px-3 py-2 bg-gray-900 text-white text-sm rounded 
-              whitespace-nowrap z-i-tip">
+  <div class="absolute bottom-full left-1/2 mb-2 px-3 py-2 bg-gray-900 text-white text-sm rounded nowrap z-i-tip">
     Это подсказка
-    <div class="absolute top-full left-1/2 -translate-x-1/2 
-                border-4 border-transparent border-t-gray-900"></div>
+    <div class="absolute top-full left-1/2 border-4 border-transparent border-t-gray-900"></div>
   </div>
 </div>
 ```
@@ -198,9 +193,7 @@ description: Справочник по модулю position
 
 ```html
 <!-- Кнопка в правом нижнем углу -->
-<button class="fixed bottom-8 right-8 z-i-notice 
-               bg-primary-500 text-white w-14 h-14 rounded-full 
-               shadow-lg flex items-center justify-center hover:bg-primary-600">
+<button class="fixed bottom-8 right-8 z-i-notice bg-primary-500 text-white w-12 h-12 rounded-full flex items-center justify-center hover:bg-primary-600">
   <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
           d="M12 4v16m8-8H4"/>
@@ -213,7 +206,7 @@ description: Справочник по модулю position
 ```html
 <div class="flex">
   <!-- Липкий сайдбар -->
-  <aside class="sticky top-4 w-64 h-fit">
+  <aside class="relative top-4 w-64 h-fit">
     <nav class="bg-white border rounded-lg p-4">
       <a href="#" class="block py-2 hover:bg-gray-50">Пункт 1</a>
       <a href="#" class="block py-2 hover:bg-gray-50">Пункт 2</a>
@@ -241,8 +234,7 @@ description: Справочник по модулю position
   </svg>
   
   <!-- Бейдж -->
-  <span class="absolute -top-2 -right-2 bg-danger text-white 
-               w-5 h-5 rounded-full text-xs flex items-center justify-center">
+  <span class="absolute top-0 right-0 bg-danger text-white w-5 h-5 rounded-full text-xs flex items-center justify-center">
     3
   </span>
 </button>
@@ -258,8 +250,7 @@ description: Справочник по модулю position
   </button>
   
   <!-- Выпадающий список -->
-  <div class="absolute left-0 mt-2 w-48 bg-white border rounded-lg 
-              shadow-lg z-i-menu">
+  <div class="absolute left-0 mt-2 w-48 bg-white border rounded-lg z-i-menu">
     <a href="#" class="block px-4 py-2 hover:bg-gray-50">Пункт 1</a>
     <a href="#" class="block px-4 py-2 hover:bg-gray-50">Пункт 2</a>
     <a href="#" class="block px-4 py-2 hover:bg-gray-50">Пункт 3</a>
@@ -273,7 +264,7 @@ description: Справочник по модулю position
 
 | Классы |
 |--------|
-| `relative`, `absolute`, `fixed`, `sticky`, `absolute-center` |
+| `relative`, `absolute`, `fixed`, `relative`, `absolute-center` |
 
 ### Координаты
 
@@ -283,14 +274,14 @@ description: Справочник по модулю position
 | **Right** | `right-0`, `right-px`, `right-1` ... `right-64`, `right-1/2`, `right-full`, `right-auto` |
 | **Bottom** | `bottom-0`, `bottom-px`, `bottom-1` ... `bottom-64`, `bottom-1/2`, `bottom-full`, `bottom-auto` |
 | **Left** | `left-0`, `left-px`, `left-1` ... `left-64`, `left-1/2`, `left-full`, `left-auto` |
-| **Inset** | `inset-0` (все стороны) |
+| **Inset** | `top-0 right-0 bottom-0 left-0` (все стороны) |
 
 ### Z-index
 
 | Категория | Классы |
 |-----------|--------|
 | **Числа** | `z-0`, `z-10`, `z-20`, `z-30`, `z-40`, `z-50`, `z-60`, `z-70`, `z-80`, `z-90`, `z-100` |
-| **Предопределённые** | `z-auto`, `z-i-hidden`, `z-i-icon`, `z-i-menu`, `z-i-teleport`, `z-i-load`, `z-i-tip`, `z-i-mobile-menu`, `z-i-modal`, `z-i-notice`, `z-i-fullpage-load` |
+| **Предопределённые** | `z-auto`, `z-i-hide`, `z-i-icon`, `z-i-menu`, `z-i-teleport`, `z-i-load`, `z-i-tip`, `z-i-mobile-menu`, `z-i-modal`, `z-i-notice`, `z-i-fullpage-load` |
 
 ## См. также
 

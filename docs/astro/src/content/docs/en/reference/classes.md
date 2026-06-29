@@ -51,13 +51,13 @@ description: Complete list of all uStatic CSS utility classes
 | `.border-dashed` | Dashed border |
 | `.rounded-none` | No radius |
 | `.rounded-sm` | 2px radius |
-| `.rounded-base` | 4px radius |
+| `.rounded` | 4px radius |
 | `.rounded-md` | 6px radius |
 | `.rounded-lg` | 8px radius |
 | `.rounded-xl` | 12px radius |
 | `.rounded-full` | Full radius |
 
-**Important:** Use `.rounded` for default radius or `.rounded-base` for 4px.
+**Important:** Use `.rounded` for default radius or `.rounded` for 4px.
 
 ---
 
@@ -114,7 +114,7 @@ description: Complete list of all uStatic CSS utility classes
 | Class | Description |
 |-------|----------|
 | `.flex` | Flex container |
-| `.flex-column`, `.flex-col` | Vertical direction |
+| `.flex-col`, `.flex-col` | Vertical direction |
 | `.flex-row` | Horizontal direction |
 | `.flex-wrap` | Wrap elements |
 | `.flex-0`, `.flex-1`, `.flex-auto`, `.flex-none` | Flex properties |
@@ -140,8 +140,8 @@ description: Complete list of all uStatic CSS utility classes
 
 | Class | Description |
 |-------|----------|
-| `.hide` | Hide (display: none) |
-| `.hide-{breakpoint}` | Hide at breakpoint |
+| `.hidden` | Hide (display: none) |
+| `.hidden-{breakpoint}` | Hide at breakpoint |
 
 ---
 
@@ -151,8 +151,8 @@ description: Complete list of all uStatic CSS utility classes
 |-------|----------|
 | `.pointer-events-none` | Disable pointer events |
 | `.pointer-events-auto` | Enable pointer events |
-| `.user-select-none` | Disable selection |
-| `.user-select-all` | Allow select all |
+| `.select-none` | Disable selection |
+| `.select-all` | Allow select all |
 
 ---
 

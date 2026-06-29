@@ -118,8 +118,8 @@ description: Границы-разделители
 ### Разделитель секций статьи
 
 ```html
-<article class="max-w-2xl mx-auto">
-  <h1 class="text-3xl font-bold mb-4">Заголовок статьи</h1>
+<article class="max-w-192 mx-auto">
+  <h1 class="text-2xl font-bold mb-4">Заголовок статьи</h1>
   <p class="text-gray-600 mb-8">Введение...</p>
   
   <hr class="divider-x--medium">

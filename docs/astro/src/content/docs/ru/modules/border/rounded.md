@@ -13,7 +13,7 @@ description: Скругления углов
 |-------|--------|-----------|
 | `.rounded-none` | 0 | Острый угол |
 | `.rounded-sm` | 2px | Маленькое |
-| `.rounded-base` | 4px | Базовое |
+| `.rounded` | 4px | Базовое |
 | `.rounded-md` | 6px | Среднее |
 | `.rounded-lg` | 8px | Большое |
 | `.rounded-xl` | 12px | Очень большое |
@@ -27,7 +27,7 @@ description: Скругления углов
 <div class="flex gap-4 items-end">
   <div class="rounded-none bg-primary-500 w-16 h-16"></div>
   <div class="rounded-sm bg-primary-500 w-16 h-16"></div>
-  <div class="rounded-base bg-primary-500 w-16 h-16"></div>
+  <div class="rounded bg-primary-500 w-16 h-16"></div>
   <div class="rounded-md bg-primary-500 w-16 h-16"></div>
   <div class="rounded-lg bg-primary-500 w-16 h-16"></div>
   <div class="rounded-xl bg-primary-500 w-16 h-16"></div>
@@ -112,7 +112,7 @@ description: Скругления углов
 
 ```html
 <img 
-  class="circle w-16 h-16 object-cover" 
+  class="circle w-16 h-16" 
   src="avatar.jpg" 
   alt="Аватар"
 >
@@ -131,7 +131,7 @@ description: Скругления углов
 ### Карточка
 
 ```html
-<div class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm">
+<div class="rounded-lg border border-gray-200 bg-white p-6">
   <h3 class="text-lg font-bold mb-2">Заголовок</h3>
   <p class="text-gray-600">Описание карточки</p>
 </div>
@@ -150,8 +150,7 @@ description: Скругления углов
 ```html
 <input 
   type="text" 
-  class="rounded border border-gray-300 px-4 py-2 w-full
-         focus:outline-none focus:border-primary-500"
+  class="rounded border border-gray-300 px-4 py-2 w-full focus:border-primary-500"
   placeholder="Введите текст"
 >
 ```
@@ -180,7 +179,7 @@ description: Скругления углов
 |-------|-----|
 | `.rounded-none` | `border-radius: 0` |
 | `.rounded-sm` | `border-radius: 2px` |
-| `.rounded-base` | `border-radius: 4px` |
+| `.rounded` | `border-radius: 4px` |
 | `.rounded-md` | `border-radius: 6px` |
 | `.rounded-lg` | `border-radius: 8px` |
 | `.rounded-xl` | `border-radius: 12px` |

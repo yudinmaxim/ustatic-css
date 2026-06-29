@@ -99,10 +99,10 @@ Frosted glass effect:
 ```html
 <div class="relative">
   <!-- Background image -->
-  <img src="background.jpg" class="w-full h-64 object-cover">
+  <img src="background.jpg" class="w-full h-64">
 
   <!-- Blurred panel over image -->
-  <div class="absolute inset-0 bg-filter-blur-5 p-8" style="background: rgba(255,255,255,0.5)">
+  <div class="absolute top-0 right-0 bottom-0 left-0 bg-filter-blur-5 p-8" style="background: rgba(255,255,255,0.5)">
     <h3 class="text-xl font-bold">Title</h3>
     <p>Text on blurred background</p>
   </div>
@@ -124,7 +124,7 @@ Background changes on hover:
 
 ```html
 <div class="flex gap-4">
-  <button class="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-base">
+  <button class="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded">
     Button
   </button>
 
@@ -143,22 +143,22 @@ Background changes on hover:
 ### Product Card
 
 ```html
-<div class="bg-white rounded-lg shadow-lg border border-gray-200 p-6 max-w-sm">
+<div class="bg-white rounded-lg border border-gray-200 p-6 max-w-96">
   <h3 class="text-lg font-bold mb-2">Product Name</h3>
   <p class="text-gray-600 mb-4">Product description</p>
   <div class="flex justify-between items-center">
     <span class="text-2xl font-bold text-primary-500">$99.99</span>
-    <button class="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-base">
+    <button class="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded">
       Buy
     </button>
   </div>
 </div>
 ```
 
-### Header with Gradient
+### Header
 
 ```html
-<header class="bg-gradient-to-r from-primary-500 to-primary-700 text-white p-6">
+<header class="bg-primary-600 text-white p-6">
   <h1 class="text-2xl font-bold">Title</h1>
 </header>
 ```
@@ -166,11 +166,11 @@ Background changes on hover:
 ### Modal with Darkening
 
 ```html
-<div class="fixed inset-0 z-i-modal" style="background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center">
-  <div class="bg-white rounded-lg p-6 max-w-md mx-4">
+<div class="fixed top-0 right-0 bottom-0 left-0 z-i-modal" style="background: rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center">
+  <div class="bg-white rounded-lg p-6 max-w-96 mx-4">
     <h2 class="text-xl font-bold mb-4">Title</h2>
     <p class="text-gray-600 mb-6">Modal content</p>
-    <button class="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded-base">
+    <button class="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded">
       Close
     </button>
   </div>

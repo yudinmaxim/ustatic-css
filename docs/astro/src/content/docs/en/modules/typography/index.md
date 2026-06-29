@@ -3,8 +3,6 @@ title: Typography
 description: Typography module reference
 ---
 
-# Typography
-
 Classes for text management: size, color, alignment, font weight, and more.
 
 ## Text Size
@@ -20,7 +18,7 @@ Classes for text management: size, color, alignment, font weight, and more.
 | `.text-2xl` | 24px | 32px |
 
 ```html
-<div class="flex flex-column gap-2">
+<div class="flex flex-col gap-2">
   <p class="text-2xs">Very small (10px)</p>
   <p class="text-xs">Small (12px)</p>
   <p class="text-sm">Smaller (14px)</p>
@@ -36,7 +34,7 @@ Classes for text management: size, color, alignment, font weight, and more.
 ### Semantic Colors
 
 ```html
-<div class="flex flex-column gap-2">
+<div class="flex flex-col gap-2">
   <span class="text-primary">Primary</span>
   <span class="text-secondary">Secondary</span>
   <span class="text-success">Success</span>
@@ -49,7 +47,7 @@ Classes for text management: size, color, alignment, font weight, and more.
 ### Gray Shades
 
 ```html
-<div class="flex flex-column gap-2">
+<div class="flex flex-col gap-2">
   <span class="text-gray-50">50 (very light)</span>
   <span class="text-gray-100">100</span>
   <span class="text-gray-200">200</span>
@@ -116,7 +114,7 @@ Classes for text management: size, color, alignment, font weight, and more.
 | `.font-thin` | 100 | Thin |
 | `.font-extralight` | 200 | Extra Light |
 | `.font-light` | 300 | Light |
-| `.font-regular` | 400 | Regular |
+| `.font-normal` | 400 | Regular |
 | `.font-medium` | 500 | Medium |
 | `.font-semibold` | 600 | Semi Bold |
 | `.font-bold` | 700 | Bold |
@@ -124,11 +122,11 @@ Classes for text management: size, color, alignment, font weight, and more.
 | `.font-black` | 900 | Black |
 
 ```html
-<div class="flex flex-column gap-2">
+<div class="flex flex-col gap-2">
   <span class="font-thin">Thin (100)</span>
   <span class="font-extralight">Extra Light (200)</span>
   <span class="font-light">Light (300)</span>
-  <span class="font-regular">Regular (400)</span>
+  <span class="font-normal">Regular (400)</span>
   <span class="font-medium">Medium (500)</span>
   <span class="font-semibold">Semi Bold (600)</span>
   <span class="font-bold">Bold (700)</span>
@@ -142,10 +140,8 @@ Classes for text management: size, color, alignment, font weight, and more.
 ```html
 <p class="italic">Italic</p>
 <p class="underline">Underlined</p>
-<p class="line-through">Strikethrough</p>
-<p class="uppercase">UPPERCASE</p>
-<p class="lowercase">lowercase</p>
-<p class="capitalize">Capitalized</p>
+<p class="underline">Underlined</p>
+<p class="font-caps">UPPERCASE</p>
 ```
 
 ## Line Height
@@ -188,10 +184,10 @@ Classes for text management: size, color, alignment, font weight, and more.
 
 ```html
 <!-- No wrap -->
-<p class="whitespace-nowrap">Text without line breaks</p>
+<p class="nowrap">Text without line breaks</p>
 
 <!-- Preserve whitespace -->
-<p class="whitespace-pre-wrap">Preserves spaces and line breaks</p>
+<p class="pre-wrap">Preserves spaces and line breaks</p>
 ```
 
 ### Text Truncation
@@ -203,7 +199,7 @@ Classes for text management: size, color, alignment, font weight, and more.
 </div>
 
 <!-- Truncation without ellipsis -->
-<div class="w-64 overflow-hidden whitespace-nowrap">Truncated text</div>
+<div class="w-64 overflow-hidden nowrap">Truncated text</div>
 ```
 
 ### Word Break
@@ -281,7 +277,7 @@ Classes for text management: size, color, alignment, font weight, and more.
 ### Notification
 
 ```html
-<div class="bg-success text-white p-4 rounded-base">
+<div class="bg-success text-white p-4 rounded">
   <p class="font-bold mb-1">Success!</p>
   <p class="text-sm">Operation completed successfully</p>
 </div>
@@ -337,13 +333,13 @@ Classes for text management: size, color, alignment, font weight, and more.
 
 | Classes |
 |---------|
-| `font-thin`, `font-extralight`, `font-light`, `font-regular`, `font-medium`, `font-semibold`, `font-bold`, `font-extrabold`, `font-black` |
+| `font-thin`, `font-extralight`, `font-light`, `font-normal`, `font-medium`, `font-semibold`, `font-bold`, `font-extrabold`, `font-black` |
 
 ### Style
 
 | Classes |
 |---------|
-| `italic`, `underline`, `line-through`, `uppercase`, `lowercase`, `capitalize` |
+| `italic`, `underline`, `font-caps`, `truncate` |
 
 ### Line Height
 
@@ -361,7 +357,7 @@ Classes for text management: size, color, alignment, font weight, and more.
 
 | Classes |
 |---------|
-| `whitespace-nowrap` (`nowrap`), `whitespace-pre-wrap` (`pre-wrap`), `truncate`, `text-ellipsis`, `break-word`, `list-style-none`, `list-reset` |
+| `nowrap` (`nowrap`), `pre-wrap` (`pre-wrap`), `truncate`, `text-ellipsis`, `break-word`, `list-style-none`, `list-reset` |
 | `font-family-inherit`, `font-size-inherit`, `font-caps` |
 | `text-decoration-none`, `text-style-clear` |
 | `text-text-top`, `text-text-bottom`, `text-sub`, `text-super` |

@@ -31,7 +31,7 @@ description: Отступы между элементами
 </div>
 
 <!-- Grid с gap -->
-<div class="grid grid-cols-3 gap-4">
+<div class="grid grid-columns--3-32 gap-4">
   <div class="bg-primary-100 p-4">1</div>
   <div class="bg-primary-100 p-4">2</div>
   <div class="bg-primary-100 p-4">3</div>
@@ -58,14 +58,14 @@ description: Отступы между элементами
 
 ```html
 <!-- Только вертикальные отступы -->
-<div class="flex flex-column gap-y-4">
+<div class="flex flex-col gap-y-4">
   <div class="bg-primary-100 p-4">Элемент 1</div>
   <div class="bg-primary-100 p-4">Элемент 2</div>
   <div class="bg-primary-100 p-4">Элемент 3</div>
 </div>
 
 <!-- Grid с вертикальными отступами -->
-<div class="grid grid-cols-3 gap-y-6">
+<div class="grid grid-columns--3-32 gap-y-6">
   <div class="bg-primary-100 p-4">1</div>
   <div class="bg-primary-100 p-4">2</div>
   <div class="bg-primary-100 p-4">3</div>
@@ -102,7 +102,7 @@ description: Отступы между элементами
 </div>
 
 <!-- Grid с горизонтальными отступами -->
-<div class="grid grid-cols-4 gap-x-6">
+<div class="grid grid-columns--4-32 gap-x-6">
   <div class="bg-primary-100 p-4">1</div>
   <div class="bg-primary-100 p-4">2</div>
   <div class="bg-primary-100 p-4">3</div>
@@ -115,24 +115,24 @@ description: Отступы между элементами
 ### Карточки товаров
 
 ```html
-<div class="grid grid-cols-4 gap-6 p-4">
+<div class="grid grid-columns--4-32 gap-6 p-4">
   <div class="border rounded-lg p-4">
-    <img src="product1.jpg" class="w-full h-40 object-cover rounded mb-2">
+    <img src="product1.jpg" class="w-full h-40 rounded mb-2">
     <h3 class="font-bold">Товар 1</h3>
     <p class="text-primary-500">$99</p>
   </div>
   <div class="border rounded-lg p-4">
-    <img src="product2.jpg" class="w-full h-40 object-cover rounded mb-2">
+    <img src="product2.jpg" class="w-full h-40 rounded mb-2">
     <h3 class="font-bold">Товар 2</h3>
     <p class="text-primary-500">$149</p>
   </div>
   <div class="border rounded-lg p-4">
-    <img src="product3.jpg" class="w-full h-40 object-cover rounded mb-2">
+    <img src="product3.jpg" class="w-full h-40 rounded mb-2">
     <h3 class="font-bold">Товар 3</h3>
     <p class="text-primary-500">$199</p>
   </div>
   <div class="border rounded-lg p-4">
-    <img src="product4.jpg" class="w-full h-40 object-cover rounded mb-2">
+    <img src="product4.jpg" class="w-full h-40 rounded mb-2">
     <h3 class="font-bold">Товар 4</h3>
     <p class="text-primary-500">$249</p>
   </div>
@@ -158,12 +158,12 @@ description: Отступы между элементами
 ### Форма с полями
 
 ```html
-<form class="flex flex-column gap-4">
-  <div class="flex flex-column gap-1">
+<form class="flex flex-col gap-4">
+  <div class="flex flex-col gap-1">
     <label class="text-sm font-medium">Имя</label>
     <input type="text" class="border rounded px-4 py-2">
   </div>
-  <div class="flex flex-column gap-1">
+  <div class="flex flex-col gap-1">
     <label class="text-sm font-medium">Email</label>
     <input type="email" class="border rounded px-4 py-2">
   </div>
@@ -181,13 +181,13 @@ description: Отступы между элементами
 ### Галерея изображений
 
 ```html
-<div class="grid grid-cols-3 gap-4">
-  <img src="photo1.jpg" class="w-full h-48 object-cover rounded-lg">
-  <img src="photo2.jpg" class="w-full h-48 object-cover rounded-lg">
-  <img src="photo3.jpg" class="w-full h-48 object-cover rounded-lg">
-  <img src="photo4.jpg" class="w-full h-48 object-cover rounded-lg">
-  <img src="photo5.jpg" class="w-full h-48 object-cover rounded-lg">
-  <img src="photo6.jpg" class="w-full h-48 object-cover rounded-lg">
+<div class="grid grid-columns--3-32 gap-4">
+  <img src="photo1.jpg" class="w-full h-48 rounded-lg">
+  <img src="photo2.jpg" class="w-full h-48 rounded-lg">
+  <img src="photo3.jpg" class="w-full h-48 rounded-lg">
+  <img src="photo4.jpg" class="w-full h-48 rounded-lg">
+  <img src="photo5.jpg" class="w-full h-48 rounded-lg">
+  <img src="photo6.jpg" class="w-full h-48 rounded-lg">
 </div>
 ```
 
@@ -216,7 +216,7 @@ description: Отступы между элементами
 ### Адаптивная сетка
 
 ```html
-<div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+<div class="grid grid-columns--2-32 md:grid-columns--4-32 gap-4">
   <div class="bg-white border rounded-lg p-4">
     <h3 class="font-bold mb-2">Карточка 1</h3>
     <p class="text-gray-600">Описание</p>

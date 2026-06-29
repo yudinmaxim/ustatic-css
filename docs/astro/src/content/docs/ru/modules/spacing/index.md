@@ -158,7 +158,7 @@ description: Справочник по модулю spacing
 ### Центрирование контейнера
 
 ```html
-<div class="max-w-4xl mx-auto px-4">
+<div class="max-w-192 mx-auto px-4">
   <h1>Центрированный контент</h1>
 </div>
 ```
@@ -191,7 +191,7 @@ description: Справочник по модулю spacing
 ### Форма
 
 ```html
-<form class="space-y-4">
+<form class="flex flex-col gap-4">
   <div>
     <label class="block text-sm font-medium mb-1">Email</label>
     <input 
@@ -233,7 +233,7 @@ description: Справочник по модулю spacing
 ### Grid с отступами
 
 ```html
-<div class="grid grid-cols-3 gap-4 p-4">
+<div class="grid grid-columns--3-32 gap-4 p-4">
   <div class="bg-primary-100 p-4">1</div>
   <div class="bg-primary-100 p-4">2</div>
   <div class="bg-primary-100 p-4">3</div>
@@ -244,7 +244,7 @@ description: Справочник по модулю spacing
 
 ```html
 <header class="py-4 px-6 border-b">
-  <div class="max-w-7xl mx-auto flex items-center justify-between">
+  <div class="max-w-256 mx-auto flex items-center justify-between">
     <a href="/" class="text-xl font-bold">Логотип</a>
     <nav class="flex gap-4">
       <a href="#" class="hover:text-primary-500">Меню</a>
@@ -257,11 +257,11 @@ description: Справочник по модулю spacing
 
 ```html
 <footer class="bg-gray-900 text-white py-12 px-4">
-  <div class="max-w-4xl mx-auto">
-    <div class="grid grid-cols-3 gap-8 mb-8">
+  <div class="max-w-192 mx-auto">
+    <div class="grid grid-columns--3-32 gap-8 mb-8">
       <div>
         <h3 class="font-bold mb-4">Раздел 1</h3>
-        <ul class="space-y-2">
+        <ul class="flex flex-col gap-2">
           <li><a href="#" class="hover:text-white">Ссылка 1</a></li>
           <li><a href="#" class="hover:text-white">Ссылка 2</a></li>
         </ul>

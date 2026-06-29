@@ -74,15 +74,15 @@ Use classes in markup:
 
 ```html
 <!-- Card with flexbox -->
-<div class="flex justify-between items-center p-4 bg-white border border-gray-200 rounded-base">
+<div class="flex justify-between items-center p-4 bg-white border border-gray-200 rounded">
   <span class="text-lg font-semibold text-gray-800">Title</span>
-  <button class="px-4 py-2 bg-blue-500 text-white rounded-base hover:bg-blue-600 cursor-pointer">
+  <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 cursor-pointer">
     Button
   </button>
 </div>
 
 <!-- Badge -->
-<span class="inline-block px-2 py-1 text-xs font-semibold text-red-600 bg-red-100 rounded-base">
+<span class="inline-block px-2 py-1 text-xs font-semibold text-red-600 bg-red-100 rounded">
   New
 </span>
 
@@ -98,7 +98,7 @@ Use classes in markup:
 - **Flexbox**: `.flex`, `.items-center`, `.justify-between`, `.gap-{size}`
 - **Positioning**: `.relative`, `.absolute`, `.z-{index}`
 - **Background**: `.bg-{color}-{brightness}`, `.bg-opacity-{0|25|50|75|100}`
-- **Borders**: `.border`, `.border-{color}-{brightness}`, `.rounded-{size}` (e.g., `.rounded-base`, `.rounded-lg`)
+- **Borders**: `.border`, `.border-{color}-{brightness}`, `.rounded-{size}` (e.g., `.rounded`, `.rounded-lg`)
 - **Sizing**: `.w-{size}`, `.h-{size}`, `.min-w-{size}`, `.max-h-{size}`
 - **Effects**: `.opacity-{0-100}`, `.rotate-{angle}`
 - **Animations**: `.blink`, `.animation:spin-{1-10}`, `.active:pulse`
@@ -146,7 +146,7 @@ Plugin/loader options:
 | `modules` | `string[]` | List of modules to include |
 | `classes` | `string[]` | List of classes for auto-detection |
 
-**Available modules:** `align`, `animations`, `base`, `bg`, `border`, `cursor`, `display`, `effects`, `filters`, `flexbox`, `grid`, `hide`, `interactivity`, `outline`, `position`, `scroll`, `sizing`, `spacing`, `typography`
+**Available modules:** `align`, `animations`, `base`, `bg`, `border`, `cursor`, `display`, `effects`, `filters`, `flexbox`, `grid`, `hidden`, `interactivity`, `outline`, `position`, `scroll`, `sizing`, `spacing`, `typography`
 
 If no options are provided — base styles (`ustatic.css`) and variables (`vars.css`) are loaded.
 

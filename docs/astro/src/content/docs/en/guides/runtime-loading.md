@@ -3,8 +3,6 @@ title: Runtime Style Loading
 description: Dynamic loading of uStatic CSS modules
 ---
 
-# Runtime Style Loading
-
 ## Vue 3 Plugin
 
 The package provides a ready-to-use Vue plugin for activating styles on the fly.
@@ -37,7 +35,7 @@ app.mount('#app');
 | `modules` | `string[]` | List of modules to connect |
 | `classes` | `string[]` | List of classes for auto-detection of modules |
 
-**Available modules:** `align`, `animations`, `base`, `bg`, `border`, `cursor`, `display`, `effects`, `filters`, `flexbox`, `grid`, `hide`, `interactivity`, `outline`, `position`, `scroll`, `sizing`, `spacing`, `typography`
+**Available modules:** `align`, `animations`, `base`, `bg`, `border`, `cursor`, `display`, `effects`, `filters`, `flexbox`, `grid`, `hidden`, `interactivity`, `outline`, `position`, `scroll`, `sizing`, `spacing`, `typography`
 
 If no options are provided — base styles (`ustatic.css`) and variables (`vars.css`) are connected.
 

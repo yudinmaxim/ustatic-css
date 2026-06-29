@@ -74,15 +74,15 @@ import 'ustatic-css/flexbox';
 
 ```html
 <!-- Карточка с flexbox -->
-<div class="flex justify-between items-center p-4 bg-white border border-gray-200 rounded-base">
+<div class="flex justify-between items-center p-4 bg-white border border-gray-200 rounded">
   <span class="text-lg font-semibold text-gray-800">Заголовок</span>
-  <button class="px-4 py-2 bg-blue-500 text-white rounded-base hover:bg-blue-600 cursor-pointer">
+  <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 cursor-pointer">
     Кнопка
   </button>
 </div>
 
 <!-- Бейдж -->
-<span class="inline-block px-2 py-1 text-xs font-semibold text-red-600 bg-red-100 rounded-base">
+<span class="inline-block px-2 py-1 text-xs font-semibold text-red-600 bg-red-100 rounded">
   New
 </span>
 
@@ -98,7 +98,7 @@ import 'ustatic-css/flexbox';
 - **Flexbox**: `.flex`, `.items-center`, `.justify-between`, `.gap-{size}`
 - **Позиционирование**: `.relative`, `.absolute`, `.z-{index}`
 - **Фон**: `.bg-{color}-{brightness}`, `.bg-opacity-{0|25|50|75|100}`
-- **Границы**: `.border`, `.border-{color}-{brightness}`, `.rounded-{size}` (например, `.rounded-base`, `.rounded-lg`)
+- **Границы**: `.border`, `.border-{color}-{brightness}`, `.rounded-{size}` (например, `.rounded`, `.rounded-lg`)
 - **Размеры**: `.w-{size}`, `.h-{size}`, `.min-w-{size}`, `.max-h-{size}`
 - **Эффекты**: `.opacity-{0-100}`, `.rotate-{angle}`
 - **Анимации**: `.blink`, `.animation:spin-{1-10}`, `.active:pulse`
@@ -146,7 +146,7 @@ app.mount('#app');
 | `modules` | `string[]` | Список модулей для подключения |
 | `classes` | `string[]` | Список классов для автоподбора модулей |
 
-**Доступные модули:** `align`, `animations`, `base`, `bg`, `border`, `cursor`, `display`, `effects`, `filters`, `flexbox`, `grid`, `hide`, `interactivity`, `outline`, `position`, `scroll`, `sizing`, `spacing`, `typography`
+**Доступные модули:** `align`, `animations`, `base`, `bg`, `border`, `cursor`, `display`, `effects`, `filters`, `flexbox`, `grid`, `hidden`, `interactivity`, `outline`, `position`, `scroll`, `sizing`, `spacing`, `typography`
 
 Если опции не заданы — подключаются базовые стили (`ustatic.css`) и переменные (`vars.css`).
 

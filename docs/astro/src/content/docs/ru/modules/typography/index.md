@@ -20,7 +20,7 @@ description: Справочник по модулю typography
 | `.text-2xl`  | 24px   | 32px          |
 
 ```html
-<div class="flex flex-column gap-2">
+<div class="flex flex-col gap-2">
   <p class="text-2xs">Очень маленький (10px)</p>
   <p class="text-xs">Маленький (12px)</p>
   <p class="text-sm">Небольшой (14px)</p>
@@ -36,7 +36,7 @@ description: Справочник по модулю typography
 ### Основные цвета
 
 ```html
-<div class="flex flex-column gap-2">
+<div class="flex flex-col gap-2">
   <span class="text-primary">Основной цвет</span>
   <span class="text-secondary">Вторичный</span>
   <span class="text-success">Успех</span>
@@ -49,7 +49,7 @@ description: Справочник по модулю typography
 ### Оттенки серого
 
 ```html
-<div class="flex flex-column gap-2">
+<div class="flex flex-col gap-2">
   <span class="text-gray-50">50 (очень светлый)</span>
   <span class="text-gray-100">100</span>
   <span class="text-gray-200">200</span>
@@ -116,7 +116,7 @@ description: Справочник по модулю typography
 | `.font-thin`       | 100      | Тонкий      |
 | `.font-extralight` | 200      | Сверхлёгкий |
 | `.font-light`      | 300      | Лёгкий      |
-| `.font-regular`    | 400      | Обычный     |
+| `.font-normal`    | 400      | Обычный     |
 | `.font-medium`     | 500      | Средний     |
 | `.font-semibold`   | 600      | Полужирный  |
 | `.font-bold`       | 700      | Жирный      |
@@ -124,11 +124,11 @@ description: Справочник по модулю typography
 | `.font-black`      | 900      | Чёрный      |
 
 ```html
-<div class="flex flex-column gap-2">
+<div class="flex flex-col gap-2">
   <span class="font-thin">Thin (100)</span>
   <span class="font-extralight">Extra Light (200)</span>
   <span class="font-light">Light (300)</span>
-  <span class="font-regular">Regular (400)</span>
+  <span class="font-normal">Regular (400)</span>
   <span class="font-medium">Medium (500)</span>
   <span class="font-semibold">Semi Bold (600)</span>
   <span class="font-bold">Bold (700)</span>
@@ -142,10 +142,7 @@ description: Справочник по модулю typography
 ```html
 <p class="italic">Курсив</p>
 <p class="underline">Подчёркнутый</p>
-<p class="line-through">Зачёркнутый</p>
-<p class="uppercase">ВСЕ ЗАГЛАВНЫЕ</p>
-<p class="lowercase">все строчные</p>
-<p class="capitalize">Каждое Слово С Заглавной</p>
+<p class="font-caps">ВСЕ ЗАГЛАВНЫЕ</p>
 ```
 
 ## Высота строки (line-height)
@@ -188,10 +185,10 @@ description: Справочник по модулю typography
 
 ```html
 <!-- Без переноса -->
-<p class="whitespace-nowrap">Текст без переноса строк</p>
+<p class="nowrap">Текст без переноса строк</p>
 
 <!-- Сохранение пробелов -->
-<p class="whitespace-pre-wrap">Сохраняет пробелы и переносы</p>
+<p class="pre-wrap">Сохраняет пробелы и переносы</p>
 ```
 
 ### Обрезка текста
@@ -203,7 +200,7 @@ description: Справочник по модулю typography
 </div>
 
 <!-- Обрезка без многоточия -->
-<div class="w-64 overflow-hidden whitespace-nowrap">Обрезанный текст</div>
+<div class="w-64 overflow-hidden nowrap">Обрезанный текст</div>
 ```
 
 ### Разрыв слов
@@ -339,13 +336,13 @@ description: Справочник по модулю typography
 
 | Классы                                                                                                                                    |
 | ----------------------------------------------------------------------------------------------------------------------------------------- |
-| `font-thin`, `font-extralight`, `font-light`, `font-regular`, `font-medium`, `font-semibold`, `font-bold`, `font-extrabold`, `font-black` |
+| `font-thin`, `font-extralight`, `font-light`, `font-normal`, `font-medium`, `font-semibold`, `font-bold`, `font-extrabold`, `font-black` |
 
 ### Стиль
 
 | Классы                                                                        |
 | ----------------------------------------------------------------------------- |
-| `italic`, `underline`, `line-through`, `uppercase`, `lowercase`, `capitalize` |
+| `italic`, `underline`, `font-caps`, `truncate` |
 
 ### Высота строки
 
@@ -363,7 +360,7 @@ description: Справочник по модулю typography
 
 | Классы                                                                                                                                         |
 | ---------------------------------------------------------------------------------------------------------------------------------------------- |
-| `whitespace-nowrap` (`nowrap`), `whitespace-pre-wrap` (`pre-wrap`), `truncate`, `text-ellipsis`, `break-word`, `list-style-none`, `list-reset` |
+| `nowrap` (`nowrap`), `pre-wrap` (`pre-wrap`), `truncate`, `text-ellipsis`, `break-word`, `list-style-none`, `list-reset` |
 | `font-family-inherit`, `font-size-inherit`, `font-caps`                                                                                        |
 | `text-decoration-none`, `text-style-clear`                                                                                                     |
 | `text-text-top`, `text-text-bottom`, `text-sub`, `text-super`                                                                                  |

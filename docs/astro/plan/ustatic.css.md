@@ -90,11 +90,11 @@ import 'ustatic-css/dist/ustatic-index.scss'
 | `sizing`        | Размеры (width/height)    | `w-*`, `h-*`, `min-w-*`, `min-h-*`, `max-w-*`, `max-h-*`, `size-*`, `w-full`, `h-screen`                                | `/src/docs/modules/sizing/index.md`        |
 | `effects`       | Эффекты                   | `opacity-*`, `rotate-*`, `required`                                                                                     | `/src/docs/modules/effects/index.md`       |
 | `animations`    | Анимации                  | `animation:spin-{1-10}`, `blink`, `active:pulse`                                                                        | `/src/docs/appearance/animations/index.md` |
-| `interactivity` | Интерактивность           | `pointer-events-none/auto`, `user-select-none/auto/all/text`                                                            | `/src/docs/modules/interactivity/index.md` |
+| `interactivity` | Интерактивность           | `pointer-events-none/auto`, `select-none/auto/all/text`                                                            | `/src/docs/modules/interactivity/index.md` |
 | `scroll`        | Стилизованный скроллбар   | `z-scroll`, `z-scroll--thin`, `z-scroll--hovered`                                                                       | `/src/docs/modules/scroll/index.md`        |
 | `cursor`        | Виды курсора              | `cursor-pointer`, `cursor-move`, `cursor-default`, `cursor-disabled`, `cursor-resize-x/y`, `cursor-wait`, `cursor-help` | `/src/docs/modules/cursor/index.md`        |
 | `outline`       | Обводка                   | `outline-none`, `outline-*`, `outline-{color}`, `outline-style--*`, `outline-offset-*`                                  | `/src/docs/modules/outline/index.md`       |
-| `hide`          | Скрытие на брейкпоинтах   | `hide`, `hide-md`, `hide-lg`, `hide-full`                                                                               | `/src/docs/modules/hide/index.md`          |
+| `hidden`          | Скрытие на брейкпоинтах   | `hidden`, `hidden-md`, `hidden-lg`, `hidden-full`                                                                               | `/src/docs/modules/hide/index.md`          |
 | `display`       | Display и Overflow        | `inline`, `block`, `inline-block`, `table`, `table-cell`, `overflow-*`, `overflow-x-*`, `overflow-y-*`                  | `/src/docs/modules/display/index.md`       |
 | `align`         | Вертикальное выравнивание | `align-*`                                                                                                               | `/src/docs/modules/align/index.md`         |
 | `filters`       | CSS фильтры               | `grayscale`, `grayscale-50`, `grayscale-0`, `no-filter`                                                                 | `/src/docs/modules/filters/index.md`       |
@@ -252,7 +252,7 @@ await loadStyles({ modules: ["flexbox", "grid", "typography", "bg"] });
 await loadStyles();
 ```
 
-**Доступные модули:** `align`, `animations`, `base`, `bg`, `border`, `cursor`, `display`, `effects`, `filters`, `flexbox`, `grid`, `hide`, `interactivity`, `outline`, `position`, `scroll`, `sizing`, `spacing`, `typography`
+**Доступные модули:** `align`, `animations`, `base`, `bg`, `border`, `cursor`, `display`, `effects`, `filters`, `flexbox`, `grid`, `hidden`, `interactivity`, `outline`, `position`, `scroll`, `sizing`, `spacing`, `typography`
 
 ### getStyleLinks — получение ссылок на CSS (для SSR)
 
@@ -309,7 +309,7 @@ app.use(ustaticCss, {
 - `cursor`, `pointer-events`, `resize` → `interactivity`
 - `grid`, `col`, `row` → `grid`
 - `filter`, `blur`, `brightness`, `contrast`, `grayscale`, `hue-rotate`, `invert`, `saturate`, `sepia` → `filters`
-- `hide`, `show` → `hide`
+- `hidden`, `show` → `hidden`
 - `position`, `top`, `right`, `bottom`, `left` → `position`
 - `scroll` → `scroll`
 - `animate` → `animations`
@@ -352,7 +352,7 @@ app.use(ustaticCss, {
 
 ### Font weights
 
-`font-thin`(100), `font-extralight`(200), `font-light`(300), `font-regular`(400), `font-medium`(500), `font-semibold`(600), `font-bold`(700), `font-extrabold`(800), `font-black`(900)
+`font-thin`(100), `font-extralight`(200), `font-light`(300), `font-normal`(400), `font-medium`(500), `font-semibold`(600), `font-bold`(700), `font-extrabold`(800), `font-black`(900)
 
 ### Z-index presets
 

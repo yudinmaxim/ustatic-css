@@ -36,7 +36,7 @@ description: Справочник по модулю cursor
 </a>
 
 <!-- Карточка с действием -->
-<div class="border rounded-lg p-4 cursor-pointer hover:shadow-lg transition-shadow">
+<div class="border rounded-lg p-4 cursor-pointer hover:">
   <h3 class="font-bold">Карточка</h3>
   <p class="text-gray-600">Кликни для действий</p>
 </div>
@@ -101,8 +101,7 @@ description: Справочник по модулю cursor
 ### Drag-and-drop зона
 
 ```html
-<div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center 
-            cursor-move hover:border-primary-500 transition-colors">
+<div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center cursor-move hover:border-primary-500">
   <svg class="w-12 h-12 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
           d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/>
@@ -114,22 +113,20 @@ description: Справочник по модулю cursor
 ### Интерактивная галерея
 
 ```html
-<div class="grid grid-cols-3 gap-4">
-  <div class="relative group cursor-pointer">
-    <img src="image1.jpg" alt="Фото 1" class="w-full h-48 object-cover rounded-lg">
-    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 
-                transition-opacity rounded-lg flex items-center justify-center">
-      <span class="text-white opacity-0 group-hover:opacity-100">
+<div class="grid grid-columns--3-32 gap-4">
+  <div class="relative cursor-pointer">
+    <img src="image1.jpg" alt="Фото 1" class="w-full h-48 rounded-lg">
+    <div class="absolute top-0 right-0 bottom-0 left-0 bg-black bg-opacity-0 hover:bg-opacity-50 rounded-lg flex items-center justify-center">
+      <span class="text-white opacity-0 hover:opacity-100">
         🔍 Увеличить
       </span>
     </div>
   </div>
   
-  <div class="relative group cursor-pointer">
-    <img src="image2.jpg" alt="Фото 2" class="w-full h-48 object-cover rounded-lg">
-    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 
-                transition-opacity rounded-lg flex items-center justify-center">
-      <span class="text-white opacity-0 group-hover:opacity-100">
+  <div class="relative cursor-pointer">
+    <img src="image2.jpg" alt="Фото 2" class="w-full h-48 rounded-lg">
+    <div class="absolute top-0 right-0 bottom-0 left-0 bg-black bg-opacity-0 hover:bg-opacity-50 rounded-lg flex items-center justify-center">
+      <span class="text-white opacity-0 hover:opacity-100">
         🔍 Увеличить
       </span>
     </div>
@@ -140,7 +137,7 @@ description: Справочник по модулю cursor
 ### Форма с подсказками
 
 ```html
-<form class="space-y-4">
+<form class="flex flex-col gap-4">
   <div>
     <label class="block text-sm font-medium text-gray-700 mb-1">
       Email
@@ -181,12 +178,12 @@ description: Справочник по модулю cursor
 
 ```html
 <!-- Элемент с pointer-events и cursor -->
-<div class="pointer-events-none cursor-not-allowed opacity-50">
+<div class="pointer-events-none cursor-disabled opacity-50">
   Недоступный элемент
 </div>
 
 <!-- Элемент с hover эффектами -->
-<button class="cursor-pointer hover:lift hover:shadow-lg transition-all">
+<button class="cursor-pointer hover:lift hover:">
   Кнопка с эффектами
 </button>
 ```

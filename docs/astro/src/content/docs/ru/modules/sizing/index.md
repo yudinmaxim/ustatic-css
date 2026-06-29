@@ -34,17 +34,17 @@ description: Справочник по модулю sizing
 |-------|----------|
 | `.w-1/4` | 25% |
 | `.w-1/3` | 33.333% |
-| `.w-1/2` | 50% |
+| `.w-full` | 50% |
 | `.w-2/3` | 66.666% |
-| `.w-3/4` | 75% |
-| `.w-4/5` | 80% |
+| `.w-full` | 75% |
+| `.w-full` | 80% |
 | `.w-full` | 100% |
 
 ```html
 <div class="border">
   <div class="w-1/4 bg-primary-100 p-2">25%</div>
-  <div class="w-1/2 bg-primary-200 p-2">50%</div>
-  <div class="w-3/4 bg-primary-300 p-2">75%</div>
+  <div class="w-full bg-primary-200 p-2">50%</div>
+  <div class="w-full bg-primary-300 p-2">75%</div>
   <div class="w-full bg-primary-400 p-2">100%</div>
 </div>
 ```
@@ -152,16 +152,16 @@ description: Справочник по модулю sizing
 | Класс | Значение |
 |-------|----------|
 | `.max-w-0` | 0 |
-| `.max-w-xs` | 320px |
-| `.max-w-sm` | 640px |
-| `.max-w-md` | 768px |
-| `.max-w-lg` | 1024px |
-| `.max-w-xl` | 1280px |
-| `.max-w-2xl` | 1536px |
+| `.max-w-80` | 320px |
+| `.max-w-96` | 640px |
+| `.max-w-96` | 768px |
+| `.max-w-128` | 1024px |
+| `.max-w-160` | 1280px |
+| `.max-w-192` | 1536px |
 | `.max-w-full` | 100% |
 
 ```html
-<div class="max-w-md mx-auto bg-white p-6">
+<div class="max-w-96 mx-auto bg-white p-6">
   <h2 class="text-xl font-bold">Ограниченная ширина</h2>
   <p>Максимальная ширина 768px</p>
 </div>
@@ -203,8 +203,8 @@ description: Справочник по модулю sizing
 ### Контейнер ограниченной ширины
 
 ```html
-<div class="max-w-4xl mx-auto px-4">
-  <h1 class="text-3xl font-bold mb-4">Заголовок</h1>
+<div class="max-w-192 mx-auto px-4">
+  <h1 class="text-2xl font-bold mb-4">Заголовок</h1>
   <p class="text-gray-600">
     Контент ограниченной ширины для удобного чтения
   </p>
@@ -216,7 +216,7 @@ description: Справочник по модулю sizing
 ```html
 <section class="h-screen flex items-center justify-center bg-primary-500">
   <div class="text-center text-white">
-    <h1 class="text-4xl font-bold mb-4">Добро пожаловать</h1>
+    <h1 class="text-2xl font-bold mb-4">Добро пожаловать</h1>
     <p>Полноэкранный баннер</p>
   </div>
 </section>
@@ -229,14 +229,14 @@ description: Справочник по модулю sizing
 <img 
   src="avatar.jpg" 
   alt="Аватар" 
-  class="size-16 rounded-full object-cover"
+  class="size-16 rounded-full"
 >
 
 <!-- Большой аватар -->
 <img 
   src="avatar.jpg" 
   alt="Аватар" 
-  class="size-32 rounded-full object-cover"
+  class="size-32 rounded-full"
 >
 ```
 
@@ -246,7 +246,7 @@ description: Справочник по модулю sizing
 <img 
   src="hero.jpg" 
   alt="Hero" 
-  class="w-full h-96 object-cover"
+  class="w-full h-96"
 >
 ```
 
@@ -254,7 +254,7 @@ description: Справочник по модулю sizing
 
 ```html
 <div class="w-64 h-96 border rounded-lg p-4">
-  <img src="product.jpg" class="w-full h-48 object-cover rounded mb-4">
+  <img src="product.jpg" class="w-full h-48 rounded mb-4">
   <h3 class="font-bold">Товар</h3>
   <p class="text-primary-500">$99</p>
 </div>
@@ -264,7 +264,7 @@ description: Справочник по модулю sizing
 
 ```html
 <footer class="min-h-32 bg-gray-900 text-white p-8">
-  <div class="max-w-4xl mx-auto">
+  <div class="max-w-192 mx-auto">
     <p>&copy; 2024 Компания</p>
   </div>
 </footer>
@@ -273,10 +273,10 @@ description: Справочник по модулю sizing
 ### Галерея с одинаковыми размерами
 
 ```html
-<div class="grid grid-cols-3 gap-4">
-  <img src="photo1.jpg" class="w-full h-48 object-cover rounded">
-  <img src="photo2.jpg" class="w-full h-48 object-cover rounded">
-  <img src="photo3.jpg" class="w-full h-48 object-cover rounded">
+<div class="grid grid-columns--3-32 gap-4">
+  <img src="photo1.jpg" class="w-full h-48 rounded">
+  <img src="photo2.jpg" class="w-full h-48 rounded">
+  <img src="photo3.jpg" class="w-full h-48 rounded">
 </div>
 ```
 
@@ -284,7 +284,7 @@ description: Справочник по модулю sizing
 
 ```html
 <div class="w-full h-4 bg-gray-200 rounded-full overflow-hidden">
-  <div class="h-full bg-primary-500 w-3/4"></div>
+  <div class="h-full bg-primary-500 w-full"></div>
 </div>
 ```
 
@@ -295,7 +295,7 @@ description: Справочник по модулю sizing
 | Категория | Классы |
 |-----------|--------|
 | **Фиксированные** | `w-1`, `w-2`, `w-4`, `w-8`, `w-16`, `w-24`, `w-32`, `w-40`, `w-48`, `w-56`, `w-64` ... `w-256` |
-| **Проценты** | `w-1/4`, `w-1/3`, `w-1/2`, `w-2/3`, `w-3/4`, `w-4/5`, `w-full` |
+| **Проценты** | `w-1/4`, `w-1/3`, `w-full`, `w-2/3`, `w-full`, `w-full`, `w-full` |
 | **Спец.** | `w-auto`, `w-px`, `w-0d5`, `w-none`, `w-fit`, `w-screen` |
 
 ### Высота
@@ -312,7 +312,7 @@ description: Справочник по модулю sizing
 |-----------|--------|
 | **Min-width** | `min-w-0`, `min-w-1` ... `min-w-256`, `min-w-screen` |
 | **Min-height** | `min-h-0`, `min-h-1` ... `min-h-256`, `min-h-screen` |
-| **Max-width** | `max-w-0`, `max-w-xs`, `max-w-sm`, `max-w-md`, `max-w-lg`, `max-w-xl`, `max-w-2xl`, `max-w-full` |
+| **Max-width** | `max-w-0`, `max-w-80`, `max-w-96`, `max-w-96`, `max-w-128`, `max-w-160`, `max-w-192`, `max-w-full` |
 | **Max-height** | `max-h-0`, `max-h-1` ... `max-h-256`, `max-h-screen` |
 
 ### Квадратные

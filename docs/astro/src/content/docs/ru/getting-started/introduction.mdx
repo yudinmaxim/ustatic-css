@@ -5,8 +5,6 @@ description: Обзор uStatic CSS — утилитарного CSS-фрейм�
 
 import Demo from '../../../../components/Demo.astro'
 
-# Введение
-
 **uStatic CSS** (от _utility static CSS_) — это набор утилитарных CSS-классов для быстрой разработки современных интерфейсов. Он основан на токенах дизайн-системы.
 
 :::note[Важно]
@@ -30,7 +28,7 @@ import Demo from '../../../../components/Demo.astro'
 
 - 🎨 **350+ утилитарных классов** для типографики, отступов, позиционирования, цветов
 - 🧩 **Хуки `useCssProperties` и `useTokens`** для управления стилями в JavaScript
-- 🌐 **Адаптивный дизайн** с брейкпоинтами `xs`, `md`, `def`, `lg`
+- 🌐 **Скрытие на брейкпоинтах** — `hidden-md`, `hidden-lg` (не responsive-префиксы как в Tailwind)
 - 🔌 **ESM и CJS модули**
 - ⚡ **SSR совместимость** — безопасная работа на сервере и в браузере
 
@@ -88,7 +86,7 @@ import Demo from '../../../../components/Demo.astro'
 | `filters` | Фильтры: grayscale |
 | `outline` | Обводка |
 | `scroll` | Скроллбары |
-| `hide` | Скрытие элементов |
+| `hidden` | Скрытие элементов |
 | `align` | Вертикальное выравнивание |
 | `interactivity` | Интерактивность |
 | `base` | Базовые стили |
@@ -97,3 +95,4 @@ import Demo from '../../../../components/Demo.astro'
 
 - [Установка](/ru/getting-started/installation) — как установить пакет
 - [Быстрый старт](/ru/getting-started/quick-start) — первый пример использования
+- [Миграция с Tailwind](/ru/guides/migration-from-tailwind) — если привыкли к Tailwind CSS

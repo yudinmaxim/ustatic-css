@@ -5,7 +5,7 @@ description: Справочник по модулю interactivity
 
 # Интерактивность (interactivity)
 
-Классы для управления интерактивным поведением элементов: pointer-events и user-select.
+Классы для управления интерактивным поведением элементов: pointer-events и select.
 
 ## Pointer events
 
@@ -28,7 +28,7 @@ description: Справочник по модулю interactivity
 </div>
 
 <!-- Overlay, пропускающий клики -->
-<div class="fixed inset-0 bg-black bg-opacity-50 pointer-events-none">
+<div class="fixed top-0 right-0 bottom-0 left-0 bg-black bg-opacity-50 pointer-events-none">
   <div class="pointer-events-auto bg-white p-6 rounded-lg">
     <!-- Этот блок получает клики -->
     <h2 class="text-xl font-bold">Модальное окно</h2>
@@ -45,27 +45,27 @@ description: Справочник по модулю interactivity
 
 | Класс | CSS свойство | Описание |
 |-------|--------------|----------|
-| `.user-select-none` | `user-select: none` | Запретить выделение |
-| `.user-select-auto` | `user-select: auto` | Разрешить выделение (по умолчанию) |
-| `.user-select-all` | `user-select: all` | Выделить всё при клике |
-| `.user-select-text` | `user-select: text` | Разрешить выделение текста |
+| `.select-none` | `select: none` | Запретить выделение |
+| `.select-auto` | `select: auto` | Разрешить выделение (по умолчанию) |
+| `.select-all` | `select: all` | Выделить всё при клике |
+| `.select-text` | `select: text` | Разрешить выделение текста |
 
 ### Примеры
 
 ```html
 <!-- Защита от копирования -->
-<article class="user-select-none">
+<article class="select-none">
   <h1>Защищённый контент</h1>
   <p>Этот текст нельзя выделить и скопировать</p>
 </article>
 
 <!-- Кнопка "Выделить всё" -->
-<textarea class="user-select-all border rounded p-2 w-full">
+<textarea class="select-all border rounded p-2 w-full">
 Текст для копирования. Кликните для выделения всего содержимого.
 </textarea>
 
 <!-- Элемент интерфейса без выделения -->
-<button class="user-select-none bg-primary-500 text-white px-4 py-2 rounded">
+<button class="select-none bg-primary-500 text-white px-4 py-2 rounded">
   Кнопка без выделения
 </button>
 ```
@@ -76,10 +76,9 @@ description: Справочник по модулю interactivity
 
 ```html
 <!-- Затемнение фона (пропускает клики) -->
-<div class="fixed inset-0 z-i-modal bg-black bg-opacity-50 pointer-events-none 
-            flex items-center justify-center">
+<div class="fixed top-0 right-0 bottom-0 left-0 z-i-modal bg-black bg-opacity-50 pointer-events-none flex items-center justify-center">
   <!-- Модальное окно (получает клики) -->
-  <div class="pointer-events-auto bg-white rounded-lg p-6 max-w-md mx-4">
+  <div class="pointer-events-auto bg-white rounded-lg p-6 max-w-96 mx-4">
     <h2 class="text-xl font-bold mb-4">Заголовок</h2>
     <p class="text-gray-600 mb-6">Содержимое модального окна</p>
     <button class="bg-primary-500 text-white px-4 py-2 rounded">
@@ -99,8 +98,7 @@ description: Справочник по модулю interactivity
   </button>
   
   <!-- Выпадающий список -->
-  <div class="absolute left-0 mt-2 w-48 bg-white border rounded-lg shadow-lg 
-              pointer-events-auto z-i-menu">
+  <div class="absolute left-0 mt-2 w-48 bg-white border rounded-lg pointer-events-auto z-i-menu">
     <a href="#" class="block px-4 py-2 hover:bg-gray-50">Пункт 1</a>
     <a href="#" class="block px-4 py-2 hover:bg-gray-50">Пункт 2</a>
     <a href="#" class="block px-4 py-2 hover:bg-gray-50">Пункт 3</a>
@@ -112,10 +110,10 @@ description: Справочник по модулю interactivity
 
 ```html
 <div class="border rounded-lg p-6">
-  <h1 class="text-2xl font-bold user-select-none">Заголовок</h1>
+  <h1 class="text-2xl font-bold select-none">Заголовок</h1>
   
   <!-- Защищённый текст -->
-  <div class="user-select-none mt-4 p-4 bg-gray-50 rounded">
+  <div class="select-none mt-4 p-4 bg-gray-50 rounded">
     <p>Этот контент защищён от копирования</p>
     <p class="text-sm text-gray-500 mt-2">
       Выделение текста отключено для защиты авторских прав
@@ -123,9 +121,9 @@ description: Справочник по модулю interactivity
   </div>
   
   <!-- Разрешённый текст -->
-  <div class="user-select-auto mt-4 p-4 bg-blue-50 rounded">
+  <div class="select-auto mt-4 p-4 bg-blue-50 rounded">
     <p>Этот текст можно выделять и копировать</p>
-    <code class="user-select-all bg-white px-2 py-1 rounded mt-2 block">
+    <code class="select-all bg-white px-2 py-1 rounded mt-2 block">
       npm install ustatic-css
     </code>
   </div>
@@ -137,25 +135,25 @@ description: Справочник по модулю interactivity
 ```html
 <div class="relative w-full h-96 border rounded-lg overflow-hidden">
   <!-- Карта (пропускает клики) -->
-  <div class="absolute inset-0 bg-gray-200 pointer-events-none">
-    <img src="map.jpg" alt="Карта" class="w-full h-full object-cover">
+  <div class="absolute top-0 right-0 bottom-0 left-0 bg-gray-200 pointer-events-none">
+    <img src="map.jpg" alt="Карта" class="w-full h-full">
   </div>
   
   <!-- Маркеры (получают клики) -->
-  <div class="absolute top-1/4 left-1/3 pointer-events-auto">
+  <div class="absolute top-1/4 left-1/4 pointer-events-auto">
     <div class="bg-primary-500 text-white px-2 py-1 rounded text-sm">
       Точка 1
     </div>
   </div>
   
-  <div class="absolute bottom-1/3 right-1/4 pointer-events-auto">
+  <div class="absolute bottom-1/4 right-1/4 pointer-events-auto">
     <div class="bg-primary-500 text-white px-2 py-1 rounded text-sm">
       Точка 2
     </div>
   </div>
   
   <!-- Элементы управления (получают клики) -->
-  <div class="absolute top-4 right-4 flex flex-column gap-2 pointer-events-auto">
+  <div class="absolute top-4 right-4 flex flex-col gap-2 pointer-events-auto">
     <button class="bg-white border rounded p-2 hover:bg-gray-50">+</button>
     <button class="bg-white border rounded p-2 hover:bg-gray-50">-</button>
   </div>
@@ -165,8 +163,7 @@ description: Справочник по модулю interactivity
 ### Drag-and-drop зона
 
 ```html
-<div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center 
-            pointer-events-none">
+<div class="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center pointer-events-none">
   <svg class="w-12 h-12 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" 
        viewBox="0 0 24 24">
     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
@@ -183,16 +180,14 @@ description: Справочник по модулю interactivity
 ### Копирование кода
 
 ```html
-<div class="relative group">
+<div class="relative">
   <pre class="bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto">
-    <code class="user-select-all">npm install ustatic-css</code>
+    <code class="select-all">npm install ustatic-css</code>
   </pre>
   
   <!-- Кнопка копирования -->
   <button 
-    class="absolute top-2 right-2 bg-white bg-opacity-10 hover:bg-opacity-20 
-           text-white px-2 py-1 rounded text-sm opacity-0 group-hover:opacity-100 
-           transition-opacity pointer-events-auto"
+    class="absolute top-2 right-2 bg-white bg-opacity-25 hover:bg-opacity-25 text-white px-2 py-1 rounded text-sm opacity-0 hover:opacity-100 pointer-events-auto"
   >
     Копировать
   </button>
@@ -204,18 +199,14 @@ description: Справочник по модулю interactivity
 ```html
 <div class="relative inline-block">
   <!-- Элемент с подсказкой -->
-  <button class="bg-primary-500 text-white px-4 py-2 rounded user-select-none">
+  <button class="bg-primary-500 text-white px-4 py-2 rounded select-none">
     Наведи на меня
   </button>
   
   <!-- Тултип -->
-  <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 
-              bg-gray-900 text-white text-sm rounded whitespace-nowrap 
-              opacity-0 invisible group-hover:opacity-100 group-hover:visible 
-              transition-all pointer-events-none">
+  <div class="absolute bottom-full left-1/2 mb-2 px-3 py-2 bg-gray-900 text-white text-sm rounded nowrap opacity-0 hover:opacity-100 pointer-events-none">
     Это подсказка
-    <div class="absolute top-full left-1/2 -translate-x-1/2 
-                border-4 border-transparent border-t-gray-900"></div>
+    <div class="absolute top-full left-1/2 border-4 border-transparent border-t-gray-900"></div>
   </div>
 </div>
 ```
@@ -233,10 +224,10 @@ description: Справочник по модулю interactivity
 
 | Класс | CSS | Когда использовать |
 |-------|-----|-------------------|
-| `.user-select-none` | `user-select: none` | Кнопки, элементы интерфейса, защита контента |
-| `.user-select-auto` | `user-select: auto` | Сброс к поведению по умолчанию |
-| `.user-select-all` | `user-select: all` | Код, команды для копирования |
-| `.user-select-text` | `user-select: text` | Явное разрешение выделения текста |
+| `.select-none` | `select: none` | Кнопки, элементы интерфейса, защита контента |
+| `.select-auto` | `select: auto` | Сброс к поведению по умолчанию |
+| `.select-all` | `select: all` | Код, команды для копирования |
+| `.select-text` | `select: text` | Явное разрешение выделения текста |
 
 ## См. также
 

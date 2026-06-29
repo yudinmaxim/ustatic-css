@@ -5,8 +5,6 @@ description: Overview of uStatic CSS — a utility CSS framework
 
 import Demo from '../../../../components/Demo.astro'
 
-# Introduction
-
 **uStatic CSS** (from _utility static CSS_) is a set of utility CSS classes for rapid development of modern interfaces. It's based on design system tokens.
 
 :::note[Important]
@@ -30,7 +28,7 @@ Typical utility frameworks (Tailwind, UnoCSS) create challenges in microfrontend
 
 - 🎨 **350+ utility classes** for typography, spacing, positioning, colors
 - 🧩 **`useCssProperties` and `useTokens` hooks** for managing styles in JavaScript
-- 🌐 **Responsive design** with breakpoints `xs`, `md`, `def`, `lg`
+- 🌐 **Breakpoint hiding** — `hidden-md`, `hidden-lg` (not Tailwind-style responsive prefixes)
 - 🔌 **ESM and CJS module exports**
 - ⚡ **SSR compatible** — safe operation on server and browser
 
@@ -88,12 +86,13 @@ This example demonstrates:
 | `filters`       | Filters: grayscale                      |
 | `outline`       | Outlines                                |
 | `scroll`        | Scrollbars                              |
-| `hide`          | Hide elements                           |
+| `hidden`          | Hide elements                           |
 | `align`         | Vertical alignment                      |
 | `interactivity` | Interactivity                           |
 | `base`          | Base styles                             |
 
 ## Next Steps
 
-- [Installation](/getting-started/installation) — how to install the package
-- [Quick Start](/getting-started/quick-start) — first usage example
+- [Installation](/en/getting-started/installation) — how to install the package
+- [Quick Start](/en/getting-started/quick-start) — first usage example
+- [Migrating from Tailwind](/en/guides/migration-from-tailwind) — if you're used to Tailwind CSS

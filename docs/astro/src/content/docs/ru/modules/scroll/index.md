@@ -62,8 +62,8 @@ description: Справочник по модулю scroll
 ### Модальное окно с прокруткой
 
 ```html
-<div class="fixed inset-0 z-i-modal bg-black bg-opacity-50 flex items-center justify-center">
-  <div class="bg-white rounded-lg max-w-lg mx-4 max-h-[80vh] z-scroll overflow-y-auto">
+<div class="fixed top-0 right-0 bottom-0 left-0 z-i-modal bg-black bg-opacity-50 flex items-center justify-center">
+  <div class="bg-white rounded-lg max-w-128 mx-4 max-h-80vh z-scroll overflow-y-auto">
     <div class="p-6">
       <h2 class="text-xl font-bold mb-4">Заголовок</h2>
       <p class="text-gray-600 mb-4">
@@ -87,7 +87,7 @@ description: Справочник по модулю scroll
 
 ```html
 <!-- Горизонтальный скролл -->
-<div class="z-scroll overflow-x-auto whitespace-nowrap pb-4">
+<div class="z-scroll overflow-x-auto nowrap pb-4">
   <div class="inline-block w-48 h-64 bg-primary-100 m-2 rounded-lg"></div>
   <div class="inline-block w-48 h-64 bg-primary-100 m-2 rounded-lg"></div>
   <div class="inline-block w-48 h-64 bg-primary-100 m-2 rounded-lg"></div>
@@ -130,7 +130,7 @@ console.log(result);
 ```html
 <div class="z-scroll overflow-auto max-h-96 border rounded-lg">
   <table class="w-full">
-    <thead class="bg-gray-50 sticky top-0">
+    <thead class="bg-gray-50 relative top-0">
       <tr>
         <th class="border-b p-2 text-left">Заголовок 1</th>
         <th class="border-b p-2 text-left">Заголовок 2</th>
@@ -152,21 +152,21 @@ console.log(result);
 ### Чат с прокруткой
 
 ```html
-<div class="flex flex-column h-96 border rounded-lg">
+<div class="flex flex-col h-96 border rounded-lg">
   <!-- Сообщения -->
-  <div class="flex-1 z-scroll overflow-y-auto p-4 space-y-4">
+  <div class="flex-1 z-scroll overflow-y-auto p-4 flex flex-col gap-4">
     <div class="flex">
-      <div class="bg-primary-100 rounded-lg p-3 max-w-xs">
+      <div class="bg-primary-100 rounded-lg p-3 max-w-80">
         <p class="text-sm">Привет! Как дела?</p>
       </div>
     </div>
     <div class="flex justify-end">
-      <div class="bg-gray-100 rounded-lg p-3 max-w-xs">
+      <div class="bg-gray-100 rounded-lg p-3 max-w-80">
         <p class="text-sm">Отлично! Спасибо</p>
       </div>
     </div>
     <div class="flex">
-      <div class="bg-primary-100 rounded-lg p-3 max-w-xs">
+      <div class="bg-primary-100 rounded-lg p-3 max-w-80">
         <p class="text-sm">Что делаешь?</p>
       </div>
     </div>

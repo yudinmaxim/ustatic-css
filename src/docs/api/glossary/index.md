@@ -92,7 +92,7 @@ CSS-анимации для создания эффектов движения �
 ### Font Weight (Толщина шрифта)
 Жирность шрифта от 100 до 900.
 
-**Классы:** `font-thin`, `font-light`, `font-regular`, `font-medium`, `font-bold`, `font-black`
+**Классы:** `font-thin`, `font-light`, `font-normal`, `font-medium`, `font-bold`, `font-black`
 
 ## G
 
@@ -111,7 +111,7 @@ CSS-анимации для создания эффектов движения �
 ### Hide (Скрытие)
 Модуль для скрытия элементов на разных брейкпоинтах.
 
-**Классы:** `.hide`, `.hide-md`, `.hide-lg`, `.hide-full`
+**Классы:** `.hidden`, `.hidden-md`, `.hidden-lg`, `.hidden-full`
 
 ### Hover (Наведение)
 Псевдокласс для стилей при наведении курсора.
@@ -123,7 +123,7 @@ CSS-анимации для создания эффектов движения �
 ### Interactivity (Интерактивность)
 Модуль для управления интерактивным поведением элементов.
 
-**Классы:** `pointer-events-*`, `user-select-*`
+**Классы:** `pointer-events-*`, `select-*`
 
 ### Outline (Контур)
 Модуль для управления внешней обводкой элементов.
@@ -220,7 +220,7 @@ CSS-анимации для создания эффектов движения �
 ### User Select (Выделение)
 Управление возможностью выделения текста.
 
-**Классы:** `user-select-none`, `user-select-auto`, `user-select-all`
+**Классы:** `select-none`, `select-auto`, `select-all`
 
 ## Z
 

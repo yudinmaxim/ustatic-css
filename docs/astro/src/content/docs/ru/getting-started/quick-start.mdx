@@ -5,18 +5,17 @@ description: Первый пример использования uStatic CSS
 
 import Demo from '../../../../components/Demo.astro'
 
-# Быстрый старт
-
 Подключите стили и используйте готовые CSS-классы в разметке:
 
 ```javascript
 import "ustatic-css";
+
 ```
 
 Вот как выглядит типичный элемент интерфейса, собранный из утилит:
 
 <Demo>
-  <div class="p-6 bg-white border border-gray-200 rounded max-w-sm">
+  <div class="p-6 bg-white border border-gray-200 rounded max-w-96">
     <h3 class="text-lg font-bold text-gray-800">Заголовок карточки</h3>
     <p class="text-gray-600 mt-2 mb-4">Описание карточки с примерами стилей.</p>
     <div class="flex items-center gap-2">
@@ -57,7 +56,7 @@ import "ustatic-css";
 |-----------|-----------------|
 | Типографика | `text-sm`, `text-lg`, `font-bold`, `font-medium` |
 | Отступы | `p-4`, `m-2`, `px-4`, `py-2`, `mt-2`, `gap-2` |
-| Flexbox | `flex`, `flex-column`, `justify-between`, `items-center` |
+| Flexbox | `flex`, `flex-col`, `justify-between`, `items-center` |
 | Позиционирование | `relative`, `absolute`, `top-0`, `right-0` |
 | Анимации | `blink`, `animation:spin-4`, `active:pulse`, `hover:lift` |
-| Размеры | `w-full`, `max-w-sm`, `h-32`, `size-fit` |
+| Размеры | `w-full`, `max-w-96`, `h-32`, `size-fit` |

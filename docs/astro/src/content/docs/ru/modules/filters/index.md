@@ -16,7 +16,7 @@ CSS классы для применения фильтров к изображ�
 <img class="grayscale" src="photo.jpg" alt="Ч/Б фото">
 
 <!-- Частичный эффект -->
-<img class="grayscale-50" src="photo.jpg" alt="50% ч/б">
+<img class="grayscale" src="photo.jpg" alt="50% ч/б">
 
 <!-- Цветной (сброс фильтра) -->
 <img class="grayscale-0" src="photo.jpg" alt="Цветное">
@@ -27,14 +27,14 @@ CSS классы для применения фильтров к изображ�
 ```html
 <!-- Ч/Б при наведении становится цветным -->
 <img 
-  class="grayscale hover:grayscale-0 transition-all duration-300 cursor-pointer" 
+  class="grayscale hover:grayscale-0 cursor-pointer" 
   src="photo.jpg" 
   alt="Наведи для цвета"
 >
 
 <!-- Цветной при наведении становится Ч/Б -->
 <img 
-  class="grayscale-0 hover:grayscale transition-all duration-300 cursor-pointer" 
+  class="grayscale-0 hover:grayscale cursor-pointer" 
   src="photo.jpg" 
   alt="Наведи для ч/б"
 >
@@ -47,7 +47,7 @@ CSS классы для применения фильтров к изображ�
 <div class="no-filter">Оригинальный вид</div>
 
 <!-- Сброс фильтра при наведении -->
-<div class="grayscale hover:no-filter transition-all">
+<div class="grayscale hover:no-filter">
   При наведении сбрасывается фильтр
 </div>
 ```
@@ -57,31 +57,31 @@ CSS классы для применения фильтров к изображ�
 ### Галерея с эффектом при наведении
 
 ```html
-<div class="grid grid-cols-4 gap-4">
+<div class="grid grid-columns--4-32 gap-4">
   <div class="overflow-hidden rounded-lg">
     <img 
-      class="grayscale hover:grayscale-0 transition-all duration-300 w-full h-48 object-cover" 
+      class="grayscale hover:grayscale-0 w-full h-48" 
       src="photo1.jpg" 
       alt="Фото 1"
     >
   </div>
   <div class="overflow-hidden rounded-lg">
     <img 
-      class="grayscale hover:grayscale-0 transition-all duration-300 w-full h-48 object-cover" 
+      class="grayscale hover:grayscale-0 w-full h-48" 
       src="photo2.jpg" 
       alt="Фото 2"
     >
   </div>
   <div class="overflow-hidden rounded-lg">
     <img 
-      class="grayscale hover:grayscale-0 transition-all duration-300 w-full h-48 object-cover" 
+      class="grayscale hover:grayscale-0 w-full h-48" 
       src="photo3.jpg" 
       alt="Фото 3"
     >
   </div>
   <div class="overflow-hidden rounded-lg">
     <img 
-      class="grayscale hover:grayscale-0 transition-all duration-300 w-full h-48 object-cover" 
+      class="grayscale hover:grayscale-0 w-full h-48" 
       src="photo4.jpg" 
       alt="Фото 4"
     >
@@ -95,7 +95,7 @@ CSS классы для применения фильтров к изображ�
 <div class="border rounded-lg overflow-hidden">
   <div class="relative">
     <img 
-      class="grayscale-0 hover:grayscale transition-all duration-300 w-full h-64 object-cover" 
+      class="grayscale-0 hover:grayscale w-full h-64" 
       src="product.jpg" 
       alt="Товар"
     >
@@ -119,44 +119,44 @@ CSS классы для применения фильтров к изображ�
 ### Портфолио с фильтрами
 
 ```html
-<div class="grid grid-cols-3 gap-6">
+<div class="grid grid-columns--3-32 gap-6">
   <!-- Проект 1 -->
-  <div class="group relative overflow-hidden rounded-lg cursor-pointer">
+  <div class="relative overflow-hidden rounded-lg cursor-pointer">
     <img 
-      class="grayscale group-hover:grayscale-0 transition-all duration-500 w-full h-64 object-cover" 
+      class="grayscale hover:grayscale-0 w-full h-64" 
       src="project1.jpg" 
       alt="Проект 1"
     >
-    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300 flex items-center justify-center">
-      <span class="text-white opacity-0 group-hover:opacity-100 font-bold">
+    <div class="absolute top-0 right-0 bottom-0 left-0 bg-black bg-opacity-0 hover:bg-opacity-50 flex items-center justify-center">
+      <span class="text-white opacity-0 hover:opacity-100 font-bold">
         Смотреть проект
       </span>
     </div>
   </div>
   
   <!-- Проект 2 -->
-  <div class="group relative overflow-hidden rounded-lg cursor-pointer">
+  <div class="relative overflow-hidden rounded-lg cursor-pointer">
     <img 
-      class="grayscale group-hover:grayscale-0 transition-all duration-500 w-full h-64 object-cover" 
+      class="grayscale hover:grayscale-0 w-full h-64" 
       src="project2.jpg" 
       alt="Проект 2"
     >
-    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300 flex items-center justify-center">
-      <span class="text-white opacity-0 group-hover:opacity-100 font-bold">
+    <div class="absolute top-0 right-0 bottom-0 left-0 bg-black bg-opacity-0 hover:bg-opacity-50 flex items-center justify-center">
+      <span class="text-white opacity-0 hover:opacity-100 font-bold">
         Смотреть проект
       </span>
     </div>
   </div>
   
   <!-- Проект 3 -->
-  <div class="group relative overflow-hidden rounded-lg cursor-pointer">
+  <div class="relative overflow-hidden rounded-lg cursor-pointer">
     <img 
-      class="grayscale group-hover:grayscale-0 transition-all duration-500 w-full h-64 object-cover" 
+      class="grayscale hover:grayscale-0 w-full h-64" 
       src="project3.jpg" 
       alt="Проект 3"
     >
-    <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-50 transition-all duration-300 flex items-center justify-center">
-      <span class="text-white opacity-0 group-hover:opacity-100 font-bold">
+    <div class="absolute top-0 right-0 bottom-0 left-0 bg-black bg-opacity-0 hover:bg-opacity-50 flex items-center justify-center">
+      <span class="text-white opacity-0 hover:opacity-100 font-bold">
         Смотреть проект
       </span>
     </div>
@@ -172,7 +172,7 @@ CSS классы для применения фильтров к изображ�
   <div>
     <p class="text-center mb-2 font-medium">До</p>
     <img 
-      class="grayscale border rounded-lg w-64 h-48 object-cover" 
+      class="grayscale border rounded-lg w-64 h-48" 
       src="before.jpg" 
       alt="До обработки"
     >
@@ -187,7 +187,7 @@ CSS классы для применения фильтров к изображ�
   <div>
     <p class="text-center mb-2 font-medium">После</p>
     <img 
-      class="grayscale-0 border rounded-lg w-64 h-48 object-cover" 
+      class="grayscale-0 border rounded-lg w-64 h-48" 
       src="after.jpg" 
       alt="После обработки"
     >
@@ -201,19 +201,19 @@ CSS классы для применения фильтров к изображ�
 <div class="flex gap-4">
   <!-- Активный пользователь -->
   <img 
-    class="grayscale-0 w-12 h-12 rounded-full object-cover border-2 border-success" 
+    class="grayscale-0 w-12 h-12 rounded-full border-2 border-success" 
     src="user1.jpg" 
     alt="Активный"
   >
   
   <!-- Неактивные пользователи -->
   <img 
-    class="grayscale w-12 h-12 rounded-full object-cover opacity-50" 
+    class="grayscale w-12 h-12 rounded-full opacity-50" 
     src="user2.jpg" 
     alt="Неактивный"
   >
   <img 
-    class="grayscale w-12 h-12 rounded-full object-cover opacity-50" 
+    class="grayscale w-12 h-12 rounded-full opacity-50" 
     src="user3.jpg" 
     alt="Неактивный"
   >
@@ -230,7 +230,7 @@ CSS классы для применения фильтров к изображ�
 }
 
 // Частичный фильтр
-.grayscale-50 {
+.grayscale {
   filter: grayscale(50%);
   -webkit-filter: grayscale(50%);
 }
@@ -242,7 +242,7 @@ CSS классы для применения фильтров к изображ�
 }
 
 // Плавный переход
-.transition-all {
+. {
   transition: all 0.3s ease;
 }
 ```
@@ -252,7 +252,7 @@ CSS классы для применения фильтров к изображ�
 | Класс | CSS свойство | Описание |
 |-------|--------------|----------|
 | `.grayscale` | `filter: grayscale(100%)` | Полное Ч/Б преобразование |
-| `.grayscale-50` | `filter: grayscale(50%)` | 50% Ч/Б преобразование |
+| `.grayscale` | `filter: grayscale(50%)` | 50% Ч/Б преобразование |
 | `.grayscale-0` | `filter: none` | Без фильтра |
 | `.no-filter` | `filter: none` | Сброс фильтров |
 | `.hover:grayscale` | При наведении | Ч/Б при наведении |

@@ -75,7 +75,7 @@ description: Справочник по модулю align
 
 ```html
 <div class="table w-full">
-  <div class="table-row">
+  <div class="flex w-full">
     <div class="table-cell align-middle w-1/3">
       Центрированная ячейка
     </div>

@@ -3,8 +3,6 @@ title: Grid
 description: Grid module reference
 ---
 
-# Grid
-
 Module for working with CSS Grid layout — a two-dimensional grid for complex layouts.
 
 ## Basic Classes
@@ -146,10 +144,10 @@ Module for working with CSS Grid layout — a two-dimensional grid for complex l
 
 ```html
 <div class="grid grid-columns--4-256 gap-4">
-  <img src="photo1.jpg" alt="Photo 1" class="w-full h-48 object-cover rounded-lg">
-  <img src="photo2.jpg" alt="Photo 2" class="w-full h-48 object-cover rounded-lg">
-  <img src="photo3.jpg" alt="Photo 3" class="w-full h-48 object-cover rounded-lg">
-  <img src="photo4.jpg" alt="Photo 4" class="w-full h-48 object-cover rounded-lg">
+  <img src="photo1.jpg" alt="Photo 1" class="w-full h-48 rounded-lg">
+  <img src="photo2.jpg" alt="Photo 2" class="w-full h-48 rounded-lg">
+  <img src="photo3.jpg" alt="Photo 3" class="w-full h-48 rounded-lg">
+  <img src="photo4.jpg" alt="Photo 4" class="w-full h-48 rounded-lg">
 </div>
 ```
 
@@ -158,21 +156,21 @@ Module for working with CSS Grid layout — a two-dimensional grid for complex l
 ```html
 <div class="grid grid-columns--3-256 gap-6 p-4">
   <div class="border rounded-lg overflow-hidden">
-    <img src="product1.jpg" class="w-full h-48 object-cover">
+    <img src="product1.jpg" class="w-full h-48">
     <div class="p-4">
       <h3 class="font-bold">Product 1</h3>
       <p style="color: var(--u-primary-500)">$99</p>
     </div>
   </div>
   <div class="border rounded-lg overflow-hidden">
-    <img src="product2.jpg" class="w-full h-48 object-cover">
+    <img src="product2.jpg" class="w-full h-48">
     <div class="p-4">
       <h3 class="font-bold">Product 2</h3>
       <p style="color: var(--u-primary-500)">$149</p>
     </div>
   </div>
   <div class="border rounded-lg overflow-hidden">
-    <img src="product3.jpg" class="w-full h-48 object-cover">
+    <img src="product3.jpg" class="w-full h-48">
     <div class="p-4">
       <h3 class="font-bold">Product 3</h3>
       <p style="color: var(--u-primary-500)">$199</p>
@@ -188,7 +186,7 @@ Module for working with CSS Grid layout — a two-dimensional grid for complex l
   <!-- Large card -->
   <div class="grid-col-span-2 bg-white border rounded-lg p-6">
     <h3 class="text-lg font-bold mb-4">Main Statistics</h3>
-    <div class="grid grid-cols-2 gap-4">
+    <div class="grid grid-columns--2-32 gap-4">
       <div style="background: var(--u-primary-50); padding: 1rem; border-radius: 0.5rem">
         <p style="color: var(--u-gray-600); font-size: 0.875rem">Visitors</p>
         <p class="text-2xl font-bold">1,234</p>
@@ -203,7 +201,7 @@ Module for working with CSS Grid layout — a two-dimensional grid for complex l
   <!-- Side panel -->
   <div class="bg-white border rounded-lg p-6">
     <h3 class="text-lg font-bold mb-4">Activity</h3>
-    <ul class="space-y-2">
+    <ul class="flex flex-col gap-2">
       <li style="font-size: 0.875rem">New order</li>
       <li style="font-size: 0.875rem">Payment received</li>
       <li style="font-size: 0.875rem">Product delivered</li>
@@ -229,7 +227,7 @@ Module for working with CSS Grid layout — a two-dimensional grid for complex l
     <input type="email" class="border rounded px-4 py-2 w-full">
   </div>
   <div class="grid-col-span-2">
-    <button type="submit" class="bg-primary-500 text-white px-4 py-2 rounded-base">
+    <button type="submit" class="bg-primary-500 text-white px-4 py-2 rounded">
       Submit
     </button>
   </div>
@@ -239,7 +237,7 @@ Module for working with CSS Grid layout — a two-dimensional grid for complex l
 ### Blog with Sidebar
 
 ```html
-<div class="grid grid-columns--1fr-auto gap-6 max-w-6xl mx-auto">
+<div class="grid grid-columns--1fr-auto gap-6 max-w-256 mx-auto">
   <!-- Main content -->
   <main class="grid grid-rows--auto-1fr gap-4">
     <article class="border rounded-lg p-6">
@@ -256,7 +254,7 @@ Module for working with CSS Grid layout — a two-dimensional grid for complex l
   <aside class="w-64">
     <div class="border rounded-lg p-4 mb-4">
       <h3 class="font-bold mb-2">Categories</h3>
-      <ul class="space-y-1">
+      <ul class="flex flex-col gap-1">
         <li><a href="#" style="color: var(--u-gray-600)">Technology</a></li>
         <li><a href="#" style="color: var(--u-gray-600)">Design</a></li>
         <li><a href="#" style="color: var(--u-gray-600)">Marketing</a></li>

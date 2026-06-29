@@ -3,8 +3,6 @@ title: useCssProperties
 description: Документация по хуку useCssProperties
 ---
 
-# useCssProperties
-
 `useCssProperties` — это хук для управления CSS-свойствами через классы. Позволяет устанавливать, получать и удалять CSS-свойства как для отдельных элементов, так и для CSS-классов.
 
 ## Основные функции

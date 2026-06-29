@@ -3,8 +3,6 @@ title: Sizing
 description: Sizing module reference
 ---
 
-# Sizing
-
 Classes for managing element width and height.
 
 ## Width
@@ -34,17 +32,17 @@ Classes for managing element width and height.
 |-------|-------|
 | `.w-1/4` | 25% |
 | `.w-1/3` | 33.333% |
-| `.w-1/2` | 50% |
+| `.w-full` | 50% |
 | `.w-2/3` | 66.666% |
-| `.w-3/4` | 75% |
-| `.w-4/5` | 80% |
+| `.w-full` | 75% |
+| `.w-full` | 80% |
 | `.w-full` | 100% |
 
 ```html
 <div class="border">
   <div class="w-1/4 p-2" style="background: var(--u-primary-100)">25%</div>
-  <div class="w-1/2 p-2" style="background: var(--u-primary-200)">50%</div>
-  <div class="w-3/4 p-2" style="background: var(--u-primary-300)">75%</div>
+  <div class="w-full p-2" style="background: var(--u-primary-200)">50%</div>
+  <div class="w-full p-2" style="background: var(--u-primary-300)">75%</div>
   <div class="w-full p-2" style="background: var(--u-primary-400)">100%</div>
 </div>
 ```
@@ -152,16 +150,16 @@ Classes for managing element width and height.
 | Class | Value |
 |-------|-------|
 | `.max-w-0` | 0 |
-| `.max-w-xs` | 320px |
-| `.max-w-sm` | 640px |
-| `.max-w-md` | 768px |
-| `.max-w-lg` | 1024px |
-| `.max-w-xl` | 1280px |
-| `.max-w-2xl` | 1536px |
+| `.max-w-80` | 320px |
+| `.max-w-96` | 640px |
+| `.max-w-96` | 768px |
+| `.max-w-128` | 1024px |
+| `.max-w-160` | 1280px |
+| `.max-w-192` | 1536px |
 | `.max-w-full` | 100% |
 
 ```html
-<div class="max-w-md mx-auto bg-white p-6">
+<div class="max-w-96 mx-auto bg-white p-6">
   <h2 class="text-xl font-bold">Limited width</h2>
   <p>Maximum width 768px</p>
 </div>
@@ -203,8 +201,8 @@ Setting equal width and height:
 ### Limited Width Container
 
 ```html
-<div class="max-w-4xl mx-auto px-4">
-  <h1 class="text-3xl font-bold mb-4">Title</h1>
+<div class="max-w-192 mx-auto px-4">
+  <h1 class="text-2xl font-bold mb-4">Title</h1>
   <p class="text-gray-600">
     Content with limited width for comfortable reading
   </p>
@@ -216,7 +214,7 @@ Setting equal width and height:
 ```html
 <section class="h-screen flex items-center justify-center" style="background: var(--u-primary-500)">
   <div class="text-center" style="color: #fff">
-    <h1 class="text-4xl font-bold mb-4">Welcome</h1>
+    <h1 class="text-2xl font-bold mb-4">Welcome</h1>
     <p>Fullscreen banner</p>
   </div>
 </section>
@@ -229,14 +227,14 @@ Setting equal width and height:
 <img
   src="avatar.jpg"
   alt="Avatar"
-  class="size-16 rounded-full object-cover"
+  class="size-16 rounded-full"
 >
 
 <!-- Large avatar -->
 <img
   src="avatar.jpg"
   alt="Avatar"
-  class="size-32 rounded-full object-cover"
+  class="size-32 rounded-full"
 >
 ```
 
@@ -246,7 +244,7 @@ Setting equal width and height:
 <img
   src="hero.jpg"
   alt="Hero"
-  class="w-full h-96 object-cover"
+  class="w-full h-96"
 >
 ```
 
@@ -254,7 +252,7 @@ Setting equal width and height:
 
 ```html
 <div class="w-64 h-96 border rounded-lg p-4">
-  <img src="product.jpg" class="w-full h-48 object-cover rounded mb-4">
+  <img src="product.jpg" class="w-full h-48 rounded mb-4">
   <h3 class="font-bold">Product</h3>
   <p style="color: var(--u-primary-500)">$99</p>
 </div>
@@ -264,7 +262,7 @@ Setting equal width and height:
 
 ```html
 <footer class="min-h-32" style="background: var(--u-gray-900); color: #fff; padding: 2rem">
-  <div class="max-w-4xl mx-auto">
+  <div class="max-w-192 mx-auto">
     <p>&copy; 2024 Company</p>
   </div>
 </footer>
@@ -273,18 +271,18 @@ Setting equal width and height:
 ### Gallery with Equal Sizes
 
 ```html
-<div class="grid grid-cols-3 gap-4">
-  <img src="photo1.jpg" class="w-full h-48 object-cover rounded-base">
-  <img src="photo2.jpg" class="w-full h-48 object-cover rounded-base">
-  <img src="photo3.jpg" class="w-full h-48 object-cover rounded-base">
+<div class="grid grid-columns--3-32 gap-4">
+  <img src="photo1.jpg" class="w-full h-48 rounded">
+  <img src="photo2.jpg" class="w-full h-48 rounded">
+  <img src="photo3.jpg" class="w-full h-48 rounded">
 </div>
 ```
 
 ### Progress Bar
 
 ```html
-<div class="w-full h-4" style="background: var(--u-gray-200); border-radius: 9999px; overflow: hidden">
-  <div class="h-full bg-primary-500 w-3/4"></div>
+<div class="w-full h-4" style="background: var(--u-gray-200); border-radius: 9999px; overflow: hide">
+  <div class="h-full bg-primary-500 w-full"></div>
 </div>
 ```
 
@@ -295,7 +293,7 @@ Setting equal width and height:
 | Category | Classes |
 |----------|---------|
 | **Fixed** | `w-1`, `w-2`, `w-4`, `w-8`, `w-16`, `w-24`, `w-32`, `w-40`, `w-48`, `w-56`, `w-64` ... `w-256` |
-| **Percentages** | `w-1/4`, `w-1/3`, `w-1/2`, `w-2/3`, `w-3/4`, `w-4/5`, `w-full` |
+| **Percentages** | `w-1/4`, `w-1/3`, `w-full`, `w-2/3`, `w-full`, `w-full`, `w-full` |
 | **Special** | `w-auto`, `w-px`, `w-0d5`, `w-none`, `w-fit`, `w-screen` |
 
 ### Height
@@ -312,7 +310,7 @@ Setting equal width and height:
 |----------|---------|
 | **Min-width** | `min-w-0`, `min-w-1` ... `min-w-256`, `min-w-screen` |
 | **Min-height** | `min-h-0`, `min-h-1` ... `min-h-256`, `min-h-screen` |
-| **Max-width** | `max-w-0`, `max-w-xs`, `max-w-sm`, `max-w-md`, `max-w-lg`, `max-w-xl`, `max-w-2xl`, `max-w-full` |
+| **Max-width** | `max-w-0`, `max-w-80`, `max-w-96`, `max-w-96`, `max-w-128`, `max-w-160`, `max-w-192`, `max-w-full` |
 | **Max-height** | `max-h-0`, `max-h-1` ... `max-h-256`, `max-h-screen` |
 
 ### Square

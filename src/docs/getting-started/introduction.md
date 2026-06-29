@@ -31,11 +31,11 @@ token("base.size.4") → var(--u-base-size-4)
 | `sizing` | Размеры (width/height) |
 | `effects` | Эффекты (opacity, transform) |
 | `animations` | Анимации и переходы |
-| `interactivity` | Интерактивность (pointer-events, user-select) |
+| `interactivity` | Интерактивность (pointer-events, select) |
 | `scroll` | Стилизованный скроллбар |
 | `cursor` | Виды курсора |
 | `outline` | Обводка элементов |
-| `hide` | Скрытие на брейкпоинтах |
+| `hidden` | Скрытие на брейкпоинтах |
 | `display` | Display и overflow |
 | `align` | Вертикальное выравнивание |
 | `filters` | CSS фильтры |
@@ -97,10 +97,10 @@ await loadStyles({
 
 ```html
 <!-- Скрыто на экранах >= 768px -->
-<div class="hide-md">Только мобильные</div>
+<div class="hidden-md">Только мобильные</div>
 
 <!-- Скрыто на экранах >= 1280px -->
-<div class="hide-lg">Только десктоп</div>
+<div class="hidden-lg">Только десктоп</div>
 ```
 
 ### ⚡ CSS переменные

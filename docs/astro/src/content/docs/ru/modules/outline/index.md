@@ -28,11 +28,11 @@ description: Справочник по модулю outline
 
 ```html
 <div class="flex gap-4 items-end">
-  <div class="outline outline-0d5 p-4">outline-0d5 (2px)</div>
-  <div class="outline outline-1 p-4">outline-1 (4px)</div>
-  <div class="outline outline-2 p-4">outline-2 (8px)</div>
-  <div class="outline outline-3 p-4">outline-3 (12px)</div>
-  <div class="outline outline-4 p-4">outline-4 (16px)</div>
+  <div class="outline-1 outline-0d5 p-4">outline-0d5 (2px)</div>
+  <div class="outline-1 outline-1 p-4">outline-1 (4px)</div>
+  <div class="outline-1 outline-2 p-4">outline-2 (8px)</div>
+  <div class="outline-1 outline-3 p-4">outline-3 (12px)</div>
+  <div class="outline-1 outline-4 p-4">outline-4 (16px)</div>
 </div>
 ```
 
@@ -42,12 +42,12 @@ description: Справочник по модулю outline
 
 ```html
 <div class="flex gap-4 flex-wrap">
-  <div class="outline outline-2 outline-primary p-4">outline-primary</div>
-  <div class="outline outline-2 outline-secondary p-4">outline-secondary</div>
-  <div class="outline outline-2 outline-success p-4">outline-success</div>
-  <div class="outline outline-2 outline-danger p-4">outline-danger</div>
-  <div class="outline outline-2 outline-warning p-4">outline-warning</div>
-  <div class="outline outline-2 outline-info p-4">outline-info</div>
+  <div class="outline-1 outline-2 outline-primary p-4">outline-primary</div>
+  <div class="outline-1 outline-2 outline-secondary p-4">outline-secondary</div>
+  <div class="outline-1 outline-2 outline-success p-4">outline-success</div>
+  <div class="outline-1 outline-2 outline-danger p-4">outline-danger</div>
+  <div class="outline-1 outline-2 outline-warning p-4">outline-warning</div>
+  <div class="outline-1 outline-2 outline-info p-4">outline-info</div>
 </div>
 ```
 
@@ -55,10 +55,10 @@ description: Справочник по модулю outline
 
 ```html
 <div class="flex gap-4 flex-wrap">
-  <div class="outline outline-2 outline-gray-300 p-4">gray-300</div>
-  <div class="outline outline-2 outline-gray-400 p-4">gray-400</div>
-  <div class="outline outline-2 outline-gray-500 p-4">gray-500</div>
-  <div class="outline outline-2 outline-gray-600 p-4">gray-600</div>
+  <div class="outline-1 outline-2 outline-gray-300 p-4">gray-300</div>
+  <div class="outline-1 outline-2 outline-gray-400 p-4">gray-400</div>
+  <div class="outline-1 outline-2 outline-gray-500 p-4">gray-500</div>
+  <div class="outline-1 outline-2 outline-gray-600 p-4">gray-600</div>
 </div>
 ```
 
@@ -66,9 +66,9 @@ description: Справочник по модулю outline
 
 ```html
 <div class="flex gap-4 flex-wrap">
-  <div class="outline outline-2 outline-red-500 p-4">red-500</div>
-  <div class="outline outline-2 outline-blue-500 p-4">blue-500</div>
-  <div class="outline outline-2 outline-green-500 p-4">green-500</div>
+  <div class="outline-1 outline-2 outline-red-500 p-4">red-500</div>
+  <div class="outline-1 outline-2 outline-blue-500 p-4">blue-500</div>
+  <div class="outline-1 outline-2 outline-green-500 p-4">green-500</div>
 </div>
 ```
 
@@ -86,11 +86,11 @@ description: Справочник по модулю outline
 
 ```html
 <div class="flex gap-4 flex-wrap">
-  <div class="outline outline-2 outline-style--solid p-4">solid</div>
-  <div class="outline outline-2 outline-style--dotted p-4">dotted</div>
-  <div class="outline outline-2 outline-style--dashed p-4">dashed</div>
-  <div class="outline outline-2 outline-style--groove p-4">groove</div>
-  <div class="outline outline-2 outline-style--ridge p-4">ridge</div>
+  <div class="outline-1 outline-2 outline-style--solid p-4">solid</div>
+  <div class="outline-1 outline-2 outline-style--dotted p-4">dotted</div>
+  <div class="outline-1 outline-2 outline-style--dashed p-4">dashed</div>
+  <div class="outline-1 outline-2 outline-style--groove p-4">groove</div>
+  <div class="outline-1 outline-2 outline-style--ridge p-4">ridge</div>
 </div>
 ```
 
@@ -114,13 +114,13 @@ description: Справочник по модулю outline
 
 ```html
 <div class="flex gap-4 items-end">
-  <div class="outline outline-2 outline-primary outline-offset-1 p-4">
+  <div class="outline-1 outline-2 outline-primary outline-offset-1 p-4">
     offset-1
   </div>
-  <div class="outline outline-2 outline-primary outline-offset-2 p-4">
+  <div class="outline-1 outline-2 outline-primary outline-offset-2 p-4">
     offset-2
   </div>
-  <div class="outline outline-2 outline-primary outline-offset-5 p-4">
+  <div class="outline-1 outline-2 outline-primary outline-offset-5 p-4">
     offset-5
   </div>
 </div>
@@ -132,15 +132,12 @@ description: Справочник по модулю outline
 
 ```html
 <!-- Кнопка без обводки, с кастомным фокусом -->
-<button class="outline-none focus:outline-2 focus:outline-primary 
-               focus:outline-offset-2 bg-primary-500 text-white px-4 py-2 rounded">
+<button class="outline-none focus:outline-2 focus:outline-primary focus:outline-offset-2 bg-primary-500 text-white px-4 py-2 rounded">
   Кнопка
 </button>
 
 <!-- Кнопка с обводкой при фокусе -->
-<button class="outline-none focus:outline-2 focus:outline-primary 
-               focus:outline-offset-2 border border-primary-500 
-               text-primary-500 bg-white px-4 py-2 rounded">
+<button class="outline-none focus:outline-2 focus:outline-primary focus:outline-offset-2 border border-primary-500 text-primary-500 bg-white px-4 py-2 rounded">
   Контурная кнопка
 </button>
 ```
@@ -150,9 +147,7 @@ description: Справочник по модулю outline
 ```html
 <input 
   type="text" 
-  class="outline-none border border-gray-300 rounded px-4 py-2 w-full
-         focus:outline-2 focus:outline-primary focus:outline-offset-2 
-         focus:border-primary-500"
+  class="outline-none border border-gray-300 rounded px-4 py-2 w-full focus:outline-2 focus:outline-primary focus:outline-offset-2 focus:border-primary-500"
   placeholder="Введите текст"
 >
 ```
@@ -160,7 +155,7 @@ description: Справочник по модулю outline
 ### Карточка с обводкой
 
 ```html
-<div class="outline outline-1 outline-gray-300 rounded-lg p-6 bg-white">
+<div class="outline-1 outline-1 outline-gray-300 rounded-lg p-6 bg-white">
   <h3 class="font-bold text-lg mb-2">Заголовок</h3>
   <p class="text-gray-600">Карточка с внешней обводкой</p>
 </div>
@@ -170,10 +165,10 @@ description: Справочник по модулю outline
 
 ```html
 <div class="flex gap-4">
-  <div class="outline outline-2 outline-primary outline-offset-2 p-4 bg-white">
+  <div class="outline-1 outline-2 outline-primary outline-offset-2 p-4 bg-white">
     Активный элемент
   </div>
-  <div class="outline outline-2 outline-gray-300 p-4 bg-white">
+  <div class="outline-1 outline-2 outline-gray-300 p-4 bg-white">
     Обычный элемент
   </div>
 </div>
@@ -182,16 +177,14 @@ description: Справочник по модулю outline
 ### Доступная форма
 
 ```html
-<form class="space-y-4">
+<form class="flex flex-col gap-4">
   <div>
     <label class="block text-sm font-medium text-gray-700 mb-1">
       Email
     </label>
     <input 
       type="email" 
-      class="outline-none border border-gray-300 rounded px-4 py-2 w-full
-             focus:outline-2 focus:outline-primary focus:outline-offset-2 
-             focus:border-primary-500"
+      class="outline-none border border-gray-300 rounded px-4 py-2 w-full focus:outline-2 focus:outline-primary focus:outline-offset-2 focus:border-primary-500"
       placeholder="you@example.com"
     >
   </div>
@@ -202,18 +195,14 @@ description: Справочник по модулю outline
     </label>
     <input 
       type="password" 
-      class="outline-none border border-gray-300 rounded px-4 py-2 w-full
-             focus:outline-2 focus:outline-primary focus:outline-offset-2 
-             focus:border-primary-500"
+      class="outline-none border border-gray-300 rounded px-4 py-2 w-full focus:outline-2 focus:outline-primary focus:outline-offset-2 focus:border-primary-500"
       placeholder="••••••••"
     >
   </div>
   
   <button 
     type="submit" 
-    class="outline-none bg-primary-500 text-white px-4 py-2 rounded
-           focus:outline-2 focus:outline-primary focus:outline-offset-2 
-           hover:bg-primary-600"
+    class="outline-none bg-primary-500 text-white px-4 py-2 rounded focus:outline-2 focus:outline-primary focus:outline-offset-2 hover:bg-primary-600"
   >
     Войти
   </button>
@@ -224,8 +213,7 @@ description: Справочник по модулю outline
 
 ```html
 <!-- Элемент с декоративной обводкой -->
-<div class="outline outline-2 outline-dashed outline-primary-300 outline-offset-4 
-            p-6 rounded-lg bg-white">
+<div class="outline-1 outline-2 outline-style--dashed outline-primary-300 outline-offset-4 p-6 rounded-lg bg-white">
   <h3 class="font-bold text-lg mb-2">Декоративная рамка</h3>
   <p class="text-gray-600">Элемент с пунктирной обводкой</p>
 </div>

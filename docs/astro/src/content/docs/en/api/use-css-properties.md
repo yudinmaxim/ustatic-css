@@ -3,8 +3,6 @@ title: useCssProperties
 description: Documentation for useCssProperties hook
 ---
 
-# useCssProperties
-
 `useCssProperties` is a hook for managing CSS properties via classes. It allows you to set, get, and remove CSS properties for both individual elements and CSS classes.
 
 ## Main Functions

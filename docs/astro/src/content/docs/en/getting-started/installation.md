@@ -3,8 +3,6 @@ title: Installation
 description: How to install and configure uStatic CSS
 ---
 
-# Installation
-
 ## Requirements
 
 - Node.js 18+

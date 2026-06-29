@@ -3,8 +3,6 @@ title: Grid
 description: Справочник по модулю grid
 ---
 
-# Grid
-
 Модуль для работы с CSS Grid раскладкой — двумерная сетка для сложных макетов.
 
 ## Основные классы
@@ -146,10 +144,10 @@ description: Справочник по модулю grid
 
 ```html
 <div class="grid grid-columns--4-256 gap-4">
-  <img src="photo1.jpg" alt="Фото 1" class="w-full h-48 object-cover rounded-lg">
-  <img src="photo2.jpg" alt="Фото 2" class="w-full h-48 object-cover rounded-lg">
-  <img src="photo3.jpg" alt="Фото 3" class="w-full h-48 object-cover rounded-lg">
-  <img src="photo4.jpg" alt="Фото 4" class="w-full h-48 object-cover rounded-lg">
+  <img src="photo1.jpg" alt="Фото 1" class="w-full h-48 rounded-lg">
+  <img src="photo2.jpg" alt="Фото 2" class="w-full h-48 rounded-lg">
+  <img src="photo3.jpg" alt="Фото 3" class="w-full h-48 rounded-lg">
+  <img src="photo4.jpg" alt="Фото 4" class="w-full h-48 rounded-lg">
 </div>
 ```
 
@@ -158,21 +156,21 @@ description: Справочник по модулю grid
 ```html
 <div class="grid grid-columns--3-256 gap-6 p-4">
   <div class="border rounded-lg overflow-hidden">
-    <img src="product1.jpg" class="w-full h-48 object-cover">
+    <img src="product1.jpg" class="w-full h-48">
     <div class="p-4">
       <h3 class="font-bold">Товар 1</h3>
       <p class="text-primary-500">$99</p>
     </div>
   </div>
   <div class="border rounded-lg overflow-hidden">
-    <img src="product2.jpg" class="w-full h-48 object-cover">
+    <img src="product2.jpg" class="w-full h-48">
     <div class="p-4">
       <h3 class="font-bold">Товар 2</h3>
       <p class="text-primary-500">$149</p>
     </div>
   </div>
   <div class="border rounded-lg overflow-hidden">
-    <img src="product3.jpg" class="w-full h-48 object-cover">
+    <img src="product3.jpg" class="w-full h-48">
     <div class="p-4">
       <h3 class="font-bold">Товар 3</h3>
       <p class="text-primary-500">$199</p>
@@ -188,7 +186,7 @@ description: Справочник по модулю grid
   <!-- Большая карточка -->
   <div class="grid-col-span-2 bg-white border rounded-lg p-6">
     <h3 class="text-lg font-bold mb-4">Основная статистика</h3>
-    <div class="grid grid-cols-2 gap-4">
+    <div class="grid grid-columns--2-32 gap-4">
       <div class="bg-primary-50 p-4 rounded">
         <p class="text-sm text-gray-600">Посетители</p>
         <p class="text-2xl font-bold">1,234</p>
@@ -203,7 +201,7 @@ description: Справочник по модулю grid
   <!-- Боковая панель -->
   <div class="bg-white border rounded-lg p-6">
     <h3 class="text-lg font-bold mb-4">Активность</h3>
-    <ul class="space-y-2">
+    <ul class="flex flex-col gap-2">
       <li class="text-sm">Новый заказ</li>
       <li class="text-sm">Оплата получена</li>
       <li class="text-sm">Доставлен товар</li>
@@ -239,7 +237,7 @@ description: Справочник по модулю grid
 ### Блог с сайдбаром
 
 ```html
-<div class="grid grid-columns--1fr-auto gap-6 max-w-6xl mx-auto">
+<div class="grid grid-columns--1fr-auto gap-6 max-w-256 mx-auto">
   <!-- Основной контент -->
   <main class="grid grid-rows--auto-1fr gap-4">
     <article class="border rounded-lg p-6">
@@ -256,7 +254,7 @@ description: Справочник по модулю grid
   <aside class="w-64">
     <div class="border rounded-lg p-4 mb-4">
       <h3 class="font-bold mb-2">Категории</h3>
-      <ul class="space-y-1">
+      <ul class="flex flex-col gap-1">
         <li><a href="#" class="hover:text-primary-500">Технологии</a></li>
         <li><a href="#" class="hover:text-primary-500">Дизайн</a></li>
         <li><a href="#" class="hover:text-primary-500">Маркетинг</a></li>

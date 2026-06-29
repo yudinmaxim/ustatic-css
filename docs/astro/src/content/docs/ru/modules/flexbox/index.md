@@ -3,8 +3,6 @@ title: Flexbox
 description: Справочник по модулю flexbox
 ---
 
-# Flexbox
-
 Модуль для работы с flexbox раскладкой — гибкое выравнивание и распределение элементов.
 
 ## Основные классы
@@ -20,7 +18,7 @@ description: Справочник по модулю flexbox
 </div>
 
 <!-- Вертикальная колонка -->
-<div class="flex-column">
+<div class="flex-col">
   <div>Элемент 1</div>
   <div>Элемент 2</div>
   <div>Элемент 3</div>
@@ -46,8 +44,8 @@ description: Справочник по модулю flexbox
 | -------------------------------------------- | -------------------------------- |
 | `.flex-row`                                  | `flex-direction: row`            |
 | `.flex-row-reverse`                          | `flex-direction: row-reverse`    |
-| `.flex-column` (`.flex-col`)                 | `flex-direction: column`         |
-| `.flex-column-reverse` (`.flex-col-reverse`) | `flex-direction: column-reverse` |
+| `.flex-col` (`.flex-col`)                 | `flex-direction: column`         |
+| `.flex-col-reverse` (`.flex-col-reverse`) | `flex-direction: column-reverse` |
 
 ```html
 <!-- Ряд (по умолчанию) -->
@@ -58,7 +56,7 @@ description: Справочник по модулю flexbox
 </div>
 
 <!-- Колонка -->
-<div class="flex flex-column gap-2">
+<div class="flex flex-col gap-2">
   <div class="bg-primary-100 p-4">1</div>
   <div class="bg-primary-100 p-4">2</div>
   <div class="bg-primary-100 p-4">3</div>
@@ -261,7 +259,7 @@ description: Справочник по модулю flexbox
 
 ```html
 <div class="border rounded-lg overflow-hidden">
-  <img src="image.jpg" alt="Изображение" class="w-full h-48 object-cover" />
+  <img src="image.jpg" alt="Изображение" class="w-full h-48" />
   <div class="p-4">
     <h3 class="text-lg font-bold mb-2">Заголовок</h3>
     <p class="text-gray-600">Описание</p>
@@ -280,12 +278,12 @@ description: Справочник по модулю flexbox
 ### Форма с лейблами
 
 ```html
-<form class="flex flex-column gap-4">
-  <div class="flex flex-column gap-1">
+<form class="flex flex-col gap-4">
+  <div class="flex flex-col gap-1">
     <label class="text-sm font-medium">Email</label>
     <input type="email" class="border rounded px-4 py-2" />
   </div>
-  <div class="flex flex-column gap-1">
+  <div class="flex flex-col gap-1">
     <label class="text-sm font-medium">Пароль</label>
     <input type="password" class="border rounded px-4 py-2" />
   </div>
@@ -300,15 +298,15 @@ description: Справочник по модулю flexbox
 ```html
 <div class="flex flex-wrap gap-4">
   <div class="w-48">
-    <img src="photo1.jpg" class="w-full h-32 object-cover rounded" />
+    <img src="photo1.jpg" class="w-full h-32 rounded" />
     <p class="text-center mt-2 text-sm">Подпись 1</p>
   </div>
   <div class="w-48">
-    <img src="photo2.jpg" class="w-full h-32 object-cover rounded" />
+    <img src="photo2.jpg" class="w-full h-32 rounded" />
     <p class="text-center mt-2 text-sm">Подпись 2</p>
   </div>
   <div class="w-48">
-    <img src="photo3.jpg" class="w-full h-32 object-cover rounded" />
+    <img src="photo3.jpg" class="w-full h-32 rounded" />
     <p class="text-center mt-2 text-sm">Подпись 3</p>
   </div>
 </div>
@@ -318,8 +316,8 @@ description: Справочник по модулю flexbox
 
 | Категория         | Классы                                                                                                   |
 | ----------------- | -------------------------------------------------------------------------------------------------------- |
-| **Display**       | `flex`, `flex-column`, `flex-row`, `flex-wrap`, `flex-nowrap`                                            |
-| **Direction**     | `flex-row`, `flex-row-reverse`, `flex-column`, `flex-column-reverse`                                     |
+| **Display**       | `flex`, `flex-col`, `flex-row`, `flex-wrap`, `flex-nowrap`                                            |
+| **Direction**     | `flex-row`, `flex-row-reverse`, `flex-col`, `flex-col-reverse`                                     |
 | **Align Items**   | `items-start`, `items-end`, `items-center`, `items-baseline`, `items-stretch`                            |
 | **Justify**       | `justify-start`, `justify-end`, `justify-center`, `justify-between`, `justify-around`, `justify-evenly`  |
 | **Align Content** | `content-start`, `content-end`, `content-center`, `content-between`, `content-around`, `content-stretch` |

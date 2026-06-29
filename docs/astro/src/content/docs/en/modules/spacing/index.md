@@ -3,8 +3,6 @@ title: Spacing
 description: Spacing module reference
 ---
 
-# Spacing
-
 Classes for managing external (margin) and internal (padding) spacing.
 
 ## Margin
@@ -150,7 +148,7 @@ Classes for managing external (margin) and internal (padding) spacing.
 ### Button
 
 ```html
-<button class="bg-primary-500 text-white px-6 py-3 rounded-base">
+<button class="bg-primary-500 text-white px-6 py-3 rounded">
   Button with spacing
 </button>
 ```
@@ -158,7 +156,7 @@ Classes for managing external (margin) and internal (padding) spacing.
 ### Centering Container
 
 ```html
-<div class="max-w-4xl mx-auto px-4">
+<div class="max-w-192 mx-auto px-4">
   <h1>Centered content</h1>
 </div>
 ```
@@ -191,7 +189,7 @@ Classes for managing external (margin) and internal (padding) spacing.
 ### Form
 
 ```html
-<form class="space-y-4">
+<form class="flex flex-col gap-4">
   <div>
     <label class="block text-sm font-medium mb-1">Email</label>
     <input
@@ -233,7 +231,7 @@ Classes for managing external (margin) and internal (padding) spacing.
 ### Grid with Spacing
 
 ```html
-<div class="grid grid-cols-3 gap-4 p-4">
+<div class="grid grid-columns--3-32 gap-4 p-4">
   <div style="background: var(--u-primary-100); padding: 1rem">1</div>
   <div style="background: var(--u-primary-100); padding: 1rem">2</div>
   <div style="background: var(--u-primary-100); padding: 1rem">3</div>
@@ -244,7 +242,7 @@ Classes for managing external (margin) and internal (padding) spacing.
 
 ```html
 <header class="py-4 px-6 border-b">
-  <div class="max-w-7xl mx-auto flex items-center justify-between">
+  <div class="max-w-256 mx-auto flex items-center justify-between">
     <a href="/" class="text-xl font-bold">Logo</a>
     <nav class="flex gap-4">
       <a href="#" style="color: var(--u-gray-600)">Menu</a>
@@ -257,11 +255,11 @@ Classes for managing external (margin) and internal (padding) spacing.
 
 ```html
 <footer style="background: var(--u-gray-900); color: #fff; padding: 3rem 1rem">
-  <div class="max-w-4xl mx-auto">
-    <div class="grid grid-cols-3 gap-8 mb-8">
+  <div class="max-w-192 mx-auto">
+    <div class="grid grid-columns--3-32 gap-8 mb-8">
       <div>
         <h3 class="font-bold mb-4">Section 1</h3>
-        <ul class="space-y-2">
+        <ul class="flex flex-col gap-2">
           <li><a href="#" style="color: #fff">Link 1</a></li>
           <li><a href="#" style="color: #fff">Link 2</a></li>
         </ul>

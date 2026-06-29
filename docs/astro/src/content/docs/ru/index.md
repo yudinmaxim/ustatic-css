@@ -43,11 +43,11 @@ import { Card, CardGrid } from '@astrojs/starlight/components';
 ```html
 <!-- Карточка с flexbox -->
 <div
-  class="flex justify-between items-center p-4 bg-white border border-gray-200 rounded-base"
+  class="flex justify-between items-center p-4 bg-white border border-gray-200 rounded"
 >
   <span class="text-lg font-semibold text-gray-800">Заголовок</span>
   <button
-    class="px-4 py-2 bg-blue-500 text-white rounded-base hover:bg-blue-600 cursor-pointer"
+    class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 cursor-pointer"
   >
     Кнопка
   </button>

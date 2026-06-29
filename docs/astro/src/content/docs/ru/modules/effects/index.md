@@ -38,12 +38,12 @@ description: Справочник по модулю effects
 
 ```html
 <!-- Исчезновение при наведении -->
-<div class="opacity-100 hover:opacity-0 transition-opacity cursor-pointer">
+<div class="opacity-100 hover:opacity-0 cursor-pointer">
   Наведи — я исчезну
 </div>
 
 <!-- Появление при наведении -->
-<div class="opacity-50 hover:opacity-100 transition-opacity cursor-pointer">
+<div class="opacity-50 hover:opacity-100 cursor-pointer">
   Наведи — я появлюсь
 </div>
 
@@ -134,7 +134,7 @@ description: Справочник по модулю effects
 ### Полупрозрачная кнопка (отключённая)
 
 ```html
-<button disabled class="opacity-50 cursor-not-allowed bg-gray-300 text-gray-500 px-4 py-2 rounded">
+<button disabled class="opacity-50 cursor-disabled bg-gray-300 text-gray-500 px-4 py-2 rounded">
   Недоступно
 </button>
 ```
@@ -142,7 +142,7 @@ description: Справочник по модулю effects
 ### Эффект наведения на карточку
 
 ```html
-<div class="border rounded-lg p-4 transition-opacity hover:opacity-80 cursor-pointer">
+<div class="border rounded-lg p-4 hover:opacity-80 cursor-pointer">
   <h3 class="font-bold">Карточка</h3>
   <p class="text-gray-600">Наведи на меня</p>
 </div>
@@ -151,15 +151,17 @@ description: Справочник по модулю effects
 ### Модальное окно с затемнением
 
 ```html
-<div class="fixed inset-0 z-i-modal bg-black opacity-50"></div>
+<div class="fixed top-0 right-0 bottom-0 left-0 z-i-modal bg-black opacity-50"></div>
 ```
 
-### Плавное появление
+### Плавное появление (Vue Transition)
+
+Классы `fade-*` не входят в ustatic — их задают в CSS компонента Vue. См. [Анимации и переходы](/ru/reference/animations).
 
 ```html
-<div class="opacity-0 fade-enter-active">
-  Контент с плавным появлением
-</div>
+<transition name="fade">
+  <div v-if="visible" class="opacity-100">Контент с плавным появлением</div>
+</transition>
 ```
 
 ### Иконка со стрелкой (аккордеон)
@@ -167,7 +169,7 @@ description: Справочник по модулю effects
 ```html
 <button class="flex items-center justify-between w-full p-4 border rounded">
   <span>Заголовок аккордеона</span>
-  <svg class="w-5 h-5 transition-transform rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+  <svg class="w-5 h-5 rotate-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
   </svg>
 </button>
@@ -176,10 +178,10 @@ description: Справочник по модулю effects
 ### Галерея с эффектом
 
 ```html
-<div class="grid grid-cols-3 gap-4">
-  <div class="relative group overflow-hidden rounded-lg">
-    <img src="image1.jpg" alt="Фото" class="w-full h-48 object-cover transition-opacity group-hover:opacity-75">
-    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<div class="grid grid-columns--3-32 gap-4">
+  <div class="relative overflow-hidden rounded-lg">
+    <img src="image1.jpg" alt="Фото" class="w-full h-48 hover:opacity-75">
+    <div class="absolute top-0 right-0 bottom-0 left-0 flex items-center justify-center opacity-0 hover:opacity-100">
       <span class="text-white bg-black bg-opacity-50 px-4 py-2 rounded">Просмотр</span>
     </div>
   </div>
@@ -197,7 +199,7 @@ description: Справочник по модулю effects
 </div>
 
 <!-- Поворот при наведении -->
-<button class="hover:rotate-180 transition-transform">
+<button class="hover:rotate-180">
   <svg class="w-8 h-8">...</svg>
 </button>
 ```

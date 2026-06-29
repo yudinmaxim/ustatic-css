@@ -3,8 +3,6 @@ title: useTokens
 description: Documentation for useTokens hook
 ---
 
-# useTokens
-
 `useTokens` is a hook for working with CSS tokens in your application. It allows you to set, get, and remove CSS tokens both in the global scope and within CSS classes.
 
 ## Main Functions
