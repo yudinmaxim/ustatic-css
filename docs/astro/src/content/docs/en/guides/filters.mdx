@@ -1,0 +1,44 @@
+---
+title: Filters
+outline:
+  level: 2
+---
+
+import Demo from '../../../../components/Demo.astro'
+
+CSS filter utilities. This module is small: grayscale and filter reset.
+
+## Available classes
+
+| Class | Description |
+|-------|-------------|
+| `.grayscale` | Full grayscale (`filter: grayscale(100%)`) |
+| `.grayscale-0` | No grayscale (`filter: grayscale(0%)`) |
+| `.no-filter` | Reset all filters (`filter: none`) |
+
+## Examples
+
+<Demo>
+  <div class="flex gap-4 items-center">
+    <div class="w-20 h-20 rounded bg-blue-500 flex items-center justify-center text-xs text-white">
+      Normal
+    </div>
+    <div class="w-20 h-20 rounded bg-blue-500 grayscale flex items-center justify-center text-xs text-white">
+      grayscale
+    </div>
+    <div class="w-20 h-20 rounded bg-orange-500 grayscale no-filter flex items-center justify-center text-xs text-white">
+      no-filter
+    </div>
+  </div>
+</Demo>
+
+```html
+<div class="bg-blue-500">Color block</div>
+<div class="bg-blue-500 grayscale">Grayscale</div>
+<div class="grayscale no-filter">Filter reset</div>
+```
+
+## See also
+
+- [Filters module](/en/guides/filters/) — this page
+- [Background (bg)](/en/guides/bg) — `bg-filter-blur-*` for backdrop blur (separate module)

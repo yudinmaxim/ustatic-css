@@ -1,0 +1,168 @@
+---
+title: Фон (Background)
+outline:
+  level: 2
+---
+
+import Demo from '../../../../components/Demo.astro'
+
+Классы для управления фоном элементов.
+
+## Цвет фона
+
+### Основные цвета (Primary)
+
+Все цвета палитры доступны через класс `.bg-primary-{brightness}`:
+
+<Demo>
+  <div class="flex gap-1 flex-wrap">
+    <div class="bg-primary-50 px-3 py-4 text-xs text-center">50</div>
+    <div class="bg-primary-100 px-3 py-4 text-xs text-center">100</div>
+    <div class="bg-primary-200 px-3 py-4 text-xs text-center">200</div>
+    <div class="bg-primary-300 px-3 py-4 text-xs text-center">300</div>
+    <div class="bg-primary-400 px-3 py-4 text-xs text-center">400</div>
+    <div class="bg-primary-500 px-3 py-4 text-xs text-center text-white">500</div>
+    <div class="bg-primary-600 px-3 py-4 text-xs text-center text-white">600</div>
+    <div class="bg-primary-700 px-3 py-4 text-xs text-center text-white">700</div>
+    <div class="bg-primary-800 px-3 py-4 text-xs text-center text-white">800</div>
+    <div class="bg-primary-900 px-3 py-4 text-xs text-center text-white">900</div>
+  </div>
+</Demo>
+
+### Семантические цвета
+
+<Demo>
+  <div class="flex gap-4 flex-wrap">
+    <div class="bg-success text-white px-4 py-4 rounded">Успех</div>
+    <div class="bg-danger text-white px-4 py-4 rounded">Ошибка</div>
+    <div class="bg-warning text-white px-4 py-4 rounded">Внимание</div>
+    <div class="bg-info text-white px-4 py-4 rounded">Инфо</div>
+  </div>
+</Demo>
+
+### Нейтральные цвета (Gray)
+
+<Demo>
+  <div class="flex gap-1 flex-wrap">
+    <div class="bg-gray-50 px-3 py-4 text-xs text-center border">50</div>
+    <div class="bg-gray-100 px-3 py-4 text-xs text-center border">100</div>
+    <div class="bg-gray-200 px-3 py-4 text-xs text-center border">200</div>
+    <div class="bg-gray-300 px-3 py-4 text-xs text-center border">300</div>
+    <div class="bg-gray-400 px-3 py-4 text-xs text-center text-white border">400</div>
+    <div class="bg-gray-500 px-3 py-4 text-xs text-center text-white border">500</div>
+    <div class="bg-gray-600 px-3 py-4 text-xs text-center text-white border">600</div>
+    <div class="bg-gray-700 px-3 py-4 text-xs text-center text-white border">700</div>
+    <div class="bg-gray-800 px-3 py-4 text-xs text-center text-white border">800</div>
+    <div class="bg-gray-900 px-3 py-4 text-xs text-center text-white border">900</div>
+  </div>
+</Demo>
+
+### Дополнительные цвета
+
+<Demo>
+  <div class="flex gap-4 flex-wrap">
+    <div class="bg-red-500 text-white px-4 py-4 rounded">Red</div>
+    <div class="bg-orange-500 text-white px-4 py-4 rounded">Orange</div>
+    <div class="bg-yellow-500 px-4 py-4 rounded">Yellow</div>
+    <div class="bg-green-500 text-white px-4 py-4 rounded">Green</div>
+    <div class="bg-sky-500 text-white px-4 py-4 rounded">Sky</div>
+    <div class="bg-blue-500 text-white px-4 py-4 rounded">Blue</div>
+  </div>
+</Demo>
+
+### Специальные значения
+
+<Demo>
+  <div class="flex gap-4 flex-wrap">
+    <div class="bg-white px-4 py-4 rounded border">Белый</div>
+    <div class="bg-black text-white px-4 py-4 rounded">Чёрный</div>
+    <div class="bg-transparent px-4 py-4 rounded border">Прозрачный</div>
+    <div class="bg-none px-4 py-4 rounded border">Нет фона</div>
+  </div>
+</Demo>
+
+## Прозрачность фона
+
+Управление прозрачностью через `.bg-opacity-{0, 25, 50, 75, 100}`:
+
+<Demo>
+  <div class="flex gap-4 items-end flex-wrap">
+    <div class="bg-primary-500 bg-opacity-0 px-4 py-4 rounded border">0%</div>
+    <div class="bg-primary-500 bg-opacity-25 px-4 py-4 rounded text-white">25%</div>
+    <div class="bg-primary-500 bg-opacity-50 px-4 py-4 rounded text-white">50%</div>
+    <div class="bg-primary-500 bg-opacity-75 px-4 py-4 rounded text-white">75%</div>
+    <div class="bg-primary-500 bg-opacity-100 px-4 py-4 rounded text-white">100%</div>
+  </div>
+</Demo>
+
+## Размытие фона
+
+Эффект матового стекла (backdrop-filter):
+
+<Demo>
+  <div class="relative w-full h-48 rounded overflow-hidden" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%)">
+    <div class="absolute top-0 right-0 bottom-0 left-0 bg-filter-blur-5 bg-white bg-opacity-50 flex items-center justify-center m-4 rounded">
+      <span class="text-xl font-bold text-white" style="text-shadow: 0 1px 3px rgba(0,0,0,0.3)">Размытый слой</span>
+    </div>
+  </div>
+</Demo>
+
+Доступные уровни размытия:
+
+| Класс | Размытие |
+|-------|----------|
+| `.bg-filter-blur-1` | 1px |
+| `.bg-filter-blur-2` | 2px |
+| `.bg-filter-blur-5` | 5px |
+| `.bg-filter-blur-10` | 10px |
+
+## Интерактивные классы (hover)
+
+Смена фона при наведении:
+
+<Demo>
+  <div class="flex gap-4 flex-wrap">
+    <button class="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded cursor-pointer">Кнопка</button>
+    <div class="bg-gray-100 hover:bg-primary-500 hover:text-white p-4 rounded cursor-pointer">Наведи на меня</div>
+    <div class="bg-success hover:bg-success-600 text-white p-4 rounded cursor-pointer">Успех при наведении</div>
+  </div>
+</Demo>
+
+## Примеры использования
+
+### Карточка товара
+
+<Demo>
+  <div class="bg-white rounded border border-gray-200 p-6 max-w-full">
+    <h3 class="text-lg font-bold mb-2">Название товара</h3>
+    <p class="text-gray-600 mb-4">Описание товара с характеристиками и деталями.</p>
+    <div class="flex justify-between items-center">
+      <span class="text-2xl font-bold text-primary-500">$99.99</span>
+      <button class="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded cursor-pointer">Купить</button>
+    </div>
+  </div>
+</Demo>
+
+### Модальное окно с затемнением
+
+<Demo>
+  <div class="relative w-full h-56 rounded overflow-hidden" style="background: var(--u-gray-200)">
+    <div class="absolute top-0 right-0 bottom-0 left-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
+      <div class="bg-white rounded p-6 w-full">
+        <h2 class="text-lg font-bold mb-2">Заголовок</h2>
+        <p class="text-gray-600 text-sm mb-4">Содержимое модального окна.</p>
+        <button class="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded cursor-pointer w-full">Закрыть</button>
+      </div>
+    </div>
+  </div>
+</Demo>
+
+### Бейдж статуса
+
+<Demo>
+  <div class="flex gap-2 flex-wrap">
+    <span class="bg-success text-white px-2 py-1 rounded text-sm">Активен</span>
+    <span class="bg-warning text-white px-2 py-1 rounded text-sm">Ожидание</span>
+    <span class="bg-danger text-white px-2 py-1 rounded text-sm">Ошибка</span>
+  </div>
+</Demo>

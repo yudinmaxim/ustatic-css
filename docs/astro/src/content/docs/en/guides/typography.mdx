@@ -1,0 +1,58 @@
+---
+title: Typography
+outline:
+  level: 2
+---
+
+import Demo from '../../../../components/Demo.astro'
+
+Text utilities.
+
+## Sizes
+
+| Class | Description |
+|-------|-------------|
+| `.text-2xs` | 10px |
+| `.text-xs` | 12px |
+| `.text-sm` | 14px |
+| `.text-base` | 16px |
+| `.text-lg` | 18px |
+| `.text-xl` | 20px |
+| `.text-2xl` | 24px |
+
+## Weight
+
+| Class | Description |
+|-------|-------------|
+| `.font-thin` … `.font-black` | Weights 100–900 |
+| `.font-normal` | Regular (400) — **not** `font-normal` |
+
+## Text color
+
+`.text-{color}`, `.text-{color}-{brightness}` — e.g. `.text-gray-600`, `.text-blue-500`.
+
+## Examples
+
+<Demo>
+  <div class="flex flex-col gap-2">
+    <span class="text-gray-900 text-lg">text-gray-900</span>
+    <span class="text-gray-500 text-lg">text-gray-500</span>
+    <span class="text-blue-500 text-lg">text-blue-500</span>
+    <span class="text-red-500 text-lg">text-red-500</span>
+  </div>
+</Demo>
+
+<Demo>
+  <div class="flex flex-col gap-2">
+    <p class="text-2xs font-light">text-2xs font-light</p>
+    <p class="text-sm font-normal">text-sm font-normal</p>
+    <p class="text-base font-medium">text-base font-medium</p>
+    <p class="text-lg font-semibold">text-lg font-semibold</p>
+    <p class="text-xl font-bold">text-xl font-bold</p>
+  </div>
+</Demo>
+
+```html
+<p class="text-lg font-semibold text-gray-800">Heading</p>
+<p class="text-sm text-gray-500">Description</p>
+```

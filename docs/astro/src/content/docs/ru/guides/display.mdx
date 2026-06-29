@@ -1,0 +1,128 @@
+---
+title: Отображение (Display)
+outline:
+  level: 2
+---
+
+import Demo from '../../../../components/Demo.astro'
+
+Классы для управления типом отображения элементов и переполнением.
+
+## Display классы
+
+| Класс | CSS | Описание |
+|-------|-----|----------|
+| `.block` | `display: block` | Блочный элемент |
+| `.inline` | `display: inline` | Строчный элемент |
+| `.inline-block` | `display: inline-block` | Строчно-блочный элемент |
+| `.flex` | `display: flex` | Flexbox контейнер |
+| `.grid` | `display: grid` | Grid контейнер |
+| `.table` | `display: table` | Таблица |
+| `.table-cell` | `display: table-cell` | Ячейка таблицы |
+
+## Примеры
+
+<Demo>
+  <div class="flex flex-col gap-4">
+    <div>
+      <span class="block p-2 bg-blue-100 border border-blue-300">block (с новой строки)</span>
+      <span class="block p-2 bg-blue-100 border border-blue-300">block (ещё один)</span>
+    </div>
+    <div>
+      <span class="inline-block p-2 bg-green-100 border border-green-300">inline-block</span>
+      <span class="inline-block p-2 bg-green-100 border border-green-300">inline-block</span>
+    </div>
+    <div>
+      <span class="inline p-2 bg-yellow-100 border border-yellow-300">inline</span>
+      <span class="inline p-2 bg-yellow-100 border border-yellow-300">inline</span>
+    </div>
+  </div>
+</Demo>
+
+## Скрытие элементов
+
+Для скрытия элементов используйте класс `.hidden`:
+
+<Demo>
+  <div class="flex flex-col gap-4">
+    <div class="hidden p-3 bg-red-100 border border-red-300 rounded">
+      Этот элемент скрыт через .hidden
+    </div>
+    <div class="block p-3 bg-green-100 border border-green-300 rounded">
+      Этот элемент виден
+    </div>
+  </div>
+</Demo>
+
+## Overflow (Переполнение)
+
+| Класс | CSS | Описание |
+|-------|-----|----------|
+| `.overflow-hidden` | `overflow: hide` | Скрыть переполнение |
+| `.overflow-scroll` | `overflow: scroll` | Всегда показывать скролл |
+| `.overflow-auto` | `overflow: auto` | Автоскролл при необходимости |
+| `.overflow-x-hide` | `overflow-x: hide` | Скрыть горизонтальное |
+| `.overflow-y-hide` | `overflow-y: hide` | Скрыть вертикальное |
+| `.overflow-x-scroll` | `overflow-x: scroll` | Горизонтальный скролл |
+| `.overflow-y-scroll` | `overflow-y: scroll` | Вертикальный скролл |
+| `.overflow-x-auto` | `overflow-x: auto` | Авто горизонтальный |
+| `.overflow-y-auto` | `overflow-y: auto` | Авто вертикальный |
+
+## Примеры overflow
+
+### Скрытие переполнения
+
+Два примера — без многоточия и с многоточием:
+
+<Demo>
+  <div class="flex gap-4">
+    <div class="overflow-hidden nowrap w-40 border border-gray-300 rounded bg-gray-50 p-2">
+      <span class="text-sm text-gray-600">Очень длинный текст который обрезается без многоточия в конце</span>
+    </div>
+    <div class="truncate w-40 border border-gray-300 rounded bg-gray-50 p-2">
+      <span class="text-sm text-gray-600">Очень длинный текст который обрезается с многоточием в конце</span>
+    </div>
+  </div>
+</Demo>
+
+### Вертикальный скролл
+
+<Demo>
+  <div class="overflow-y-auto h-32 border border-gray-300 rounded bg-gray-50 p-2">
+    <div class="text-sm text-gray-600 mb-2">Прокрути меня вниз ↓</div>
+    <div class="text-sm text-gray-600">Первый параграф текста.</div>
+    <div class="text-sm text-gray-600">Второй параграф текста.</div>
+    <div class="text-sm text-gray-600">Третий параграф текста.</div>
+    <div class="text-sm text-gray-600">Четвёртый параграф текста.</div>
+    <div class="text-sm text-gray-600">Пятый параграф текста.</div>
+    <div class="text-sm text-gray-600">Шестой параграф текста.</div>
+    <div class="text-sm text-gray-600">Седьмой параграф текста.</div>
+    <div class="text-sm text-gray-600">Восьмой параграф текста.</div>
+    <div class="text-sm text-gray-600">Девятый параграф текста.</div>
+    <div class="text-sm text-gray-600">Десятый параграф текста.</div>
+  </div>
+</Demo>
+
+### Горизонтальный скролл
+
+<Demo>
+  <div class="overflow-x-auto border border-gray-300 rounded bg-gray-50 p-2">
+    <div class="flex gap-2" style="min-width: max-content">
+      <div class="p-3 rounded bg-sky-100 border border-sky-300">Элемент 1</div>
+      <div class="p-3 rounded bg-green-100 border border-green-300">Элемент 2</div>
+      <div class="p-3 rounded bg-yellow-100 border border-yellow-300">Элемент 3</div>
+      <div class="p-3 rounded bg-orange-100 border border-orange-300">Элемент 4</div>
+      <div class="p-3 rounded bg-red-100 border border-red-300">Элемент 5</div>
+      <div class="p-3 rounded bg-blue-100 border border-blue-300">Элемент 6</div>
+      <div class="p-3 rounded bg-gray-100 border border-gray-300">Элемент 7</div>
+      <div class="p-3 rounded bg-primary-100 border border-primary-300">Элемент 8</div>
+      <div class="p-3 rounded bg-secondary-100 border border-secondary-300">Элемент 9</div>
+    </div>
+  </div>
+</Demo>
+
+## См. также
+
+- [Скрытие](/ru/guides/hide/) — адаптивное скрытие элементов
+- [Прокрутка](/ru/guides/scroll/) — стилизация скроллбара
+- [Flexbox](/ru/guides/flexbox/) — flexbox раскладка

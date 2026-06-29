@@ -1,0 +1,62 @@
+---
+title: Базовые стили (Base)
+sidebar:
+  order: 1
+outline:
+  level: 2
+---
+
+import Demo from '../../../../components/Demo.astro'
+
+Базовые стили обеспечивают сброс и нормализацию отображения элементов во всех браузерах, а также предоставляют утилитарные классы для управления box-sizing.
+
+> **Важно:** Модуль `base` закомментирован в `ustatic-index.scss` по умолчанию.
+> Подключите его отдельно: `import 'ustatic-css/base'` или раскомментируйте импорт в своём SCSS.
+
+## Глобальный сброс (CSS Reset)
+
+Модуль `base` включает глобальный сброс стилей для:
+
+- `*`, `::before`, `::after` — `box-sizing: border-box`, сброс границ
+- `html` — базовая типографика: `line-height: 1.5`, системный шрифт
+- `body` — сброс `margin`, `overflow-y: hide`
+- `hr` — корректная высота и цвет
+- Заголовки, параграфы, списки — сброс `margin`
+- Кнопки — сброс фонов и границ, наследование шрифта
+- Поля ввода — единый стиль, сброс `appearance`
+- Ссылки — убрано подчёркивание, цвет через токен
+- Медиа — `display: block`, `max-width: 100%`
+- Таблицы — `border-collapse: collapse`
+- Скроллбар — кастомный тонкий скроллбар для WebKit
+
+## Утилитарные классы
+
+| Класс | CSS свойство | Описание |
+|-------|-------------|----------|
+| `.box-border` | `box-sizing: border-box` | Границы и padding входят в ширину |
+| `.box-content` | `box-sizing: content-box` | Ширина без учёта границ и padding |
+
+## Примеры
+
+<Demo>
+  <div class="flex gap-4 flex-wrap">
+    <div style="box-sizing: border-box; width: 128px" class="p-4 border-2 border-blue-500 bg-blue-50">
+      border-box<br /><span class="text-xs text-gray-600">128px всего</span>
+    </div>
+    <div style="box-sizing: content-box; width: 128px" class="p-4 border-2 border-green-500 bg-green-50">
+      content-box<br /><span class="text-xs text-gray-600">128px + padding + border</span>
+    </div>
+  </div>
+</Demo>
+
+## Подключение
+
+```bash
+npm install ustatic-css
+
+# Импорт в SCSS
+@import 'ustatic-css/src/css/modules/base/index.scss';
+
+# Или через CSS
+@import 'ustatic-css/base';
+```

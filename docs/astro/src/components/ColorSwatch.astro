@@ -1,0 +1,52 @@
+---
+interface Props {
+  backgroundClasses: string
+  textClasses: string
+  shade: string
+}
+
+const { backgroundClasses, textClasses, shade } = Astro.props
+---
+
+<div
+  class:list={[
+    'relative flex items-center justify-center w-24 h-24 cursor-pointer rounded-base hover:lift',
+    backgroundClasses,
+  ]}
+  data-copy={backgroundClasses}
+  data-swatch
+>
+  <span class:list={['text-xs font-semibold px-1 text-center', textClasses]} data-label>
+    {shade}
+  </span>
+</div>
+
+<script>
+  document.querySelectorAll('[data-swatch]').forEach((el) => {
+    if (el.dataset.bound) return
+    el.dataset.bound = '1'
+
+    const label = el.querySelector('[data-label]')
+    const original = label?.textContent ?? ''
+
+    el.addEventListener('click', () => {
+      const text = el.dataset.copy
+      if (!text || !label) return
+
+      navigator.clipboard.writeText(text).then(() => {
+        label.textContent = 'Скопировано'
+        setTimeout(() => {
+          label.textContent = original
+        }, 2000)
+      })
+    })
+
+    el.addEventListener('mouseenter', () => {
+      if (label && el.dataset.copy) label.textContent = el.dataset.copy
+    })
+
+    el.addEventListener('mouseleave', () => {
+      if (label) label.textContent = original
+    })
+  })
+</script>

@@ -1,0 +1,53 @@
+---
+title: Курсор (Cursor)
+outline:
+  level: 2
+---
+
+import Demo from '../../../../components/Demo.astro'
+
+Классы для управления видом курсора.
+
+## Доступные классы
+
+| Класс | Описание |
+|-------|----------|
+| `.cursor-pointer` | Курсор-указатель (рука) |
+| `.cursor-move` | Курсор перемещения |
+| `.cursor-default` | Курсор по умолчанию |
+| `.cursor-disabled` | Запрещающий курсор |
+| `.cursor-resize-x` | Курсор изменения размера по горизонтали |
+| `.cursor-resize-y` | Курсор изменения размера по вертикали |
+| `.cursor-wait` | Курсор ожидания |
+| `.cursor-help` | Курсор помощи |
+
+## Примеры
+
+<Demo>
+  <div class="flex gap-4 flex-wrap">
+    <div class="px-4 py-2 bg-blue-500 text-white rounded cursor-default">
+      default
+    </div>
+    <div class="px-4 py-2 bg-blue-500 text-white rounded cursor-pointer">
+      pointer
+    </div>
+    <div class="px-4 py-2 bg-blue-500 text-white rounded cursor-disabled">
+      disabled
+    </div>
+    <div class="px-4 py-2 bg-blue-500 text-white rounded cursor-wait">
+      wait
+    </div>
+    <div class="px-4 py-2 bg-blue-500 text-white rounded cursor-help">
+      help
+    </div>
+    <div class="px-4 py-2 bg-blue-500 text-white rounded cursor-move">
+      move
+    </div>
+    <div class="px-4 py-2 bg-blue-500 text-white rounded cursor-resize-x">
+      resize-x
+    </div>
+    <div class="px-4 py-2 bg-blue-500 text-white rounded cursor-resize-y">
+      resize-y
+    </div>
+  </div>
+</Demo>

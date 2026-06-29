@@ -1,0 +1,34 @@
+---
+title: Скроллбары (Scroll)
+outline:
+  level: 2
+---
+
+import Demo from '../../../../components/Demo.astro'
+
+Стилизация полос прокрутки. **Не путать с overflow** — классы `overflow-*` описаны в [Отображение (Display)](/ru/guides/display).
+
+## Доступные классы
+
+| Класс | Описание |
+|-------|----------|
+| `.z-scroll` | Базовая стилизация скроллбара |
+| `.z-scroll--thin` | Тонкий скроллбар |
+| `.z-scroll--hovered` | Увеличенная ширина при наведении |
+
+Комбинируйте с `overflow-auto` или `overflow-y-auto` из модуля display.
+
+## Пример
+
+<Demo>
+  <div class="z-scroll overflow-y-auto h-32 w-full max-w-96 border border-gray-200 rounded p-2 text-sm">
+    <div>Прокручиваемый блок со стилизованным скроллбаром. Добавьте достаточно текста, чтобы появилась полоса прокрутки.</div>
+    <div class="mt-4">Второй блок для демонстрации прокрутки. Третий блок. Четвёртый блок. Пятый блок с дополнительным содержимым.</div>
+  </div>
+</Demo>
+
+```html
+<div class="z-scroll z-scroll--thin overflow-y-auto h-48">
+  Длинное содержимое...
+</div>
+```

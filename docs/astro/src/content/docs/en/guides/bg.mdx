@@ -1,0 +1,168 @@
+---
+title: Background
+outline:
+  level: 2
+---
+
+import Demo from '../../../../components/Demo.astro'
+
+Classes for managing element backgrounds.
+
+## Background Color
+
+### Primary Colors
+
+All primary palette colors are available via `.bg-primary-{brightness}`:
+
+<Demo>
+  <div class="flex gap-1 flex-wrap">
+    <div class="bg-primary-50 px-3 py-4 text-xs text-center">50</div>
+    <div class="bg-primary-100 px-3 py-4 text-xs text-center">100</div>
+    <div class="bg-primary-200 px-3 py-4 text-xs text-center">200</div>
+    <div class="bg-primary-300 px-3 py-4 text-xs text-center">300</div>
+    <div class="bg-primary-400 px-3 py-4 text-xs text-center">400</div>
+    <div class="bg-primary-500 px-3 py-4 text-xs text-center text-white">500</div>
+    <div class="bg-primary-600 px-3 py-4 text-xs text-center text-white">600</div>
+    <div class="bg-primary-700 px-3 py-4 text-xs text-center text-white">700</div>
+    <div class="bg-primary-800 px-3 py-4 text-xs text-center text-white">800</div>
+    <div class="bg-primary-900 px-3 py-4 text-xs text-center text-white">900</div>
+  </div>
+</Demo>
+
+### Semantic Colors
+
+<Demo>
+  <div class="flex gap-4 flex-wrap">
+    <div class="bg-success text-white px-4 py-4 rounded">Success</div>
+    <div class="bg-danger text-white px-4 py-4 rounded">Danger</div>
+    <div class="bg-warning text-white px-4 py-4 rounded">Warning</div>
+    <div class="bg-info text-white px-4 py-4 rounded">Info</div>
+  </div>
+</Demo>
+
+### Neutral Colors
+
+<Demo>
+  <div class="flex gap-1 flex-wrap">
+    <div class="bg-gray-50 px-3 py-4 text-xs text-center border">50</div>
+    <div class="bg-gray-100 px-3 py-4 text-xs text-center border">100</div>
+    <div class="bg-gray-200 px-3 py-4 text-xs text-center border">200</div>
+    <div class="bg-gray-300 px-3 py-4 text-xs text-center border">300</div>
+    <div class="bg-gray-400 px-3 py-4 text-xs text-center text-white border">400</div>
+    <div class="bg-gray-500 px-3 py-4 text-xs text-center text-white border">500</div>
+    <div class="bg-gray-600 px-3 py-4 text-xs text-center text-white border">600</div>
+    <div class="bg-gray-700 px-3 py-4 text-xs text-center text-white border">700</div>
+    <div class="bg-gray-800 px-3 py-4 text-xs text-center text-white border">800</div>
+    <div class="bg-gray-900 px-3 py-4 text-xs text-center text-white border">900</div>
+  </div>
+</Demo>
+
+### Additional Colors
+
+<Demo>
+  <div class="flex gap-4 flex-wrap">
+    <div class="bg-red-500 text-white px-4 py-4 rounded">Red</div>
+    <div class="bg-orange-500 text-white px-4 py-4 rounded">Orange</div>
+    <div class="bg-yellow-500 px-4 py-4 rounded">Yellow</div>
+    <div class="bg-green-500 text-white px-4 py-4 rounded">Green</div>
+    <div class="bg-sky-500 text-white px-4 py-4 rounded">Sky</div>
+    <div class="bg-blue-500 text-white px-4 py-4 rounded">Blue</div>
+  </div>
+</Demo>
+
+### Special Values
+
+<Demo>
+  <div class="flex gap-4 flex-wrap">
+    <div class="bg-white px-4 py-4 rounded border">White</div>
+    <div class="bg-black text-white px-4 py-4 rounded">Black</div>
+    <div class="bg-transparent px-4 py-4 rounded border">Transparent</div>
+    <div class="bg-none px-4 py-4 rounded border">None</div>
+  </div>
+</Demo>
+
+## Background Opacity
+
+Control background transparency with `.bg-opacity-{0, 25, 50, 75, 100}`:
+
+<Demo>
+  <div class="flex gap-4 items-end flex-wrap">
+    <div class="bg-primary-500 bg-opacity-0 px-4 py-4 rounded border">0%</div>
+    <div class="bg-primary-500 bg-opacity-25 px-4 py-4 rounded text-white">25%</div>
+    <div class="bg-primary-500 bg-opacity-50 px-4 py-4 rounded text-white">50%</div>
+    <div class="bg-primary-500 bg-opacity-75 px-4 py-4 rounded text-white">75%</div>
+    <div class="bg-primary-500 bg-opacity-100 px-4 py-4 rounded text-white">100%</div>
+  </div>
+</Demo>
+
+## Background Blur
+
+Frosted glass effect using backdrop-filter:
+
+<Demo>
+  <div class="relative w-full h-48 rounded overflow-hidden" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%)">
+    <div class="absolute top-0 right-0 bottom-0 left-0 bg-filter-blur-5 bg-white bg-opacity-50 flex items-center justify-center m-4 rounded">
+      <span class="text-xl font-bold text-white" style="text-shadow: 0 1px 3px rgba(0,0,0,0.3)">Blurred overlay</span>
+    </div>
+  </div>
+</Demo>
+
+Available blur levels:
+
+| Class | Blur |
+|-------|------|
+| `.bg-filter-blur-1` | 1px |
+| `.bg-filter-blur-2` | 2px |
+| `.bg-filter-blur-5` | 5px |
+| `.bg-filter-blur-10` | 10px |
+
+## Interactive (hover)
+
+Background changes on hover:
+
+<Demo>
+  <div class="flex gap-4 flex-wrap">
+    <button class="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded cursor-pointer">Button</button>
+    <div class="bg-gray-100 hover:bg-primary-500 hover:text-white p-4 rounded cursor-pointer">Hover me</div>
+    <div class="bg-success hover:bg-success-600 text-white p-4 rounded cursor-pointer">Hover for success</div>
+  </div>
+</Demo>
+
+## Usage Examples
+
+### Product Card
+
+<Demo>
+  <div class="bg-white rounded border border-gray-200 p-6 max-w-full">
+    <h3 class="text-lg font-bold mb-2">Product Name</h3>
+    <p class="text-gray-600 mb-4">Product description with features and details.</p>
+    <div class="flex justify-between items-center">
+      <span class="text-2xl font-bold text-primary-500">$99.99</span>
+      <button class="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded cursor-pointer">Buy</button>
+    </div>
+  </div>
+</Demo>
+
+### Modal with Overlay
+
+<Demo>
+  <div class="relative w-full h-56 rounded overflow-hidden" style="background: var(--u-gray-200)">
+    <div class="absolute top-0 right-0 bottom-0 left-0 bg-black bg-opacity-50 flex items-center justify-center p-4">
+      <div class="bg-white rounded p-6 w-full">
+        <h2 class="text-lg font-bold mb-2">Modal Title</h2>
+        <p class="text-gray-600 text-sm mb-4">Modal content goes here.</p>
+        <button class="bg-primary-500 hover:bg-primary-600 text-white px-4 py-2 rounded cursor-pointer w-full">Close</button>
+      </div>
+    </div>
+  </div>
+</Demo>
+
+### Status Badge
+
+<Demo>
+  <div class="flex gap-2 flex-wrap">
+    <span class="bg-success text-white px-2 py-1 rounded text-sm">Active</span>
+    <span class="bg-warning text-white px-2 py-1 rounded text-sm">Pending</span>
+    <span class="bg-danger text-white px-2 py-1 rounded text-sm">Error</span>
+  </div>
+</Demo>

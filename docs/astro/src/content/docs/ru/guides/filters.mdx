@@ -1,0 +1,43 @@
+---
+title: Фильтры (Filters)
+outline:
+  level: 2
+---
+
+import Demo from '../../../../components/Demo.astro'
+
+Классы для CSS-фильтров. Модуль небольшой: оттенки серого и сброс фильтра.
+
+## Доступные классы
+
+| Класс | Описание |
+|-------|----------|
+| `.grayscale` | Полностью чёрно-белый (`filter: grayscale(100%)`) |
+| `.grayscale-0` | Без оттенка серого (`filter: grayscale(0%)`) |
+| `.no-filter` | Сброс всех фильтров (`filter: none`) |
+
+## Примеры
+
+<Demo>
+  <div class="flex gap-4 items-center">
+    <div class="w-20 h-20 rounded bg-blue-500 flex items-center justify-center text-xs text-white">
+      Обычный
+    </div>
+    <div class="w-20 h-20 rounded bg-blue-500 grayscale flex items-center justify-center text-xs text-white">
+      grayscale
+    </div>
+    <div class="w-20 h-20 rounded bg-orange-500 grayscale no-filter flex items-center justify-center text-xs text-white">
+      no-filter
+    </div>
+  </div>
+</Demo>
+
+```html
+<div class="bg-blue-500">Цветной блок</div>
+<div class="bg-blue-500 grayscale">Чёрно-белый</div>
+<div class="grayscale no-filter">Сброс фильтра</div>
+```
+
+## См. также
+
+- [Модуль filters](/ru/modules/filters/) — подробный справочник
