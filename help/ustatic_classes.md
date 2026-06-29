@@ -87,7 +87,7 @@
 | `.divider-y--small`, `.divider-y--medium`, `.divider-y--large` | Вертикальный разделитель с отступом (10/20/30px) |
 | `.rounded-none` | Без скругления (0px) |
 | `.rounded-sm` | Скругление 2px |
-| `.rounded-base` | Скругление 4px (базовое) |
+| `.rounded` | Скругление 4px (базовое) |
 | `.rounded-md` | Скругление 6px |
 | `.rounded-lg` | Скругление 8px |
 | `.rounded-xl` | Скругление 12px |
@@ -100,7 +100,7 @@
 
 **Применение:** Границы кнопок, карточек, полей ввода; разделители контента; скругленные углы.
 
-**Примечание:** Класс `.rounded` без суффикса не существует — используйте `.rounded-base` для скругления по умолчанию.
+**Примечание:** Класс `.rounded` без суффикса не существует — используйте `.rounded` для скругления по умолчанию.
 
 ---
 
@@ -241,9 +241,9 @@
 
 | Класс | Описание |
 |-------|----------|
-| `.hide` | Скрыть (display: none !important) |
-| `.hide-{breakpoint}` | Скрыть на брейкпоинте |
-| `.hide-full` | Скрыть на полном экране |
+| `.hidden` | Скрыть (display: none !important) |
+| `.hidden-{breakpoint}` | Скрыть на брейкпоинте |
+| `.hidden-full` | Скрыть на полном экране |
 
 **Применение:** Адаптивный дизайн, скрытие элементов по условию.
 
@@ -255,7 +255,7 @@
 |-------|----------|
 | `.pointer-events-none` | Отключить события указателя |
 | `.pointer-events-auto` | Включить события указателя |
-| `.user-select-{none\|auto\|all\|text}` | Выделение текста |
+| `.select-{none\|auto\|all\|text}` | Выделение текста |
 
 **Применение:** Отключение кликов на оверлеях, запрет выделения на кнопках/иконках.
 
@@ -380,7 +380,7 @@
 | `.font-thin` | Вес шрифта 100 |
 | `.font-extralight` | Вес шрифта 200 |
 | `.font-light` | Вес шрифта 300 |
-| `.font-regular` | Вес шрифта 400 |
+| `.font-normal` | Вес шрифта 400 |
 | `.font-medium` | Вес шрифта 500 |
 | `.font-semibold` | Вес шрифта 600 |
 | `.font-bold` | Вес шрифта 700 |
@@ -423,18 +423,18 @@
 
 ```html
 <!-- Кнопка -->
-<button class="flex items-center justify-center gap-2 p-4 bg-blue-500 text-white rounded-base hover:bg-blue-600 cursor-pointer">
+<button class="flex items-center justify-center gap-2 p-4 bg-blue-500 text-white rounded hover:bg-blue-600 cursor-pointer">
   Нажми меня
 </button>
 
 <!-- Карточка -->
-<div class="block p-6 bg-white border border-gray-200 rounded-base hover:opacity-75">
+<div class="block p-6 bg-white border border-gray-200 rounded hover:opacity-75">
   <h3 class="text-lg font-bold text-gray-800">Заголовок</h3>
   <p class="text-gray-600 mt-2">Описание карточки</p>
 </div>
 
 <!-- Бейдж -->
-<span class="inline-block px-2 py-1 text-xs font-semibold text-red-600 bg-red-100 rounded-base">
+<span class="inline-block px-2 py-1 text-xs font-semibold text-red-600 bg-red-100 rounded">
   New
 </span>
 ```

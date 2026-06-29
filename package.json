@@ -72,7 +72,10 @@
   },
   "scripts": {
     "tokens": "style-dictionary build --config ./sd.config.cjs",
-    "build": "pnpm run tokens && vite build && node -e \"const f='dist/js/index.cjs.js';require('fs').renameSync(f,f.replace('.cjs.js','.cjs'));console.log('renamed CJS: .cjs.js → .cjs')\"",
+    "class-registry": "node scripts/generate-class-registry.mjs",
+    "docs:fix-classes": "node scripts/fix-docs-classes.mjs",
+    "docs:validate-classes": "node scripts/validate-docs-classes.mjs",
+    "build": "pnpm run tokens && vite build && node -e \"const f='dist/js/index.cjs.js';require('fs').renameSync(f,f.replace('.cjs.js','.cjs'));console.log('renamed CJS: .cjs.js → .cjs')\" && pnpm class-registry",
     "test": "vitest run",
     "test:watch": "vitest",
     "dev:vue": "cd examples/vue && pnpm dev"
