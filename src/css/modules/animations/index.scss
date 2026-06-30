@@ -66,11 +66,19 @@
       visibility: visible;
     }
   }
+
+  /** Родитель: при наведении на зону показывает вложенный `.hover:show` */
+  &\:show-target:hover .hover\:show {
+    opacity: 1;
+    visibility: visible;
+  }
 }
 
 .animation\:spin {
   @for $timeStep from 1 through 10 {
     &-#{$timeStep} {
+      width: fit-content;
+      transform-origin: center center;
       animation: spin #{$timeStep * .25}s linear infinite both;
     }
   }

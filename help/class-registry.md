@@ -1,6 +1,6 @@
 # Class Registry (auto-generated)
 
-> Сгенерировано: 2026-06-29T18:51:40.958Z
+> Сгенерировано: 2026-06-30T13:53:40.982Z
 > Не редактировать вручную. Запуск: `pnpm class-registry`
 
 ## align (4)
@@ -10,7 +10,7 @@
 - `.align-middle`
 - `.align-top`
 
-## animations (325)
+## animations (326)
 
 - `.active:pulse`
 - `.animation:spin-1`
@@ -27,7 +27,7 @@
 - `.fade-enter-active`
 - `.fade-enter-from`
 - `.fade-enter-to`
-- ... ещё 310 (см. class-registry.json)
+- ... ещё 311 (см. class-registry.json)
 
 ## base (1)
 
@@ -45,8 +45,10 @@
 ## base/resets/input (0)
 
 
-## base/resets/links (0)
+## base/resets/links (2)
 
+- `.medium");text-decoration`
+- `.primary");font-weight`
 
 ## base/resets/lists (0)
 
@@ -328,4 +330,4 @@
 - `.hover:text-black`
 - ... ещё 337 (см. class-registry.json)
 
-**Всего:** 7460 классов в 33 модулях
+**Всего:** 7463 классов в 33 модулях

@@ -5,6 +5,8 @@ outline:
 ---
 
 import Demo from '../../../../components/Demo.astro'
+import TransitionDemo from '../../../../components/TransitionDemo.astro'
+import HoverShowDemo from '../../../../components/HoverShowDemo.astro'
 
 uStatic CSS включает набор утилитарных классов для анимаций и переходов.
 
@@ -25,15 +27,18 @@ uStatic CSS включает набор утилитарных классов д
 
 ### Spin
 
-Вращение элемента. Доступно от 1 до 10 (умножается на 0.25с):
+Вращение элемента на месте. Доступно от 1 до 10 (умножается на 0.25с). На блочный элемент без ширины класс сам сжимается до содержимого (`width: fit-content`).
 
 <Demo>
 
-<div class="animation:spin-4">⚙️</div>
+<div class="flex items-center gap-2">
+  <span class="inline-block animation:spin-4 text-2xl leading-none">⚙️</span>
+  <span class="text-gray-600">Загрузка…</span>
+</div>
 </Demo>
 
 ```html
-<div class="animation:spin-4">⚙️</div>
+<span class="inline-block animation:spin-4">⚙️</span>
 ```
 
 ### Pulse
@@ -54,7 +59,9 @@ uStatic CSS включает набор утилитарных классов д
 
 ### Fade
 
-Плавное появление/исчезновение. Классы для Vue Transition:
+Плавное появление/исчезновение. Классы для Vue `<transition>`:
+
+<TransitionDemo name="fade" mode="out-in" />
 
 ```html
 <transition name="fade" mode="out-in">
@@ -72,6 +79,8 @@ uStatic CSS включает набор утилитарных классов д
 
 Выезд элемента снизу:
 
+<TransitionDemo name="slide-up" />
+
 ```html
 <transition name="slide-up">
   <div v-if="visible">Контент</div>
@@ -87,6 +96,8 @@ uStatic CSS включает набор утилитарных классов д
 ### Scale
 
 Масштабирование элемента:
+
+<TransitionDemo name="scale" />
 
 ```html
 <transition name="scale">
@@ -118,23 +129,39 @@ uStatic CSS включает набор утилитарных классов д
 
 **Эффект:** при наведении элемент поднимается вверх с тенью.
 
-### Hover Show/Hide
+### Hover Show / Hide
 
-Классы для управления видимостью при наведении:
+Появление оверлея при наведении на родителя. Сам по себе `hover:show` скрывает элемент (`opacity: 0`, `visibility: hidden`); чтобы показать его при hover на **карточке**, оберните разметку в `hover:show-target`:
+
+<HoverShowDemo />
 
 ```html
-<!-- Скрыт по умолчанию, появляется при наведении -->
-<div class="hover:show">Появляется при наведении</div>
-
-<!-- Подъём при наведении -->
-<div class="hover:lift">Поднимается при наведении</div>
+<div class="hover:show-target relative h-40 overflow-hidden rounded">
+  <div class="absolute top-0 right-0 bottom-0 left-0 bg-gray-100">Превью</div>
+  <div class="hover:show absolute top-0 right-0 bottom-0 left-0 flex items-center justify-center bg-black bg-opacity-50">
+    <span class="text-white">Просмотр</span>
+  </div>
+</div>
 ```
 
 **Классы:**
 
-- `.hover:show` — скрыт по умолчанию (opacity: 0, visibility: hide), показывается при наведении
-- `.hover:lift` — поднимается вверх с тенью при наведении
-- `.hover:underline--{color}` — анимированное подчёркивание при наведении (например, `.hover:underline--primary-500`)
+- `.hover:show-target` — при наведении на контейнер показывает вложенный `.hover:show`
+- `.hover:show` — скрытый слой (оверлей, подпись, кнопка действия)
+- `.hover:underline--{color}` — анимированное подчёркивание ссылки (см. ниже)
+
+### Hover Underline
+
+<Demo>
+
+<a href="#" class="hover:underline--primary-500 text-primary-600 font-medium" onclick="return false">
+  Ссылка с подчёркиванием
+</a>
+</Demo>
+
+```html
+<a href="#" class="hover:underline--primary-500">Ссылка</a>
+```
 
 ## Примеры использования
 
@@ -143,11 +170,11 @@ uStatic CSS включает набор утилитарных классов д
 <Demo>
 
 <div class="flex items-center gap-2">
-  <div class="animation:spin-2">
+  <span class="inline-flex items-center justify-center w-6 h-6 animation:spin-2">
     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
     </svg>
-  </div>
+  </span>
   <span>Загрузка...</span>
 </div>
 </Demo>

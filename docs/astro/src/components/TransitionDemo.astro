@@ -1,0 +1,68 @@
+---
+import { Code, Tabs, TabItem } from '@astrojs/starlight/components'
+import type { TransitionName } from './transition-demo'
+
+interface Props {
+  name: TransitionName
+  /** Показать mode="out-in" во вкладке «Код» (как в гайде по fade) */
+  mode?: 'out-in'
+}
+
+const { name, mode } = Astro.props
+
+const modeAttr = mode ? ' mode="out-in"' : ''
+const vueCode = `<transition name="${name}"${modeAttr}>
+  <div v-if="visible" class="p-4 bg-white border border-gray-200 rounded">
+    Контент
+  </div>
+</transition>`
+
+const labels: Record<TransitionName, string> = {
+  fade: 'Плавное появление / исчезновение',
+  'slide-up': 'Выезд снизу',
+  scale: 'Масштабирование',
+}
+---
+
+<div
+  class="border-1 border-gray-200 rounded-md p-2"
+  data-transition-demo
+  data-transition-name={name}
+>
+  <Tabs>
+    <TabItem label="Просмотр" icon="laptop">
+      <div class="not-content p-4">
+        <button
+          type="button"
+          class="transition-demo-toggle px-4 py-2 bg-primary-500 text-white rounded cursor-pointer mb-4"
+        >
+          Показать
+        </button>
+
+        <div class="transition-demo-stage relative h-32 overflow-hidden flex items-center justify-center rounded border border-gray-100 bg-gray-50 px-4">
+          <div class="transition-demo-panel hidden w-full max-w-96 p-4 bg-white border border-gray-200 rounded">
+            <p class="font-medium text-gray-800">{labels[name]}</p>
+            <p class="text-sm text-gray-600 mt-1">
+              Классы <code class="text-xs">{name}-enter-*</code> и
+              <code class="text-xs">{name}-leave-*</code> — те же, что ставит Vue.
+            </p>
+          </div>
+        </div>
+
+        <p class="text-sm text-gray-500 mt-3 mb-0">
+          Кнопка имитирует цикл <code>&lt;transition name="{name}"&gt;</code> на CSS ustatic.
+        </p>
+      </div>
+    </TabItem>
+    <TabItem label="Код" icon="forward-slash">
+      <Code code={vueCode} lang="html" />
+    </TabItem>
+  </Tabs>
+</div>
+
+<script>
+  import { initTransitionDemos } from './transition-demo.ts'
+
+  initTransitionDemos()
+  document.addEventListener('astro:page-load', initTransitionDemos)
+</script>

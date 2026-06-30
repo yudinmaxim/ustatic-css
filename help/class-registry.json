@@ -1,6 +1,6 @@
 {
-  "generatedAt": "2026-06-29T18:51:40.958Z",
-  "totalClasses": 7460,
+  "generatedAt": "2026-06-30T13:53:40.982Z",
+  "totalClasses": 7463,
   "modules": {
     "align": [
       "align-baseline",
@@ -29,6 +29,7 @@
       "fade-leave-to",
       "hover:lift",
       "hover:show",
+      "hover:show-target",
       "hover:underline",
       "hover:underline--black",
       "hover:underline--black:hover",
@@ -7503,7 +7504,10 @@
     "base/resets/form": [],
     "base/resets/headings": [],
     "base/resets/input": [],
-    "base/resets/links": [],
+    "base/resets/links": [
+      "medium\");text-decoration",
+      "primary\");font-weight"
+    ],
     "base/resets/lists": [],
     "base/resets/media": [],
     "base/resets/optgroup": [],

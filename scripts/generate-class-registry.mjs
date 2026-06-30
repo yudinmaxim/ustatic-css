@@ -46,7 +46,7 @@ function extractClasses (css) {
   const stripped = css.replace(/\/\*[\s\S]*?\*\//g, '')
 
   // .class перед `{` или `,` (в т.ч. `.a,.b{` и внутри @media)
-  const globalRe = /\.([^.#,\s{}]+)(?=[,{])/g
+  const globalRe = /\.([^.#,\s{}]+)(?=[,{:])/g
   let match
   while ((match = globalRe.exec(stripped)) !== null) {
     const cls = normalizeExtractedClass(unescapeClassName(match[1].trim()))

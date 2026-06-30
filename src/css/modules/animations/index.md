@@ -67,9 +67,14 @@ CSS классы для анимаций и переходов.
 <button class="hover:lift">Кнопка с эффектом подъёма</button>
 ```
 
-### Show (появление при наведении)
+### Show (появление при наведении на родителя)
 ```html
-<div class="hover:show">Появляется при наведении</div>
+<div class="hover:show-target relative overflow-hidden rounded">
+  <div class="h-40 bg-gray-100">Превью</div>
+  <div class="hover:show absolute top-0 right-0 bottom-0 left-0 flex items-center justify-center bg-black bg-opacity-50">
+    <span class="text-white">Просмотр</span>
+  </div>
+</div>
 ```
 
 ## Полный пример
