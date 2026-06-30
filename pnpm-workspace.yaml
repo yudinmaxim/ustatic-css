@@ -3,7 +3,6 @@ packages:
   - examples/svelte
   - examples/astro
   - docs/astro
-  - docs/vitepress
 
 onlyBuiltDependencies:
   - esbuild

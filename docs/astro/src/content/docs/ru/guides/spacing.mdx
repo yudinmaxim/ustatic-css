@@ -1,0 +1,58 @@
+---
+title: Отступы (Spacing)
+outline:
+  level: 2
+---
+
+import Demo from '../../../../components/Demo.astro'
+
+Классы для margin и padding.
+
+## Margin (внешние отступы)
+
+| Класс | Описание |
+|-------|----------|
+| `.m-{size}` | Margin со всех сторон |
+| `.mx-{size}` | Margin по горизонтали |
+| `.my-{size}` | Margin по вертикали |
+| `.mt-{size}`, `.mr-{size}`, `.mb-{size}`, `.ml-{size}` | По стороне |
+
+## Padding (внутренние отступы)
+
+| Класс | Описание |
+|-------|----------|
+| `.p-{size}` | Padding со всех сторон |
+| `.px-{size}`, `.py-{size}` | По осям |
+| `.pt-{size}`, `.pr-{size}`, `.pb-{size}`, `.pl-{size}` | По стороне |
+
+## Значения
+
+`0`, `px`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `12`, `18`, `64`, `auto`, `full` и др.
+
+## Отрицательный margin
+
+`.-m-{size}`, `.-mt-{size}` и т.д. — только для margin (не padding).
+
+## Примеры
+
+<Demo>
+  <div class="flex gap-4">
+    <div class="p-4 bg-blue-100 rounded">p-4</div>
+    <div class="p-6 bg-green-100 rounded">p-6</div>
+    <div class="p-8 bg-yellow-100 rounded">p-8</div>
+  </div>
+</Demo>
+
+<Demo>
+  <div class="flex gap-4">
+    <div class="m-2 p-4 bg-blue-100 rounded">m-2</div>
+    <div class="m-4 p-4 bg-green-100 rounded">m-4</div>
+    <div class="m-6 p-4 bg-yellow-100 rounded">m-6</div>
+  </div>
+</Demo>
+
+```html
+<div class="p-4 m-2">Отступы</div>
+<div class="mx-auto">Центрирование блока</div>
+<div class="-mt-2">Отрицательный margin сверху</div>
+```

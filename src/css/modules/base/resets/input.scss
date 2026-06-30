@@ -1,0 +1,48 @@
+@import '../../../utils/mixins';
+
+input {
+  @include reset-form-elements;
+  @include reset-placeholder;
+}
+
+input:where([type='button']),
+input:where([type='reset']),
+input:where([type='submit']) {
+  @include reset-button-like-elements;
+}
+
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
+  @include reset-spin-buttons;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Для Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+/*
+1. Correct the odd appearance in Chrome and Safari.
+2. Correct the outline style in Safari.
+*/
+[type='search'] {
+  -webkit-appearance: textfield; /* 1 */
+  outline-offset: -2px; /* 2 */
+}
+
+/*
+Remove the inner padding in Chrome and Safari on macOS.
+*/
+::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+::-webkit-file-upload-button {
+  @include reset-file-upload-button;
+}

@@ -1,0 +1,38 @@
+---
+title: Alignment
+outline:
+  level: 2
+---
+
+import Demo from '../../../../components/Demo.astro'
+
+Classes for vertical alignment of inline, inline-block, and table-cell elements.
+
+## Classes
+
+| Class | CSS Property | Description |
+|-------|--------------|-------------|
+| `.align-baseline` | `vertical-align: baseline` | Align to text baseline |
+| `.align-top` | `vertical-align: top` | Align to top edge |
+| `.align-middle` | `vertical-align: middle` | Align to center |
+| `.align-bottom` | `vertical-align: bottom` | Align to bottom edge |
+
+## Examples
+
+Table cells with the same height and different text alignment:
+
+<Demo>
+  <div class="w-full border rounded overflow-hidden" style="display: table; height: 8rem; table-layout: fixed">
+    <div class="table-cell align-top bg-gray-100 p-4 text-center w-1/4 border text-gray-700">align-top</div>
+    <div class="table-cell align-middle bg-gray-200 p-4 text-center w-1/4 border text-gray-700">align-middle</div>
+    <div class="table-cell align-bottom bg-gray-300 p-4 text-center w-1/4 border text-gray-700">align-bottom</div>
+    <div class="table-cell align-baseline bg-gray-400 p-4 text-center w-1/4 border text-gray-700"><span class="text-lg">base</span>line</div>
+  </div>
+</Demo>
+
+## Notes
+
+- Works with inline, inline-block, and table-cell elements
+- Does not work on block or flex items
+- For centering block elements, use Flexbox or Grid
+- `baseline` and `top` appear similar for single-line text — the difference is visible with mixed font sizes where baselines are preserved

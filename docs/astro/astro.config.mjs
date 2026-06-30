@@ -1,44 +1,59 @@
 // @ts-check
-import { defineConfig } from 'astro/config'
-import starlight from '@astrojs/starlight'
+import { defineConfig } from "astro/config";
+import starlight from "@astrojs/starlight";
 
 // https://astro.build/config
 export default defineConfig({
   integrations: [
     starlight({
-      title: 'uStatic CSS',
-      description: 'Утилитарный CSS-фреймворк для быстрой разработки интерфейсов',
+      title: "uStatic CSS",
+      description:
+        "Утилитарный CSS-фреймворк для быстрой разработки интерфейсов",
       social: [
-        { icon: 'github', label: 'GitHub', href: 'https://github.com/yudinmaxim/ustatic-css' },
+        {
+          icon: "github",
+          label: "GitHub",
+          href: "https://github.com/yudinmaxim/ustatic-css",
+        },
       ],
+      locales: {
+        ru: { label: "Русский", lang: "ru" },
+        en: { label: "English", lang: "en" },
+      },
+      defaultLocale: "ru",
+      customCss: ["./src/styles/custom.css"],
       sidebar: [
         {
-          label: 'Getting Started',
-          items: [
-            { label: 'Введение', slug: 'getting-started/introduction' },
-            { label: 'Установка', slug: 'getting-started/installation' },
-            { label: 'Быстрый старт', slug: 'getting-started/quick-start' },
-          ],
+          label: "Начало работы",
+          translations: { ru: "Начало работы", en: "Getting Started" },
+          autogenerate: { directory: "getting-started" },
         },
         {
-          label: 'Guides',
-          items: [
-            { label: 'Использование CSS-классов', slug: 'guides/css-classes' },
-            { label: 'Загрузка стилей в рантайме', slug: 'guides/runtime-loading' },
-          ],
+          label: "Модули",
+          translations: { ru: "Модули", en: "Modules" },
+          autogenerate: { directory: "modules" },
         },
         {
-          label: 'Reference',
-          autogenerate: { directory: 'reference' },
+          label: "Гайды",
+          translations: { ru: "Гайды", en: "Guides" },
+          autogenerate: { directory: "guides" },
         },
         {
-          label: 'API',
-          items: [
-            { label: 'useCssProperties', slug: 'api/use-css-properties' },
-            { label: 'useTokens', slug: 'api/use-tokens' },
-          ],
+          label: "API",
+          translations: { ru: "API", en: "API" },
+          autogenerate: { directory: "api" },
+        },
+        {
+          label: "Справочник",
+          translations: { ru: "Справочник", en: "Reference" },
+          autogenerate: { directory: "reference" },
+        },
+        {
+          label: "Оформление",
+          translations: { ru: "Оформление", en: "Appearance" },
+          autogenerate: { directory: "appearance" },
         },
       ],
     }),
   ],
-})
+});

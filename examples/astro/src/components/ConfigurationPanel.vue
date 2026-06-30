@@ -28,7 +28,7 @@ const availableModules = [
   'filters',
   'flexbox',
   'grid',
-  'hide',
+  'hidden',
   'interactivity',
   'outline',
   'position',
@@ -129,7 +129,7 @@ const setClassesInput = (value: string) => {
         :value="config?.classesInput || ''"
         @input="setClassesInput(($event.target as HTMLTextAreaElement).value)"
         rows="3"
-        class="w-full p-2 border border-gray-300 rounded-base text-sm font-mono"
+        class="w-full p-2 border border-gray-300 rounded text-sm font-mono"
         placeholder="flex, p-4, text-lg, bg-primary"
       />
       <p class="text-xs text-gray-500">

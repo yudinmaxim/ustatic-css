@@ -1,0 +1,64 @@
+---
+title: Миграция с Tailwind
+description: Отличия ustatic-css от Tailwind CSS и таблица замен классов
+---
+
+**ustatic-css похож на Tailwind по именованию, но это другая библиотека.** Не переносите классы из памяти — проверяйте в [реестре классов](/ru/reference/classes) или в `help/class-registry.json` в репозитории.
+
+:::caution[Не Tailwind]
+В ustatic-css **нет** responsive-префиксов (`md:flex`), arbitrary values (`w-[300px]`), `shadow-*`, `ring-*`, `space-x-*`.
+:::
+
+## Критические отличия
+
+| Тема | Tailwind | ustatic-css |
+|------|----------|-------------|
+| Конфигурация | `tailwind.config.js`, JIT | Предопределённые классы из токенов |
+| Responsive | `md:flex`, `lg:p-8` | **Нет** — только `hidden-md`, `hidden-lg` и т.д. |
+| Arbitrary values | `w-[300px]` | **Нет** |
+| CSS-переменные | `--tw-*` | `--u-*` |
+| Префикс классов | настраивается | **нет** (`flex`, не `u-flex`) |
+
+## Таблица замен
+
+| Tailwind | ustatic-css |
+|----------|-------------|
+| `rounded` | `rounded` |
+| `font-normal` | `font-normal` |
+| `select-none` | `select-none` |
+| `hidden` | `hidden`, `hidden-md`, … |
+| `cursor-disabled` | `cursor-disabled` |
+| `animate-spin` | `animation:spin-4` |
+| `space-x-4`, `flex flex-col gap-2` | `gap-4`, `gap-2` |
+| `shadow-md`, `` | нет в библиотеке |
+| `grid-columns--3-32` | `grid-columns--3-32` |
+| `bg-blue-500/50` | `bg-blue-500 bg-opacity-50` |
+| `md:flex` | нет — используйте `hidden-md` и отдельную вёрстку |
+
+## Уникальный синтаксис
+
+### Двоеточие в имени класса
+
+Псевдосостояния — часть имени, пишутся в `` буквально:
+
+```html
+<button class="hover:bg-blue-500 active:pulse">Кнопка</button>
+<div class="animation:spin-4">Загрузка</div>
+```
+
+### Двойной дефис `--`
+
+```html
+<div class="grid-columns--1fr-auto"></div>
+<span class="hover:underline--red-500">Ссылка</span>
+```
+
+## Шкала размеров
+
+Числа похожи на Tailwind (`p-4`, `m-2`), но значения из **дизайн-токенов**: `1` = 4px, `2` = 8px, `4` = 16px. Класс `border-1` = 4px (не 1px как дефолтный `border` в Tailwind).
+
+## Дальше
+
+- [CSS-классы](/ru/guides/css-classes) — обзор синтаксиса
+- [Словарь классов](/ru/reference/classes) — полный справочник
+- [Модуль hide](/ru/modules/hide/) — адаптивное скрытие

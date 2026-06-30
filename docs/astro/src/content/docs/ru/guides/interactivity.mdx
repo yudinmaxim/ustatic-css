@@ -1,0 +1,43 @@
+---
+title: Интерактивность (Interactivity)
+outline:
+  level: 2
+---
+
+import Demo from '../../../../components/Demo.astro'
+
+Классы для управления событиями указателя и выделением текста.
+
+## Pointer Events
+
+| Класс | Описание |
+|-------|----------|
+| `.pointer-events-none` | Отключить события указателя |
+| `.pointer-events-auto` | Включить события указателя |
+
+## User Select
+
+| Класс | Описание |
+|-------|----------|
+| `.select-none` | Запретить выделение текста |
+| `.select-auto` | Выделение по умолчанию |
+| `.select-all` | Выделить всё при клике |
+| `.select-text` | Разрешить выделение текста |
+
+## Примеры
+
+<Demo>
+  <div class="flex flex-col gap-4">
+    <button class="px-4 py-2 bg-gray-200 rounded pointer-events-none">
+      pointer-events-none
+    </button>
+    <div class="select-none p-2 bg-gray-100 rounded">select-none — нельзя выделить</div>
+    <div class="select-text p-2 bg-gray-100 rounded">select-text — можно выделить</div>
+  </div>
+</Demo>
+
+```html
+<button class="pointer-events-none">Не получает клики</button>
+<p class="select-none">Нельзя выделить</p>
+<p class="select-all">Выделить всё одним кликом</p>
+```

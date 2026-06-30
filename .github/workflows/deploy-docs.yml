@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - 'docs/vitepress/**'
+      - 'docs/astro/**'
       - 'src/**'
       - 'package.json'
       - 'pnpm-lock.yaml'
@@ -61,12 +61,12 @@ jobs:
 
       - name: Build Documentation
         run: pnpm run build
-        working-directory: ./docs/vitepress
+        working-directory: ./docs/astro
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./docs/vitepress/.vitepress/dist
+          path: ./docs/astro/dist
 
   deploy:
     environment:

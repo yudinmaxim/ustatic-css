@@ -1,0 +1,54 @@
+---
+title: Контур (Outline)
+outline:
+  level: 2
+---
+
+import Demo from '../../../../components/Demo.astro'
+
+Классы для контура элементов — в основном для фокуса и доступности.
+
+## Ширина
+
+| Класс | Описание |
+|-------|----------|
+| `.outline-none` | Без контура |
+| `.outline-0d5` … `.outline-9` | Толщина контура (из шкалы sizing) |
+
+## Цвет
+
+Цвета палитры: `.outline-primary`, `.outline-blue-300`, `.outline-gray-500` и т.д.
+
+## Стиль
+
+| Класс | Описание |
+|-------|----------|
+| `.outline-style--solid` | Сплошной |
+| `.outline-style--dashed` | Пунктир |
+| `.outline-style--dotted` | Точки |
+
+## Смещение
+
+`.outline-offset-1` … `.outline-offset-10`, отрицательные: `.-outline-offset-1` и т.д.
+
+## Примеры
+
+<Demo>
+  <div class="flex gap-4 flex-wrap">
+    <button class="px-4 py-2 bg-blue-500 text-white rounded outline-2 outline-blue-300">
+      outline-2
+    </button>
+    <button class="px-4 py-2 bg-gray-200 rounded outline-none">
+      outline-none
+    </button>
+    <button class="px-4 py-2 bg-gray-200 rounded outline-2 outline-style--dashed outline-gray-400">
+      dashed
+    </button>
+  </div>
+</Demo>
+
+```html
+<button class="outline-2 outline-blue-300">Фокус</button>
+<button class="outline-none">Без контура</button>
+<button class="outline-2 outline-style--dashed outline-gray-400">Пунктир</button>
+```

@@ -1,0 +1,54 @@
+---
+title: Эффекты (Effects)
+outline:
+  level: 2
+---
+
+import Demo from '../../../../components/Demo.astro'
+
+Классы для управления визуальными эффектами.
+
+## Прозрачность (Opacity)
+
+| Класс | Описание |
+|-------|----------|
+| `.opacity-0` | Полностью прозрачный |
+| `.opacity-25` | 25% непрозрачности |
+| `.opacity-50` | 50% непрозрачности |
+| `.opacity-75` | 75% непрозрачности |
+| `.opacity-100` | Полностью непрозрачный |
+
+## Поворот (Rotate)
+
+| Класс | Описание |
+|-------|----------|
+| `.rotate-0` | Без поворота |
+| `.rotate-45` | Поворот на 45° |
+| `.rotate-90` | Поворот на 90° |
+| `.rotate-180` | Поворот на 180° |
+| `.rotate--45` | Поворот на -45° |
+| `.rotate--90` | Поворот на -90° |
+
+## Примеры
+
+<Demo>
+  <div class="flex gap-4 items-center">
+    <div class="w-16 h-16 bg-blue-500 rounded opacity-50 flex items-center justify-center text-xs text-white">
+      50%
+    </div>
+    <div class="w-16 h-16 bg-green-500 rounded rotate-45 flex items-center justify-center text-xs text-white">
+      45°
+    </div>
+    <div class="w-16 h-16 bg-red-500 rounded rotate-180 flex items-center justify-center text-xs text-white">
+      180°
+    </div>
+  </div>
+</Demo>
+
+## Hover прозрачность
+
+<Demo>
+  <div class="w-32 h-16 bg-blue-500 rounded hover:opacity-50 cursor-pointer flex items-center justify-center text-xs text-white">
+    Наведи на меня
+  </div>
+</Demo>

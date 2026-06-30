@@ -44,7 +44,7 @@
 - Цвет текста: `.text-<palette>`, `.text-<color>-<brightness>` (например, `.text-red-500`, `.text-blue-300`), `.text-none` (прозрачный)
 - Выравнивание текста: `.text-left`, `.text-center`, `.text-right`, `.text-justify`, `.text-start`, `.text-end`
 - Вертикальное выравнивание (также доступно как отдельный модуль align): `.text-top`, `.text-middle`, `.text-bottom`, `.text-baseline`, `.text-text-top`, `.text-text-bottom`, `.text-sub`, `.text-super`
-- Начертание шрифта: `.font-thin`, `.font-extralight`, `.font-light`, `.font-regular`, `.font-medium`, `.font-semibold`, `.font-bold`, `.font-extrabold`, `.font-black`
+- Начертание шрифта: `.font-thin`, `.font-extralight`, `.font-light`, `.font-normal`, `.font-medium`, `.font-semibold`, `.font-bold`, `.font-extrabold`, `.font-black`
 - Дополнительно:
   - `.italic`, `.underline`
   - `.text-ellipsis` (text-overflow: ellipsis)
@@ -139,10 +139,10 @@
 - Цвет границы: `.border-<palette>`, `.border-<color>-<brightness>` (например, `.border-red-500`, `.border-gray-300`), `.border-transparent`
 - Стиль: `.border-dashed` (solid по умолчанию). Варианты `.border-dotted`/`.border-double`/`.border-solid` отсутствуют.
 - Скругления:
-  - Общие: `.rounded-none`, `.rounded-sm`, `.rounded-base`, `.rounded-md`, `.rounded-lg`, `.rounded-xl`, `.rounded-2xl`, `.rounded-3xl`, `.rounded-full`, `.circle`
+  - Общие: `.rounded-none`, `.rounded-sm`, `.rounded`, `.rounded-md`, `.rounded-lg`, `.rounded-xl`, `.rounded-2xl`, `.rounded-3xl`, `.rounded-full`, `.circle`
   - Стороны: `.rounded-t-*`, `.rounded-r-*`, `.rounded-b-*`, `.rounded-l-*`
   - Углы: `.rounded-tl-*`, `.rounded-tr-*`, `.rounded-bl-*`, `.rounded-br-*`
-  - Алиаса `.rounded` (без суффикса) нет — используйте `.rounded-base`
+  - Алиаса `.rounded` (без суффикса) нет — используйте `.rounded`
 
 ### 9. Фон (bg)
 
@@ -175,7 +175,7 @@
 ### 12. Интерактивность (interactivity)
 
 - Указатель событий: `.pointer-events-none`, `.pointer-events-auto`
-- Выделение: `.user-select-none`, `.user-select-auto`, `.user-select-all`, `.user-select-text`
+- Выделение: `.select-none`, `.select-auto`, `.select-all`, `.select-text`
 
 ### 13. Курсор (cursor)
 
@@ -188,8 +188,8 @@
 - Overflow: `.overflow-hidden|scroll|auto` и x/y‑варианты: `.overflow-x-hidden|scroll|auto`, `.overflow-y-hidden|scroll|auto`
 - Важно: `.inline-flex`, `.inline-grid`, `.hidden`, а также `overflow-visible*` — отсутствуют в текущей реализации
 - Скрытие реализовано в модуле hide:
-  - `.hide` — скрывает элемент
-  - Адаптивно: `.hide-md`, `.hide-lg`, `.hide-full` и др. (генерация по брейкпоинтам из `$screens`)
+  - `.hidden` — скрывает элемент
+  - Адаптивно: `.hidden-md`, `.hidden-lg`, `.hidden-full` и др. (генерация по брейкпоинтам из `$screens`)
 
 ### 15. Контуры (outline)
 

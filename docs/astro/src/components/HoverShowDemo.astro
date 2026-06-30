@@ -1,0 +1,37 @@
+---
+import { Code, Tabs, TabItem } from '@astrojs/starlight/components'
+
+const vueCode = `<div class="hover:show-target relative h-40 overflow-hidden rounded cursor-pointer">
+  <div class="absolute top-0 right-0 bottom-0 left-0 flex items-center justify-center bg-gray-100 text-gray-400">
+  Фото
+  </div>
+  <div class="hover:show absolute top-0 right-0 bottom-0 left-0 flex items-center justify-center bg-black bg-opacity-50">
+    <span class="text-white px-4 py-2 rounded bg-primary-500">Просмотр</span>
+  </div>
+</div>`
+---
+
+<div class="border-1 border-gray-200 rounded-md p-2">
+  <Tabs>
+    <TabItem label="Просмотр" icon="laptop">
+      <div class="not-content p-4">
+        <div class="hover:show-target relative h-40 max-w-md w-full overflow-hidden rounded border border-gray-200 cursor-pointer">
+          <div class="absolute top-0 right-0 bottom-0 left-0 flex items-center justify-center bg-gray-100 text-gray-500">
+            Наведи на карточку
+          </div>
+          <div class="hover:show absolute top-0 right-0 bottom-0 left-0 flex items-center justify-center bg-black bg-opacity-50">
+            <span class="text-white font-medium px-4 py-2 rounded bg-primary-500">Просмотр</span>
+          </div>
+        </div>
+
+        <p class="text-sm text-gray-500 mt-3 mb-0">
+          Родитель — <code>hover:show-target</code>, оверлей — <code>hover:show</code>.
+          Высота фиксирована, layout не прыгает.
+        </p>
+      </div>
+    </TabItem>
+    <TabItem label="Код" icon="forward-slash">
+      <Code code={vueCode} lang="html" />
+    </TabItem>
+  </Tabs>
+</div>

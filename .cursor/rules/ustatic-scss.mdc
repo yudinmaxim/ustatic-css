@@ -1,0 +1,24 @@
+---
+description: Генерация utility-классов ustatic-css в SCSS
+globs: src/css/**
+alwaysApply: false
+---
+
+# SCSS-модули ustatic-css
+
+- Классы генерируются циклами `@each` / `@for` из карт в `variables.scss` и токенов
+- Токены: `src/css/tokens/` → `pnpm tokens` → `src/css/assets/tokens/`
+- Точка входа полного бандла: `src/css/ustatic-index.scss`
+
+## После изменений
+
+```bash
+pnpm build          # пересборка + class-registry
+pnpm class-registry # только реестр (если dist уже есть)
+```
+
+Обнови `help/class-registry.json` перед коммитом изменений классов.
+
+## Именование
+
+Сверяйся с существующими модулями. Не копируй соглашения Tailwind без проверки (например `rounded` без суффикса не существует).

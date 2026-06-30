@@ -1,0 +1,38 @@
+---
+title: Выравнивание
+outline:
+  level: 2
+---
+
+import Demo from '../../../../components/Demo.astro'
+
+Классы для вертикального выравнивания inline, inline-block и table-cell элементов.
+
+## Классы
+
+| Класс | CSS свойство | Описание |
+|-------|--------------|----------|
+| `.align-baseline` | `vertical-align: baseline` | Выравнивание по базовой линии |
+| `.align-top` | `vertical-align: top` | Выравнивание по верхнему краю |
+| `.align-middle` | `vertical-align: middle` | Выравнивание по центру |
+| `.align-bottom` | `vertical-align: bottom` | Выравнивание по нижнему краю |
+
+## Примеры
+
+Ячейки таблицы одинаковой высоты с разным выравниванием текста:
+
+<Demo>
+  <div class="w-full border rounded overflow-hidden" style="display: table; height: 8rem; table-layout: fixed">
+    <div class="table-cell align-top bg-gray-100 p-4 text-center w-1/4 border text-gray-700">align-top</div>
+    <div class="table-cell align-middle bg-gray-200 p-4 text-center w-1/4 border text-gray-700">align-middle</div>
+    <div class="table-cell align-bottom bg-gray-300 p-4 text-center w-1/4 border text-gray-700">align-bottom</div>
+    <div class="table-cell align-baseline bg-gray-400 p-4 text-center w-1/4 border text-gray-700"><span class="text-lg">base</span>line</div>
+  </div>
+</Demo>
+
+## Примечания
+
+- Работает с inline, inline-block и table-cell элементами
+- Не работает с блочными (block) и flex-элементами
+- Для центрирования блочных элементов используйте Flexbox или Grid
+- `baseline` и `top` выглядят одинаково для однострочного текста — разница видна при смешанных размерах шрифта, где baseline выравнивает текст по базовой линии

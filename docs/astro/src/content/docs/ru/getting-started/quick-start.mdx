@@ -1,0 +1,62 @@
+---
+title: Быстрый старт
+description: Первый пример использования uStatic CSS
+---
+
+import Demo from '../../../../components/Demo.astro'
+
+Подключите стили и используйте готовые CSS-классы в разметке:
+
+```javascript
+import "ustatic-css";
+
+```
+
+Вот как выглядит типичный элемент интерфейса, собранный из утилит:
+
+<Demo>
+  <div class="p-6 bg-white border border-gray-200 rounded max-w-96">
+    <h3 class="text-lg font-bold text-gray-800">Заголовок карточки</h3>
+    <p class="text-gray-600 mt-2 mb-4">Описание карточки с примерами стилей.</p>
+    <div class="flex items-center gap-2">
+      <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 cursor-pointer active:pulse">
+        Кнопка
+      </button>
+      <span class="px-2 py-1 text-xs font-semibold text-red-600 bg-red-100 rounded">Бейдж</span>
+    </div>
+  </div>
+</Demo>
+
+## Другие примеры
+
+**Анимации и hover:**
+
+<Demo>
+  <div class="flex flex-wrap items-center gap-4">
+    <div class="flex items-center gap-2">
+      <span class="size-fit animation:spin-4">⚙️</span>
+      <span>Загрузка...</span>
+    </div>
+    <div class="hover:lift inline-block p-4 bg-white border border-gray-200 rounded">
+      Наведи курсор
+    </div>
+    <button class="px-4 py-2 bg-blue-500 text-white rounded cursor-pointer active:pulse">
+      Нажми
+    </button>
+  </div>
+</Demo>
+
+**Цвета и яркость:**
+
+Все цвета поддерживают оттенки яркости через дефис: `bg-red-500`, `text-gray-600`, `border-blue-300`.
+
+## Справочник основных классов
+
+| Категория | Примеры классов |
+|-----------|-----------------|
+| Типографика | `text-sm`, `text-lg`, `font-bold`, `font-medium` |
+| Отступы | `p-4`, `m-2`, `px-4`, `py-2`, `mt-2`, `gap-2` |
+| Flexbox | `flex`, `flex-col`, `justify-between`, `items-center` |
+| Позиционирование | `relative`, `absolute`, `top-0`, `right-0` |
+| Анимации | `blink`, `animation:spin-4`, `active:pulse`, `hover:lift` |
+| Размеры | `w-full`, `max-w-96`, `h-32`, `size-fit` |

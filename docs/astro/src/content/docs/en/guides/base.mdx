@@ -1,0 +1,62 @@
+---
+title: Base Styles
+sidebar:
+  order: 1
+outline:
+  level: 2
+---
+
+import Demo from '../../../../components/Demo.astro'
+
+Base styles provide CSS reset and normalization across browsers, plus utility classes for box-sizing control.
+
+> **Note:** The `base` module is commented out in `ustatic-index.scss` by default.
+> Import it separately: `import 'ustatic-css/base'` or uncomment the import in your SCSS.
+
+## CSS Reset
+
+The `base` module includes global style reset for:
+
+- `*`, `::before`, `::after` — `box-sizing: border-box`, border reset
+- `html` — base typography: `line-height: 1.5`, system font stack
+- `body` — margin reset, `overflow-y: hide`
+- `hr` — correct height and color
+- Headings, paragraphs, lists — margin reset
+- Buttons — reset backgrounds and borders, inherit font
+- Form inputs — unified styling, reset `appearance`
+- Links — remove underline, color via token
+- Media — `display: block`, `max-width: 100%`
+- Tables — `border-collapse: collapse`
+- Scrollbar — custom thin scrollbar for WebKit
+
+## Utility Classes
+
+| Class | CSS Property | Description |
+|-------|-------------|-------------|
+| `.box-border` | `box-sizing: border-box` | Padding and border included in width |
+| `.box-content` | `box-sizing: content-box` | Width excludes padding and border |
+
+## Examples
+
+<Demo>
+  <div class="flex gap-4 flex-wrap">
+    <div style="box-sizing: border-box; width: 128px" class="p-4 border-2 border-blue-500 bg-blue-50">
+      border-box<br /><span class="text-xs text-gray-600">128px total</span>
+    </div>
+    <div style="box-sizing: content-box; width: 128px" class="p-4 border-2 border-green-500 bg-green-50">
+      content-box<br /><span class="text-xs text-gray-600">128px + padding + border</span>
+    </div>
+  </div>
+</Demo>
+
+## Import
+
+```bash
+npm install ustatic-css
+
+# In your SCSS
+@import 'ustatic-css/src/css/modules/base/index.scss';
+
+# Or via CSS
+@import 'ustatic-css/base';
+```

@@ -1,0 +1,126 @@
+---
+title: Display
+outline:
+  level: 2
+---
+
+import Demo from '../../../../components/Demo.astro'
+
+Classes for managing element display types and overflow.
+
+## Display Classes
+
+| Class | CSS | Description |
+|-------|-----|-------------|
+| `.block` | `display: block` | Block element |
+| `.inline` | `display: inline` | Inline element |
+| `.inline-block` | `display: inline-block` | Inline-block element |
+| `.flex` | `display: flex` | Flexbox container |
+| `.grid` | `display: grid` | Grid container |
+| `.table` | `display: table` | Table |
+| `.table-cell` | `display: table-cell` | Table cell |
+
+## Examples
+
+<Demo>
+  <div class="flex flex-col gap-4">
+    <div>
+      <span class="block p-2 bg-blue-100 border border-blue-300">block (new line)</span>
+      <span class="block p-2 bg-blue-100 border border-blue-300">block (another)</span>
+    </div>
+    <div>
+      <span class="inline-block p-2 bg-green-100 border border-green-300">inline-block</span>
+      <span class="inline-block p-2 bg-green-100 border border-green-300">inline-block</span>
+    </div>
+    <div>
+      <span class="inline p-2 bg-yellow-100 border border-yellow-300">inline</span>
+      <span class="inline p-2 bg-yellow-100 border border-yellow-300">inline</span>
+    </div>
+  </div>
+</Demo>
+
+## Hiding Elements
+
+Use the `.hidden` class to hide elements:
+
+<Demo>
+  <div class="flex flex-col gap-4">
+    <div class="hidden p-3 bg-red-100 border border-red-300 rounded">
+      This element is hidden via .hidden
+    </div>
+    <div class="block p-3 bg-green-100 border border-green-300 rounded">
+      This element is visible
+    </div>
+  </div>
+</Demo>
+
+## Overflow
+
+| Class | CSS | Description |
+|-------|-----|-------------|
+| `.overflow-hidden` | `overflow: hide` | Hide overflow |
+| `.overflow-scroll` | `overflow: scroll` | Always show scroll |
+| `.overflow-auto` | `overflow: auto` | Auto scroll when needed |
+| `.overflow-x-hide` | `overflow-x: hide` | Hide horizontal |
+| `.overflow-y-hide` | `overflow-y: hide` | Hide vertical |
+| `.overflow-x-scroll` | `overflow-x: scroll` | Horizontal scroll |
+| `.overflow-y-scroll` | `overflow-y: scroll` | Vertical scroll |
+| `.overflow-x-auto` | `overflow-x: auto` | Auto horizontal |
+| `.overflow-y-auto` | `overflow-y: auto` | Auto vertical |
+
+## Overflow Examples
+
+### Hide Overflow
+
+Two examples — without and with ellipsis:
+
+<Demo>
+  <div class="flex gap-4">
+    <div class="overflow-hidden nowrap w-40 border border-gray-300 rounded bg-gray-50 p-2">
+      <span class="text-sm text-gray-600">Very long text that gets clipped without any ellipsis at the end</span>
+    </div>
+    <div class="truncate w-40 border border-gray-300 rounded bg-gray-50 p-2">
+      <span class="text-sm text-gray-600">Very long text that gets clipped with ellipsis at the end</span>
+    </div>
+  </div>
+</Demo>
+
+### Vertical Scroll
+
+<Demo>
+  <div class="overflow-y-auto h-32 border border-gray-300 rounded bg-gray-50 p-2">
+    <div class="text-sm text-gray-600 mb-2">Scroll me down ↓</div>
+    <div class="text-sm text-gray-600">First paragraph of content.</div>
+    <div class="text-sm text-gray-600">Second paragraph of content.</div>
+    <div class="text-sm text-gray-600">Third paragraph of content.</div>
+    <div class="text-sm text-gray-600">Fourth paragraph of content.</div>
+    <div class="text-sm text-gray-600">Fifth paragraph of content.</div>
+    <div class="text-sm text-gray-600">Sixth paragraph of content.</div>
+    <div class="text-sm text-gray-600">Seventh paragraph of content.</div>
+    <div class="text-sm text-gray-600">Eighth paragraph of content.</div>
+    <div class="text-sm text-gray-600">Ninth paragraph of content.</div>
+    <div class="text-sm text-gray-600">Tenth paragraph of content.</div>
+  </div>
+</Demo>
+
+### Horizontal Scroll
+
+<Demo>
+  <div class="overflow-x-auto border border-gray-300 rounded bg-gray-50 p-2">
+    <div class="flex gap-2" style="min-width: max-content">
+      <div class="p-3 rounded bg-sky-100 border border-sky-300">Item 1</div>
+      <div class="p-3 rounded bg-green-100 border border-green-300">Item 2</div>
+      <div class="p-3 rounded bg-yellow-100 border border-yellow-300">Item 3</div>
+      <div class="p-3 rounded bg-orange-100 border border-orange-300">Item 4</div>
+      <div class="p-3 rounded bg-red-100 border border-red-300">Item 5</div>
+      <div class="p-3 rounded bg-blue-100 border border-blue-300">Item 6</div>
+      <div class="p-3 rounded bg-gray-100 border border-gray-300">Item 7</div>
+      <div class="p-3 rounded bg-primary-100 border border-primary-300">Item 8</div>
+      <div class="p-3 rounded bg-secondary-100 border border-secondary-300">Item 9</div>
+    </div>
+  </div>
+</Demo>
+
+## See Also
+
+- [Flexbox](/en/guides/flexbox/) — flexbox layout

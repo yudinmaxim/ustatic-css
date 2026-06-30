@@ -1,0 +1,58 @@
+---
+title: Spacing
+outline:
+  level: 2
+---
+
+import Demo from '../../../../components/Demo.astro'
+
+Margin and padding utilities.
+
+## Margin
+
+| Class | Description |
+|-------|-------------|
+| `.m-{size}` | Margin on all sides |
+| `.mx-{size}` | Horizontal margin |
+| `.my-{size}` | Vertical margin |
+| `.mt-{size}`, `.mr-{size}`, `.mb-{size}`, `.ml-{size}` | Per side |
+
+## Padding
+
+| Class | Description |
+|-------|-------------|
+| `.p-{size}` | Padding on all sides |
+| `.px-{size}`, `.py-{size}` | Per axis |
+| `.pt-{size}`, `.pr-{size}`, `.pb-{size}`, `.pl-{size}` | Per side |
+
+## Values
+
+`0`, `px`, `1`, `2`, `3`, `4`, `5`, `6`, `7`, `8`, `9`, `10`, `12`, `18`, `64`, `auto`, `full`, and more.
+
+## Negative margin
+
+`.-m-{size}`, `.-mt-{size}`, etc. — margin only (not padding).
+
+## Examples
+
+<Demo>
+  <div class="flex gap-4">
+    <div class="p-4 bg-blue-100 rounded">p-4</div>
+    <div class="p-6 bg-green-100 rounded">p-6</div>
+    <div class="p-8 bg-yellow-100 rounded">p-8</div>
+  </div>
+</Demo>
+
+<Demo>
+  <div class="flex gap-4">
+    <div class="m-2 p-4 bg-blue-100 rounded">m-2</div>
+    <div class="m-4 p-4 bg-green-100 rounded">m-4</div>
+    <div class="m-6 p-4 bg-yellow-100 rounded">m-6</div>
+  </div>
+</Demo>
+
+```html
+<div class="p-4 m-2">Spacing</div>
+<div class="mx-auto">Centered block</div>
+<div class="-mt-2">Negative top margin</div>
+```

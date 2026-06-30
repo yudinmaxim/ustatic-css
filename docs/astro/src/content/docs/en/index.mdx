@@ -1,0 +1,62 @@
+---
+title: Welcome to uStatic CSS
+description: Utility CSS framework for rapid development of modern interfaces.
+template: splash
+hero:
+  tagline: A set of utility CSS classes for creating modern interfaces based on design system tokens.
+  image:
+    file: ../../../assets/houston.webp
+  actions:
+    - text: Get Started
+      link: /en/getting-started/introduction/
+      icon: right-arrow
+      variant: primary
+    - text: View on GitHub
+      link: https://github.com/yudinmaxim/ustatic-css
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## Why uStatic CSS?
+
+**uStatic CSS** solves the problems of typical utility frameworks in microfrontends:
+
+<CardGrid stagger>
+	<Card title="Unified Token System" icon="seti:json">
+		Consistency across microfrontends thanks to a shared design system.
+	</Card>
+	<Card title="Modular Loading" icon="puzzle">
+		Load only the styles you need — no extra CSS in your bundle.
+	</Card>
+	<Card title="Runtime Activation" icon="rocket">
+		Activate classes dynamically when needed.
+	</Card>
+	<Card title="SSR Compatible" icon="cloud">
+		Works safely on both server and browser.
+	</Card>
+</CardGrid>
+
+## Quick Example
+
+```html
+<!-- Card with flexbox -->
+<div class="flex justify-between items-center p-4 bg-white border border-gray-200 rounded">
+  <span class="text-lg font-semibold text-gray-800">Title</span>
+  <button class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 cursor-pointer">
+    Button
+  </button>
+</div>
+```
+
+## 350+ Classes Available
+
+- **Typography**: sizes, weights, text colors
+- **Spacing**: margin and padding on all sides
+- **Flexbox**: alignment, direction, gap
+- **Grid**: grids with automatic columns
+- **Positioning**: relative, absolute, fixed, z-index
+- **Background & Borders**: colors, opacity, border radius
+- **Animations**: spin, blink, underline
+- **And much more...**

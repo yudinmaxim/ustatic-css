@@ -15,7 +15,7 @@
 ### 2. Первый деплой
 
 Workflow настроен на автоматический запуск при:
-- Пуше в ветку `main` (изменения в `docs/vitepress/**` или `src/**`)
+- Пуше в ветку `main` (изменения в `docs/astro/**` или `src/**`)
 - Ручном запуске через **Actions** → **Deploy Documentation** → **Run workflow**
 
 ### 3. Проверка статуса
@@ -42,22 +42,20 @@ https://{username}.github.io/ustatic-css/
 3. **Кэширование** — pnpm store кэшируется между запусками для ускорения
 4. **Установка зависимостей** — `pnpm install` устанавливает все пакеты workspace
 5. **Сборка uStatic CSS** — `pnpm run build` в корне проекта
-6. **Сборка документации** — `pnpm run build` в `docs/vitepress/`
+6. **Сборка документации** — `pnpm run build` в `docs/astro/`
 
-### Почему pnpm?
+### Workspace
 
-VitePress использует workspace-версию ustatic-css через `pnpm-workspace.yaml`:
+Документация (Astro + Starlight) подключена к библиотеке через `pnpm-workspace.yaml`:
 ```yaml
 packages:
-  - 'docs/vitepress'
+  - docs/astro
 ```
-
-Это требует установки зависимостей через pnpm для корректной работы линков между пакетами.
 
 ## Развёртывание
 
 После сборки артефакт загружается в GitHub Pages:
-- Путь: `docs/vitepress/.vitepress/dist`
+- Путь: `docs/astro/dist`
 - Окружение: `github-pages`
 - URL публикуется в логе деплоя
 
@@ -70,29 +68,25 @@ packages:
 3. Выберите ветку (по умолчанию `main`)
 4. Нажмите **Run workflow**
 
-## Отмена текущего деплоя
-
-Если запущен новый деплой, предыдущий будет автоматически отменён (настройка `cancel-in-progress: false`).
-
 ## Troubleshooting
 
 ### Ошибка сборки
 
 Проверьте логи в вкладке **Actions**:
 - Ошибки зависимостей — проверьте `pnpm-lock.yaml`
-- Ошибки сборки — проверьте синтаксис в файлах `.md` и `.mts`
+- Ошибки сборки — проверьте синтаксис в `.md` / `.mdx` и Astro-конфиге
 
 ### Документация не обновляется
 
 1. Проверьте, что пуш был в ветку `main`
-2. Убедитесь, что изменённые файлы находятся в `docs/vitepress/**` или `src/**`
+2. Убедитесь, что изменённые файлы находятся в `docs/astro/**` или `src/**`
 3. Проверьте статус workflow в **Actions**
 
 ### Неправильный base путь
 
 Если документация открывается, но стили/скрипты не загружаются:
-- Проверьте значение `base` в `.vitepress/config.mts`
-- Оно должно соответствовать имени репозитория: `/ustatic-css/`
+- Проверьте `site` и `base` в `docs/astro/astro.config.mjs`
+- Для GitHub Pages имя репозитория: `/ustatic-css/`
 
 ### Ошибка workspace
 

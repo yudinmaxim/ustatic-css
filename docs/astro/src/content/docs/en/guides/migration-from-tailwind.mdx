@@ -1,0 +1,64 @@
+---
+title: Migrating from Tailwind
+description: Differences between ustatic-css and Tailwind CSS with a class replacement table
+---
+
+**ustatic-css looks like Tailwind, but it is a different library.** Do not copy classes from memory — check the [class reference](/en/reference/classes) or `help/class-registry.json` in the repository.
+
+:::caution[Not Tailwind]
+ustatic-css has **no** responsive prefixes (`md:flex`), arbitrary values (`w-[300px]`), `shadow-*`, `ring-*`, or `space-x-*`.
+:::
+
+## Key differences
+
+| Topic | Tailwind | ustatic-css |
+|-------|----------|-------------|
+| Configuration | `tailwind.config.js`, JIT | Predefined token-based classes |
+| Responsive | `md:flex`, `lg:p-8` | **None** — only `hidden-md`, `hidden-lg`, etc. |
+| Arbitrary values | `w-[300px]` | **None** |
+| CSS variables | `--tw-*` | `--u-*` |
+| Class prefix | configurable | **none** (`flex`, not `u-flex`) |
+
+## Replacement table
+
+| Tailwind | ustatic-css |
+|----------|-------------|
+| `rounded` | `rounded` |
+| `font-normal` | `font-normal` |
+| `select-none` | `select-none` |
+| `hidden` | `hidden`, `hidden-md`, … |
+| `cursor-disabled` | `cursor-disabled` |
+| `animate-spin` | `animation:spin-4` |
+| `space-x-4`, `flex flex-col gap-2` | `gap-4`, `gap-2` |
+| `shadow-md`, `` | not available |
+| `grid-columns--3-32` | `grid-columns--3-32` |
+| `bg-blue-500/50` | `bg-blue-500 bg-opacity-50` |
+| `md:flex` | not available — use `hidden-md` and separate markup |
+
+## Unique syntax
+
+### Colon in class names
+
+Pseudo-states are part of the class name:
+
+```html
+<button class="hover:bg-blue-500 active:pulse">Button</button>
+<div class="animation:spin-4">Loading</div>
+```
+
+### Double dash `--`
+
+```html
+<div class="grid-columns--1fr-auto"></div>
+<span class="hover:underline--red-500">Link</span>
+```
+
+## Size scale
+
+Numbers look like Tailwind (`p-4`, `m-2`) but map to **design tokens**: `1` = 4px, `2` = 8px, `4` = 16px. Class `border-1` = 4px (not 1px like Tailwind's default `border`).
+
+## Next steps
+
+- [CSS classes](/en/guides/css-classes) — syntax overview
+- [Class dictionary](/en/reference/classes) — full reference
+- [Hide module](/en/modules/hide/) — responsive hiding

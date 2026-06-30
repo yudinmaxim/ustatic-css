@@ -5,7 +5,7 @@
   "description": "Пакет утилити-классов",
   "documentation": "",
   "type": "module",
-  "main": "./dist/js/index.cjs.js",
+  "main": "./dist/js/index.cjs",
   "module": "./dist/js/index.es.js",
   "types": "dist/types/src/index.d.ts",
   "repository": {
@@ -26,9 +26,11 @@
       "import": "./dist/css/ustatic.css"
     },
     "./vars": {
-      "import": "./dist/css/ustatic-vars.css"
+      "import": "./dist/css/vars.css"
     },
     "./base": "./dist/css/modules/base.css",
+    "./reset-style": "./dist/css/modules/base.css",
+    "./resets/*": "./dist/css/modules/base/resets/*.css",
     "./align": "./dist/css/modules/align.css",
     "./animations": "./dist/css/modules/animations.css",
     "./bg": "./dist/css/modules/bg.css",
@@ -55,12 +57,14 @@
     "./scripts": {
       "types": "./dist/types/src/index.d.ts",
       "import": "./dist/js/index.es.js",
-      "require": "./dist/js/index.cjs.js"
+      "require": "./dist/js/index.cjs"
     }
   },
   "files": [
     "dist/**/*.*",
-    "src/**/*"
+    "src/css/**/*.scss",
+    "src/css/tokens/**/*",
+    "package.json"
   ],
   "publishConfig": {
     "access": "public",
@@ -68,7 +72,12 @@
   },
   "scripts": {
     "tokens": "style-dictionary build --config ./sd.config.cjs",
-    "build": "pnpm run tokens && vite build",
+    "class-registry": "node scripts/generate-class-registry.mjs",
+    "docs:fix-classes": "node scripts/fix-docs-classes.mjs",
+    "docs:validate-classes": "node scripts/validate-docs-classes.mjs",
+    "build": "pnpm run tokens && vite build && node -e \"const f='dist/js/index.cjs.js';require('fs').renameSync(f,f.replace('.cjs.js','.cjs'));console.log('renamed CJS: .cjs.js → .cjs')\" && pnpm class-registry",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "dev:vue": "cd examples/vue && pnpm dev"
   },
   "devDependencies": {
@@ -84,6 +93,7 @@
     "eslint-plugin-n": "~17.15.1",
     "eslint-plugin-promise": "~7.2.1",
     "eslint-plugin-vue": "~9.32.0",
+    "happy-dom": "^20.10.6",
     "js-yaml": "~4.1.0",
     "node-fetch": "~3.3.2",
     "sass": "1.72.0",
@@ -94,6 +104,7 @@
     "vite-plugin-eslint": "~1.8.1",
     "vite-plugin-externals": "^0.6.2",
     "vite-tsconfig-paths": "4.3.1",
+    "vitest": "^2.1.9",
     "vue-eslint-parser": "~9.4.3"
   }
 }

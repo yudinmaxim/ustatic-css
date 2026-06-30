@@ -3,7 +3,7 @@ import { initUstaticCss } from '../lib/ustaticCss'
 
 // Инициализация ustatic-css с модулями по умолчанию
 // При SSR эта функция возвращает HTML строку с <link> тегами
-const stylesheets = await initUstaticCss()
+const stylesheets = initUstaticCss()
 ---
 
 <!doctype html>

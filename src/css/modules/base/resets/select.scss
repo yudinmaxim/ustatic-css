@@ -1,0 +1,6 @@
+@import '../../../utils/mixins';
+
+select {
+  @include reset-form-elements;
+  @include reset-button-select-text-transform;
+}

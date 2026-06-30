@@ -9,20 +9,20 @@
   }
 }
 
-.user-select {
+.select {
   &-none {
-    user-select: none;
+    select: none;
   }
 
   &-auto {
-    user-select: auto;
+    select: auto;
   }
 
   &-all {
-    user-select: all;
+    select: all;
   }
 
   &-text {
-    user-select: text;
+    select: text;
   }
 }

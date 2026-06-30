@@ -33,7 +33,7 @@ const slots = useSlots()
 const haveSlot = computed(() => !!slots.default)
 
 const stateClasses = computed(() => {
-  const defaultStyle = 'rounded-base font-medium h-fit pointer-events-none'
+  const defaultStyle = 'rounded font-medium h-fit pointer-events-none'
   return `${defaultStyle} ${sizeStyle(size)} ${variantStyle(variant)} ${classes ?? ''} u-button`
 })
 </script>

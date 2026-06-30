@@ -1,0 +1,53 @@
+---
+title: Позиционирование (Position)
+outline:
+  level: 2
+---
+
+import Demo from '../../../../components/Demo.astro'
+
+Классы для позиционирования и z-index.
+
+## Тип позиционирования
+
+| Класс | Описание |
+|-------|----------|
+| `.relative` | Относительное |
+| `.absolute` | Абсолютное |
+| `.fixed` | Фиксированное |
+| `.absolute-center` | Центрирование через `translate(-50%, -50%)` |
+
+## Координаты
+
+`.top-{key}`, `.right-{key}`, `.bottom-{key}`, `.left-{key}` — ключи из шкалы spacing (`0`, `1`, `2`, `4`, `auto`, `full` и др.).
+
+## Z-index
+
+| Класс | Описание |
+|-------|----------|
+| `.z-0`, `.z-10`, … `.z-100` | Линейная шкала (шаг 10) |
+| `.-z-10`, … `.-z-100` | Отрицательные |
+| `.z-i-modal` | Модальное окно |
+| `.z-i-menu` | Меню |
+| `.z-i-notice` | Уведомления |
+
+## Примеры
+
+<Demo>
+  <div class="relative h-32 bg-gray-100 rounded">
+    <div class="absolute top-0 left-0 p-2 bg-blue-500 text-white rounded text-sm">
+      top-0 left-0
+    </div>
+    <div class="absolute bottom-0 right-0 p-2 bg-green-500 text-white rounded text-sm">
+      bottom-0 right-0
+    </div>
+  </div>
+</Demo>
+
+```html
+<div class="relative">
+  <div class="absolute top-0 left-0">Верхний левый</div>
+  <div class="absolute bottom-0 right-0">Нижний правый</div>
+</div>
+<div class="fixed bottom-4 right-4 z-i-notice">Плавающая кнопка</div>
+```

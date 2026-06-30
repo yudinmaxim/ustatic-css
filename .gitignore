@@ -91,3 +91,6 @@ examples/astro/dist
 # AI rules and configs
 .clinerules
 .qwen/
+docs/vitepress/.vitepress/cache/deps/_metadata.json
+
+.vitepress/cache/*

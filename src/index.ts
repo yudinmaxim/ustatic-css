@@ -1,5 +1,4 @@
-
-// export * from './utils/styleLoader'
+export * from './utils/styleLoader'
 export * from './utils/useCssProperties'
 export * from './utils/useTokens'
 

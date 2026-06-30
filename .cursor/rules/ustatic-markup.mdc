@@ -1,0 +1,31 @@
+---
+description: Utility-классы ustatic-css в разметке Vue/Svelte/HTML
+globs: "**/*.{vue,svelte,astro,html,jsx,tsx}"
+alwaysApply: false
+---
+
+# Разметка с ustatic-css
+
+- Только классы из `help/class-registry.json`
+- Без inline-стилей, если пользователь не разрешил
+- Псевдосостояния — часть имени: `hover:bg-blue-500`, не отдельный CSS
+- Модификаторы: двойной дефис `grid-columns--1fr-auto`
+
+## Проверка
+
+```bash
+# пример: есть ли класс
+grep '"rounded"' help/class-registry.json
+```
+
+## Runtime-загрузка
+
+При `styleLoader` / `loadStyles` — префиксы в `src/utils/styleloader.classmap.ts`.
+
+## Пример
+
+```html
+<button class="flex items-center gap-2 p-4 bg-blue-500 text-white rounded hover:bg-blue-600 cursor-pointer">
+  Кнопка
+</button>
+```
