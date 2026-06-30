@@ -53,6 +53,9 @@ jobs:
       - name: Build
         run: pnpm run build
 
+      - name: Test
+        run: pnpm test
+
       - name: Update npm to latest (for OIDC support)
         run: npm install -g npm@latest
 
@@ -72,7 +75,7 @@ jobs:
         id: tag
         run: |
           VERSION=$(node -p "require('./package.json').version")
-          if [[ "$VERSION" == *beta* ]]; then
+          if [[ "$VERSION" == *beta* || "$VERSION" == *alpha* || "$VERSION" == *rc* || "$VERSION" == *-b.* ]]; then
             echo "npm_tag=beta" >> $GITHUB_OUTPUT
           else
             echo "npm_tag=latest" >> $GITHUB_OUTPUT

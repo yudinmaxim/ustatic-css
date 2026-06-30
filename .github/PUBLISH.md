@@ -1,137 +1,110 @@
 # Публикация в npm
 
-Автоматическая публикация пакета ustatic-css в npm реестр через GitHub Actions.
+Автоматическая публикация пакета `ustatic-css` в npm через GitHub Actions (workflow [`.github/workflows/publish-npm.yml`](workflows/publish-npm.yml)).
 
-## Настройка
+## Настройка (один раз)
 
-### 1. Создание NPM_TOKEN
+### Trusted Publisher (рекомендуется, уже используется)
 
-1. Войдите в [npmjs.com](https://www.npmjs.com/)
-2. Перейдите в **Account Settings** → **Access Tokens**
-3. Нажмите **Generate New Token**
-4. Выберите **Automation Token** (рекомендуется)
-5. Скопируйте токен
+Workflow публикует пакет через **OIDC** (`npm publish --provenance`) без секрета `NPM_TOKEN`.
 
-### 2. Добавление секрета в GitHub
+1. На [npmjs.com](https://www.npmjs.com/) откройте пакет **ustatic-css** → **Settings** → **Trusted Publishers**
+2. Добавьте GitHub Actions:
+   - **Organization / user:** `yudinmaxim`
+   - **Repository:** `ustatic-css`
+   - **Workflow filename:** `publish-npm.yml`
+   - **Environment** (опционально): оставьте пустым
 
-1. Откройте репозиторий на GitHub
-2. Перейдите в **Settings** → **Secrets and variables** → **Actions**
-3. Нажмите **New repository secret**
-4. Заполните:
-   - **Name**: `NPM_TOKEN`
-   - **Secret**: вставьте токен из npm
-5. Нажмите **Add secret**
+В workflow нужны права `id-token: write` — они уже прописаны.
+
+### Альтернатива: Automation Token
+
+Если Trusted Publisher недоступен, добавьте секрет `NPM_TOKEN` в **Settings → Secrets → Actions** и передайте его в шаг publish:
+
+```yaml
+env:
+  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+```
 
 ## Способы публикации
 
-### Способ 1: Через GitHub Releases (рекомендуется)
+### Способ 1: Git-тег (рекомендуется)
 
-1. Создайте релиз на GitHub:
-   - **Releases** → **Create a new release**
-   - Выберите тег версии (например, `v1.0.0`)
-   - Заполните описание релиза
-   - Нажмите **Publish release**
+```bash
+git tag npm_v0.0.2-beta.1
+git push origin npm_v0.0.2-beta.1
+```
 
-2. Workflow автоматически:
-   - Соберёт пакет
-   - Опубликует в npm с тегом `latest`
-   - Версия берётся из `package.json`
+Workflow извлекает версию из тега: `npm_v0.0.2-beta.1` → `0.0.2-beta.1`.
 
-### Способ 2: Через ручной запуск workflow
+### Способ 2: Ручной запуск
 
-1. Перейдите в **Actions** → **Publish to npm**
-2. Нажмите **Run workflow**
-3. Заполните:
-   - **Version**: версия для публикации (например, `1.0.0` или `1.0.0-beta.1`)
-4. Нажмите **Run workflow**
+1. **Actions** → **Publish to npm** → **Run workflow**
+2. Укажите версию, например `0.0.2` или `0.0.2-beta.1`
+3. Workflow обновит `package.json` на время сборки и опубликует пакет
 
-Workflow автоматически:
-- Обновит версию в `package.json`
-- Соберёт пакет
-- Опубликует в npm:
-  - Версии с `beta` → тег `beta`
-  - Остальные → тег `latest`
+## Dist-теги npm
 
-## Пре-релиз версии
+| Версия | npm tag |
+|--------|---------|
+| `1.0.0`, `0.0.2` | `latest` |
+| `1.0.0-beta.1`, `0.0.1-b.2`, `1.0.0-rc.1`, `1.0.0-alpha.1` | `beta` |
 
-Для публикации бета-версий:
+Установка:
 
-### Через Release
-1. Создайте тег с суффиксом: `v1.0.0-beta.1`
-2. При создании релиза отметьте **"This is a pre-release"**
-3. Опубликуйте релиз
-
-### Через workflow_dispatch
-1. Запустите workflow вручную
-2. Укажите версию: `1.0.0-beta.1`
-3. Пакет опубликуется с тегом `beta`
-
-## Проверка публикации
-
-1. Проверьте вкладку **Actions** — все шаги должны быть зелёными
-2. Проверьте пакет на [npmjs.com/package/ustatic-css](https://www.npmjs.com/package/ustatic-css)
-3. Установите пакет:
 ```bash
 npm install ustatic-css@latest
-# или для бета-версии
 npm install ustatic-css@beta
 ```
 
-## Структура workflow
+## Шаги workflow
 
-### Триггеры
-- `release.published` — автоматический запуск при создании релиза
-- `workflow_dispatch` — ручной запуск с указанием версии
+1. Checkout
+2. Node.js 22 + pnpm 9 + кэш
+3. `pnpm install`
+4. `pnpm run build`
+5. `pnpm test`
+6. Установка версии из тега или input
+7. `npm publish --access public --provenance --tag …`
 
-### Шаги
-1. **Checkout** — загрузка репозитория
-2. **Setup Node.js** — установка Node.js 22
-3. **Setup pnpm** — установка pnpm 9
-4. **Cache** — кэширование зависимостей
-5. **Install** — установка зависимостей
-6. **Build** — сборка пакета
-7. **Update version** — обновление версии (только для ручного запуска)
-8. **Publish** — публикация в npm
+## Проверка
 
-### Разрешения
-- `id-token: write` — требуется для OIDC аутентификации npm
-- `contents: read` — чтение репозитория
+1. Вкладка **Actions** — все шаги зелёные
+2. [npmjs.com/package/ustatic-css](https://www.npmjs.com/package/ustatic-css)
+3. Локально перед тегом:
+
+```bash
+pnpm run build
+pnpm test
+npm pack --dry-run
+```
 
 ## Troubleshooting
 
-### Ошибка: "You cannot publish over the previously published versions"
+### You cannot publish over the previously published versions
 
-- Убедитесь, что версия в `package.json` уникальна
-- Увеличьте версию перед публикацией
+Версия уже есть на npm. Увеличьте номер в теге / input.
 
-### Ошибка: "401 Unauthorized"
+### 401 Unauthorized
 
-- Проверьте, что `NPM_TOKEN` добавлен в секреты
-- Убедитесь, что токен действителен (не истёк)
-- Проверьте, что у токена есть права на публикацию
+- Проверьте Trusted Publisher (репозиторий, имя workflow)
+- Или добавьте / обновите `NPM_TOKEN`
 
-### Ошибка: "403 Forbidden"
+### 403 Forbidden
 
-- Проверьте имя пакета в `package.json`
-- Убедитесь, что у вас есть права на публикацию этого пакета
-- Для scoped пакетов проверьте доступность scope
+Нет прав на пакет `ustatic-css` — проверьте владельца на npm.
 
-### Ошибка сборки
+### Ошибка сборки или тестов
 
-- Проверьте логи в вкладке **Actions**
-- Запустите `pnpm run build` локально для проверки
-- Убедитесь, что все зависимости установлены
+```bash
+pnpm run build
+pnpm test
+```
+
+Смотрите логи в Actions.
 
 ## Версионирование
 
-Рекомендуется следовать [Semantic Versioning](https://semver.org/):
+[Semantic Versioning](https://semver.org/): `MAJOR.MINOR.PATCH`
 
-- `MAJOR.MINOR.PATCH` (например, `1.2.3`)
-- `MAJOR` — несовместимые изменения API
-- `MINOR` — новая функциональность (обратно совместимая)
-- `PATCH` — исправления багов (обратно совместимые)
-
-Пре-релиз версии:
-- `1.0.0-alpha.1`
-- `1.0.0-beta.1`
-- `1.0.0-rc.1`
+Пре-релизы: `-alpha.N`, `-beta.N`, `-rc.N`, `-b.N`

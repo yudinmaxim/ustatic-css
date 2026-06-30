@@ -42,7 +42,9 @@ https://{username}.github.io/ustatic-css/
 3. **Кэширование** — pnpm store кэшируется между запусками для ускорения
 4. **Установка зависимостей** — `pnpm install` устанавливает все пакеты workspace
 5. **Сборка uStatic CSS** — `pnpm run build` в корне проекта
-6. **Сборка документации** — `pnpm run build` в `docs/astro/`
+6. **Тесты** — `pnpm test`
+7. **Проверка классов в документации** — `pnpm run docs:validate-classes`
+8. **Сборка документации** — `pnpm run build` в `docs/astro/`
 
 ### Workspace
 

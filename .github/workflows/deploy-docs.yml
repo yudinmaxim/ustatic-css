@@ -7,9 +7,12 @@ on:
     paths:
       - 'docs/astro/**'
       - 'src/**'
+      - 'scripts/**'
+      - 'help/**'
       - 'package.json'
       - 'pnpm-lock.yaml'
       - 'pnpm-workspace.yaml'
+      - '.github/workflows/deploy-docs.yml'
   workflow_dispatch:
 
 permissions:
@@ -58,6 +61,12 @@ jobs:
 
       - name: Build uStatic CSS
         run: pnpm run build
+
+      - name: Test
+        run: pnpm test
+
+      - name: Validate documentation classes
+        run: pnpm run docs:validate-classes
 
       - name: Build Documentation
         run: pnpm run build
