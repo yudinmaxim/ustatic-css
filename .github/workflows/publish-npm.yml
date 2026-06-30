@@ -82,4 +82,31 @@ jobs:
           fi
 
       - name: Publish to npm
+        id: publish
         run: npm publish --access public --provenance --tag ${{ steps.tag.outputs.npm_tag }}
+
+  verify-npm:
+    name: Verify npm package
+    needs: publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Resolve published version
+        id: ver
+        run: |
+          if [ "${{ github.event_name }}" = "push" ]; then
+            echo "version=${GITHUB_REF#refs/tags/npm_v}" >> $GITHUB_OUTPUT
+          else
+            echo "version=${{ github.event.inputs.version }}" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Smoke test installed package from npm
+        run: node scripts/verify-npm-package.mjs --version ${{ steps.ver.outputs.version }}

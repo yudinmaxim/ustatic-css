@@ -1,0 +1,35 @@
+name: Verify npm package
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Exact version on npm (e.g. 0.0.1-beta.7)'
+        required: false
+        type: string
+      tag:
+        description: 'Dist-tag instead of version (latest or beta)'
+        required: false
+        type: string
+        default: beta
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Smoke test from npm registry
+        run: |
+          if [ -n "${{ github.event.inputs.version }}" ]; then
+            node scripts/verify-npm-package.mjs --version "${{ github.event.inputs.version }}"
+          else
+            node scripts/verify-npm-package.mjs --tag "${{ github.event.inputs.tag }}"
+          fi

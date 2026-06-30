@@ -66,6 +66,42 @@ npm install ustatic-css@beta
 5. `pnpm test`
 6. Установка версии из тега или input
 7. `npm publish --access public --provenance --tag …`
+8. **Verify npm package** — установка `ustatic-css@<version>` из registry во временный проект и smoke-проверки (exports, CSS, ESM/CJS API)
+
+## Проверка после публикации
+
+### Автоматически (CI)
+
+Job **Verify npm package** в workflow **Publish to npm** запускается сразу после `npm publish`:
+
+- ждёт появления версии на registry (до ~3 мин)
+- `npm install ustatic-css@<version>` во временной папке **вне monorepo**
+- проверяет файлы tarball, exports, `.flex` в CSS, `getModulesFromClasses`, CJS/ESM
+
+### Вручную из репозитория
+
+```bash
+# Опубликованная версия на npm
+npm run verify:npm -- --version 0.0.1-beta.7
+
+# Последняя beta / latest
+npm run verify:npm -- --tag beta
+npm run verify:npm -- --tag latest
+```
+
+### Локально до publish (из .tgz)
+
+Проверяет тот же tarball, что уйдёт на npm, без публикации:
+
+```bash
+pnpm run build
+npm pack
+npm run verify:npm -- --pack ustatic-css-0.0.2.tgz
+```
+
+### Отдельный workflow
+
+**Actions → Verify npm package → Run workflow** — version или dist-tag (`beta` / `latest`).
 
 ## Проверка
 
