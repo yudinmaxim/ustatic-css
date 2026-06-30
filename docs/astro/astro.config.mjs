@@ -1,11 +1,17 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
+import { rehypePrependBase } from "./src/plugins/rehype-prepend-base.mjs";
+
+const base = "/ustatic-css/";
 
 // https://astro.build/config
 export default defineConfig({
   site: "https://yudinmaxim.github.io",
-  base: "/ustatic-css/",
+  base,
+  markdown: {
+    rehypePlugins: [[rehypePrependBase, base]],
+  },
   integrations: [
     starlight({
       title: "uStatic CSS",

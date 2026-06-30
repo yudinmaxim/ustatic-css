@@ -8,7 +8,7 @@ hero:
     file: ../../../assets/houston.webp
   actions:
     - text: Начать использовать
-      link: /ru/getting-started/introduction/
+      link: getting-started/introduction/
       icon: right-arrow
       variant: primary
     - text: Посмотреть на GitHub

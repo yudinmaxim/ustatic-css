@@ -36,12 +36,12 @@
 
 ## 🌐 Документация
 
-Полная документация доступна на сайте [https://yudinmaxim.github.io/ustatic-css/](https://yudinmaxim.github.io/ustatic-css/)
+Полная документация доступна на сайте [https://yudinmaxim.github.io/ustatic-css/ru/](https://yudinmaxim.github.io/ustatic-css/ru/)
 
-- [📘 `useCssProperties` — Управление CSS-свойствами](https://yudinmaxim.github.io/ustatic-css/api/use-css-properties)
-- [📘 `useTokens` — Работа с токенами CSS](https://yudinmaxim.github.io/ustatic-css/api/use-tokens)
-- [📘 Утилитарные классы (подробно)](https://yudinmaxim.github.io/ustatic-css/guides/css-classes)
-- [📗 Словарь всех классов](https://yudinmaxim.github.io/ustatic-css/reference/classes) — полный список с примерами использования
+- [📘 `useCssProperties` — Управление CSS-свойствами](https://yudinmaxim.github.io/ustatic-css/ru/api/use-css-properties)
+- [📘 `useTokens` — Работа с токенами CSS](https://yudinmaxim.github.io/ustatic-css/ru/api/use-tokens)
+- [📘 Утилитарные классы (подробно)](https://yudinmaxim.github.io/ustatic-css/ru/guides/css-classes)
+- [📗 Словарь всех классов](https://yudinmaxim.github.io/ustatic-css/ru/reference/classes) — полный список с примерами использования
 
 ## 🚀 Быстрый старт
 
@@ -108,7 +108,7 @@ import 'ustatic-css/flexbox';
 - `.text-gray-600`, `.text-primary-400`
 - `.border-purple-500`, `.border-orange-200`
 
-Полный список из 350+ классов см. в [Словаре утилитарных классов](https://yudinmaxim.github.io/ustatic-css/reference/classes).
+Полный список из 350+ классов см. в [Словаре утилитарных классов](https://yudinmaxim.github.io/ustatic-css/ru/reference/classes).
 
 #### Активация стилей в рантайме
 

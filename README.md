@@ -36,12 +36,12 @@ In micro-frontends, typical utility frameworks (Tailwind, UnoCSS) create challen
 
 ## 🌐 Documentation
 
-Full documentation is available at [https://yudinmaxim.github.io/ustatic-css/](https://yudinmaxim.github.io/ustatic-css/)
+Full documentation is available at [https://yudinmaxim.github.io/ustatic-css/ru/](https://yudinmaxim.github.io/ustatic-css/ru/)
 
-- [📘 `useCssProperties` — CSS Properties Management](https://yudinmaxim.github.io/ustatic-css/api/use-css-properties)
-- [📘 `useTokens` — CSS Tokens Usage](https://yudinmaxim.github.io/ustatic-css/api/use-tokens)
-- [📘 Utility Classes (detailed)](https://yudinmaxim.github.io/ustatic-css/guides/css-classes)
-- [📗 Dictionary of All Classes](https://yudinmaxim.github.io/ustatic-css/reference/classes)
+- [📘 `useCssProperties` — CSS Properties Management](https://yudinmaxim.github.io/ustatic-css/en/api/use-css-properties)
+- [📘 `useTokens` — CSS Tokens Usage](https://yudinmaxim.github.io/ustatic-css/en/api/use-tokens)
+- [📘 Utility Classes (detailed)](https://yudinmaxim.github.io/ustatic-css/en/guides/css-classes)
+- [📗 Dictionary of All Classes](https://yudinmaxim.github.io/ustatic-css/en/reference/classes)
 
 ## 🚀 Quick Start
 
@@ -108,7 +108,7 @@ Use classes in markup:
 - `.text-gray-600`, `.text-primary-400`
 - `.border-purple-500`, `.border-orange-200`
 
-For the complete list of 350+ classes, see [Utility Classes Dictionary](https://yudinmaxim.github.io/ustatic-css/reference/classes).
+For the complete list of 350+ classes, see [Utility Classes Dictionary](https://yudinmaxim.github.io/ustatic-css/en/reference/classes).
 
 #### Runtime Style Activation
 
